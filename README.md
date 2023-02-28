@@ -1,2 +1,2 @@
-# Aplicaci-n-de-gesti-n-del-PDI-de-un-rea-de-la-UBU
+# Aplicacion-de-gestion-del-PDI-de-un-area-de-la-UBU
 TFG
