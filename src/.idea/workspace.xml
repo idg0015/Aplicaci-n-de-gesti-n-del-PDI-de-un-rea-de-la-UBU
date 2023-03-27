@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ae6b2c56-8d66-4217-a826-17f3975d95c3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/anexos.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/anexos.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/anexos.tex" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/anexos.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/memoria.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/memoria.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/memoria.tex" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/memoria.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/tex/1_Introduccion.aux" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/tex/1_Introduccion.aux" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/tex/2_Objetivos_del_proyecto.aux" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/tex/2_Objetivos_del_proyecto.aux" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/tex/3_Conceptos_teoricos.aux" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/tex/3_Conceptos_teoricos.aux" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/tex/4_Tecnicas_y_herramientas.aux" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/tex/4_Tecnicas_y_herramientas.aux" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/tex/4_Tecnicas_y_herramientas.tex" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/tex/4_Tecnicas_y_herramientas.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/tex/5_Aspectos_relevantes_del_desarrollo_del_proyecto.aux" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/tex/5_Aspectos_relevantes_del_desarrollo_del_proyecto.aux" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/tex/6_Trabajos_relacionados.aux" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/tex/6_Trabajos_relacionados.aux" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/tex/7_Conclusiones_Lineas_de_trabajo_futuras.aux" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/tex/7_Conclusiones_Lineas_de_trabajo_futuras.aux" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/tex/A_Plan_proyecto.aux" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/tex/A_Plan_proyecto.aux" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/tex/A_Plan_proyecto.tex" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/tex/A_Plan_proyecto.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/tex/B_Requisitos.aux" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/tex/B_Requisitos.aux" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/tex/B_Requisitos.tex" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/tex/B_Requisitos.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/tex/C_Diseno.aux" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/tex/C_Diseno.aux" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/tex/D_Manual_programador.aux" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/tex/D_Manual_programador.aux" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/tex/E_Manual_usuario.aux" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/tex/E_Manual_usuario.aux" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Flask Main" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="2NWAX7IAgceEbBIl6aENnhidLzB" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="src" type="Python.FlaskServer">
+      <module name="src" />
+      <option name="target" value="$PROJECT_DIR$/app.py" />
+      <option name="targetType" value="PATH" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ae6b2c56-8d66-4217-a826-17f3975d95c3" name="Changes" comment="" />
+      <created>1679769500889</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1679769500889</updated>
+      <workItem from="1679769512904" duration="115000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
