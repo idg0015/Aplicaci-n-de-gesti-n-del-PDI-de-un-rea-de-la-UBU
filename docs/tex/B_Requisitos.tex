@@ -10,31 +10,44 @@ El objetivo de este proyecto es desarrollar una aplicación web para poder lleva
 \section{Catálogo de requisitos}
 A continuación se van a exponer los requisitos de la aplicación web.
 \subsection{Requisitos funcionales}
-\begin{itemize}
-	\item \textbf{RF-01.} Mantenimiento de titulaciones.
-	\item \textbf{RF-02.} Mantenimiento de asignaturas.
-	\item \textbf{RF-03.} Mantenimiento de grupos.
-	\item \textbf{RF-04.} Mantenimiento de docentes.
-	\item \textbf{RF-05.} Mantenimiento de centros.
-	\item \textbf{RF-06.} Mantenimiento de cursos académicos.
-	\item \textbf{RF-07.} Mantenimiento de plazas.
-	\item \textbf{RF-08.} Mantenimiento de tipos de contrato.
-	\item \textbf{RF-09.} Mantenimiento de áreas.
-	\item \textbf{RF-10.} Mantenimiento de departamentos.
-	\item \textbf{RF-11.} Un administrativo puede asignar horas a un docente (plaza) en un grupo de un curso.
-	\item \textbf{RF-12.} Un administrativo puede asignar una plaza a un docente.
-	\item \textbf{RF-13.} Un grupo puede ser asignado a una asignatura en un curso.
-\end{itemize}
+\begin{enumerate}
+	\item \textbf{RF-01.} Mantenimiento de titulaciones.\label{itm:RF1}
+	\item \textbf{RF-02.} Mantenimiento de asignaturas.\label{itm:RF2}
+	\item \textbf{RF-03.} Mantenimiento de grupos.\label{itm:RF3}
+	\item \textbf{RF-04.} Mantenimiento de docentes.\label{itm:RF4}
+	\item \textbf{RF-05.} Mantenimiento de centros.\label{itm:RF5}
+	\item \textbf{RF-06.} Mantenimiento de cursos académicos.\label{itm:RF6}
+	\item \textbf{RF-07.} Mantenimiento de plazas.\label{itm:RF7}
+	\item \textbf{RF-08.} Mantenimiento de tipos de contrato.\label{itm:RF8}
+	\item \textbf{RF-09.} Mantenimiento de áreas.\label{itm:RF9}
+	\item \textbf{RF-10.} Mantenimiento de departamentos.\label{itm:RF10}
+	\item \textbf{RF-11.} Un administrativo puede asignar horas a un docente (plaza) en un grupo de un curso.\label{itm:RF11}
+	\item \textbf{RF-12.} Un administrativo puede asignar una plaza a un docente.\label{itm:RF12}
+	\item \textbf{RF-13.} Un grupo puede ser asignado a una asignatura en un curso.\label{itm:RF13}
+\end{enumerate}
 
 \subsection{Requisitos no funcionales}
+\begin{itemize}
+	\item \textbf{RNF-01.} El sistema debe ser fácil de usar.
+	\item \textbf{RNF-02.} El sistema no debe permitir el acceso no autorizado.
+
+\end{itemize}
 
 \clearpage
 \section{Especificación de requisitos}
 \subsection{Casos de uso}
 \begin{figure}[!h]
 	\centering
-	\includegraphics[]{../img/Anexos/Casos uso/Diagrama casos de uso 1.pdf}
+	\includegraphics[scale=0.85]{../img/Anexos/Casos uso/Diagrama casos de uso 1.pdf}
 	\caption{Diagrama de casos de uso general}
+\end{figure}
+\FloatBarrier
+
+\subsubsection{Mantenimiento académico}
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.85]{../img/Anexos/Casos uso/Diagrama casos de uso 2.pdf}
+	\caption{Diagrama de casos de uso - Mantenimiento académico}
 \end{figure}
 \FloatBarrier
 
@@ -42,114 +55,31 @@ A continuación se van a exponer los requisitos de la aplicación web.
 	\centering
 	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
 		\toprule
-		\textbf{CU-1}    & \textbf{Mantenimiento docente}\\
+		\textbf{CU-1}    & \textbf{Mantenimiento académico}\\
 		\toprule
 		\textbf{Versión}              & 1.0    \\
 		\textbf{Autor}                & Ignacio Dávila García \\
-		\textbf{Requisitos asociados} & RF-05, RF-01, RF-02 \\
+		\textbf{Requisitos asociados} & \hyperref[itm:RF5]{RF-05}, \hyperref[itm:RF1]{RF-01}, \hyperref[itm:RF2]{RF-02} \\
 		\textbf{Descripción}          & Un administrativo puede realizar labores de mantenimiento de los centros, titulaciones y asignaturas \\
 		\textbf{Precondición}         & Tener iniciada sesión con una cuenta con permisos administrativos \\
 		\textbf{Acciones}             &
 		\begin{enumerate}
 			\def\labelenumi{\arabic{enumi}.}
 			\tightlist
-			\item Pulsar la opción del menú <<Centros>>, <<Titulaciones>> o <<Asignaturas>>
-			\item Se abre la ventana de mantenimiento de la opción elegida.
+			\item Seleccionar la opción <<Asignaturas>> del menú principal de la web.
+			\item Se abre la ventana de mantenimiento de las asignaturas.
 		\end{enumerate}\\
 		\textbf{Postcondición}        & Ninguna \\
-		\textbf{Excepciones}          & Según la opción del menú pulsada, la web abre la ventana de mantenimiento de esa opción. Si no se pulsa ninguna, se permanece en la ventana actual. \\
+		\textbf{Excepciones}          & También es posible acceder la ventana de mantenimiento de centros y titulaciones seleccionando las opciones <<Centros>> (\hyperref[table:CU-1.1]{CU-1.1}) o <<Titulaciones>> (\hyperref[table:CU-1.2]{CU-1.2}) respectivamente. Si no se pulsa ninguna, se permanece en la ventana actual. \\
 		\textbf{Importancia}          & Alta \\
 		\bottomrule
 	\end{tabularx}
-	\caption{CU-1 Mantenimiento docente.}
+	\caption{CU-1 Mantenimiento académico.}
 \end{table}
 \FloatBarrier
 
-\begin{figure}[!h]
-	\centering
-	\includegraphics[width=\textwidth]{../img/Anexos/Casos uso/Vistas ER/Diagrama E-R CU 1.pdf}
-	\caption{Vista diagrama entidad relación para el CU-1}\label{er_cu1}
-\end{figure}
-\FloatBarrier
-
 \begin{table}[p]
-	\centering
-	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
-		\toprule
-		\textbf{CU-2}    & \textbf{Mantenimiento de profesorado}\\
-		\toprule
-		\textbf{Versión}              & 1.0    \\
-		\textbf{Autor}                & Ignacio Dávila García \\
-		\textbf{Requisitos asociados} & RF-04, RF-07, RF-08, RF-09, RF-10 \\
-		\textbf{Descripción}          & Un administrativo puede realizar labores de mantenimiento de los docentes, tipos de contrato, departamentos, áreas y plazas. Además, un administrativo puede asignar una plaza a un docente. \\
-		\textbf{Precondición}         & Tener iniciada sesión con una cuenta con permisos administrativos \\
-		\textbf{Acciones}             &
-		\begin{enumerate}
-			\def\labelenumi{\arabic{enumi}.}
-			\tightlist
-			\item Pulsar la opción del menú <<Docentes>>, <<Contratos>>, <<Departamentos>>, <<Áreas>> o <<Plazas>>
-			\item Se abre la ventana de mantenimiento de la opción elegida.
-		\end{enumerate}\\
-		\textbf{Postcondición}        & El sistema lleva al usuario a la ventana de la opción pulsada. \\
-		\textbf{Excepciones}          & Ninguna \\
-		\textbf{Importancia}          & Alta \\
-		\bottomrule
-	\end{tabularx}
-	\caption{CU-2 Mantenimiento de profesorado.}
-\end{table}
-\FloatBarrier
-
-\begin{figure}[!h]
-	\centering
-	\includegraphics[width=1.2\textwidth]{../img/Anexos/Casos uso/Vistas ER/Diagrama E-R CU 2.pdf}
-	\caption{Vista diagrama entidad relación para el CU-2}\label{er_cu2}
-\end{figure}
-\FloatBarrier
-
-\begin{table}[p]
-	\centering
-	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
-		\toprule
-		\textbf{CU-3}    & \textbf{Asignación docente}\\
-		\toprule
-		\textbf{Versión}              & 1.0    \\
-		\textbf{Autor}                & Ignacio Dávila García \\
-		\textbf{Requisitos asociados} & RF-04, RF-07, RF-08, RF-09, RF-10 \\
-		\textbf{Descripción}          & Un administrativo puede realizar las labores de mantenimiento de cursos y grupos además de las asignaciones de plazas a grupos \\
-		\textbf{Precondición}         & Tener iniciada sesión con una cuenta con permisos administrativos \\
-		\textbf{Acciones}             &
-		\begin{enumerate}
-			\def\labelenumi{\arabic{enumi}.}
-			\tightlist
-			\item Pulsar en la opción del menú <<Cursos>> o <<Grupos>> para realizar los respectivos mantenimientos.
-			\item Se abre la ventana de mantenimiento elegida.
-			\item Pulsar en la opción <<Horas>> para acceder a la asignación de horas de una plaza a un grupo.
-			\item Se abre una ventana que contiene un listado con los diferentes grupos junto a sus plazas/docentes asignados.
-		\end{enumerate}\\
-		\textbf{Postcondición}        & El sistema lleva al usuario a la ventana de la opción pulsada. \\
-		\textbf{Excepciones}          & Ninguna \\
-		\textbf{Importancia}          & Alta \\
-		\bottomrule
-	\end{tabularx}
-	\caption{CU-3 Asignación docente.}
-\end{table}
-\FloatBarrier
-
-\begin{figure}[!h]
-	\centering
-	\includegraphics[width=1.2\textwidth]{../img/Anexos/Casos uso/Vistas ER/Diagrama E-R CU 3.pdf}
-	\caption{Vista diagrama entidad relación para el CU-3}\label{er_cu3}
-\end{figure}
-\FloatBarrier
-
-\begin{figure}[!h]
-	\centering
-	\includegraphics[]{../img/Anexos/Casos uso/Diagrama casos de uso 2.pdf}
-	\caption{Diagrama de casos de uso - Mantenimiento docente}
-\end{figure}
-\FloatBarrier
-
-\begin{table}[p]
+\label{table:CU-1.1}
 	\centering
 	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
 		\toprule
@@ -157,18 +87,18 @@ A continuación se van a exponer los requisitos de la aplicación web.
 		\toprule
 		\textbf{Versión}              & 1.0    \\
 		\textbf{Autor}                & Ignacio Dávila García \\
-		\textbf{Requisitos asociados} & RF-05 \\
+		\textbf{Requisitos asociados} & \hyperref[itm:RF5]{RF-05} \\
 		\textbf{Descripción}          & Un administrativo puede realizar el mantenimiento de los centros \\
 		\textbf{Precondición}         & Tener iniciada sesión con una cuenta con permisos administrativos \\
 		\textbf{Acciones}             &
 		\begin{enumerate}
 			\def\labelenumi{\arabic{enumi}.}
 			\tightlist
-			\item Pulsar en la opción <<Centros>> del menú principal de la web.
+			\item Seleccionar la opción <<Centros>> del menú principal de la web.
 			\item Se abre una ventana donde aparece una tabla con los centros creados desde donde se podrá realizar el mantenimiento.
 		\end{enumerate}\\
 		\textbf{Postcondición}        & Ninguna \\
-		\textbf{Excepciones}          & Si se pulsa sobre el botón <<Nuevo>>, se accede a la creación de centros. Si se pulsa sobre el botón <<Modificar>> de un centro del listado, se accede a la ventana de <<Modificación>> del centro. Por último, si se pulsa sobre el botón <<Eliminar>> de un centro, este se elimina produciendo un borrado en cascada de las titulaciones vinculadas. \\
+		\textbf{Excepciones}          & Si se pulsa sobre el botón <<Nuevo>>, se accede a la creación de centros (\hyperref[table:CU-1.1.1]{CU-1.1.1}). Si se pulsa sobre el botón <<Modificar>> de un centro del listado, se accede a la ventana de modificación del centro. Por último, si se pulsa sobre el botón <<Eliminar>> de un centro el sistema pregunta si está seguro, y al pulsar en <<Sí>>, este se elimina produciendo un borrado en cascada de las titulaciones vinculadas. \\
 		\textbf{Importancia}          & Alta \\
 		\bottomrule
 	\end{tabularx}
@@ -177,6 +107,7 @@ A continuación se van a exponer los requisitos de la aplicación web.
 \FloatBarrier
 
 \begin{table}[p]
+\label{table:CU-1.1.1}
 	\centering
 	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
 		\toprule
@@ -184,17 +115,17 @@ A continuación se van a exponer los requisitos de la aplicación web.
 		\toprule
 		\textbf{Versión}              & 1.0    \\
 		\textbf{Autor}                & Ignacio Dávila García \\
-		\textbf{Requisitos asociados} & RF-05 \\
+		\textbf{Requisitos asociados} & \hyperref[itm:RF5]{RF-05} \\
 		\textbf{Descripción}          & Un administrativo añade o modifica un nuevo centro \\
 		\textbf{Precondición}         & Tener iniciada sesión con una cuenta con permisos administrativos \\
 		\textbf{Acciones}             &
 		\begin{enumerate}
 			\def\labelenumi{\arabic{enumi}.}
 			\tightlist
-			\item Pulsar en la opción <<Centros>> del menú principal de la web.
+			\item Seleccionar la opción <<Centros>> del menú principal de la web.
 			\item Se abre una ventana donde aparece una tabla con los centros creados.
 			\item Pulsar sobre el botón <<Nuevo>> para añadir un nuevo centro.
-			\item Se abre una nueva ventana con un formulario vacío donde aparecen los campos de la tabla <<Centro>> de la figura \ref{er_cu1}, necesarios para crear un centro).
+			\item Se abre una nueva ventana con un formulario vacío donde aparecen los campos de la tabla <<Centro>> de la figura \ref{er_cu1}, necesarios para crear un centro.
 			\item Rellenar el formulario con los datos del centro que se desea añadir.
 			\item Pulsar sobre el botón <<Añadir>>.
 		\end{enumerate}\\
@@ -208,6 +139,7 @@ A continuación se van a exponer los requisitos de la aplicación web.
 \FloatBarrier
 
 \begin{table}[p]
+\label{table:CU-1.2}
 	\centering
 	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
 		\toprule
@@ -215,18 +147,18 @@ A continuación se van a exponer los requisitos de la aplicación web.
 		\toprule
 		\textbf{Versión}              & 1.0    \\
 		\textbf{Autor}                & Ignacio Dávila García \\
-		\textbf{Requisitos asociados} & RF-01 \\
+		\textbf{Requisitos asociados} & \hyperref[itm:RF1]{RF-01} \\
 		\textbf{Descripción}          & Un administrativo puede realizar el mantenimiento de las titulaciones \\
 		\textbf{Precondición}         & Tener iniciada sesión con una cuenta con permisos administrativos \\
 		\textbf{Acciones}             &
 		\begin{enumerate}
 			\def\labelenumi{\arabic{enumi}.}
 			\tightlist
-			\item Pulsar en la opción <<Titulaciones>> del menú principal de la web.
+			\item Seleccionar la opción <<Titulaciones>> del menú principal de la web.
 			\item Se abre una ventana donde aparece una tabla con las titulaciones creadas desde donde se podrá realizar el mantenimiento.
 		\end{enumerate}\\
 		\textbf{Postcondición}        & Ninguna \\
-		\textbf{Excepciones}          & Si se pulsa sobre el botón <<Nuevo>>, se accede a la creación de titulaciones. Si se pulsa sobre el botón <<Modificar>> de una titulación de la lista, se accede a la ventana de modificación. Por último, si se pulsa sobre el botón <<Eliminar>> de una titulación, esta se elimina produciendo un borrado en cascada de las asignaturas vinculadas. \\
+		\textbf{Excepciones}          & Si se pulsa sobre el botón <<Nuevo>>, se accede a la creación de titulaciones (\hyperref[table:CU-1.2.1]{CU-1.2.1}). Si se pulsa sobre el botón <<Modificar>> de una titulación de la lista se accede a la ventana de modificación. Por último, si se pulsa sobre el botón <<Eliminar>> de una titulación el sistema pregunta si está seguro, y al pulsar en <<Sí>>, esta se elimina produciendo un borrado en cascada de las asignaturas vinculadas. \\
 		\textbf{Importancia}          & Alta \\
 		\bottomrule
 	\end{tabularx}
@@ -235,6 +167,7 @@ A continuación se van a exponer los requisitos de la aplicación web.
 \FloatBarrier
 
 \begin{table}[p]
+\label{table:CU-1.2.1}
 	\centering
 	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
 		\toprule
@@ -242,17 +175,17 @@ A continuación se van a exponer los requisitos de la aplicación web.
 		\toprule
 		\textbf{Versión}              & 1.0    \\
 		\textbf{Autor}                & Ignacio Dávila García \\
-		\textbf{Requisitos asociados} & RF-01 \\
+		\textbf{Requisitos asociados} & \hyperref[itm:RF1]{RF-01} \\
 		\textbf{Descripción}          & Un administrativo añade o modifica una titulación \\
 		\textbf{Precondición}         & Tener iniciada sesión con una cuenta con permisos administrativos y tener algún centro creado \\
 		\textbf{Acciones}             &
 		\begin{enumerate}
 			\def\labelenumi{\arabic{enumi}.}
 			\tightlist
-			\item Pulsar en la opción <<Titulaciones>> del menú principal de la web.
+			\item Seleccionar la opción <<Titulaciones>> del menú principal de la web.
 			\item Se abre una ventana donde aparece una tabla con todas las titulaciones.
 			\item Pulsar sobre el botón <<Nuevo>> para añadir una nueva titulación.
-			\item Se abre una nueva ventana con un formulario vacío donde aparecen los campos de la tabla <<Titulación>> de la figura \ref{er_cu1}, necesarios para crear una titulación.
+			\item Se abre una nueva ventana con un formulario vacío donde aparecen los campos de la tabla <<Titulación>> de la figura \ref{er_cu1}, necesarios para crear una titulación. También aparece el campo <<Centro>> para seleccionar el centro al que pertenece.
 			\item Rellenar el formulario con los datos de la titulación que se desea añadir.
 			\item Pulsar sobre el botón <<Añadir>>.
 		\end{enumerate}\\
@@ -273,18 +206,18 @@ A continuación se van a exponer los requisitos de la aplicación web.
 		\toprule
 		\textbf{Versión}              & 1.0    \\
 		\textbf{Autor}                & Ignacio Dávila García \\
-		\textbf{Requisitos asociados} & RF-02 \\
+		\textbf{Requisitos asociados} & \hyperref[itm:RF2]{RF-02} \\
 		\textbf{Descripción}          & Un administrativo puede realizar el mantenimiento de asignaturas \\
 		\textbf{Precondición}         & Tener iniciada sesión con una cuenta con permisos administrativos \\
 		\textbf{Acciones}             &
 		\begin{enumerate}
 			\def\labelenumi{\arabic{enumi}.}
 			\tightlist
-			\item Pulsar en la opción <<Asignaturas>> del menú principal de la web.
+			\item Seleccionar la opción <<Asignaturas>> del menú principal de la web.
 			\item Se abre una ventana donde aparece una tabla con las asignaturas creadas desde donde se podrá realizar el mantenimiento.
 		\end{enumerate}\\
 		\textbf{Postcondición}        & Ninguna \\
-		\textbf{Excepciones}          & Si se pulsa sobre el botón <<Nuevo>>, se accede a la creación de asignaturas. Si se pulsa sobre el botón <<Modificar>> de una asignaturas de la lista, se accede a la ventana de modificación. Por último, si se pulsa sobre el botón <<Eliminar>> de una asignaturas, esta se elimina. \\
+		\textbf{Excepciones}          & Si se pulsa sobre el botón <<Nuevo>>, se accede a la creación de asignaturas (\hyperref[table:CU-1.3.1]{CU-1.3.1}). Si se pulsa sobre el botón <<Modificar>> de una asignaturas de la lista se accede a la ventana de modificación. Por último, si se pulsa sobre el botón <<Eliminar>> de una asignatura el sistema pregunta si está seguro, y al pulsar en <<Sí>> esta se elimina. \\
 		\textbf{Importancia}          & Alta \\
 		\bottomrule
 	\end{tabularx}
@@ -293,6 +226,7 @@ A continuación se van a exponer los requisitos de la aplicación web.
 \FloatBarrier
 
 \begin{table}[p]
+\label{table:CU-1.3.1}
 	\centering
 	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
 		\toprule
@@ -300,22 +234,22 @@ A continuación se van a exponer los requisitos de la aplicación web.
 		\toprule
 		\textbf{Versión}              & 1.0    \\
 		\textbf{Autor}                & Ignacio Dávila García \\
-		\textbf{Requisitos asociados} & RF-02 \\
+		\textbf{Requisitos asociados} & \hyperref[itm:RF2]{RF-02} \\
 		\textbf{Descripción}          & Un administrativo añade o modifica una asignatura \\
 		\textbf{Precondición}         & Tener iniciada sesión con una cuenta con permisos administrativos y tener alguna titulación creada \\
 		\textbf{Acciones}             &
 		\begin{enumerate}
 			\def\labelenumi{\arabic{enumi}.}
 			\tightlist
-			\item Pulsar en la opción <<Asignaturas>> del menú principal de la web.
+			\item Seleccionar la opción <<Asignaturas>> del menú principal de la web.
 			\item Se abre una ventana donde aparece una tabla con todas las asignaturas.
 			\item Pulsar sobre el botón <<Nuevo>> para añadir una nueva asignatura.
-			\item Se abre una nueva ventana con un formulario vacío donde aparecen los campos de la tabla <<Asignatura>> de la figura \ref{er_cu1}, necesarios para crear una asignatura.
+			\item Se abre una nueva ventana con un formulario vacío donde aparecen los campos de la tabla <<Asignatura>> de la figura \ref{er_cu1}, necesarios para crear una asignatura. También se debe indicar la titulación a la que pertenece y rellenar el campo <<Abreviatura>> que permite la selección múltiple de abreviaturas separadas por comas. Las abreviaturas existentes aparecen al escribir y se pueden seleccionar. Si se escribe una nueva se almacena.
 			\item Rellenar el formulario con los datos de la asignatura que se desea añadir.
 			\item Pulsar sobre el botón <<Añadir>>.
 		\end{enumerate}\\
 		\textbf{Postcondición}        & La asignatura queda añadida/modificada y el sistema lleva al usuario a la ventana de asignaturas donde se puede ver el listado de todos las asignaturas añadidas. \\
-		\textbf{Excepciones}          & Se dejan campos vacíos o se introducen datos con un formato incorrecto. Otra forma de finalizar el caso de uso es la modificación. En este caso, se pulsa sobre el botón <<Modificar>> de una asignatura de la tabla y se accede al mismo formulario, pero con los campos rellenos. Finalmente se pulsa en el botón <<Modificar>> y la asignatura queda modificada. \\
+		\textbf{Excepciones}          & Se dejan campos vacíos, se introducen datos con un formato incorrecto o se introduce una id existente. Otra forma de finalizar el caso de uso es la modificación. En este caso, se pulsa sobre el botón <<Modificar>> de una asignatura de la tabla y se accede al mismo formulario, pero con los campos rellenos. Finalmente se pulsa en el botón <<Modificar>> y la asignatura queda modificada. \\
 		\textbf{Importancia}          & Alta \\
 		\bottomrule
 	\end{tabularx}
@@ -325,7 +259,17 @@ A continuación se van a exponer los requisitos de la aplicación web.
 
 \begin{figure}[!h]
 	\centering
-	\includegraphics[width=1.1\textwidth]{../img/Anexos/Casos uso/Diagrama casos de uso 3.pdf}
+	\includegraphics[scale=0.75]{../img/Anexos/Casos uso/Vistas ER/Diagrama E-R CU 1.pdf}
+	\caption{Vista diagrama entidad relación para el CU-1}
+	\label{er_cu1}
+\end{figure}
+\FloatBarrier
+
+\newpage
+\subsubsection{Mantenimiento de profesorado}
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.75]{../img/Anexos/Casos uso/Diagrama casos de uso 3.pdf}
 	\caption{Diagrama de casos de uso - Mantenimiento de profesorado}
 \end{figure}
 \FloatBarrier
@@ -334,22 +278,50 @@ A continuación se van a exponer los requisitos de la aplicación web.
 	\centering
 	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
 		\toprule
+		\textbf{CU-2}    & \textbf{Mantenimiento de profesorado}\\
+		\toprule
+		\textbf{Versión}              & 1.0    \\
+		\textbf{Autor}                & Ignacio Dávila García \\
+		\textbf{Requisitos asociados} & \hyperref[itm:RF4]{RF-04}, \hyperref[itm:RF7]{RF-07}, \hyperref[itm:RF8]{RF-08}, \hyperref[itm:RF9]{RF-09}, \hyperref[itm:RF10]{RF-10} \\
+		\textbf{Descripción}          & Un administrativo puede realizar labores de mantenimiento de los docentes, tipos de contrato, departamentos, áreas y plazas. Además, un administrativo puede asignar una plaza a un docente. \\
+		\textbf{Precondición}         & Tener iniciada sesión con una cuenta con permisos administrativos \\
+		\textbf{Acciones}             &
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist
+			\item Seleccionar la opción <<Plazas>> del menú principal de la web.
+			\item Se abre la ventana de mantenimiento de plazas.
+		\end{enumerate}\\
+		\textbf{Postcondición}        & El sistema lleva al usuario a la ventana de la opción pulsada. \\
+		\textbf{Excepciones}          & Otras opciones que se pueden seleccionar son <<Docentes>> (\hyperref[table:CU-2.3]{CU-2.3}), <<Contratos>> (\hyperref[table:CU-2.4]{CU-2.4}), <<Departamentos>> (\hyperref[table:CU-2.1]{CU-2.1}) o <<Áreas>> (\hyperref[table:CU-2.2]{CU-2.2}). Al seleccionar alguna de estas opciones el sistema lleva al usuario a la ventana de mantenimiento de la opción elegida.  \\
+		\textbf{Importancia}          & Alta \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-2 Mantenimiento de profesorado.}
+\end{table}
+\FloatBarrier
+
+\begin{table}[p]
+\label{table:CU-2.1}
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
 		\textbf{CU-2.1}    & \textbf{Mantenimiento de departamentos}\\
 		\toprule
 		\textbf{Versión}              & 1.0    \\
 		\textbf{Autor}                & Ignacio Dávila García \\
-		\textbf{Requisitos asociados} & RF-10 \\
+		\textbf{Requisitos asociados} & \hyperref[itm:RF10]{RF-10} \\
 		\textbf{Descripción}          & Un administrativo puede realizar el mantenimiento de departamentos \\
 		\textbf{Precondición}         & Tener iniciada sesión con una cuenta con permisos administrativos \\
 		\textbf{Acciones}             &
 		\begin{enumerate}
 			\def\labelenumi{\arabic{enumi}.}
 			\tightlist
-			\item Pulsar en la opción <<Departamentos>> del menú principal de la web.
+			\item Seleccionar la opción <<Departamentos>> del menú principal de la web.
 			\item Se abre una ventana donde aparece una tabla con los departamentos creados desde donde se podrá realizar el mantenimiento.
 		\end{enumerate}\\
 		\textbf{Postcondición}        & Ninguna \\
-		\textbf{Excepciones}          & Si se pulsa sobre el botón <<Nuevo>>, se accede a la creación de departamentos. Si se pulsa sobre el botón <<Modificar>> de un departamento de la lista, se accede a la ventana de modificación. Por último, si se pulsa sobre el botón <<Eliminar>> de un departamento, este se elimina produciendo un borrado en cascada de las áreas asociadas. \\
+		\textbf{Excepciones}          & Si se pulsa sobre el botón <<Nuevo>>, se accede a la creación de departamentos (\hyperref[table:CU-2.1.1]{CU-2.1.1}). Si se pulsa sobre el botón <<Modificar>> de un departamento de la lista, se accede a la ventana de modificación. Por último, si se pulsa sobre el botón <<Eliminar>> de un departamento el sistema pregunta si está seguro, y al pulsar en <<Sí>>, este se elimina produciendo un borrado en cascada de las áreas asociadas. \\
 		\textbf{Importancia}          & Alta \\
 		\bottomrule
 	\end{tabularx}
@@ -358,6 +330,7 @@ A continuación se van a exponer los requisitos de la aplicación web.
 \FloatBarrier
 
 \begin{table}[p]
+\label{table:CU-2.1.1}
 	\centering
 	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
 		\toprule
@@ -365,14 +338,14 @@ A continuación se van a exponer los requisitos de la aplicación web.
 		\toprule
 		\textbf{Versión}              & 1.0    \\
 		\textbf{Autor}                & Ignacio Dávila García \\
-		\textbf{Requisitos asociados} & RF-10 \\
+		\textbf{Requisitos asociados} & \hyperref[itm:RF10]{RF-10} \\
 		\textbf{Descripción}          & Un administrativo añade o modifica un departamento \\
 		\textbf{Precondición}         & Tener iniciada sesión con una cuenta con permisos administrativos \\
 		\textbf{Acciones}             &
 		\begin{enumerate}
 			\def\labelenumi{\arabic{enumi}.}
 			\tightlist
-			\item Pulsar en la opción <<Departamentos>> del menú principal de la web.
+			\item Seleccionar la opción <<Departamentos>> del menú principal de la web.
 			\item Se abre una ventana donde aparece una tabla con todos los departamentos.
 			\item Pulsar sobre el botón <<Nuevo>> para añadir un nuevo departamento.
 			\item Se abre una nueva ventana con un formulario vacío donde aparecen los campos de la tabla <<Departamento>> de la figura \ref{er_cu2}, necesarios para crear un departamento.
@@ -389,6 +362,7 @@ A continuación se van a exponer los requisitos de la aplicación web.
 \FloatBarrier
 
 \begin{table}[p]
+\label{table:CU-2.2}
 	\centering
 	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
 		\toprule
@@ -396,18 +370,18 @@ A continuación se van a exponer los requisitos de la aplicación web.
 		\toprule
 		\textbf{Versión}              & 1.0    \\
 		\textbf{Autor}                & Ignacio Dávila García \\
-		\textbf{Requisitos asociados} & RF-09 \\
+		\textbf{Requisitos asociados} & \hyperref[itm:RF9]{RF-09} \\
 		\textbf{Descripción}          & Un administrativo puede realizar el mantenimiento de áreas \\
 		\textbf{Precondición}         & Tener iniciada sesión con una cuenta con permisos administrativos \\
 		\textbf{Acciones}             &
 		\begin{enumerate}
 			\def\labelenumi{\arabic{enumi}.}
 			\tightlist
-			\item Pulsar en la opción <<Áreas>> del menú principal de la web.
+			\item Seleccionar la opción <<Áreas>> del menú principal de la web.
 			\item Se abre una ventana donde aparece una tabla con las áreas creadas desde donde se podrá realizar el mantenimiento.
 		\end{enumerate}\\
 		\textbf{Postcondición}        & Ninguna \\
-		\textbf{Excepciones}          & Si se pulsa sobre el botón <<Nuevo>>, se accede a la creación de áreas. Si se pulsa sobre el botón <<Modificar>> de un área de la lista, se accede a la ventana de modificación. Por último, si se pulsa sobre el botón <<Eliminar>> de un área, esta se elimina produciendo un borrado en cascada de las plazas asociadas. \\
+		\textbf{Excepciones}          & Si se pulsa sobre el botón <<Nuevo>>, se accede a la creación de áreas (\hyperref[table:CU-2.2.1]{CU-2.2.1}). Si se pulsa sobre el botón <<Modificar>> de un área de la lista, se accede a la ventana de modificación. Por último, si se pulsa sobre el botón <<Eliminar>> de un área el sistema pregunta si está seguro, y al pulsar en <<Sí>>, esta se elimina produciendo un borrado en cascada de las plazas asociadas. \\
 		\textbf{Importancia}          & Alta \\
 		\bottomrule
 	\end{tabularx}
@@ -416,6 +390,7 @@ A continuación se van a exponer los requisitos de la aplicación web.
 \FloatBarrier
 
 \begin{table}[p]
+\label{table:CU-2.2.1}
 	\centering
 	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
 		\toprule
@@ -423,22 +398,22 @@ A continuación se van a exponer los requisitos de la aplicación web.
 		\toprule
 		\textbf{Versión}              & 1.0    \\
 		\textbf{Autor}                & Ignacio Dávila García \\
-		\textbf{Requisitos asociados} & RF-09 \\
+		\textbf{Requisitos asociados} & \hyperref[itm:RF9]{RF-09} \\
 		\textbf{Descripción}          & Un administrativo añade o modifica un área \\
 		\textbf{Precondición}         & Tener iniciada sesión con una cuenta con permisos administrativos y tener algún departamento creado \\
 		\textbf{Acciones}             &
 		\begin{enumerate}
 			\def\labelenumi{\arabic{enumi}.}
 			\tightlist
-			\item Pulsar en la opción <<Áreas>> del menú principal de la web.
+			\item Seleccionar la opción <<Áreas>> del menú principal de la web.
 			\item Se abre una ventana donde aparece una tabla con todas las áreas.
-			\item Pulsar sobre el botón <<Nuevo>> para añadir un nuevo área.
-			\item Se abre una nueva ventana con un formulario vacío donde aparecen los campos de la tabla <<Área>> de la figura \ref{er_cu2}, necesarios para crear un área.
+			\item Pulsar sobre el botón <<Nuevo>> para añadir una nueva área.
+			\item Se abre una nueva ventana con un formulario vacío donde aparecen los campos de la tabla <<Área>> de la figura \ref{er_cu2}, necesarios para crear un área. También se debe indicar el departamento al que pertenece el área.
 			\item Rellenar el formulario con los datos del área que se desea añadir.
 			\item Pulsar sobre el botón <<Añadir>>.
 		\end{enumerate}\\
 		\textbf{Postcondición}        & El área queda añadido/modificado y el sistema lleva al usuario a la ventana de áreas donde se puede ver el listado de todas las áreas añadidas. \\
-		\textbf{Excepciones}          & Se dejan campos vacíos o se introducen datos con un formato incorrecto. Otra forma de finalizar el caso de uso es la modificación. En este caso, se pulsa sobre el botón <<Modificar>> de un área de la tabla y se accede al mismo formulario, pero con los campos rellenos. Finalmente se pulsa en el botón <<Modificar>> y el área queda modificado. \\
+		\textbf{Excepciones}          & Se dejan campos vacíos o se introducen datos con un formato incorrecto. Otra forma de finalizar el caso de uso es la modificación. En este caso, se pulsa sobre el botón <<Modificar>> de un área de la tabla y se accede al mismo formulario, pero con los campos rellenos. Finalmente se pulsa en el botón <<Modificar>> y el área queda modificada. \\
 		\textbf{Importancia}          & Alta \\
 		\bottomrule
 	\end{tabularx}
@@ -447,6 +422,7 @@ A continuación se van a exponer los requisitos de la aplicación web.
 \FloatBarrier
 
 \begin{table}[p]
+\label{table:CU-2.3}
 	\centering
 	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
 		\toprule
@@ -454,18 +430,18 @@ A continuación se van a exponer los requisitos de la aplicación web.
 		\toprule
 		\textbf{Versión}              & 1.0    \\
 		\textbf{Autor}                & Ignacio Dávila García \\
-		\textbf{Requisitos asociados} & RF-04 \\
+		\textbf{Requisitos asociados} & \hyperref[itm:RF4]{RF-04} \\
 		\textbf{Descripción}          & Un administrativo puede realizar el mantenimiento de docentes \\
 		\textbf{Precondición}         & Tener iniciada sesión con una cuenta con permisos administrativos \\
 		\textbf{Acciones}             &
 		\begin{enumerate}
 			\def\labelenumi{\arabic{enumi}.}
 			\tightlist
-			\item Pulsar en la opción <<Docentes>> del menú principal de la web.
+			\item Seleccionar la opción <<Docentes>> del menú principal de la web.
 			\item Se abre una ventana donde aparece una tabla con los docentes creados desde donde se podrá realizar el mantenimiento.
 		\end{enumerate}\\
 		\textbf{Postcondición}        & Ninguna \\
-		\textbf{Excepciones}          & Si se pulsa sobre el botón <<Nuevo>>, se accede a la creación de docentes. Si se pulsa sobre el botón <<Modificar>> de un docente de la lista, se accede a la ventana de modificación. Por último, si se pulsa sobre el botón <<Eliminar>> de un docente, este se elimina. \\
+		\textbf{Excepciones}          & Si se pulsa sobre el botón <<Nuevo>>, se accede a la creación de docentes (\hyperref[table:CU-2.3.1]{CU-2.3.1}). Si se pulsa sobre el botón <<Modificar>> de un docente de la lista, se accede a la ventana de modificación. Por último, si se pulsa sobre el botón <<Eliminar>> de un docente el sistema pregunta si está seguro, y al pulsar en <<Sí>>, este se elimina. \\
 		\textbf{Importancia}          & Alta \\
 		\bottomrule
 	\end{tabularx}
@@ -474,6 +450,7 @@ A continuación se van a exponer los requisitos de la aplicación web.
 \FloatBarrier
 
 \begin{table}[p]
+\label{table:CU-2.3.1}
 	\centering
 	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
 		\toprule
@@ -481,14 +458,14 @@ A continuación se van a exponer los requisitos de la aplicación web.
 		\toprule
 		\textbf{Versión}              & 1.0    \\
 		\textbf{Autor}                & Ignacio Dávila García \\
-		\textbf{Requisitos asociados} & RF-04 \\
+		\textbf{Requisitos asociados} & \hyperref[itm:RF4]{RF-04} \\
 		\textbf{Descripción}          & Un administrativo añade o modifica un docente \\
 		\textbf{Precondición}         & Tener iniciada sesión con una cuenta con permisos administrativos \\
 		\textbf{Acciones}             &
 		\begin{enumerate}
 			\def\labelenumi{\arabic{enumi}.}
 			\tightlist
-			\item Pulsar en la opción <<Docentes>> del menú principal de la web.
+			\item Seleccionar la opción <<Docentes>> del menú principal de la web.
 			\item Se abre una ventana donde aparece una tabla con todos los docentes existentes.
 			\item Pulsar sobre el botón <<Nuevo>> para añadir un nuevo docente.
 			\item Se abre una nueva ventana con un formulario vacío donde aparecen los campos de la tabla <<Docente>> de la figura \ref{er_cu2}, necesarios para crear un docente.
@@ -505,6 +482,7 @@ A continuación se van a exponer los requisitos de la aplicación web.
 \FloatBarrier
 
 \begin{table}[p]
+\label{table:CU-2.4}
 	\centering
 	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
 		\toprule
@@ -512,18 +490,18 @@ A continuación se van a exponer los requisitos de la aplicación web.
 		\toprule
 		\textbf{Versión}              & 1.0    \\
 		\textbf{Autor}                & Ignacio Dávila García \\
-		\textbf{Requisitos asociados} & RF-08 \\
+		\textbf{Requisitos asociados} & \hyperref[itm:RF8]{RF-08} \\
 		\textbf{Descripción}          & Un administrativo puede realizar el mantenimiento de tipos de contrato \\
 		\textbf{Precondición}         & Tener iniciada sesión con una cuenta con permisos administrativos \\
 		\textbf{Acciones}             &
 		\begin{enumerate}
 			\def\labelenumi{\arabic{enumi}.}
 			\tightlist
-			\item Pulsar en la opción <<Contratos>> del menú principal de la web.
+			\item Seleccionar la opción <<Contratos>> del menú principal de la web.
 			\item Se abre una ventana donde aparece una tabla con los tipos de contrato creados desde donde se podrá realizar el mantenimiento.
 		\end{enumerate}\\
 		\textbf{Postcondición}        & Ninguna \\
-		\textbf{Excepciones}          & Si se pulsa sobre el botón <<Nuevo>>, se accede a la creación de un nuevo tipo de contrato. Si se pulsa sobre el botón <<Modificar>> de un tipo de contrato de la lista, se accede a la ventana de modificación. Por último, si se pulsa sobre el botón <<Eliminar>> de un tipo de contrato, este se elimina. \\
+		\textbf{Excepciones}          & Si se pulsa sobre el botón <<Nuevo>>, se accede a la creación de un nuevo tipo de contrato (\hyperref[table:CU-2.4.1]{CU-2.4.1}). Si se pulsa sobre el botón <<Modificar>> de un tipo de contrato de la lista, se accede a la ventana de modificación. Por último, si se pulsa sobre el botón <<Eliminar>> de un tipo de contrato el sistema pregunta si está seguro, y al pulsar en <<Sí>>, este se elimina. \\
 		\textbf{Importancia}          & Alta \\
 		\bottomrule
 	\end{tabularx}
@@ -532,6 +510,7 @@ A continuación se van a exponer los requisitos de la aplicación web.
 \FloatBarrier
 
 \begin{table}[p]
+\label{table:CU-2.4.1}
 	\centering
 	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
 		\toprule
@@ -539,14 +518,14 @@ A continuación se van a exponer los requisitos de la aplicación web.
 		\toprule
 		\textbf{Versión}              & 1.0    \\
 		\textbf{Autor}                & Ignacio Dávila García \\
-		\textbf{Requisitos asociados} & RF-08 \\
+		\textbf{Requisitos asociados} & \hyperref[itm:RF8]{RF-08} \\
 		\textbf{Descripción}          & Un administrativo añade o modifica un docente \\
 		\textbf{Precondición}         & Tener iniciada sesión con una cuenta con permisos administrativos \\
 		\textbf{Acciones}             &
 		\begin{enumerate}
 			\def\labelenumi{\arabic{enumi}.}
 			\tightlist
-			\item Pulsar en la opción <<Contratos>> del menú principal de la web.
+			\item Seleccionar la opción <<Contratos>> del menú principal de la web.
 			\item Se abre una ventana donde aparece una tabla con todos los tipos de contrato existentes.
 			\item Pulsar sobre el botón <<Nuevo>> para añadir un nuevo tipo de contrato.
 			\item Se abre una nueva ventana con un formulario vacío donde aparecen los campos de la tabla <<Tipo Contrato>> de la figura \ref{er_cu2}, necesarios para crear un tipo de contrato.
@@ -570,18 +549,18 @@ A continuación se van a exponer los requisitos de la aplicación web.
 		\toprule
 		\textbf{Versión}              & 1.0    \\
 		\textbf{Autor}                & Ignacio Dávila García \\
-		\textbf{Requisitos asociados} & RF-07 \\
+		\textbf{Requisitos asociados} & \hyperref[itm:RF7]{RF-07} \\
 		\textbf{Descripción}          & Un administrativo puede realizar el mantenimiento de plazas \\
 		\textbf{Precondición}         & Tener iniciada sesión con una cuenta con permisos administrativos \\
 		\textbf{Acciones}             &
 		\begin{enumerate}
 			\def\labelenumi{\arabic{enumi}.}
 			\tightlist
-			\item Pulsar en la opción <<Plazas>> del menú principal de la web.
+			\item Seleccionar la opción <<Plazas>> del menú principal de la web.
 			\item Se abre una ventana donde aparece una tabla con las plazas creadas desde donde se podrá realizar el mantenimiento.
 		\end{enumerate}\\
 		\textbf{Postcondición}        & Ninguna \\
-		\textbf{Excepciones}          & Si se pulsa sobre el botón <<Nuevo>>, se accede a la creación de una plaza. Si se pulsa sobre el botón <<Modificar>> de una plaza de la lista, se accede a la ventana de modificación. Por último, si se pulsa sobre el botón <<Eliminar>> de una plaza, este se elimina. \\
+		\textbf{Excepciones}          & Si se pulsa sobre el botón <<Nuevo>>, se accede a la creación de una plaza (\hyperref[table:CU-2.5.1]{CU-2.5.1}). Si se pulsa sobre el botón <<Modificar>> de una plaza de la lista, se accede a la ventana de modificación. Por último, si se pulsa sobre el botón <<Eliminar>> de una plaza el sistema pregunta si está seguro, y al pulsar en <<Sí>>, esta se elimina. \\
 		\textbf{Importancia}          & Alta \\
 		\bottomrule
 	\end{tabularx}
@@ -590,6 +569,7 @@ A continuación se van a exponer los requisitos de la aplicación web.
 \FloatBarrier
 
 \begin{table}[p]
+	\label{table:CU-2.5.1}
 	\centering
 	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
 		\toprule
@@ -597,17 +577,17 @@ A continuación se van a exponer los requisitos de la aplicación web.
 		\toprule
 		\textbf{Versión}              & 1.0    \\
 		\textbf{Autor}                & Ignacio Dávila García \\
-		\textbf{Requisitos asociados} & RF-07 \\
+		\textbf{Requisitos asociados} & \hyperref[itm:RF7]{RF-07} \\
 		\textbf{Descripción}          & Un administrativo añade o modifica una plaza \\
 		\textbf{Precondición}         & Tener iniciada sesión con una cuenta con permisos administrativos y tener algún área y tipo de contrato creados \\
 		\textbf{Acciones}             &
 		\begin{enumerate}
 			\def\labelenumi{\arabic{enumi}.}
 			\tightlist
-			\item Pulsar en la opción <<Plazas>> del menú principal de la web.
+			\item Seleccionar la opción <<Plazas>> del menú principal de la web.
 			\item Se abre una ventana donde aparece una tabla con todas las plazas existentes.
 			\item Pulsar sobre el botón <<Nuevo>> para añadir una nueva plaza.
-			\item Se abre una nueva ventana con un formulario vacío donde aparecen los campos de la tabla <<Plaza>> de la figura \ref{er_cu2}, necesarios para crear una plaza.
+			\item Se abre una nueva ventana con un formulario vacío donde aparecen los campos de la tabla <<Plaza>> de la figura \ref{er_cu2}, necesarios para crear una plaza. También se debe indicar el tipo de contrato y se puede asignar la plaza a un docente (\hyperref[table:CU-2.6]{CU-2.6}).
 			\item Rellenar el formulario con los datos de la plaza que se desea añadir.
 			\item Pulsar sobre el botón <<Añadir>>.
 		\end{enumerate}\\
@@ -621,6 +601,7 @@ A continuación se van a exponer los requisitos de la aplicación web.
 \FloatBarrier
 
 \begin{table}[p]
+\label{table:CU-2.6}
 	\centering
 	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
 		\toprule
@@ -628,21 +609,21 @@ A continuación se van a exponer los requisitos de la aplicación web.
 		\toprule
 		\textbf{Versión}              & 1.0    \\
 		\textbf{Autor}                & Ignacio Dávila García \\
-		\textbf{Requisitos asociados} & RF-07, RF-12 \\
-		\textbf{Descripción}          & Un administrativo puede asignar una plaza a un docente. Este caso de uso es una extensión del CU-2.5.1, ya que la asignación de la plaza a un docente se realiza en la creación o modificación de la misma \\
+		\textbf{Requisitos asociados} & \hyperref[itm:RF7]{RF-07}, \hyperref[itm:RF12]{RF-12} \\
+		\textbf{Descripción}          & Un administrativo puede asignar una plaza a un docente. Este caso de uso es una extensión del \hyperref[table:CU-2.5.1]{CU-2.5.1}, ya que la asignación de la plaza a un docente se realiza en la creación o modificación de la misma \\
 		\textbf{Precondición}         & Tener iniciada sesión con una cuenta con permisos administrativos y tener creado un docente \\
 		\textbf{Acciones}             &
 		\begin{enumerate}
 			\def\labelenumi{\arabic{enumi}.}
 			\tightlist
-			\item Pulsar en la opción <<Plazas>> del menú principal de la web.
+			\item Seleccionar la opción <<Plazas>> del menú principal de la web.
 			\item Se abre una ventana donde aparece una tabla con las plazas creadas.
 			\item Si la plaza que se desea asignar ya está creada, pulsar en el botón <<Modificar>> de la fila de la tabla que corresponde a la plaza.
-			\item Si la plaza todavía no está creada, pulsar en el botón <<Nuevo>>
-			\item Se abre una ventana con un formulario que tendrá los campos de la tabla <<Plaza>> de la figura \ref{er_cu2} vacíos si es una creación o los campos rellenos si es una modificación. En el campo llamado <<Docente>>, se podrá seleccionar el docente al que se quiere asignar la plaza desde un seleccionable con búsqueda.
+			\item Se abre una ventana con un formulario que tendrá los campos de la tabla <<Plaza>> de la figura \ref{er_cu2} rellenos. En el campo llamado <<Docente>>, se podrá seleccionar el docente al que se quiere asignar la plaza desde un seleccionable con búsqueda.
 		\end{enumerate}\\
-		\textbf{Postcondición}        & Ninguna \\
-		\textbf{Excepciones}          & Si se pulsa sobre el botón <<Añadir>>, en el caso de una creación, la plaza queda añadida y el sistema lleva al usuario a la ventana del mantenimiento de plazas. En el caso de una modificación, si se pulsa sobre el botón <<Modificar>>, la plaza queda modificada y asignada al docente seleccionado y el sistema lleva al usuario a la ventana de mantenimiento de plazas. \\
+		\textbf{Postcondición}        & La plaza queda asignada al docente seleccionado y el sistema lleva al usuario a la vista del mantenimiento de plazas. \\
+		\textbf{Excepciones}          & La asignación se puede realizar a la hora de crear una plaza. Para ello, se debe pulsar en el botón <<Nuevo>> desde la ventana de mantenimiento de plazas y se abrirá una ventana con el mismo formulario, pero vacío. Después de rellenar los datos, se pulsa en el botón <<Añadir>> y la plaza queda creada y asignada.
+		Si el docente al que se desea vincular la plaza todavía no está creado, este se puede crear pulsando sobre el botón <<Nuevo docente>> que se encuentra dentro del formulario. Pulsar el botón hará que se abra una ventana flotante que cubre el \hyperref[table:CU-2.3.1]{CU-2.3.1} para añadir un nuevo docente.\\
 		\textbf{Importancia}          & Alta \\
 		\bottomrule
 	\end{tabularx}
@@ -652,7 +633,16 @@ A continuación se van a exponer los requisitos de la aplicación web.
 
 \begin{figure}[!h]
 	\centering
-	\includegraphics[]{../img/Anexos/Casos uso/Diagrama casos de uso 4.pdf}
+	\includegraphics[scale=0.7]{../img/Anexos/Casos uso/Vistas ER/Diagrama E-R CU 2.pdf}
+	\caption{Vista diagrama entidad relación para el CU-2}\label{er_cu2}
+\end{figure}
+\FloatBarrier
+
+\newpage
+\subsubsection{Asignación docente}
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.9]{../img/Anexos/Casos uso/Diagrama casos de uso 4.pdf}
 	\caption{Diagrama de casos de uso - Asignación docente}
 \end{figure}
 \FloatBarrier
@@ -661,22 +651,50 @@ A continuación se van a exponer los requisitos de la aplicación web.
 	\centering
 	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
 		\toprule
+		\textbf{CU-3}    & \textbf{Asignación docente}\\
+		\toprule
+		\textbf{Versión}              & 1.0    \\
+		\textbf{Autor}                & Ignacio Dávila García \\
+		\textbf{Requisitos asociados} & \hyperref[itm:RF6]{RF-06}, \hyperref[itm:RF7]{RF-07}, \hyperref[itm:RF8]{RF-08}, \hyperref[itm:RF9]{RF-09}, \hyperref[itm:RF10]{RF-10} \\
+		\textbf{Descripción}          & Un administrativo puede realizar las labores de mantenimiento de cursos y grupos, además de las asignaciones de horas de plazas a grupos \\
+		\textbf{Precondición}         & Tener iniciada sesión con una cuenta con permisos administrativos \\
+		\textbf{Acciones}             &
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist
+			\item Seleccionar la opción del menú <<Grupos>> para realizar el mantenimiento de los mismos.
+			\item Se abre la ventana de mantenimiento de cursos.
+		\end{enumerate}\\
+		\textbf{Postcondición}        & El sistema lleva al usuario a la ventana de la opción pulsada. \\
+		\textbf{Excepciones}          & Otras posibilidades del caso de uso son el mantenimiento de cursos académicos, que se puede realizar seleccionando la opción del menú <<Cursos>> (\hyperref[table:CU-3.1]{CU-3.1}) y la asignación de horas de una plaza a un grupo, que se puede realizar seleccionando la opción <<Horas>> (\hyperref[table:CU-3.3]{CU-3.3}). \\
+		\textbf{Importancia}          & Alta \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-3 Asignación docente.}
+\end{table}
+\FloatBarrier
+
+\begin{table}[p]
+\label{table:CU-3.1}
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
 		\textbf{CU-3.1}    & \textbf{Mantenimiento cursos académicos}\\
 		\toprule
 		\textbf{Versión}              & 1.0    \\
 		\textbf{Autor}                & Ignacio Dávila García \\
-		\textbf{Requisitos asociados} & RF-06 \\
+		\textbf{Requisitos asociados} & \hyperref[itm:RF6]{RF-06} \\
 		\textbf{Descripción}          & Un administrativo puede realizar el mantenimiento de los cursos académicos \\
 		\textbf{Precondición}         & Tener iniciada sesión con una cuenta con permisos administrativos \\
 		\textbf{Acciones}             &
 		\begin{enumerate}
 			\def\labelenumi{\arabic{enumi}.}
 			\tightlist
-			\item Pulsar en la opción <<Cursos>> del menú principal de la web.
+			\item Seleccionar la opción <<Cursos>> del menú principal de la web.
 			\item Se abre una ventana donde aparece una tabla con los cursos creados desde donde se podrá realizar el mantenimiento.
 		\end{enumerate}\\
 		\textbf{Postcondición}        & Ninguna \\
-		\textbf{Excepciones}          & Si se pulsa sobre el botón <<Nuevo>>, se accede a la creación de un curso. Si se pulsa sobre el botón <<Modificar>> de un curso de la lista, se accede a la ventana de modificación. Si se pulsa sobre el botón <<Modificar Año>> de un curso de la lista, se accede a la ventana de modificación del campo año de inicio. Por último, si se pulsa sobre el botón <<Eliminar>> de un curso, este se elimina produciendo un borrado en cascada de sus relaciones con asignaturas y grupos. \\
+		\textbf{Excepciones}          & Si se pulsa sobre el botón <<Nuevo>>, se accede a la creación de un curso (\hyperref[table:CU-3.1.1]{CU-3.1.1}), si se pulsa sobre el botón <<Modificar>> de un curso de la lista, se accede a la ventana de modificación (\hyperref[table:CU-3.1.2]{CU-3.1.2}), si se pulsa sobre el botón <<Modificar Año>> de un curso de la lista, se accede a la ventana de modificación del campo año de inicio, si se pulsa sobre el botón <<Eliminar>> de un curso el sistema pregunta si está seguro, y al pulsar en <<Sí>>, este se elimina produciendo un borrado en cascada de sus relaciones con asignaturas y grupos. Por último, si se pulsa sobre <<Duplicar>>, se duplica el curso junto a todas sus vinculaciones  (\hyperref[table:CU-3.1.3]{CU-3.1.3})\\
 		\textbf{Importancia}          & Alta \\
 		\bottomrule
 	\end{tabularx}
@@ -685,6 +703,7 @@ A continuación se van a exponer los requisitos de la aplicación web.
 \FloatBarrier
 
 \begin{table}[p]
+\label{table:CU-3.1.1}
 	\centering
 	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
 		\toprule
@@ -692,21 +711,23 @@ A continuación se van a exponer los requisitos de la aplicación web.
 		\toprule
 		\textbf{Versión}              & 1.0    \\
 		\textbf{Autor}                & Ignacio Dávila García \\
-		\textbf{Requisitos asociados} & RF-03, RF-06 \\
+		\textbf{Requisitos asociados} & \hyperref[itm:RF3]{RF-03}, \hyperref[itm:RF6]{RF-06} \\
 		\textbf{Descripción}          & Un administrativo añade un curso académico \\
 		\textbf{Precondición}         & Tener iniciada sesión con una cuenta con permisos administrativos \\
 		\textbf{Acciones}             &
 		\begin{enumerate}
 			\def\labelenumi{\arabic{enumi}.}
 			\tightlist
-			\item Pulsar en la opción <<Cursos>> del menú principal de la web.
+			\item Seleccionar la opción <<Cursos>> del menú principal de la web.
 			\item Se abre una ventana que contiene una tabla donde aparecen los cursos creados.
 			\item Pulsar sobre el botón <<Nuevo>> para dar de alta un curso.
-			\item Se abre una nueva ventana con un formulario. El formulario contiene un campo para indicar el año de comienzo del curso y otro campo para indicar el número previsto de alumnos en las asignaturas.
-			\item Rellenar los campos y seleccionar las asignaturas del curso y el número de grupos previstos tanto para teoría como para práctica indicando la modalidad de los mismos.
-			\item Pulsar sobre el botón 'Añadir'.
+			\item Se abre una nueva ventana con un formulario. El formulario contiene un campo para indicar el año de comienzo del curso.
+			\item Pulsar en el botón <<Siguiente>>
+			\item Se abre una ventana que contiene una tabla con las asignaturas existentes desde donde se podrán seleccionar las deseadas. También contiene tres bloques para las diferentes modalidades donde se podrá indicar el número de alumnos previstos, el número de grupos de teoría y el número de grupos de práctica que se deben crear para las asignaturas seleccionadas.
+			\item Pulsar en el botón <<Añadir>>
+			\item Aparece la misma pantalla con los campos limpios para poder añadir más asignaturas y grupos.
 		\end{enumerate}\\
-		\textbf{Postcondición}        & El curso se crea y el sistema lleva al usuario a la ventana de mantenimiento de cursos donde se puede ver el listado de cursos. \\
+		\textbf{Postcondición}        & El curso se crea junto a las asignaturas y grupos elegidos. \\
 		\textbf{Excepciones}          & Se dejan campos vacíos o se introducen datos con un formato incorrecto. \\
 		\textbf{Importancia}          & Alta \\
 		\bottomrule
@@ -716,6 +737,7 @@ A continuación se van a exponer los requisitos de la aplicación web.
 \FloatBarrier
 
 \begin{table}[p]
+\label{table:CU-3.1.2}
 	\centering
 	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
 		\toprule
@@ -723,22 +745,23 @@ A continuación se van a exponer los requisitos de la aplicación web.
 		\toprule
 		\textbf{Versión}              & 1.0    \\
 		\textbf{Autor}                & Ignacio Dávila García \\
-		\textbf{Requisitos asociados} & RF-03, RF-06 \\
+		\textbf{Requisitos asociados} & \hyperref[itm:RF3]{RF-03}, \hyperref[itm:RF6]{RF-06} \\
 		\textbf{Descripción}          & Un administrativo modifica un curso académico \\
 		\textbf{Precondición}         & Tener iniciada sesión con una cuenta con permisos administrativos \\
 		\textbf{Acciones}             &
 		\begin{enumerate}
 			\def\labelenumi{\arabic{enumi}.}
 			\tightlist
-			\item Pulsar en la opción <<Cursos>> del menú principal de la web.
+			\item Seleccionar la opción <<Cursos>> del menú principal de la web.
 			\item Se abre una ventana que contiene una tabla donde aparecen los cursos creados.
 			\item Pulsar sobre el botón <<Modificar>> de uno de los cursos de la tabla.
-			\item Se abre una nueva ventana con el listado de asignaturas del curso. Desde esa ventana se pueden añadir nuevas asignaturas al curso pulsando sobre el botón <<Añadir asignaturas>> o eliminar asignaturas pulsando sobre el botón <<Quitar del curso>> de la asignatura de la tabla que se desea quitar.
-			\item Al pulsar sobre <<Añadir asignaturas>> se abre una ventana flotante desde la que se puede seleccionar las asignaturas e indicar los campos necesarios que aparecen en la figura \ref{er_cu3}.
-			\item Al pulsar sobre el botón <<Quitar del curso>>, el sistema pregunta si está seguro de la eliminación, y al pulsar en la opción <<Sí>>, la asignatura desaparece del listado y se produce un borrado en cascada de sus grupos.
+			\item Se abre una nueva ventana con el listado de asignaturas del curso. Desde esa ventana se pueden añadir nuevas asignaturas al curso pulsando sobre el botón <<Añadir asignaturas>>.
+			\item Al pulsar sobre <<Añadir asignaturas>> se abre una ventana flotante desde la que se pueden seleccionar las asignaturas e indicar el número de alumnos previstos y el número de grupos de teoría y práctica a crear para cada modalidad. 
+			\item Pulsar sobre el botón <<Añadir>>.
+			\item La ventana se cierra y se puede ver en la tabla como las nuevas asignaturas aparecen vinculadas al curso.
 		\end{enumerate}\\
 		\textbf{Postcondición}        & El curso se modifica y el sistema permanece en la ventana de modificación del curso desde donde se pueden ver los cambios realizados. \\
-		\textbf{Excepciones}          & Si se pulsa sobre el botón <<Editar grupos>> de una de las asignaturas se abre una ventana desde donde realizar la modificación de los grupos de la asignatura para ese curso. \\
+		\textbf{Excepciones}          & Si se pulsa sobre el botón <<Quitar del curso>> de una de las asignaturas, el sistema pregunta si está seguro de la eliminación, y al pulsar en la opción <<Sí>>, la asignatura desaparece del listado y se produce un borrado en cascada de sus grupos. Si se pulsa sobre el botón <<Editar grupos>> de una de las asignaturas se abre una ventana desde donde realizar la modificación de los grupos de la asignatura para ese curso. (\hyperref[table:CU-3.2.1]{CU-3.2.1}) \\
 		\textbf{Importancia}          & Alta \\
 		\bottomrule
 	\end{tabularx}
@@ -747,6 +770,38 @@ A continuación se van a exponer los requisitos de la aplicación web.
 \FloatBarrier
 
 \begin{table}[p]
+\label{table:CU-3.1.3}
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-3.1.3}    & \textbf{Duplicar curso académico}\\
+		\toprule
+		\textbf{Versión}              & 1.0    \\
+		\textbf{Autor}                & Ignacio Dávila García \\
+		\textbf{Requisitos asociados} & \hyperref[itm:RF6]{RF-06} \\
+		\textbf{Descripción}          & Un administrativo duplica un curso académico con toda la información asociada \\
+		\textbf{Precondición}         & Tener iniciada sesión con una cuenta con permisos administrativos \\
+		\textbf{Acciones}             &
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist
+			\item Seleccionar la opción <<Cursos>> del menú principal de la web.
+			\item Se abre una ventana que contiene una tabla donde aparecen los cursos creados.
+			\item Pulsar sobre el botón <<Duplicar>> de uno de los cursos de la tabla.
+			\item Se abre una ventana modal de confirmación donde se pregunta si está seguro de duplicar el curso académico.
+			\item Pulsar en la opción <<Sí>>.
+		\end{enumerate}\\
+		\textbf{Postcondición}        & El curso y todas sus asociaciones se duplican y el sistema permanece en la ventana de mantenimiento de cursos desde donde se puede ver como el nuevo curso se ha creado. El nuevo curso se crea con un año más en el campo año de inicio que el último existente. \\
+		\textbf{Excepciones}          & Ninguna \\
+		\textbf{Importancia}          & Alta \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-3.1.3 Duplicar curso académico.}
+\end{table}
+\FloatBarrier
+
+\begin{table}[p]
+\label{table:CU-3.2}
 	\centering
 	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
 		\toprule
@@ -754,18 +809,18 @@ A continuación se van a exponer los requisitos de la aplicación web.
 		\toprule
 		\textbf{Versión}              & 1.0    \\
 		\textbf{Autor}                & Ignacio Dávila García \\
-		\textbf{Requisitos asociados} & RF-03 \\
+		\textbf{Requisitos asociados} & \hyperref[itm:RF3]{RF-03} \\
 		\textbf{Descripción}          & Un administrativo puede realizar el mantenimiento de grupos \\
 		\textbf{Precondición}         & Tener iniciada sesión con una cuenta con permisos administrativos \\
 		\textbf{Acciones}             &
 		\begin{enumerate}
 			\def\labelenumi{\arabic{enumi}.}
 			\tightlist
-			\item Pulsar en la opción <<Grupos>> del menú principal de la web.
-			\item Se abre una ventana donde aparece un seleccionador del curso, con el último curso seleccionado por defecto. También aparece una tabla con todas las asignaturas del curso y el número de grupos de cada tipo que tienen asignados.
+			\item Seleccionar la opción <<Grupos>> del menú principal de la web.
+			\item Se abre una ventana donde aparece un seleccionador de curso, con el último curso seleccionado por defecto. También aparece una tabla con todas las asignaturas del curso seleccionado junto al número de grupos de cada tipo que tienen vinculados.
 		\end{enumerate}\\
 		\textbf{Postcondición}        & Ninguna \\
-		\textbf{Excepciones}          & Si se pulsa sobre el botón <<Gestionar grupos>> de uno de los registros de la tabla se accede a una ventana con la información de la asignatura y sus grupos. Desde esta ventana se pueden crear, modificar o eliminar grupos para esa asignatura. \\
+		\textbf{Excepciones}          & Si se pulsa sobre el botón <<Gestionar grupos>> de uno de los registros de la tabla se accede a una ventana con la información de la asignatura y sus grupos. Desde esta ventana se pueden crear, modificar o eliminar grupos para esa asignatura. (\hyperref[table:CU-3.2.1]{CU-3.2.1}) \\
 		\textbf{Importancia}          & Alta \\
 		\bottomrule
 	\end{tabularx}
@@ -774,6 +829,7 @@ A continuación se van a exponer los requisitos de la aplicación web.
 \FloatBarrier
 
 \begin{table}[p]
+\label{table:CU-3.2.1}
 	\centering
 	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
 		\toprule
@@ -781,24 +837,23 @@ A continuación se van a exponer los requisitos de la aplicación web.
 		\toprule
 		\textbf{Versión}              & 1.0    \\
 		\textbf{Autor}                & Ignacio Dávila García \\
-		\textbf{Requisitos asociados} & RF-03, RF-13 \\
+		\textbf{Requisitos asociados} & \hyperref[itm:RF3]{RF-03}, \hyperref[itm:RF13]{RF-13} \\
 		\textbf{Descripción}          & Un administrativo añade o modifica los grupos de una asignatura \\
 		\textbf{Precondición}         & Tener iniciada sesión con una cuenta con permisos administrativos \\
 		\textbf{Acciones}             &
 		\begin{enumerate}
 			\def\labelenumi{\arabic{enumi}.}
 			\tightlist
-			\item Pulsar en la opción <<Grupos>> del menú principal de la web.
-			\item Se abre una ventana donde aparece un seleccionador del curso, con el último curso seleccionado por defecto. También aparece una tabla con todas las asignaturas del curso y el número de grupos de cada tipo que tienen asignados.
-			\item Pulsar sobre el botón <<Gestionar grupos>> de una de las asignaturas de la tabla para crear/modificar sus grupos.
-			\item Se abre una nueva ventana con la información de la asignatura y un listado con los grupos que tiene asignados.
-			\item Para crear un grupo, pulsar sobre el botón <<Añadir grupo>>.
+			\item Seleccionar la opción <<Grupos>> del menú principal.
+			\item Se abre una ventana donde aparece un seleccionador de curso, con el último curso seleccionado por defecto. También aparece una tabla con todas las asignaturas del curso seleccionado junto al número de grupos de cada tipo que tienen vinculados.
+			\item Pulsar sobre el botón <<Gestionar grupos>> de una de las asignaturas de la tabla.
+			\item Se abre una nueva ventana con la información de la asignatura y un listado con los grupos que tiene vinculados.
+			\item Pulsar sobre el botón <<Añadir grupo>>.
 			\item Se abre una ventana flotante con un formulario que contiene los campos de la tabla <<Grupo>> de la figura \ref{er_cu3}.
 			\item Completar los campos y pulsar en el botón <<Añadir>>
-			\item La ventana flotante se cierra y aparece el grupo creado en el listado de grupos de la asignatura.
 		\end{enumerate}\\
 		\textbf{Postcondición}        & El grupo se crea y queda vinculado a la asignatura. El usuario termina el caso de uso en la ventana que contiene los grupos de la asignatura. \\
-		\textbf{Excepciones}          & Se dejan campos vacíos o se introducen datos con un formato incorrecto. Otra forma de finalizar el caso de uso es la modificación o eliminación. En el primer caso, se pulsa sobre el botón <<Modificar>> de un grupo de la tabla y se accede al mismo formulario de creación, pero con los campos rellenos. Si se pulsa en el botón <<Modificar>> la información del grupo queda actualizada. Por último, para el caso de eliminar, se pulsa sobre el botón <<Eliminar>> de un grupo de la tabla y se elimina el grupo, cosa que se puede ver reflejada en el listado de grupos de la asignatura \\
+		\textbf{Excepciones}          & Se dejan campos vacíos o se introducen datos con un formato incorrecto. Otra forma de finalizar el caso de uso es la modificación o eliminación. En el primer caso, se pulsa sobre el botón <<Modificar>> de un grupo de la tabla y se accede al mismo formulario de creación, pero con los campos rellenos. Si se pulsa en el botón <<Modificar>> la información del grupo queda actualizada. Por último, para el caso de eliminar, se pulsa sobre el botón <<Eliminar>> de un grupo de la tabla, el sistema pregunta si está seguro, y al pulsar en <<Sí>>, este se elimina. \\
 		\textbf{Importancia}          & Alta \\
 		\bottomrule
 	\end{tabularx}
@@ -807,6 +862,7 @@ A continuación se van a exponer los requisitos de la aplicación web.
 \FloatBarrier
 
 \begin{table}[p]
+\label{table:CU-3.3}
 	\centering
 	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
 		\toprule
@@ -814,25 +870,25 @@ A continuación se van a exponer los requisitos de la aplicación web.
 		\toprule
 		\textbf{Versión}              & 1.0    \\
 		\textbf{Autor}                & Ignacio Dávila García \\
-		\textbf{Requisitos asociados} & RF-11 \\
+		\textbf{Requisitos asociados} & \hyperref[itm:RF11]{RF-11} \\
 		\textbf{Descripción}          & Un administrativo puede asignar horas de una plaza a un grupo durante un curso académico \\
 		\textbf{Precondición}         & Tener iniciada sesión con una cuenta con permisos administrativos \\
 		\textbf{Acciones}             &
 		\begin{enumerate}
 			\def\labelenumi{\arabic{enumi}.}
 			\tightlist
-			\item Pulsar en la opción <<Horas>> del menú principal de la web.
-			\item Se abre una ventana donde aparece un seleccionador del curso, con el último curso seleccionado por defecto. También aparece una tabla con todos los grupos del curso y las plazas/docentes que tienen asignados.
-			\item Pulsar sobre el botón <<Editar>> de una de las filas de la tabla para entrar a la ventana de asignación de plazas al grupo.
-			\item Se abre una nueva ventana con la información del grupo y un listado con las plazas que tiene vinculadas.
+			\item Seleccionar la opción <<Horas>> del menú principal.
+			\item Se abre una ventana donde aparece un seleccionador de curso, con el último curso seleccionado por defecto. También aparece una tabla con todos los grupos del curso y las plazas/docentes que tienen vinculados.
+			\item Pulsar sobre el botón <<Editar>> de una de las filas de la tabla.
+			\item Se abre una nueva ventana con la información del grupo y un listado con las plazas vinculadas.
 			\item Para vincular una nueva plaza pulsar sobre el botón <<Añadir plaza>>.
-			\item Se abre una ventana modal donde se puede buscar por nombre de la plaza o nombre del docente que se quiere vincular.
+			\item Se abre una ventana flotante donde se puede buscar por el nombre de la plaza o del docente que se quiere vincular.
 			\item Pulsar sobre la plaza/docente a vincular e indicar en el campo horas el número de horas asignadas al grupo.
 			\item Pulsar sobre el botón <<Vincular>>.
-			\item Se cierra la ventana modal y se puede ver en el grupo la plaza vinculada.
 		\end{enumerate}\\
 		\textbf{Postcondición}        & La plaza seleccionada se vincula al grupo con el número de horas indicado. El sistema permanece en la ventana del grupo donde aparecen las plazas asignadas. \\
-		\textbf{Excepciones}          & Otra forma de finalizar el caso de uso es desvincular una plaza de un grupo. Para ello se pulsa en el botón <<Eliminar>> del listado de plazas del grupo. Aparece una ventana modal que pregunta si está seguro de la eliminación y, al pulsar en <<Sí>>, desaparece la vinculación de la plaza al grupo, cosa que se puede ver reflejada en la tabla. \\
+		\textbf{Excepciones}          & Otra forma de finalizar el caso de uso es desvincular una plaza de un grupo. Para ello se pulsa en el botón <<Eliminar>> del listado de plazas del grupo. Aparece una ventana modal que pregunta si está seguro de la eliminación y, al pulsar en <<Sí>>, desaparece la vinculación de la plaza al grupo.
+		Finalmente, las horas que tiene asignadas una plaza/docente se pueden modificar. Para ello, se cambia el número de horas de la plaza desde la tabla (columna <<Horas anuales>>) y para guardar los cambios se pulsa en el botón <<Modificar>>. \\
 		\textbf{Importancia}          & Alta \\
 		\bottomrule
 	\end{tabularx}
@@ -840,9 +896,17 @@ A continuación se van a exponer los requisitos de la aplicación web.
 \end{table}
 \FloatBarrier
 
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.8]{../img/Anexos/Casos uso/Vistas ER/Diagrama E-R CU 3.pdf}
+	\caption{Vista diagrama entidad relación para el CU-3}\label{er_cu3}
+\end{figure}
+\FloatBarrier
+
+\newpage
 \subsection{Prototipos de vistas de los casos de uso}
 \begin{itemize}
-	\item \textbf{CU-1.} Mantenimiento docente.
+	\item \textbf{CU-1.} Mantenimiento académico.
 	\begin{itemize}
 		\item \textbf{CU-1.1} Mantenimiento de centros.
 		\begin{figure}[!h]
@@ -858,6 +922,7 @@ A continuación se van a exponer los requisitos de la aplicación web.
 		\caption{Añadir/Modificar centros}
 		\end{figure}
 		\FloatBarrier
+\newpage
 		\item \textbf{CU-1.2} Mantenimiento de titulaciones.
 		\begin{figure}[!h]
 		\centering
@@ -872,6 +937,7 @@ A continuación se van a exponer los requisitos de la aplicación web.
 		\caption{Añadir/Modificar titulaciones}
 		\end{figure}
 		\FloatBarrier
+\newpage
 		\item \textbf{CU-1.3} Mantenimiento de asignaturas.
 		\begin{figure}[!h]
 		\centering
@@ -888,6 +954,7 @@ A continuación se van a exponer los requisitos de la aplicación web.
 		\FloatBarrier
 	\end{itemize}
 	
+\newpage	
 	\item \textbf{CU-2.} Mantenimiento de profesorado.
 	\begin{itemize}
 		\item \textbf{CU-2.1} Mantenimiento de departamentos.
@@ -904,6 +971,7 @@ A continuación se van a exponer los requisitos de la aplicación web.
 		\caption{Añadir/Modificar departamentos}
 		\end{figure}
 		\FloatBarrier
+\newpage
 		\item \textbf{CU-2.2} Mantenimiento de áreas.
 		\begin{figure}[!h]
 		\centering
@@ -925,6 +993,7 @@ A continuación se van a exponer los requisitos de la aplicación web.
 		\caption{Mantenimiento de docentes}
 		\end{figure}
 		\FloatBarrier
+\newpage
 		\item \textbf{CU-2.3.1} Añadir/Modificar docentes.
 		\begin{figure}[!h]
 		\centering
@@ -939,6 +1008,7 @@ A continuación se van a exponer los requisitos de la aplicación web.
 		\caption{Mantenimiento de tipos de contrato}
 		\end{figure}
 		\FloatBarrier
+\newpage
 		\item \textbf{CU-2.4.1} Añadir/Modificar tipos de contrato.
 		\begin{figure}[!h]
 		\centering
@@ -953,6 +1023,7 @@ A continuación se van a exponer los requisitos de la aplicación web.
 		\caption{Mantenimiento de plazas}
 		\end{figure}
 		\FloatBarrier
+\newpage
 		\item \textbf{CU-2.5.1} Añadir/Modificar plazas.
 		\begin{figure}[!h]
 		\centering
@@ -969,6 +1040,7 @@ A continuación se van a exponer los requisitos de la aplicación web.
 		\FloatBarrier
 	\end{itemize}
 	
+\newpage
 	\item \textbf{CU-3.} Asignación docente.
 	\begin{itemize}
 		\item \textbf{CU-3.1} Mantenimiento cursos académicos.
@@ -980,10 +1052,11 @@ A continuación se van a exponer los requisitos de la aplicación web.
 		\FloatBarrier
 		\begin{figure}[!h]
 		\centering
-		\includegraphics[width=0.7\textwidth]{../img/Anexos/Vistas/mod_ano_curso.png}
+		\includegraphics[width=0.5\textwidth]{../img/Anexos/Vistas/mod_ano_curso.png}
 		\caption{Modificar año curso académico}
 		\end{figure}
 		\FloatBarrier
+\newpage
 		\item \textbf{CU-3.1.1} Añadir curso académico.
 		\begin{figure}[!h]
 		\centering
@@ -991,6 +1064,13 @@ A continuación se van a exponer los requisitos de la aplicación web.
 		\caption{Añadir curso académico}
 		\end{figure}
 		\FloatBarrier
+		\begin{figure}[!h]
+		\centering
+		\includegraphics[width=\textwidth]{../img/Anexos/Vistas/add_curso_1.png}
+		\caption{Añadir curso académico 2}
+		\end{figure}
+		\FloatBarrier
+\newpage
 		\item \textbf{CU-3.1.2} Modificar curso académico.
 		\begin{figure}[!h]
 		\centering
@@ -1004,6 +1084,7 @@ A continuación se van a exponer los requisitos de la aplicación web.
 		\caption{Añadir asignaturas al curso}
 		\end{figure}
 		\FloatBarrier
+\newpage
 		\item \textbf{CU-3.2} Mantenimiento de grupos.
 		\begin{figure}[!h]
 		\centering
@@ -1020,10 +1101,11 @@ A continuación se van a exponer los requisitos de la aplicación web.
 		\FloatBarrier
 		\begin{figure}[!h]
 		\centering
-		\includegraphics[width=0.7\textwidth]{../img/Anexos/Vistas/add_grupo.png}
+		\includegraphics[width=0.5\textwidth]{../img/Anexos/Vistas/add_grupo.png}
 		\caption{Añadir/Modificar grupo 2}
 		\end{figure}
 		\FloatBarrier
+		\newpage
 		\item \textbf{CU-3.3} Asignación de horas de plazas a grupos.
 		\begin{figure}[!h]
 		\centering
@@ -1039,7 +1121,7 @@ A continuación se van a exponer los requisitos de la aplicación web.
 		\FloatBarrier
 		\begin{figure}[!h]
 		\centering
-		\includegraphics[width=0.7\textwidth]{../img/Anexos/Vistas/asig_horas_plaza_grupo_modal.png}
+		\includegraphics[width=0.5\textwidth]{../img/Anexos/Vistas/asig_horas_plaza_grupo_modal.png}
 		\caption{Asignación de horas de plazas a grupos 3}
 		\end{figure}
 		\FloatBarrier
