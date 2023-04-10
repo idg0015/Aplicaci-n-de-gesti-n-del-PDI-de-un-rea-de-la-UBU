@@ -5,7 +5,48 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ae6b2c56-8d66-4217-a826-17f3975d95c3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/controllers/AreaController.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controllers/AsignaturaController.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controllers/CentroController.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controllers/ContratoController.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controllers/CursoController.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controllers/DepartamentoController.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controllers/DocenteController.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controllers/GrupoController.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controllers/HorasController.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controllers/PlazaController.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controllers/TitulacionController.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/Centro.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/area_bp.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/asignatura_bp.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/centro_bp.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/contrato_bp.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/curso_bp.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/departamento_bp.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/docente_bp.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/grupo_bp.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/horas_bp.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/plaza_bp.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/titulacion_bp.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/base.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/scripts.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/areas/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/asignaturas/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/base/base_template.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/base/navbar.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/centros/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/contratos/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/cursos/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/departamentos/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/docentes/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/grupos/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/horas/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/plazas/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/titulaciones/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,38 +57,74 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Flask Main" />
+        <option value="HTML File" />
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+        <option value="Python Script" />
       </list>
+    </option>
+  </component>
+  <component name="FlaskConsoleOptions" custom-start-script="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))">
+    <envs>
+      <env key="FLASK_APP" value="app" />
+    </envs>
+    <option name="myCustomStartScript" value="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))" />
+    <option name="myEnvs">
+      <map>
+        <entry key="FLASK_APP" value="app" />
+      </map>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2NWAX7IAgceEbBIl6aENnhidLzB" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Nacho/Desktop/UBU/TFG/Aplicacion-de-gestion-del-PDI-de-un-area-de-la-UBU/src/routes&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Nacho\Desktop\UBU\TFG\Aplicacion-de-gestion-del-PDI-de-un-area-de-la-UBU\src\routes" />
+      <recent name="C:\Users\Nacho\Desktop\UBU\TFG\Aplicacion-de-gestion-del-PDI-de-un-area-de-la-UBU\src\templates\horas" />
+      <recent name="C:\Users\Nacho\Desktop\UBU\TFG\Aplicacion-de-gestion-del-PDI-de-un-area-de-la-UBU\src\controllers" />
+      <recent name="C:\Users\Nacho\Desktop\UBU\TFG\Aplicacion-de-gestion-del-PDI-de-un-area-de-la-UBU\src\templates\departamentos" />
+      <recent name="C:\Users\Nacho\Desktop\UBU\TFG\Aplicacion-de-gestion-del-PDI-de-un-area-de-la-UBU\src\templates\contratos" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Nacho\Desktop\UBU\TFG\Aplicacion-de-gestion-del-PDI-de-un-area-de-la-UBU\src\app" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="src" type="Python.FlaskServer">
+      <option name="flaskDebug" value="true" />
       <module name="src" />
       <option name="target" value="$PROJECT_DIR$/app.py" />
       <option name="targetType" value="PATH" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
+      <option name="SDK_HOME" value="C:\Users\Nacho\Desktop\UBU\TFG\Aplicacion-de-gestion-del-PDI-de-un-area-de-la-UBU\src\venv\Scripts\python.exe" />
+      <option name="SDK_NAME" value="Python 3.9 (src)" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
@@ -67,6 +144,13 @@
       <workItem from="1679769512904" duration="115000" />
       <workItem from="1679945927446" duration="122000" />
       <workItem from="1680368806167" duration="743000" />
+      <workItem from="1680606940540" duration="10770000" />
+      <workItem from="1680638956574" duration="528000" />
+      <workItem from="1680639741409" duration="1388000" />
+      <workItem from="1680683211320" duration="6639000" />
+      <workItem from="1680792202721" duration="5803000" />
+      <workItem from="1680896562927" duration="880000" />
+      <workItem from="1681115330124" duration="2226000" />
     </task>
     <servers />
   </component>
@@ -83,5 +167,8 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/src$src.coverage" NAME="src Coverage Results" MODIFIED="1681142145933" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

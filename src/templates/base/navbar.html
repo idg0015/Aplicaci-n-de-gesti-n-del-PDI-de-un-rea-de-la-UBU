@@ -1,0 +1,47 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="{{ url_for('index') }}"><img src="{{ url_for("static", filename="images/logo.png") }}"alt="Universidad de Burgos"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link {{ 'active' if active_page == 'inicio' else '' }}" href="{{ url_for('index') }}">Inicio</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link {{ 'active' if active_page == 'centros' else '' }}" href="{{ url_for('centro_bp.index') }}">Centros</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link {{ 'active' if active_page == 'titulaciones' else '' }}" href="{{ url_for('titulacion_bp.index') }}">Titulaciones</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link {{ 'active' if active_page == 'asignaturas' else '' }}" href="{{ url_for('asignatura_bp.index') }}">Asignaturas</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link {{ 'active' if active_page == 'cursos' else '' }}" href="{{ url_for('curso_bp.index') }}">Cursos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link {{ 'active' if active_page == 'grupos' else '' }}" href="{{ url_for('grupo_bp.index') }}">Grupos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link {{ 'active' if active_page == 'docentes' else '' }}" href="{{ url_for('docente_bp.index') }}">Docentes</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link {{ 'active' if active_page == 'plazas' else '' }}" href="{{ url_for('plaza_bp.index') }}">Plazas</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link {{ 'active' if active_page == 'contratos' else '' }}" href="{{ url_for('contrato_bp.index') }}">Contratos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link {{ 'active' if active_page == 'areas' else '' }}" href="{{ url_for('area_bp.index') }}">Áreas</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link {{ 'active' if active_page == 'departamentos' else '' }}" href="{{ url_for('departamento_bp.index') }}">Departamentos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link {{ 'active' if active_page == 'horas' else '' }}" href="{{ url_for('horas_bp.index') }}">Horas</a>
+      </li>
+    </ul>
+  </div>
+</nav>

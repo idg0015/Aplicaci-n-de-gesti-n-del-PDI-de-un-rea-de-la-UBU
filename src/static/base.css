@@ -1,0 +1,41 @@
+.contenido{
+    padding: 10px;
+}
+
+/*Botones*/
+.btn-primary{
+    background-color: #aa223c !important;
+    border-color: #aa223c !important;
+}
+
+.btn-primary:focus{
+    box-shadow: 0 0 0 0.1rem rgba(255, 12, 12, 0.5) !important;
+}
+
+.icono{
+    color: #aa223c;
+}
+
+.icono:hover{
+    color: #490f1b;
+}
+
+.btn-nuevo{
+    margin-left: 15%;
+}
+
+/*Menú*/
+.active{
+    background-color: #aa223c;
+    color:white !important;
+}
+
+#navbarSupportedContent > ul > li> a {
+    line-height: 60px;
+}
+
+.navbar{
+    padding: 0  1rem !important;
+}
+
+/*Tablas*/
