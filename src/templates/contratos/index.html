@@ -6,4 +6,7 @@
     <h1 class="text-center">Contratos</h1>
     <a href="#" class="btn btn-primary btn-nuevo">Nuevo</a>
     <div id="tablaContratos" class="text-center"></div>
+    <script>
+        let contratos = JSON.parse('{{ contratos | default([]) | tojson }}');
+    </script>
 {% endblock %}

@@ -2,11 +2,15 @@ $(document).ready(function () {
     if (document.getElementById('tablaCentros') != null) {
         new gridjs.Grid({
             columns: [
-                "Id", "Nombre", "Abreviatura", "Email administrativo",
+                "Id", "Nombre", "Abreviatura",
+                {
+                    id: 'email',
+                    name: 'Email administrativo'
+                },
                 {
                     name: 'Acciones',
                     //width: '8%',
-                    sort:false,
+                    sort:false,///update/${row.cells[0].data}
                     formatter: (_, row) => gridjs.html(`<a class="icono" href="#" onclick="alert( '${row.cells[0].data}');"><i class="bi bi-pencil-square"></i></a> <a href="#" class="icono" onclick="alert( '${row.cells[0].data}');"><i class="bi bi-trash3-fill"></i></a>`)
                 },
             ],
@@ -17,20 +21,19 @@ $(document).ready(function () {
             sort: true,
             search: true,
             width: "70%",
-            data: [
-                ["1", "Centro 1", "AA", "ubu@ubu.es", null],
-                ["2", "Centro 2", "BB", "ubu@ubu.es", null],
-                ["3", "Centro 3", "CC", "ubu@ubu.es", null],
-                ["4", "Centro 4", "DD", "ubu@ubu.es", null],
-                ["5", "Centro 5", "EE", "ubu@ubu.es", null]
-            ]
+            data:centros
         }).render(document.getElementById("tablaCentros"));
     }
 
     if (document.getElementById('tablaTitulaciones') != null) {
         new gridjs.Grid({
             columns: [
-                "Id", "Nombre", "Abreviatura", "URL",
+                "Id", "Nombre", "Abreviatura",
+                {
+                    name: 'URL',
+                    formatter: (_, row) => gridjs.html(`<a href='${row.cells[3].data}' class="enlace">Web</a>`)
+                },
+                "Centro",
                 {
                     name: 'Acciones',
                     formatter: (_, row) => gridjs.html(`<a class="icono" href="#" onclick="alert( '${row.cells[0].data}');"><i class="bi bi-pencil-square"></i></a> <a href="#" class="icono" onclick="alert( '${row.cells[0].data}');"><i class="bi bi-trash3-fill"></i></a>`)
@@ -40,23 +43,33 @@ $(document).ready(function () {
                 td: "text-center",
                 th: "text-center"
             },
+            width: "95%",
             sort: true,
             search: true,
-            width: "70%",
-            data: [
-                ["1", "Grado 1", "AA", "www.ubu.es", null],
-                ["2", "Grado 2", "BB", "www.ubu.es", null],
-                ["3", "Grado 3", "CC", "www.ubu.es", null],
-                ["4", "Grado 4", "DD", "www.ubu.es", null],
-                ["5", "Grado 5", "EE", "www.ubu.es", null]
-            ]
+            resizable: true,
+            pagination: {
+                limit: 7
+            },
+            data: titulaciones
         }).render(document.getElementById("tablaTitulaciones"));
     }
 
     if (document.getElementById('tablaAsignaturas') != null) {
         new gridjs.Grid({
             columns: [
-                "Id", "Nombre", "Tipo", "Titulación", "Créditos teoría", "Créditos práctica", "Curso", "Semestre", "Abreviaturas",
+                "Id", "Nombre", "Tipo",
+                {
+                    id: 'titulacion',
+                    name: 'Titulación'
+                },
+                {
+                    id: 'creditos_teoria',
+                    name: 'Créditos teoría'
+                },
+                {
+                    id: 'creditos_practica',
+                    name: 'Créditos práctica'
+                },"Curso", "Semestre", "Abreviaturas",
                 {
                     name: 'Acciones',
                     formatter: (_, row) => gridjs.html(`<a class="icono" href="#" onclick="alert( '${row.cells[0].data}');"><i class="bi bi-pencil-square"></i></a> <a href="#" class="icono" onclick="alert( '${row.cells[0].data}');"><i class="bi bi-trash3-fill"></i></a>`)
@@ -66,15 +79,14 @@ $(document).ready(function () {
                 td: "text-center",
                 th: "text-center"
             },
+            width: "95%",
             sort: true,
             search: true,
-            data: [
-                ["1", "Asignatura 1", "Grado 1", "Obligatoria", 3, 3, "3º", 1, "AA, A1", null],
-                ["2", "Asignatura 2", "Grado 2", "Optativa", 3, 3, "4º", 1, "BB", null],
-                ["3", "Asignatura 3", "Grado 1", "Obligatoria", 3, 3, "2º", 2, "CC", null],
-                ["4", "Asignatura 4", "Grado 1", "Básica", 3, 3, "1º", 1, "DD, D1", null],
-                ["5", "Asignatura 5", "Grado 5", "Obligatoria", 3, 3, "3º", 2, "EE", null]
-            ]
+            resizable: true,
+            pagination: {
+                limit: 7
+            },
+            data: asignaturas
         }).render(document.getElementById("tablaAsignaturas"));
     }
 
@@ -94,20 +106,38 @@ $(document).ready(function () {
             sort: true,
             search: true,
             width: "70%",
-            data: [
-                ["1", "Nombre 1", "Apellido", "ubu@ubu.es", 3, null],
-                ["2", "Nombre 2", "Apellido", "ubu@ubu.es", 3, null],
-                ["3", "Nombre 3", "Apellido", "ubu@ubu.es", 3, null],
-                ["4", "Nombre 4", "Apellido", "ubu@ubu.es", 3, null],
-                ["5", "Nombre 5", "Apellido", "ubu@ubu.es", 3, null]
-            ]
+            data: docentes
+            // data: [
+            //     ["1", "Nombre 1", "Apellido", "ubu@ubu.es", 3, null],
+            //     ["2", "Nombre 2", "Apellido", "ubu@ubu.es", 3, null],
+            //     ["3", "Nombre 3", "Apellido", "ubu@ubu.es", 3, null],
+            //     ["4", "Nombre 4", "Apellido", "ubu@ubu.es", 3, null],
+            //     ["5", "Nombre 5", "Apellido", "ubu@ubu.es", 3, null]
+            // ]
         }).render(document.getElementById("tablaDocentes"));
     }
 
     if (document.getElementById('tablaPlazas') != null) {
         new gridjs.Grid({
             columns: [
-                "Id", "Nombre", "RPT", "Fecha incorporación", "Fecha cese", "Nº concursos contratación", "Docente", "Tipo contrato",
+                "Id", "Nombre", "RPT",
+                {
+                    id: 'fecha_incorporacion',
+                    name: 'Fecha incorporación'
+                },
+                {
+                    id: 'fecha_cese',
+                    name: 'Fecha cese'
+                },
+                {
+                    id: 'num_concursos_contratacion',
+                    name: 'Nº concursos contratación'
+                },
+                "Docente",
+                {
+                    id: 'tipo_contrato',
+                    name: 'Tipo Contrato'
+                },
                 {
                     name: 'Acciones',
                     formatter: (_, row) => gridjs.html(`<a class="icono" href="#" onclick="alert( '${row.cells[0].data}');"><i class="bi bi-pencil-square"></i></a> <a href="#" class="icono" onclick="alert( '${row.cells[0].data}');"><i class="bi bi-trash3-fill"></i></a>`)
@@ -115,17 +145,19 @@ $(document).ready(function () {
             ],
             sort: true,
             search: true,
+            width: "70%",
             className: {
                 td: "text-center",
                 th: "text-center"
             },
-            data: [
-                ["1", "Nombre 1", "RPT", "01/01/2023", "01/01/2024", "Docente 1", "Tipo 1", 1, null],
-                ["2", "Nombre 2", "RPT", "01/01/2023", "01/01/2024", "Docente 2", "Tipo 2", 1, null],
-                ["3", "Nombre 3", "RPT", "01/01/2023", "01/01/2024", "Docente 3", "Tipo 1", 1, null],
-                ["4", "Nombre 4", "RPT", "01/01/2023", "01/01/2024", "Ninguno", "Tipo 7", 1, null],
-                ["5", "Nombre 5", "RPT", "01/01/2023", "01/01/2024", "Docente 4", "Tipo 5", 1, null]
-            ]
+            // data: [
+            //     ["1", "Nombre 1", "RPT", "01/01/2023", "01/01/2024", "Docente 1", "Tipo 1", 1, null],
+            //     ["2", "Nombre 2", "RPT", "01/01/2023", "01/01/2024", "Docente 2", "Tipo 2", 1, null],
+            //     ["3", "Nombre 3", "RPT", "01/01/2023", "01/01/2024", "Docente 3", "Tipo 1", 1, null],
+            //     ["4", "Nombre 4", "RPT", "01/01/2023", "01/01/2024", "Ninguno", "Tipo 7", 1, null],
+            //     ["5", "Nombre 5", "RPT", "01/01/2023", "01/01/2024", "Docente 4", "Tipo 5", 1, null]
+            // ]
+            data:plazas
         }).render(document.getElementById("tablaPlazas"));
     }
 
@@ -145,13 +177,7 @@ $(document).ready(function () {
                 td: "text-center",
                 th: "text-center"
             },
-            data: [
-                ["1", "Nombre 1", "AA", 800, null],
-                ["2", "Nombre 2", "BB", 800, null],
-                ["3", "Nombre 3", "CC", 800, null],
-                ["4", "Nombre 4", "DD", 800, null],
-                ["5", "Nombre 5", "EE", 800, null]
-            ]
+            data: contratos
         }).render(document.getElementById("tablaContratos"));
     }
 
@@ -171,13 +197,14 @@ $(document).ready(function () {
                 td: "text-center",
                 th: "text-center"
             },
-            data: [
-                ["1", "Nombre 1", "AA", "Departamento 1", null],
-                ["2", "Nombre 2", "BB", "Departamento 1", null],
-                ["3", "Nombre 3", "CC", "Departamento 1", null],
-                ["4", "Nombre 4", "DD", "Departamento 1", null],
-                ["5", "Nombre 5", "EE", "Departamento 1", null]
-            ]
+            data: areas
+            // data: [
+            //     ["1", "Nombre 1", "AA", "Departamento 1", null],
+            //     ["2", "Nombre 2", "BB", "Departamento 1", null],
+            //     ["3", "Nombre 3", "CC", "Departamento 1", null],
+            //     ["4", "Nombre 4", "DD", "Departamento 1", null],
+            //     ["5", "Nombre 5", "EE", "Departamento 1", null]
+            // ]
         }).render(document.getElementById("tablaAreas"));
     }
 
@@ -187,18 +214,24 @@ $(document).ready(function () {
                 "Id", "Nombre", "Abreviatura",
                 {
                     name: 'Acciones',
-                    formatter: (_, row) => gridjs.html(`<button type="button" class="btn btn-primary" onclick="alert( '${row.cells[0].data}');">Modificar</button> <button type="button" class="btn btn-primary" onclick="alert( '${row.cells[0].data}');">Eliminar</button>`)
+                    formatter: (_, row) => gridjs.html(`<a class="icono" href="#" onclick="alert( '${row.cells[0].data}');"><i class="bi bi-pencil-square"></i></a> <a href="#" class="icono" onclick="alert( '${row.cells[0].data}');"><i class="bi bi-trash3-fill"></i></a>`)
                 },
             ],
             sort: true,
             search: true,
-            data: [
-                ["1", "Nombre 1", "AA", null],
-                ["2", "Nombre 2", "BB", null],
-                ["3", "Nombre 3", "CC", null],
-                ["4", "Nombre 4", "DD", null],
-                ["5", "Nombre 5", "EE", null]
-            ]
+            width: "70%",
+            className: {
+                td: "text-center",
+                th: "text-center"
+            },
+            data: departamentos
+            // data: [
+            //     ["1", "Nombre 1", "AA", null],
+            //     ["2", "Nombre 2", "BB", null],
+            //     ["3", "Nombre 3", "CC", null],
+            //     ["4", "Nombre 4", "DD", null],
+            //     ["5", "Nombre 5", "EE", null]
+            // ]
         }).render(document.getElementById("tablaDepartamentos"));
     }
 
@@ -218,12 +251,13 @@ $(document).ready(function () {
             sort: true,
             search: true,
             width: "70%",
-            data: [
-                ["1", "2020", "2021", null],
-                ["2", "2021", "2022", null],
-                ["3", "2022", "2023", null],
-                ["4", "2023", "2024", null]
-            ]
+            data: cursos
+            // data: [
+            //     ["1", "2020", "2021", null],
+            //     ["2", "2021", "2022", null],
+            //     ["3", "2022", "2023", null],
+            //     ["4", "2023", "2024", null]
+            // ]
         }).render(document.getElementById("tablaCursos"));
     }
 

@@ -1,4 +1,5 @@
 from flask import Flask, render_template
+from flask_sqlalchemy import SQLAlchemy
 from routes.centro_bp import centro_bp
 from routes.titulacion_bp import titulacion_bp
 from routes.area_bp import area_bp
@@ -10,8 +11,18 @@ from routes.plaza_bp import plaza_bp
 from routes.contrato_bp import contrato_bp
 from routes.departamento_bp import departamento_bp
 from routes.horas_bp import horas_bp
+from utils.db import db
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = '\xa2\xff\xc0\x97\xeb%\x81\xa6L\xe3\x9aK\x19y\xa6(\xcf\xa2^c\xe1?\x8bG'
+app.config["SQLALCHEMY_DATABASE_URI"] = "mysql://root:@localhost/ubu"
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+# SQLAlchemy(app)
+db.init_app(app)
+with app.app_context():
+    db.create_all()
+
+
 app.register_blueprint(centro_bp, url_prefix='/centros')
 app.register_blueprint(titulacion_bp, url_prefix='/titulaciones')
 app.register_blueprint(area_bp, url_prefix='/areas')

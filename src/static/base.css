@@ -12,6 +12,11 @@
     box-shadow: 0 0 0 0.1rem rgba(255, 12, 12, 0.5) !important;
 }
 
+.btn-primary:hover{
+    background-color: #490f1b !important;
+    border-color: #490f1b !important;
+}
+
 .icono{
     color: #aa223c;
 }
@@ -22,6 +27,10 @@
 
 .btn-nuevo{
     margin-left: 15%;
+}
+
+.btn-nuevo-2{
+    margin-left: 2.6%;
 }
 
 /*Menú*/
@@ -36,6 +45,11 @@
 
 .navbar{
     padding: 0  1rem !important;
+}
+
+/* Enlaces */
+.enlace{
+    color: #aa223c !important;
 }
 
 /*Tablas*/

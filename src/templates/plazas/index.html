@@ -4,6 +4,9 @@
 
 {% block content %}
     <h1 class="text-center">Plazas</h1>
-    <a href="#" class="btn btn-primary">Nuevo</a>
-    <div id="tablaPlazas"></div>
+    <a href="#" class="btn btn-primary btn-nuevo">Nuevo</a>
+    <div id="tablaPlazas" class="text-center"></div>
+    <script>
+        let plazas = JSON.parse('{{ plazas | default([])| tojson }}');
+    </script>
 {% endblock %}

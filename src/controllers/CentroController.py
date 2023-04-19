@@ -1,5 +1,8 @@
-from flask import render_template
+from flask import render_template, jsonify
+from models.Centro import Centro
 
 
 def index():
-    return render_template('centros/index.html')
+    centros = Centro.get_all_json()
+    return render_template('centros/index.html', centros=centros)
+
