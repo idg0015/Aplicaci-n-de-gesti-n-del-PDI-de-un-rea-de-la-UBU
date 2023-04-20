@@ -5,12 +5,262 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ae6b2c56-8d66-4217-a826-17f3975d95c3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/static/images/favicon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/.package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/gridjs.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/gridjs.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/gridjs.mjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/gridjs.mjs.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/gridjs.module.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/gridjs.module.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/gridjs.production.es.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/gridjs.production.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/gridjs.umd.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/gridjs.umd.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/index.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/src/base.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/src/cell.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/src/config.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/src/events.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/src/grid.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/src/header.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/src/hooks/useConfig.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/src/hooks/useSelector.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/src/hooks/useStore.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/src/i18n/en_US.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/src/i18n/es_LA.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/src/i18n/language.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/src/i18n/ms_MY.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/src/operator/search.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/src/pipeline/extractor/storage.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/src/pipeline/filter/globalSearch.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/src/pipeline/filter/serverGlobalSearch.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/src/pipeline/initiator/server.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/src/pipeline/limit/pagination.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/src/pipeline/limit/serverPagination.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/src/pipeline/pipeline.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/src/pipeline/pipelineUtils.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/src/pipeline/processor.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/src/pipeline/sort/native.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/src/pipeline/sort/server.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/src/pipeline/transformer/arrayToTabular.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/src/pipeline/transformer/storageResponseToArray.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/src/plugin.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/src/row.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/src/state/store.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/src/storage/memory.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/src/storage/server.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/src/storage/storage.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/src/storage/storageUtils.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/src/tabular.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/src/types.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/src/util/array.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/src/util/className.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/src/util/debounce.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/src/util/eventEmitter.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/src/util/getConfig.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/src/util/html.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/src/util/id.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/src/util/log.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/src/util/string.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/src/util/table.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/src/util/throttle.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/src/util/width.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/src/view/actions.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/src/view/container.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/src/view/events.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/src/view/footerContainer.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/src/view/headerContainer.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/src/view/htmlElement.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/src/view/plugin/pagination.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/src/view/plugin/resize/resize.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/src/view/plugin/search/actions.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/src/view/plugin/search/search.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/src/view/plugin/sort/actions.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/src/view/plugin/sort/sort.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/src/view/table/events.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/src/view/table/messageRow.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/src/view/table/shadow.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/src/view/table/table.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/src/view/table/tbody.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/src/view/table/td.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/src/view/table/th.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/src/view/table/thead.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/src/view/table/tr.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/theme/mermaid.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/theme/mermaid.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/dist/theme/mermaid.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/l10n/dist/ar_SA.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/l10n/dist/cn_CN.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/l10n/dist/cs_CZ.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/l10n/dist/de_DE.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/l10n/dist/es_ES.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/l10n/dist/fa_IR.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/l10n/dist/fr_FR.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/l10n/dist/id_ID.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/l10n/dist/index.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/l10n/dist/it_IT.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/l10n/dist/ja_JP.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/l10n/dist/ko_KR.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/l10n/dist/l10n.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/l10n/dist/l10n.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/l10n/dist/l10n.mjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/l10n/dist/l10n.modern.mjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/l10n/dist/l10n.modern.mjs.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/l10n/dist/l10n.module.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/l10n/dist/l10n.module.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/l10n/dist/l10n.umd.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/l10n/dist/nb_NO.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/l10n/dist/pt_BR.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/l10n/dist/pt_PT.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/l10n/dist/ru_RU.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/l10n/dist/tr_TR.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/l10n/dist/ua_UA.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/plugins/selection/dist/index.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/plugins/selection/dist/selection.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/plugins/selection/dist/selection.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/plugins/selection/dist/selection.mjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/plugins/selection/dist/selection.modern.mjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/plugins/selection/dist/selection.modern.mjs.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/plugins/selection/dist/selection.module.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/plugins/selection/dist/selection.module.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/plugins/selection/dist/selection.umd.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/plugins/selection/dist/selection.umd.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/plugins/selection/dist/src/rowSelection/actions.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/gridjs/plugins/selection/dist/src/rowSelection/rowSelection.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/compat/client.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/compat/client.mjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/compat/dist/compat.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/compat/dist/compat.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/compat/dist/compat.mjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/compat/dist/compat.module.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/compat/dist/compat.module.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/compat/dist/compat.umd.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/compat/dist/compat.umd.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/compat/jsx-dev-runtime.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/compat/jsx-dev-runtime.mjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/compat/jsx-runtime.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/compat/jsx-runtime.mjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/compat/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/compat/scheduler.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/compat/scheduler.mjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/compat/server.browser.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/compat/server.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/compat/server.mjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/compat/src/Children.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/compat/src/PureComponent.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/compat/src/forwardRef.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/compat/src/index.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/compat/src/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/compat/src/internal.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/compat/src/memo.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/compat/src/portals.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/compat/src/render.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/compat/src/suspense-list.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/compat/src/suspense-list.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/compat/src/suspense.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/compat/src/suspense.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/compat/src/util.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/compat/test-utils.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/debug/dist/debug.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/debug/dist/debug.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/debug/dist/debug.mjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/debug/dist/debug.module.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/debug/dist/debug.module.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/debug/dist/debug.umd.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/debug/dist/debug.umd.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/debug/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/debug/src/check-props.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/debug/src/component-stack.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/debug/src/constants.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/debug/src/debug.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/debug/src/index.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/debug/src/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/debug/src/internal.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/debug/src/util.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/devtools/dist/devtools.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/devtools/dist/devtools.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/devtools/dist/devtools.mjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/devtools/dist/devtools.module.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/devtools/dist/devtools.module.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/devtools/dist/devtools.umd.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/devtools/dist/devtools.umd.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/devtools/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/devtools/src/devtools.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/devtools/src/index.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/devtools/src/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/dist/preact.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/dist/preact.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/dist/preact.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/dist/preact.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/dist/preact.min.module.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/dist/preact.min.module.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/dist/preact.min.umd.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/dist/preact.min.umd.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/dist/preact.mjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/dist/preact.module.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/dist/preact.module.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/dist/preact.umd.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/dist/preact.umd.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/hooks/dist/hooks.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/hooks/dist/hooks.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/hooks/dist/hooks.mjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/hooks/dist/hooks.module.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/hooks/dist/hooks.module.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/hooks/dist/hooks.umd.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/hooks/dist/hooks.umd.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/hooks/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/hooks/src/index.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/hooks/src/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/hooks/src/internal.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/jsx-runtime/dist/jsxRuntime.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/jsx-runtime/dist/jsxRuntime.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/jsx-runtime/dist/jsxRuntime.mjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/jsx-runtime/dist/jsxRuntime.module.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/jsx-runtime/dist/jsxRuntime.module.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/jsx-runtime/dist/jsxRuntime.umd.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/jsx-runtime/dist/jsxRuntime.umd.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/jsx-runtime/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/jsx-runtime/src/index.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/jsx-runtime/src/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/src/cjs.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/src/clone-element.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/src/component.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/src/constants.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/src/create-context.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/src/create-element.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/src/diff/catch-error.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/src/diff/children.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/src/diff/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/src/diff/props.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/src/index.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/src/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/src/internal.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/src/jsx.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/src/options.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/src/render.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/src/util.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/test-utils/dist/testUtils.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/test-utils/dist/testUtils.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/test-utils/dist/testUtils.mjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/test-utils/dist/testUtils.module.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/test-utils/dist/testUtils.module.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/test-utils/dist/testUtils.umd.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/test-utils/dist/testUtils.umd.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/test-utils/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/test-utils/src/index.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/node_modules/preact/test-utils/src/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/base.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/base.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/l10n.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/node_modules/gridjs/l10n/dist/l10n.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/scripts.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base/base_template.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base/base_template.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base/navbar.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,35 +303,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Nacho/Desktop/UBU/TFG/Aplicacion-de-gestion-del-PDI-de-un-area-de-la-UBU/src/static&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/Nacho/Desktop/UBU/TFG/Aplicacion-de-gestion-del-PDI-de-un-area-de-la-UBU/src/static/node_modules",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "ts.external.directory.path": "E:\\Programas\\PyCharm 2022.3.2\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Nacho\Desktop\UBU\TFG\Aplicacion-de-gestion-del-PDI-de-un-area-de-la-UBU\src\static\node_modules" />
       <recent name="C:\Users\Nacho\Desktop\UBU\TFG\Aplicacion-de-gestion-del-PDI-de-un-area-de-la-UBU\src\static" />
       <recent name="C:\Users\Nacho\Desktop\UBU\TFG\Aplicacion-de-gestion-del-PDI-de-un-area-de-la-UBU\src\routes" />
       <recent name="C:\Users\Nacho\Desktop\UBU\TFG\Aplicacion-de-gestion-del-PDI-de-un-area-de-la-UBU\src\templates\horas" />
       <recent name="C:\Users\Nacho\Desktop\UBU\TFG\Aplicacion-de-gestion-del-PDI-de-un-area-de-la-UBU\src\controllers" />
-      <recent name="C:\Users\Nacho\Desktop\UBU\TFG\Aplicacion-de-gestion-del-PDI-de-un-area-de-la-UBU\src\templates\departamentos" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Nacho\Desktop\UBU\TFG\Aplicacion-de-gestion-del-PDI-de-un-area-de-la-UBU\src\static\images" />
@@ -138,7 +390,8 @@
       <workItem from="1681843465509" duration="4139000" />
       <workItem from="1681910971048" duration="9975000" />
       <workItem from="1681995903692" duration="42000" />
-      <workItem from="1681995989709" duration="3201000" />
+      <workItem from="1681995989709" duration="6613000" />
+      <workItem from="1682013953811" duration="3605000" />
     </task>
     <servers />
   </component>
@@ -157,6 +410,6 @@
     </option>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/src$src.coverage" NAME="src Coverage Results" MODIFIED="1682006723165" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/src$src.coverage" NAME="src Coverage Results" MODIFIED="1682015735935" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

@@ -18,6 +18,7 @@ $(document).ready(function () {
                 td: "text-center",
                 th: "text-center"
             },
+            language: gridjs.l10n.esES,
             sort: true,
             search: true,
             width: "70%",
@@ -44,6 +45,7 @@ $(document).ready(function () {
                 th: "text-center"
             },
             width: "95%",
+            language: gridjs.l10n.esES,
             sort: true,
             search: true,
             resizable: true,
@@ -80,6 +82,7 @@ $(document).ready(function () {
                 th: "text-center"
             },
             width: "95%",
+            language: gridjs.l10n.esES,
             sort: true,
             search: true,
             resizable: true,
@@ -103,6 +106,7 @@ $(document).ready(function () {
                 td: "text-center",
                 th: "text-center"
             },
+            language: gridjs.l10n.esES,
             sort: true,
             search: true,
             width: "70%",
@@ -143,6 +147,7 @@ $(document).ready(function () {
                     formatter: (_, row) => gridjs.html(`<a class="icono" href="#" onclick="alert( '${row.cells[0].data}');"><i class="bi bi-pencil-square"></i></a> <a href="#" class="icono" onclick="alert( '${row.cells[0].data}');"><i class="bi bi-trash3-fill"></i></a>`)
                 },
             ],
+            language: gridjs.l10n.esES,
             sort: true,
             search: true,
             width: "70%",
@@ -170,6 +175,7 @@ $(document).ready(function () {
                     formatter: (_, row) => gridjs.html(`<a class="icono" href="#" onclick="alert( '${row.cells[0].data}');"><i class="bi bi-pencil-square"></i></a> <a href="#" class="icono" onclick="alert( '${row.cells[0].data}');"><i class="bi bi-trash3-fill"></i></a>`)
                 },
             ],
+            language: gridjs.l10n.esES,
             sort: true,
             search: true,
             width: "70%",
@@ -190,6 +196,7 @@ $(document).ready(function () {
                     formatter: (_, row) => gridjs.html(`<a class="icono" href="#" onclick="alert( '${row.cells[0].data}');"><i class="bi bi-pencil-square"></i></a> <a href="#" class="icono" onclick="alert( '${row.cells[0].data}');"><i class="bi bi-trash3-fill"></i></a>`)
                 },
             ],
+            language: gridjs.l10n.esES,
             sort: true,
             search: true,
             width: "70%",
@@ -217,6 +224,7 @@ $(document).ready(function () {
                     formatter: (_, row) => gridjs.html(`<a class="icono" href="#" onclick="alert( '${row.cells[0].data}');"><i class="bi bi-pencil-square"></i></a> <a href="#" class="icono" onclick="alert( '${row.cells[0].data}');"><i class="bi bi-trash3-fill"></i></a>`)
                 },
             ],
+            language: gridjs.l10n.esES,
             sort: true,
             search: true,
             width: "70%",
@@ -248,6 +256,7 @@ $(document).ready(function () {
                 td: "text-center",
                 th: "text-center"
             },
+            language: gridjs.l10n.esES,
             sort: true,
             search: true,
             width: "70%",
@@ -270,6 +279,7 @@ $(document).ready(function () {
                     formatter: (_, row) => gridjs.html(`<button type="button" class="btn btn-primary" onclick="alert( '${row.cells[0].data}');">Gestionar grupos</button>`)
                 },
             ],
+            language: gridjs.l10n.esES,
             sort: true,
             search: true,
             data: [
@@ -290,6 +300,7 @@ $(document).ready(function () {
                     formatter: (_, row) => gridjs.html(`<button type="button" class="btn btn-primary">Modificar Año</button> <button type="button" class="btn btn-primary" onclick="alert( '${row.cells[0].data}');">Modificar</button> <button type="button" class="btn btn-primary">Duplicar</button> <button type="button" class="btn btn-primary" onclick="alert( '${row.cells[0].data}');">Eliminar</button>`)
                 },
             ],
+            language: gridjs.l10n.esES,
             sort: true,
             search: true,
             width: "70%",
@@ -311,6 +322,7 @@ $(document).ready(function () {
                     formatter: (_, row) => gridjs.html(`<button type="button" class="btn btn-primary" onclick="alert( '${row.cells[0].data}');">Editar</button>`)
                 },
             ],
+            language: gridjs.l10n.esES,
             sort: true,
             search: true,
             data: [
