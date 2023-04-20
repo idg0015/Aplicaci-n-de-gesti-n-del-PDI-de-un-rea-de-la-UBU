@@ -5,48 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ae6b2c56-8d66-4217-a826-17f3975d95c3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/Abreviatura.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/Area.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/Asignatura.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/Contrato.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/Curso.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/CursoAsignatura.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/Departamento.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/Docente.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/Grupo.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/Plaza.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/PlazaGrupo.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/Titulacion.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/l10n.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/db.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/tex/A_Plan_proyecto.tex" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/tex/A_Plan_proyecto.tex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/favicon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/AreaController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/AreaController.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/AsignaturaController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/AsignaturaController.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/CentroController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/CentroController.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/ContratoController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/ContratoController.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/CursoController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/CursoController.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/DepartamentoController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/DepartamentoController.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/DocenteController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/DocenteController.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/GrupoController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/GrupoController.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/HorasController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/HorasController.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/PlazaController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/PlazaController.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/TitulacionController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/TitulacionController.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Centro.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/Centro.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/base.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/base.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/scripts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/areas/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/areas/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/asignaturas/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/asignaturas/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base/base_template.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base/base_template.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base/navbar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/centros/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/centros/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/contratos/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contratos/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/cursos/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cursos/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/departamentos/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/departamentos/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/docentes/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/docentes/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/plazas/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/plazas/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/titulaciones/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/titulaciones/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,6 +84,7 @@
       <recent name="C:\Users\Nacho\Desktop\UBU\TFG\Aplicacion-de-gestion-del-PDI-de-un-area-de-la-UBU\src\templates\departamentos" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Nacho\Desktop\UBU\TFG\Aplicacion-de-gestion-del-PDI-de-un-area-de-la-UBU\src\static\images" />
       <recent name="C:\Users\Nacho\Desktop\UBU\TFG\Aplicacion-de-gestion-del-PDI-de-un-area-de-la-UBU\src\app" />
     </key>
   </component>
@@ -171,7 +136,9 @@
       <workItem from="1681738477864" duration="313000" />
       <workItem from="1681738806653" duration="267000" />
       <workItem from="1681843465509" duration="4139000" />
-      <workItem from="1681910971048" duration="9164000" />
+      <workItem from="1681910971048" duration="9975000" />
+      <workItem from="1681995903692" duration="42000" />
+      <workItem from="1681995989709" duration="3201000" />
     </task>
     <servers />
   </component>
@@ -190,6 +157,6 @@
     </option>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/src$src.coverage" NAME="src Coverage Results" MODIFIED="1681931874487" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/src$src.coverage" NAME="src Coverage Results" MODIFIED="1682006723165" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

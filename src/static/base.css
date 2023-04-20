@@ -34,8 +34,8 @@
 }
 
 /*Menú*/
-.active{
-    background-color: #aa223c;
+.dropdown-item.active, .dropdown-item:active{
+    background-color: #aa223c !important;
     color:white !important;
 }
 
@@ -50,6 +50,16 @@
 /* Enlaces */
 .enlace{
     color: #aa223c !important;
+}
+
+a.nav-link:hover, a.nav-link.active{
+    color: white !important;
+    background-color: #aa223c;
+}
+
+a.show{
+    background-color: #aa223c;
+    color: white !important;
 }
 
 /*Tablas*/
