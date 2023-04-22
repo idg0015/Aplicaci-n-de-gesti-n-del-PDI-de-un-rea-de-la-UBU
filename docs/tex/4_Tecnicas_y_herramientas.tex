@@ -38,20 +38,21 @@ Es la persona que hace de representación del cliente. Se encarga de la gestión
 Es recomendable que no sea un equipo con un gran número de personal (entre 4 y 8 personas). El equipo debe trabajar de forma simultanea para cumplir las tareas indicadas en la reunión de planificación del \textit{sprint}.
 \end{itemize}
 
-En las dos siguientes imágenes se puede ver tanto un resumen del proceso seguido en Scrum como de los diferentes elementos que interactúan en el mismo.
-\begin{figure}[h]
+En las figuras~\ref{ProcesoScrum1} y~\ref{ProcesoScrum2} se puede ver tanto un resumen del proceso seguido en Scrum como de los diferentes elementos que interactúan en el mismo.
+
+\begin{figure}
 	\centering
 	\includegraphics[width=\textwidth]{../img/Scrum/Scrum.png}
-	\caption{\textit{Proceso seguido en Scrum \cite{scrum}}}
+	\caption{\textit{Proceso seguido en Scrum \cite{scrum}}}\label{ProcesoScrum1}
 \end{figure}
-\FloatBarrier
 
-\begin{figure}[h]
+
+\begin{figure}
 	\centering
 	\includegraphics[width=\textwidth]{../img/Scrum/Scrum1.png}
-	\caption{\textit{Explicación de los elementos del proceso \cite{scrum}}}
+	\caption{\textit{Explicación de los elementos del proceso \cite{scrum}}}\label{ProcesoScrum2}
 \end{figure}
-\FloatBarrier
+
 
 De forma resumida, para seguir la metodología Scrum es necesario que el propietario del producto genere inicialmente las historias de usuario, que se encontrarán en la pila del producto. Estas historias podrán aumentar a lo largo del desarrollo.\\
 Con la pila del producto creada, todo el personal se reúne para planificar el \textit{sprint}. Estas reuniones son las que general la pila del \textit{sprint}.
@@ -87,13 +88,21 @@ HTML es el <<Lenguaje de Marcas de Hipertexto>> utilizado por la \textit{World W
 \subsection{CSS}
 CSS, también conocido como <<Hojas de Estilo en Cascada>>, es un lenguaje de estilos utilizado para mejorar la apariencia de los ficheros HTML. Gracias a CSS se puede dar rienda suelta al diseño y hacer páginas web completamente diferentes.
 
-\subsection{Bibliotecas}
+\subsection{Bibliotecas / \textit{plugins}}
 \begin{itemize}
 \item\textbf{SQLAlchemy}\\
 Biblioteca de SQL para Python que incluye una versión para el \textit{framework} Flask que permite su completa integración. SQLAlchemy contiene un conjunto de herramientas SQL que permiten el mapeo objeto-relacional, \textit{Object Relational Mapper (ORM)}. Esto permite que con un conjunto de expresiones requeridas por la biblioteca, se creen clases de objetos en Python que serán transformadas a tablas de una forma prácticamente abstracta para el desarrollador. Además, al estar los objetos vinculados a registros de una tabla SQL, cuenta con métodos para realizar distintas operaciones SQL como búsquedas, inserciones, eliminaciones, etc., sin tener que escribir sentencias SQL.\cite{sqlAlchemy}
 
 \item\textbf{Grid.js}\\
-Grid.js es una biblioteca de JavaScript que ayuda con el tratamiento de tablas. Gracias a esta biblioteca se pueden crear tablas con búsqueda, ordenamiento, redimensión de columnas, etc., de una forma sencilla gracias a sus herramientas. Además, Grid.js se puede incluir con \textit{frameworks} como Reac, Angular o Vue, pero también puede ser utilizado con JavaScript \textit{vanilla}.
+Grid.js es un \textit{plugin} de JavaScript que ayuda con el tratamiento de tablas. Gracias a esta biblioteca se pueden crear tablas con búsqueda, ordenamiento, redimensión de columnas, etc., de una forma sencilla gracias a sus herramientas. Además, Grid.js se puede incluir con \textit{frameworks} como Reac, Angular o Vue, pero también puede ser utilizado con JavaScript \textit{vanilla}.\\
+Antes de la elección de este \textit{plugin} se estuvo valorando el uso de otro llamado DataTables. Al final se decidió utilizar Grid.js a pesar de que DataTables es más completo.\\
+Algunas de las razones son la siguientes:
+\begin{itemize}
+\item Para utilizar Grid.js no es necesaria la biblioteca jQuery mientras que para DataTables sí. La dependencia de otras bibliotecas puede dar problemas en un futuro, además de que el rendimiento de JavaScript \textit{vanilla} es algo superior.
+\item Aunque esto se pueda cambiar, la estética de Grid.js me parece más moderna.
+\item Para este proyecto no eran necesarias muchas de las funcionalidades que aporta DataTables.
+\item En su repositorio en GitHub, se puede ver por los \textit{commits} realizados que es un proyecto en continuo desarrollo.
+\end{itemize}
 \end{itemize}
 
 \subsection{Software}
@@ -105,7 +114,7 @@ Por defecto, el software cuenta con objetos suficientes para crear los prototipo
 \item\textbf{Draw.io}\\
 Aplicación web que permite la creación de diagramas utilizando diferentes figuras geométricas. Además cuenta con objetos ya creados para crear diagramas utilizando UML, diagramas entidad-relación, diagramas relacionales, etc. Está aplicación permite una personalización avanzada por lo que es muy útil para crear cualquier tipo de diagrama. Además, al ser una aplicación web no requiere de ningún tipo de instalación aunque si que cuenta con una versión de escritorio para Windows, Linux, macOS y Chrome OS.
 \item\textbf{PyCharm}\\
-Es un entorno de desarrollo integrado (IDE) que pertenece a la empresa JetBrains y que está creado para el lenguaje de programación Python. Cuenta con una licencia de uso gratuita con funciones limitadas, aunque para estudiantes regalan un año de licencia completa para todos los productos de la empresa.
-PyCharm es uno de los IDE más completos y avanzados para el desarrollo con Python ya que cuenta con una gran cantidad de características que facilitan el trabajo y ayudan a ahorrar tiempo. Además, a la hora de crear proyectos se puede indicar el tipo de \textit{framework} a utilizar, lo que hará que cargue de forma automática todos los paquetes necesarios y creará una versión simple del proyecto desde la que empezar a trabajar. Esto ahorra mucho tiempo al no tener que ir buscando e instalando los paquetes necesarios desde distintos repositorios. 
+Es un entorno de desarrollo integrado (IDE) que pertenece a la empresa JetBrains y que está creado para trabajar el proyectos basados en el lenguaje de programación Python. Cuenta con una licencia de uso gratuita con funciones limitadas, aunque para estudiantes regalan un año de licencia completa para todos los productos de la empresa.\\
+PyCharm es uno de los IDE más completos y avanzados para el desarrollo con Python, ya que cuenta con una gran cantidad de características que facilitan el trabajo y ayudan a ahorrar tiempo. Además, a la hora de crear proyectos se puede indicar el tipo de \textit{framework} a utilizar, lo que hará que cargue de forma automática todos los paquetes necesarios y creará una versión simple del proyecto desde la que empezar a trabajar. Esto ahorra mucho tiempo al no tener que ir buscando e instalando los paquetes necesarios desde distintos repositorios. 
 \end{itemize}
 \subsection{}
