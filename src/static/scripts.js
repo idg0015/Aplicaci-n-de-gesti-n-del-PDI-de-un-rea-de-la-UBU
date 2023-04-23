@@ -1,5 +1,6 @@
 $(document).ready(function () {
     if (document.getElementById('tablaCentros') != null) {
+        let formURL = "{{ url_for('centro_bp.form_centro') }}";
         new gridjs.Grid({
             columns: [
                 "Id", "Nombre", "Abreviatura",
@@ -11,7 +12,7 @@ $(document).ready(function () {
                     name: 'Acciones',
                     //width: '8%',
                     sort:false,///update/${row.cells[0].data}
-                    formatter: (_, row) => gridjs.html(`<a class="icono" href="#" onclick="alert( '${row.cells[0].data}');"><i class="bi bi-pencil-square"></i></a> <a href="#" class="icono" onclick="alert( '${row.cells[0].data}');"><i class="bi bi-trash3-fill"></i></a>`)
+                    formatter: (_, row) => gridjs.html(`<a class="icono" href="/centros/${row.cells[0].data}"><i class="bi bi-pencil-square"></i></a> <a href="/centros/eliminar/${row.cells[0].data}" class="icono" onclick="return confirm('¿Está seguro de eliminar el centro? Se eliminarán sus titulaciones asociadas y todo lo que dependa de estas')"><i class="bi bi-trash3-fill"></i></a>`)
                 },
             ],
             className: {

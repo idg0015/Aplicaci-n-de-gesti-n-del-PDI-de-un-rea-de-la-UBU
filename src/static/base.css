@@ -62,4 +62,9 @@ a.show{
     color: white !important;
 }
 
-/*Tablas*/
+/* Formularios */
+.form-centro{
+    width: 50%;
+    display:block;
+    margin:0 auto;
+}

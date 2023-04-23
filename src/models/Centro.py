@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+
 from utils.db import db
 
 
@@ -21,3 +22,16 @@ class Centro(db.Model):
             "abreviatura": self.abreviatura,
             "email": self.email
         }
+
+    @staticmethod
+    def get_centro(id_centro):
+        return Centro.query.get(id_centro)
+
+    def save(self):
+        if not self.id:
+            db.session.add(self)
+        db.session.commit()
+
+    def delete(self):
+        db.session.delete(self)
+        db.session.commit()

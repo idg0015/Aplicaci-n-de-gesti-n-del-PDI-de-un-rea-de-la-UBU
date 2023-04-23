@@ -5,7 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ae6b2c56-8d66-4217-a826-17f3975d95c3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/centros/form.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/CentroController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/CentroController.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/Centro.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/Centro.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/centro_bp.py" beforeDir="false" afterPath="$PROJECT_DIR$/routes/centro_bp.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/base.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/base.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/scripts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/centros/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/centros/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,10 +24,10 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Flask Main" />
-        <option value="HTML File" />
         <option value="CSS File" />
         <option value="JavaScript File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -139,6 +147,7 @@
       <workItem from="1682013953811" duration="4264000" />
       <workItem from="1682025010770" duration="19000" />
       <workItem from="1682103589221" duration="629000" />
+      <workItem from="1682241101967" duration="9288000" />
     </task>
     <servers />
   </component>
@@ -157,6 +166,6 @@
     </option>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/src$src.coverage" NAME="src Coverage Results" MODIFIED="1682103600376" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/src$src.coverage" NAME="src Coverage Results" MODIFIED="1682245506798" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
