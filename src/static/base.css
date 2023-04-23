@@ -72,3 +72,7 @@ a.show{
 .msg-error{
     color: #b30000;
 }
+
+.select2{
+    width: 100% !important;
+}

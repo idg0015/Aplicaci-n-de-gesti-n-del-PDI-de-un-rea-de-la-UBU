@@ -38,3 +38,16 @@ class Asignatura(db.Model):
     def get_all_json():
         asignaturas = Asignatura.query.all()
         return [a.to_dict() for a in asignaturas]
+
+    @staticmethod
+    def get_asignatura(id_asignatura):
+        return Asignatura.query.get(id_asignatura)
+
+    def save(self):
+        if not self.id:
+            db.session.add(self)
+        db.session.commit()
+
+    def delete(self):
+        db.session.delete(self)
+        db.session.commit()

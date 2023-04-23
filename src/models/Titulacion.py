@@ -29,6 +29,10 @@ class Titulacion(db.Model):
     def get_titulacion(id_titulacion):
         return Titulacion.query.get(id_titulacion)
 
+    @staticmethod
+    def get_all():
+        return Titulacion.query.all()
+
     def save(self):
         if not self.id:
             db.session.add(self)

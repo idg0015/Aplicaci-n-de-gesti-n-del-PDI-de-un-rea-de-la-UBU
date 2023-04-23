@@ -1,0 +1,103 @@
+{% extends "base/base_template.html" %}
+{% block title %}
+    {% if form.nombre.data %}
+        {{ form.nombre.data }}
+    {% else %}
+        Nueva asignatura
+    {% endif %}
+{% endblock %}
+{% block content %}
+    {% if form.nombre.data %}
+        <h1 class="text-center">{{ form.nombre.data }}</h1>
+    {% else %}
+        <h1 class="text-center">Añadir asignatura</h1>
+    {% endif %}
+    <form action="" method="post" novalidate class="form-centro">
+        {{ form.hidden_tag() }}
+        <div class="mt-3 mb-3">
+            {{ form.nombre.label(class_="col-sm-2") }}
+            <div>
+                {{ form.nombre(class_="form-control") }}
+            </div>
+
+            {% for error in form.nombre.errors %}
+                <span class="msg-error">{{ error }}</span>
+            {% endfor %}
+        </div>
+        <div class="mt-3 mb-3">
+            {{ form.tipo.label }}
+            <div>{{ form.tipo(class_="form-select") }}</div>
+            {% for error in form.tipo.errors %}
+                <span class="msg-error">{{ error }}</span>
+            {% endfor %}
+        </div>
+
+        <div class="mt-3 mb-3">
+            {{ form.abreviatura.label }}
+            <div>{{ form.abreviatura(class_="select2 form-control", multiple="multiple") }}</div>
+            {% for error in form.abreviatura.errors %}
+                <span class="msg-error">{{ error }}</span>
+            {% endfor %}
+        </div>
+
+
+
+        <div class="mt-3 mb-3">
+            {{ form.creditos_teoria.label }}
+            <div>
+                {{ form.creditos_teoria(class_="form-control") }}
+            </div>
+            {% for error in form.creditos_teoria.errors %}
+                <span class="msg-error">{{ error }}</span>
+            {% endfor %}
+        </div>
+        <div class="mt-3 mb-3">
+            {{ form.creditos_practica.label }}
+            <div>
+                {{ form.creditos_practica(class_="form-control") }}
+            </div>
+            {% for error in form.creditos_practica.errors %}
+                <span class="msg-error">{{ error }}</span>
+            {% endfor %}
+        </div>
+        <div class="mt-3 mb-3">
+            {{ form.curso.label }}
+            <div>
+                {{ form.curso(class_="form-select") }}
+            </div>
+            {% for error in form.curso.errors %}
+                <span class="msg-error">{{ error }}</span>
+            {% endfor %}
+        </div>
+        <div class="mt-3 mb-3">
+            {{ form.semestre.label }}
+            <div>
+                {{ form.semestre(class_="form-select") }}
+            </div>
+            {% for error in form.semestre.errors %}
+                <span class="msg-error">{{ error }}</span>
+            {% endfor %}
+        </div>
+        <div class="mt-3 mb-3">
+            {{ form.titulacion.label }}
+            <div>
+                {{ form.titulacion(class_="form-select") }}
+            </div>
+            {% for error in form.titulacion.errors %}
+                <span class="msg-error">{{ error }}</span>
+            {% endfor %}
+        </div>
+        <div class="text-center mt-4">
+            {{ form.submit(class_="btn btn-primary") }}
+        </div>
+    </form>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+
+            $('.select2').select2({
+                tags: true
+            });
+        });
+    </script>
+{% endblock %}

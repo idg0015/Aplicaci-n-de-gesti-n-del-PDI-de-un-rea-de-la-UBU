@@ -75,7 +75,7 @@ $(document).ready(function () {
                 },"Curso", "Semestre", "Abreviaturas",
                 {
                     name: 'Acciones',
-                    formatter: (_, row) => gridjs.html(`<a class="icono" href="#" onclick="alert( '${row.cells[0].data}');"><i class="bi bi-pencil-square"></i></a> <a href="#" class="icono" onclick="alert( '${row.cells[0].data}');"><i class="bi bi-trash3-fill"></i></a>`)
+                    formatter: (_, row) => gridjs.html(`<a class="icono" href="/asignaturas/${row.cells[0].data}"><i class="bi bi-pencil-square"></i></a> <a href="/asignaturas/eliminar/${row.cells[0].data}" class="icono" onclick="return confirm('¿Está seguro de eliminar la asignatura? Se eliminarán sus abreviaturas asociadas y los cursos donde se encuentren.')"><i class="bi bi-trash3-fill"></i></a>`)
                 },
             ],
             className: {
@@ -112,13 +112,6 @@ $(document).ready(function () {
             search: true,
             width: "70%",
             data: docentes
-            // data: [
-            //     ["1", "Nombre 1", "Apellido", "ubu@ubu.es", 3, null],
-            //     ["2", "Nombre 2", "Apellido", "ubu@ubu.es", 3, null],
-            //     ["3", "Nombre 3", "Apellido", "ubu@ubu.es", 3, null],
-            //     ["4", "Nombre 4", "Apellido", "ubu@ubu.es", 3, null],
-            //     ["5", "Nombre 5", "Apellido", "ubu@ubu.es", 3, null]
-            // ]
         }).render(document.getElementById("tablaDocentes"));
     }
 
@@ -156,13 +149,6 @@ $(document).ready(function () {
                 td: "text-center",
                 th: "text-center"
             },
-            // data: [
-            //     ["1", "Nombre 1", "RPT", "01/01/2023", "01/01/2024", "Docente 1", "Tipo 1", 1, null],
-            //     ["2", "Nombre 2", "RPT", "01/01/2023", "01/01/2024", "Docente 2", "Tipo 2", 1, null],
-            //     ["3", "Nombre 3", "RPT", "01/01/2023", "01/01/2024", "Docente 3", "Tipo 1", 1, null],
-            //     ["4", "Nombre 4", "RPT", "01/01/2023", "01/01/2024", "Ninguno", "Tipo 7", 1, null],
-            //     ["5", "Nombre 5", "RPT", "01/01/2023", "01/01/2024", "Docente 4", "Tipo 5", 1, null]
-            // ]
             data:plazas
         }).render(document.getElementById("tablaPlazas"));
     }
@@ -206,13 +192,6 @@ $(document).ready(function () {
                 th: "text-center"
             },
             data: areas
-            // data: [
-            //     ["1", "Nombre 1", "AA", "Departamento 1", null],
-            //     ["2", "Nombre 2", "BB", "Departamento 1", null],
-            //     ["3", "Nombre 3", "CC", "Departamento 1", null],
-            //     ["4", "Nombre 4", "DD", "Departamento 1", null],
-            //     ["5", "Nombre 5", "EE", "Departamento 1", null]
-            // ]
         }).render(document.getElementById("tablaAreas"));
     }
 
@@ -234,13 +213,6 @@ $(document).ready(function () {
                 th: "text-center"
             },
             data: departamentos
-            // data: [
-            //     ["1", "Nombre 1", "AA", null],
-            //     ["2", "Nombre 2", "BB", null],
-            //     ["3", "Nombre 3", "CC", null],
-            //     ["4", "Nombre 4", "DD", null],
-            //     ["5", "Nombre 5", "EE", null]
-            // ]
         }).render(document.getElementById("tablaDepartamentos"));
     }
 
@@ -262,12 +234,6 @@ $(document).ready(function () {
             search: true,
             width: "70%",
             data: cursos
-            // data: [
-            //     ["1", "2020", "2021", null],
-            //     ["2", "2021", "2022", null],
-            //     ["3", "2022", "2023", null],
-            //     ["4", "2023", "2024", null]
-            // ]
         }).render(document.getElementById("tablaCursos"));
     }
 
