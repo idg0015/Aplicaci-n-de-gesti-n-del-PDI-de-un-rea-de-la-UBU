@@ -18,7 +18,7 @@ def add():
 
         centro = Centro(nombre=nombre, abreviatura=abreviatura, email=email)
         centro.save()
-        return index()
+        return redirect(url_for('centro_bp.index'))
     return render_template('centros/form.html', form=formulario)
 
 

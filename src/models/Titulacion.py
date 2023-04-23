@@ -24,3 +24,16 @@ class Titulacion(db.Model):
             "url": self.url,
             "centro": self.centro.nombre
         }
+
+    @staticmethod
+    def get_titulacion(id_titulacion):
+        return Titulacion.query.get(id_titulacion)
+
+    def save(self):
+        if not self.id:
+            db.session.add(self)
+        db.session.commit()
+
+    def delete(self):
+        db.session.delete(self)
+        db.session.commit()

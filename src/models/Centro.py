@@ -35,3 +35,7 @@ class Centro(db.Model):
     def delete(self):
         db.session.delete(self)
         db.session.commit()
+
+    @staticmethod
+    def get_all():
+        return Centro.query.all()

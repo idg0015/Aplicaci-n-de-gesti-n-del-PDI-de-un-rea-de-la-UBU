@@ -68,3 +68,7 @@ a.show{
     display:block;
     margin:0 auto;
 }
+
+.msg-error{
+    color: #b30000;
+}
