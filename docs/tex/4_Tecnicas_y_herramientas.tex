@@ -1,5 +1,8 @@
 \capitulo{4}{Técnicas y herramientas}
 
+A continuación se mostrarán las técnicas y herramientas utilizadas para el desarrollo del proyecto. 
+Tanto para la parte de documentación, como para la parte de desarrollo de la aplicación. 
+
 \section{Técnicas}
 \subsection{Scrum}
 Scrum es una metodología para realizar el seguimiento de proyectos que comparte los principios del desarrollo ágil de partir de un concepto, seguir un desarrollo incremental (en \textit{sprints}) y cerrar el producto.
@@ -54,25 +57,30 @@ En las figuras~\ref{ProcesoScrum1} y~\ref{ProcesoScrum2} se puede ver tanto un r
 \end{figure}
 
 
-De forma resumida, para seguir la metodología Scrum es necesario que el propietario del producto genere inicialmente las historias de usuario, que se encontrarán en la pila del producto. Estas historias podrán aumentar a lo largo del desarrollo.\\
+De forma resumida, para seguir la metodología Scrum es necesario que el propietario del producto genere inicialmente las historias de usuario, que se encontrarán en la pila del producto. Estas historias podrán aumentar a lo largo del desarrollo.
+
 Con la pila del producto creada, todo el personal se reúne para planificar el \textit{sprint}. Estas reuniones son las que general la pila del \textit{sprint}.
-Después de esta reunión, el equipo de desarrollo comienza a trabajar en las tareas que se ha comprometido para completarlas en el tiempo acordado. Cada día de trabajo se realiza una pequeña reunión de aproximadamente 15 minutos donde se expone el trabajo realizado, el trabajo que se va a hacer en el día, las dudas, etc., está reunión sirve para ir actualizando la pila del \textit{sprint}. \\
-Al final del \textit{sprint}, todo el personal se vuelve a reunir para presentar el incremento realizado y ver posibles cambios. Además, se fija el anuncio del próximo \textit{sprint} que comenzará de nuevo con una reunión de planificación. \\\\
+Después de esta reunión, el equipo de desarrollo comienza a trabajar en las tareas que se ha comprometido para completarlas en el tiempo acordado. Cada día de trabajo se realiza una pequeña reunión de aproximadamente 15 minutos donde se expone el trabajo realizado, el trabajo que se va a hacer en el día, las dudas, etc., está reunión sirve para ir actualizando la pila del \textit{sprint}. 
+
+Al final del \textit{sprint}, todo el personal se vuelve a reunir para presentar el incremento realizado y ver posibles cambios. Además, se fija el anuncio del próximo \textit{sprint} que comenzará de nuevo con una reunión de planificación.
+
 Durante este proyecto se ha seguido una metodología Scrum con algunos cambios ya que no se hacían reuniones diarias ni los roles estaban tan marcados, pero la forma de trabajar era la misma con planificaciones y revisiones de \textit{sprints}.
 
 \subsection{Web}
-La web (\textit{World Wide Web}) es un sistema que permite la transmisión y acceso a datos y documentos a través de internet utilizando el protocolo HTTP para la comunicación y el lenguaje HTML para la representación de las páginas web. \cite{wiki:web}\\
-La tecnología web es una de las que más desarrollo ha sufrido en los últimos años. Esto ha provocado un cambio completo en nuestra forma de vida, afectando a aspectos como la búsqueda de información por Internet, realizar compras online, hacer trámites sin necesidad de acudir a una oficina, etc.,\\ 
+La web (\textit{World Wide Web}) es un sistema que permite la transmisión y acceso a datos y documentos a través de internet utilizando el protocolo HTTP para la comunicación y el lenguaje HTML para la representación de las páginas web~\cite{wiki:web}.
+
+La tecnología web es una de las que más desarrollo ha sufrido en los últimos años. Esto ha provocado un cambio completo en nuestra forma de vida, afectando a aspectos como la búsqueda de información por Internet, realizar compras online, hacer trámites sin necesidad de acudir a una oficina, etc.,
+
  
 \section{Herramientas}
 \subsection{GitHub}
-GitHub es una plataforma de alojamiento en la nube que permite llevar un control de versiones Git para los proyectos subidos. Además del control de versiones, GitHub posee distintas características como la creación de repositorios, el uso de \textit{issues}, \textit{Pull requests}, las páginas de \textit{wiki}, añadir distintos usuarios al repositorio con diferentes permisos, etc.\cite{wiki:github}
+GitHub es una plataforma de alojamiento en la nube que permite llevar un control de versiones Git para los proyectos subidos. Además del control de versiones, GitHub posee distintas características como la creación de repositorios, el uso de \textit{issues}, \textit{Pull requests}, las páginas de \textit{wiki}, añadir distintos usuarios al repositorio con diferentes permisos, etc\cite{wiki:github}.
 
 \subsection{ZenHub}
 Extensión para navegador web que se integra con GitHub para permitir añadir los elementos de Scrum al repositorio. De esta manera se puede llevar un mejor seguimiento del trabajo realizado en el proyecto.
 
 \subsection{Python}
-Python es un popular lenguaje de programación que puede ser utilizado en diferentes ámbitos, entre ellos el desarrollo web. Algunas de las razones para utilizar este lenguaje es su facilidad de uso, la posibilidad de orientación a objetos y la amplia variedad de bibliotecas y frameworks, como puede ser Flask.\cite{python}
+Python es un popular lenguaje de programación que puede ser utilizado en diferentes ámbitos, entre ellos el desarrollo web. Algunas de las razones para utilizar este lenguaje es su facilidad de uso, la posibilidad de orientación a objetos y la amplia variedad de bibliotecas y frameworks, como puede ser Flask~\cite{python}.
 
 Se estudió la posibilidad de uso de PHP para realizar la aplicación web, pero al final se decidió trabajar con Python debido a que es más conocido para los tutores del proyecto y a que, al utilizarlo durante el grado, es más fácil la adaptación para alumnos que en un futuro hagan nuevas versiones partiendo de este proyecto.
 
@@ -80,7 +88,7 @@ Se estudió la posibilidad de uso de PHP para realizar la aplicación web, pero 
 Como se ha comentado en el apartado anterior, Flask es un framework de Python que facilita la creación de aplicaciones web. Flask incluye el motor de plantillas Jinja2 que permite implementar código en las vistas de la aplicación de una forma cómoda y sencilla.
 
 \subsection{JavaScript}
-JavaScript es un lenguaje de programación interpretado débilmente tipado. Principalmente es conocido al ser utilizado en el lado del cliente para dar mejor interacción a páginas web estáticas, pero es mucho más potente de lo que se puede pensar y es utilizado en muchos más ámbitos. Incluso en la misma web, puede ser utilizado en el lado servidor mediante el entorno de ejecución Node.js. Esto permite que una aplicación web pueda estar completamente escrita en JavaScript.\cite{javascript}
+JavaScript es un lenguaje de programación interpretado débilmente tipado. Principalmente es conocido al ser utilizado en el lado del cliente para dar mejor interacción a páginas web estáticas, pero es mucho más potente de lo que se puede pensar y es utilizado en muchos más ámbitos. Incluso en la misma web, puede ser utilizado en el lado servidor mediante el entorno de ejecución Node.js. Esto permite que una aplicación web pueda estar completamente escrita en JavaScript~\cite{javascript}.
 
 \subsection{HTML}
 HTML es el <<Lenguaje de Marcas de Hipertexto>> utilizado por la \textit{World Wide Web} para representar las páginas web. Puede ser combinado con diferentes tecnologías como CSS para dar una apariencia diferente o JavaScript para poder interactuar de forma dinámica.
@@ -90,12 +98,22 @@ CSS, también conocido como <<Hojas de Estilo en Cascada>>, es un lenguaje de es
 
 \subsection{Bibliotecas / \textit{plugins}}
 \begin{itemize}
-\item\textbf{SQLAlchemy}\\
-Biblioteca de SQL para Python que incluye una versión para el \textit{framework} Flask que permite su completa integración. SQLAlchemy contiene un conjunto de herramientas SQL que permiten el mapeo objeto-relacional, \textit{Object Relational Mapper (ORM)}. Esto permite que con un conjunto de expresiones requeridas por la biblioteca, se creen clases de objetos en Python que serán transformadas a tablas de una forma prácticamente abstracta para el desarrollador. Además, al estar los objetos vinculados a registros de una tabla SQL, cuenta con métodos para realizar distintas operaciones SQL como búsquedas, inserciones, eliminaciones, etc., sin tener que escribir sentencias SQL.\cite{sqlAlchemy}
+\item\textbf{SQLAlchemy}
 
-\item\textbf{Grid.js}\\
-Grid.js es un \textit{plugin} de JavaScript que ayuda con el tratamiento de tablas. Gracias a esta biblioteca se pueden crear tablas con búsqueda, ordenamiento, redimensión de columnas, etc., de una forma sencilla gracias a sus herramientas. Además, Grid.js se puede incluir con \textit{frameworks} como Reac, Angular o Vue, pero también puede ser utilizado con JavaScript \textit{vanilla}.\\
-Antes de la elección de este \textit{plugin} se estuvo valorando el uso de otro llamado DataTables. Al final se decidió utilizar Grid.js a pesar de que DataTables es más completo.\\
+Biblioteca de SQL para Python que incluye una versión para el \textit{framework} Flask que permite su completa integración. 
+SQLAlchemy contiene un conjunto de herramientas SQL que permiten el mapeo objeto-relacional, \textit{Object Relational Mapper (ORM)}. 
+Esto permite que con un conjunto de expresiones requeridas por la biblioteca, se creen clases de objetos en Python que serán transformadas a tablas de una forma prácticamente abstracta para el desarrollador. 
+Además, al estar los objetos vinculados a registros de una tabla SQL, cuenta con métodos para realizar distintas operaciones SQL como búsquedas, inserciones, eliminaciones, etc., sin tener que escribir sentencias SQL~\cite{sqlAlchemy}.
+
+\item\textbf{Grid.js}
+
+Grid.js es un \textit{plugin} de JavaScript que ayuda con el tratamiento de tablas. 
+Gracias a esta biblioteca se pueden crear tablas con búsqueda, ordenamiento, redimensión de columnas, etc., de una forma sencilla gracias a sus herramientas. 
+Además, Grid.js se puede incluir con \textit{frameworks} como Reac, Angular o Vue, pero también puede ser utilizado con JavaScript \textit{vanilla}.
+
+
+Antes de la elección de este \textit{plugin} se estuvo valorando el uso de otro llamado DataTables. Al final se decidió utilizar Grid.js a pesar de que DataTables es más completo.
+
 Algunas de las razones son la siguientes:
 \begin{itemize}
 \item Para utilizar Grid.js no es necesaria la biblioteca jQuery mientras que para DataTables sí. La dependencia de otras bibliotecas puede dar problemas en un futuro, además de que el rendimiento de JavaScript \textit{vanilla} es algo superior.
@@ -107,14 +125,27 @@ Algunas de las razones son la siguientes:
 
 \subsection{Software}
 \begin{itemize}
-\item\textbf{Pincel Project}\\
-Es un programa de ordenador gratuito y de código abierto que permite la creación de los prototipos de las vistas de una aplicación de una forma cómoda, arrastrando distintos elementos a la pantalla y modificándolos para que queden al gusto del creador. Cuenta con versiones para Windoes, Linux y macOS.
-Por defecto, el software cuenta con objetos suficientes para crear los prototipos de las vistas de una aplicación. Sin embargo, es posible cargar más de estos objetos creados por la comunidad o por uno mismo, como pueden ser nuevos botones, campos de entrada, menús, etc.
+\item\textbf{Pincel Project}
 
-\item\textbf{Draw.io}\\
-Aplicación web que permite la creación de diagramas utilizando diferentes figuras geométricas. Además cuenta con objetos ya creados para crear diagramas utilizando UML, diagramas entidad-relación, diagramas relacionales, etc. Está aplicación permite una personalización avanzada por lo que es muy útil para crear cualquier tipo de diagrama. Además, al ser una aplicación web no requiere de ningún tipo de instalación aunque si que cuenta con una versión de escritorio para Windows, Linux, macOS y Chrome OS.
-\item\textbf{PyCharm}\\
-Es un entorno de desarrollo integrado (IDE) que pertenece a la empresa JetBrains y que está creado para trabajar el proyectos basados en el lenguaje de programación Python. Cuenta con una licencia de uso gratuita con funciones limitadas, aunque para estudiantes regalan un año de licencia completa para todos los productos de la empresa.\\
-PyCharm es uno de los IDE más completos y avanzados para el desarrollo con Python, ya que cuenta con una gran cantidad de características que facilitan el trabajo y ayudan a ahorrar tiempo. Además, a la hora de crear proyectos se puede indicar el tipo de \textit{framework} a utilizar, lo que hará que cargue de forma automática todos los paquetes necesarios y creará una versión simple del proyecto desde la que empezar a trabajar. Esto ahorra mucho tiempo al no tener que ir buscando e instalando los paquetes necesarios desde distintos repositorios. 
+Es un programa de ordenador gratuito y de código abierto que permite la creación de los prototipos de las vistas de una aplicación de una forma cómoda, arrastrando distintos elementos a la pantalla y modificándolos para que queden al gusto del creador. 
+Cuenta con versiones para Windoes, Linux y macOS.
+Por defecto, el software cuenta con objetos suficientes para crear los prototipos de las vistas de una aplicación. 
+Sin embargo, es posible cargar más de estos objetos creados por la comunidad o por uno mismo, como pueden ser nuevos botones, campos de entrada, menús, etc.
+
+\item\textbf{Draw.io}
+
+Aplicación web que permite la creación de diagramas utilizando diferentes figuras geométricas. 
+Además cuenta con objetos ya creados para crear diagramas utilizando UML, diagramas entidad-relación, diagramas relacionales, etc. 
+Esta aplicación permite una personalización avanzada por lo que es muy útil para crear cualquier tipo de diagrama. 
+Además, al ser una aplicación web no requiere de ningún tipo de instalación aunque si que cuenta con una versión de escritorio para Windows, Linux, macOS y Chrome OS.
+
+\item\textbf{PyCharm}
+
+Es un entorno de desarrollo integrado (IDE) que pertenece a la empresa JetBrains y que está creado para trabajar el proyectos basados en el lenguaje de programación Python. 
+Cuenta con una licencia de uso gratuita con funciones limitadas, aunque para estudiantes regalan un año de licencia completa para todos los productos de la empresa.
+
+PyCharm es uno de los IDE más completos y avanzados para el desarrollo con Python, ya que cuenta con una gran cantidad de características que facilitan el trabajo y ayudan a ahorrar tiempo. 
+Además, a la hora de crear proyectos se puede indicar el tipo de \textit{framework} a utilizar, lo que hará que cargue de forma automática todos los paquetes necesarios y creará una versión simple del proyecto desde la que empezar a trabajar. 
+Esto ahorra mucho tiempo al no tener que ir buscando e instalando los paquetes necesarios desde distintos repositorios. 
 \end{itemize}
 \subsection{}
