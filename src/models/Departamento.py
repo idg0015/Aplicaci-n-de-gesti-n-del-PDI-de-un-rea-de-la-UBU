@@ -20,3 +20,15 @@ class Departamento(db.Model):
             "nombre": self.nombre,
             "abreviatura": self.abreviatura
         }
+
+    def get_departamento(id_departamento):
+        return Departamento.query.get(id_departamento)
+
+    def save(self):
+        if not self.id:
+            db.session.add(self)
+        db.session.commit()
+
+    def delete(self):
+        db.session.delete(self)
+        db.session.commit()

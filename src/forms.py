@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, SelectField, HiddenField, IntegerField, FieldList, FormField, \
     SelectMultipleField
-from wtforms.validators import DataRequired, Email, URL
+from wtforms.validators import DataRequired, Email, URL, InputRequired
 
 from models.Abreviatura import Abreviatura
 from models.Centro import Centro
@@ -57,5 +57,11 @@ class FormDocente(FlaskForm):
     apellidos = StringField('Apellidos', validators=[DataRequired(message='Los apellidos son obligatorios')])
     email = StringField('Email', validators=[DataRequired(message='El email es obligatorio'),
                                              Email(message='La dirección de email no es válida')])
-    reducciones = IntegerField('Reducciones', validators=[DataRequired(message='Las reducciones son obligatorias')])
+    reducciones = IntegerField('Reducciones', validators=[InputRequired(message='Las reducciones son obligatorias')])
+    submit = SubmitField('Añadir')
+
+
+class FormDepartamento(FlaskForm):
+    nombre = StringField('Nombre', validators=[DataRequired(message='El nombre es obligatorio')])
+    abreviatura = StringField('Abreviatura', validators=[DataRequired(message='La abreviatura es obligatoria')])
     submit = SubmitField('Añadir')
