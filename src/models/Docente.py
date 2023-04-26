@@ -24,3 +24,16 @@ class Docente(db.Model):
             'email': self.email,
             'reducciones': self.reducciones,
         }
+
+    @staticmethod
+    def get_docente(id_docente):
+        return Docente.query.get(id_docente)
+
+    def save(self):
+        if not self.id:
+            db.session.add(self)
+        db.session.commit()
+
+    def delete(self):
+        db.session.delete(self)
+        db.session.commit()

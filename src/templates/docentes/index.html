@@ -4,7 +4,7 @@
 
 {% block content %}
     <h1 class="text-center">Docentes</h1>
-    <a href="#" class="btn btn-primary btn-nuevo">Nuevo</a>
+    <a href="{{ url_for('docente_bp.add') }}" class="btn btn-primary btn-nuevo">Nuevo</a>
     <div id="tablaDocentes" class="text-center"></div>
     <script>
         let docentes = JSON.parse('{{ docentes | default([])| tojson }}');

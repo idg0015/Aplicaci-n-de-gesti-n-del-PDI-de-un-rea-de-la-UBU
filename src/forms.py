@@ -50,3 +50,12 @@ class FormAsignatura(FlaskForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.titulacion.choices = [(m.id, m.nombre) for m in Titulacion.get_all()]
+
+
+class FormDocente(FlaskForm):
+    nombre = StringField('Nombre', validators=[DataRequired(message='El nombre es obligatorio')])
+    apellidos = StringField('Apellidos', validators=[DataRequired(message='Los apellidos son obligatorios')])
+    email = StringField('Email', validators=[DataRequired(message='El email es obligatorio'),
+                                             Email(message='La dirección de email no es válida')])
+    reducciones = IntegerField('Reducciones', validators=[DataRequired(message='Las reducciones son obligatorias')])
+    submit = SubmitField('Añadir')
