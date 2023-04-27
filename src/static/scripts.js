@@ -156,10 +156,14 @@ $(document).ready(function () {
     if (document.getElementById('tablaContratos') != null) {
         new gridjs.Grid({
             columns: [
-                "Id", "Nombre", "Abreviatura", "Capacidad anual",
+                "Id", "Nombre", "Abreviatura",
+                {
+                    id: 'capacidad_anual',
+                    name: 'Capacidad anual'
+                },
                 {
                     name: 'Acciones',
-                    formatter: (_, row) => gridjs.html(`<a class="icono" href="#" onclick="alert( '${row.cells[0].data}');"><i class="bi bi-pencil-square"></i></a> <a href="#" class="icono" onclick="alert( '${row.cells[0].data}');"><i class="bi bi-trash3-fill"></i></a>`)
+                    formatter: (_, row) => gridjs.html(`<a class="icono" href="/contratos/${row.cells[0].data}"><i class="bi bi-pencil-square"></i></a> <a href="/contratos/eliminar/${row.cells[0].data}" class="icono" onclick="return confirm('¿Está seguro de eliminar el tipo de contrato? Se eliminarán las plazas asociadas y todo lo que dependa de ellas.')"><i class="bi bi-trash3-fill"></i></a>`)
                 },
             ],
             language: gridjs.l10n.esES,

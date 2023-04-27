@@ -5,15 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ae6b2c56-8d66-4217-a826-17f3975d95c3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/areas/form.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/contratos/form.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/AreaController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/AreaController.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/ContratoController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/ContratoController.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Area.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/Area.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Departamento.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/Departamento.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/area_bp.py" beforeDir="false" afterPath="$PROJECT_DIR$/routes/area_bp.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/Contrato.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/Contrato.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/contrato_bp.py" beforeDir="false" afterPath="$PROJECT_DIR$/routes/contrato_bp.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/scripts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/areas/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/areas/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/contratos/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contratos/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +62,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/Nacho/Desktop/UBU/TFG/Aplicacion-de-gestion-del-PDI-de-un-area-de-la-UBU/src/templates/areas",
+    "last_opened_file_path": "C:/Users/Nacho/Desktop/UBU/TFG/Aplicacion-de-gestion-del-PDI-de-un-area-de-la-UBU/src/templates/contratos",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -82,11 +81,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Nacho\Desktop\UBU\TFG\Aplicacion-de-gestion-del-PDI-de-un-area-de-la-UBU\src\templates\contratos" />
       <recent name="C:\Users\Nacho\Desktop\UBU\TFG\Aplicacion-de-gestion-del-PDI-de-un-area-de-la-UBU\src\templates\areas" />
       <recent name="C:\Users\Nacho\Desktop\UBU\TFG\Aplicacion-de-gestion-del-PDI-de-un-area-de-la-UBU\src\templates\departamentos" />
       <recent name="C:\Users\Nacho\Desktop\UBU\TFG\Aplicacion-de-gestion-del-PDI-de-un-area-de-la-UBU\src\templates\docentes" />
       <recent name="C:\Users\Nacho\Desktop\UBU\TFG\Aplicacion-de-gestion-del-PDI-de-un-area-de-la-UBU\src\templates\asignaturas" />
-      <recent name="C:\Users\Nacho\Desktop\UBU\TFG\Aplicacion-de-gestion-del-PDI-de-un-area-de-la-UBU\src\templates\titulaciones" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Nacho\Desktop\UBU\TFG\Aplicacion-de-gestion-del-PDI-de-un-area-de-la-UBU\src\static\images" />
@@ -150,7 +149,7 @@
       <workItem from="1682241101967" duration="25348000" />
       <workItem from="1682353552052" duration="2501000" />
       <workItem from="1682529710634" duration="3095000" />
-      <workItem from="1682605222562" duration="1648000" />
+      <workItem from="1682605222562" duration="6452000" />
     </task>
     <servers />
   </component>
@@ -169,6 +168,6 @@
     </option>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/src$src.coverage" NAME="src Coverage Results" MODIFIED="1682605238916" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/src$src.coverage" NAME="src Coverage Results" MODIFIED="1682614834867" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

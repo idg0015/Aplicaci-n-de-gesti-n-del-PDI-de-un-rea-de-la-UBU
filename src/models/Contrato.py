@@ -23,3 +23,15 @@ class TipoContrato(db.Model):
     def get_all_json():
         tiposContrato = TipoContrato.query.all()
         return [t.to_dict() for t in tiposContrato]
+
+    def get_contrato(id_contrato):
+        return TipoContrato.query.get(id_contrato)
+
+    def save(self):
+        if not self.id:
+            db.session.add(self)
+        db.session.commit()
+
+    def delete(self):
+        db.session.delete(self)
+        db.session.commit()

@@ -3,10 +3,10 @@
 {% block title %}Contratos{% endblock %}
 
 {% block content %}
-    <h1 class="text-center">Contratos</h1>
-    <a href="#" class="btn btn-primary btn-nuevo">Nuevo</a>
+    <h1 class="text-center">Tipos de contrato</h1>
+    <a href="{{ url_for('contrato_bp.add') }}" class="btn btn-primary btn-nuevo">Nuevo</a>
     <div id="tablaContratos" class="text-center"></div>
     <script>
-        let contratos = JSON.parse('{{ contratos | default([]) | tojson }}');
+        let contratos = JSON.parse('{{ tipos_contrato | default([]) | tojson }}');
     </script>
 {% endblock %}

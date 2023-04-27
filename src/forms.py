@@ -72,9 +72,18 @@ class FormArea(FlaskForm):
     nombre = StringField('Nombre', validators=[DataRequired(message='El nombre es obligatorio')])
     abreviatura = StringField('Abreviatura', validators=[DataRequired(message='La abreviatura es obligatoria')])
     departamento = SelectField('Departamento', choices=[],
-                                  validators=[DataRequired(message='El departamento es obligatorio')])
+                               validators=[DataRequired(message='El departamento es obligatorio')])
     submit = SubmitField('Añadir')
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.departamento.choices = [(m.id, m.nombre) for m in Departamento.get_all()]
+
+
+class FormContrato(FlaskForm):
+    nombre = StringField('Nombre', validators=[DataRequired(message='El nombre es obligatorio')])
+    abreviatura = StringField('Abreviatura', validators=[DataRequired(message='La abreviatura es obligatoria')])
+    capacidad_anual = IntegerField('Capacidad anual',
+                                   validators=[InputRequired(message='La capacidad anual es obligatoria')])
+    # DataRequired para que no se pueda enviar 0
+    submit = SubmitField('Añadir')
