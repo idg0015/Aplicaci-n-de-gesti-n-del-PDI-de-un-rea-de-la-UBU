@@ -5,14 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ae6b2c56-8d66-4217-a826-17f3975d95c3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/contratos/form.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/AreaController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/AreaController.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/AsignaturaController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/AsignaturaController.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/CentroController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/CentroController.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/ContratoController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/ContratoController.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/DepartamentoController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/DepartamentoController.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/DocenteController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/DocenteController.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/TitulacionController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/TitulacionController.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Contrato.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/Contrato.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/contrato_bp.py" beforeDir="false" afterPath="$PROJECT_DIR$/routes/contrato_bp.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/scripts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/areas/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/areas/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/asignaturas/form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/asignaturas/form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/asignaturas/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/asignaturas/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/centros/form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/centros/form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/centros/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/centros/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/contratos/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contratos/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/departamentos/form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/departamentos/form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/departamentos/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/departamentos/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/docentes/form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/docentes/form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/docentes/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/docentes/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/titulaciones/form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/titulaciones/form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/titulaciones/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/titulaciones/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,7 +163,7 @@
       <workItem from="1682241101967" duration="25348000" />
       <workItem from="1682353552052" duration="2501000" />
       <workItem from="1682529710634" duration="3095000" />
-      <workItem from="1682605222562" duration="6452000" />
+      <workItem from="1682605222562" duration="8055000" />
     </task>
     <servers />
   </component>

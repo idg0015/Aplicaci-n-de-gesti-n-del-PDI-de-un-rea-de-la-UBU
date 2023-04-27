@@ -1,4 +1,4 @@
-from flask import render_template, redirect, url_for, abort
+from flask import render_template, redirect, url_for, abort, flash
 
 from forms import FormAsignatura
 from models.Asignatura import Asignatura
@@ -29,6 +29,7 @@ def add():
         for abreviatura in formulario.abreviatura.data:
             abreviatura = Abreviatura(abreviatura=abreviatura, id_asignatura=asignatura.id)
             abreviatura.save()
+        flash('Asignatura añadida correctamente', 'alert alert-success alert-dismissible fade show')
         return redirect(url_for('asignatura_bp.index'))
     return render_template('asignaturas/form.html', form=formulario)
 
@@ -62,6 +63,7 @@ def update(id_asignatura):
                     abreviatura = Abreviatura(abreviatura=abreviatura, id_asignatura=asignatura.id)
                     # abreviatura.save()
 
+        flash('Asignatura modificada correctamente', 'alert alert-success alert-dismissible fade show')
         return redirect(url_for('asignatura_bp.index'))
     return render_template('asignaturas/form.html', form=formulario)
 
@@ -71,4 +73,5 @@ def delete(id_asignatura):
     if asignatura is None:
         abort(404)
     asignatura.delete()
+    flash('Asignatura eliminada correctamente', 'alert alert-success alert-dismissible fade show')
     return redirect(url_for('asignatura_bp.index'))

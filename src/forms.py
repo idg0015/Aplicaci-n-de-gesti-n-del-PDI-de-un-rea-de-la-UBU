@@ -83,7 +83,7 @@ class FormArea(FlaskForm):
 class FormContrato(FlaskForm):
     nombre = StringField('Nombre', validators=[DataRequired(message='El nombre es obligatorio')])
     abreviatura = StringField('Abreviatura', validators=[DataRequired(message='La abreviatura es obligatoria')])
-    capacidad_anual = IntegerField('Capacidad anual',
+    capacidad_anual = IntegerField('Capacidad anual (horas)',
                                    validators=[InputRequired(message='La capacidad anual es obligatoria')])
     # DataRequired para que no se pueda enviar 0
     submit = SubmitField('Añadir')

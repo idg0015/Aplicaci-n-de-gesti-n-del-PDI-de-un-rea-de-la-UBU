@@ -1,4 +1,4 @@
-from flask import render_template, redirect, url_for, abort
+from flask import render_template, redirect, url_for, abort, flash
 
 from forms import FormContrato
 from models.Contrato import TipoContrato
@@ -17,6 +17,7 @@ def add():
         capacidad_anual = formulario.capacidad_anual.data
         contrato = TipoContrato(nombre=nombre, abreviatura=abreviatura, capacidad_anual=capacidad_anual)
         contrato.save()
+        flash('Tipo de contrato añadido correctamente', 'alert alert-success alert-dismissible fade show')
         return redirect(url_for('contrato_bp.index'))
     return render_template('contratos/form.html', form=formulario)
 
@@ -32,6 +33,7 @@ def update(id_contrato):
         contrato.abreviatura = formulario.abreviatura.data
         contrato.capacidad_anual = formulario.capacidad_anual.data
         contrato.save()
+        flash('Tipo de contrato modificado correctamente', 'alert alert-success alert-dismissible fade show')
         return redirect(url_for('contrato_bp.index'))
     return render_template('contratos/form.html', form=formulario)
 
@@ -41,4 +43,5 @@ def delete(id_contrato):
     if contrato is None:
         abort(404)
     contrato.delete()
+    flash('Tipo de contrato eliminado correctamente', 'alert alert-success alert-dismissible fade show')
     return redirect(url_for('contrato_bp.index'))

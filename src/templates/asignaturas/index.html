@@ -3,6 +3,17 @@
 {% block title %}Asignaturas{% endblock %}
 
 {% block content %}
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="{{ category }}" role="alert">
+                    {{ message }}
+                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
     <h1 class="text-center">Asignaturas</h1>
     <a href="{{ url_for('asignatura_bp.add') }}" class="btn btn-primary btn-nuevo-2">Nuevo</a>
     <div id="tablaAsignaturas" class="text-center"></div>

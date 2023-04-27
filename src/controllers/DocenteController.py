@@ -1,4 +1,4 @@
-from flask import render_template, redirect, url_for, abort
+from flask import render_template, redirect, url_for, abort, flash
 
 from forms import FormDocente
 from models.Docente import Docente
@@ -18,6 +18,7 @@ def add():
         reducciones = formulario.reducciones.data
         docente = Docente(nombre=nombre, apellidos=apellidos, email=email, reducciones=reducciones)
         docente.save()
+        flash('Docente añadido correctamente', 'alert alert-success alert-dismissible fade show')
         return redirect(url_for('docente_bp.index'))
 
     return render_template('docentes/form.html', form=formulario)
@@ -37,6 +38,7 @@ def update(id_docente):
         docente.reducciones = formulario.reducciones.data
         docente.save()
 
+        flash('Docente modificado correctamente', 'alert alert-success alert-dismissible fade show')
         return redirect(url_for('docente_bp.index'))
     return render_template('docentes/form.html', form=formulario)
 
@@ -46,4 +48,5 @@ def delete(id_docente):
     if docente is None:
         abort(404)
     docente.delete()
+    flash('Docente eliminado correctamente', 'alert alert-success alert-dismissible fade show')
     return redirect(url_for('docente_bp.index'))

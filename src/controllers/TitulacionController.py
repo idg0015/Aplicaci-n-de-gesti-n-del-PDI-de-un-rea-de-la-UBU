@@ -1,4 +1,4 @@
-from flask import render_template, redirect, url_for, abort
+from flask import render_template, redirect, url_for, abort, flash
 from forms import FormTitulacion
 from models.Titulacion import Titulacion
 
@@ -18,6 +18,7 @@ def add():
 
         titulacion = Titulacion(nombre=nombre, abreviatura=abreviatura, url=url, id_centro=id_centro)
         titulacion.save()
+        flash('Tiulación añadida correctamente', 'alert alert-success alert-dismissible fade show')
         return redirect(url_for('titulacion_bp.index'))
     return render_template('titulaciones/form.html', form=formulario)
 
@@ -34,6 +35,7 @@ def update(id_titulacion):
         titulacion.url = formulario.url.data
         titulacion.id_centro = formulario.centro.data
         titulacion.save()
+        flash('Titulación modificada correctamente', 'alert alert-success alert-dismissible fade show')
         return redirect(url_for('titulacion_bp.index'))
     return render_template('titulaciones/form.html', form=formulario)
 
@@ -43,4 +45,5 @@ def delete(id_titulacion):
     if titulacion is None:
         abort(404)
     titulacion.delete()
+    flash('Titulación eliminada correctamente', 'alert alert-success alert-dismissible fade show')
     return redirect(url_for('titulacion_bp.index'))

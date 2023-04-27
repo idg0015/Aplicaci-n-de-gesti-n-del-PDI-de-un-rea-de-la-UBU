@@ -1,4 +1,4 @@
-from flask import render_template, redirect, url_for, abort
+from flask import render_template, redirect, url_for, abort, flash
 
 from forms import FormArea
 from models.Area import Area
@@ -17,6 +17,7 @@ def add():
         id_departamento = formulario.departamento.data
         area = Area(nombre=nombre, abreviatura=abreviatura, id_departamento=id_departamento)
         area.save()
+        flash('Área añadida correctamente', 'alert alert-success alert-dismissible fade show')
         return redirect(url_for('area_bp.index'))
     return render_template('areas/form.html', form=formulario)
 
@@ -32,6 +33,7 @@ def update(id_area):
         area.abreviatura = formulario.abreviatura.data
         area.id_departamento = formulario.departamento.data
         area.save()
+        flash('Área modificada correctamente', 'alert alert-success alert-dismissible fade show')
         return redirect(url_for('area_bp.index'))
     return render_template('areas/form.html', form=formulario)
 
@@ -41,4 +43,5 @@ def delete(id_area):
     if area is None:
         abort(404)
     area.delete()
+    flash('Área eliminada correctamente', 'alert alert-success alert-dismissible fade show')
     return redirect(url_for('area_bp.index'))

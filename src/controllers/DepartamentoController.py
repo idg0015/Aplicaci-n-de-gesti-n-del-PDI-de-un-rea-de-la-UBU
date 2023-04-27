@@ -1,4 +1,4 @@
-from flask import render_template, redirect, url_for, abort
+from flask import render_template, redirect, url_for, abort, flash
 
 from forms import FormDepartamento
 from models.Departamento import Departamento
@@ -15,6 +15,7 @@ def add():
         abreviatura = formulario.abreviatura.data
         departamento = Departamento(nombre=nombre, abreviatura=abreviatura)
         departamento.save()
+        flash('Departamento añadido correctamente', 'alert alert-success alert-dismissible fade show')
         return redirect(url_for('departamento_bp.index'))
 
     return render_template('departamentos/form.html', form=formulario)
@@ -32,6 +33,7 @@ def update(id_departamento):
         departamento.abreviatura = formulario.abreviatura.data
         departamento.save()
 
+        flash('Departamento modificado correctamente', 'alert alert-success alert-dismissible fade show')
         return redirect(url_for('departamento_bp.index'))
     return render_template('departamentos/form.html', form=formulario)
 
@@ -41,5 +43,6 @@ def delete(id_departamento):
     if departamento is None:
         abort(404)
     departamento.delete()
+    flash('Departamento eliminado correctamente', 'alert alert-success alert-dismissible fade show')
     return redirect(url_for('departamento_bp.index'))
 

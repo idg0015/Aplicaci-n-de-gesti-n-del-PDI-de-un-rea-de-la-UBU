@@ -1,4 +1,4 @@
-from flask import render_template, redirect, url_for, abort
+from flask import render_template, redirect, url_for, abort, flash
 
 from forms import FormCentro
 from models.Centro import Centro
@@ -18,6 +18,7 @@ def add():
 
         centro = Centro(nombre=nombre, abreviatura=abreviatura, email=email)
         centro.save()
+        flash('Centro añadido correctamente', 'alert alert-success alert-dismissible fade show')
         return redirect(url_for('centro_bp.index'))
     return render_template('centros/form.html', form=formulario)
 
@@ -33,6 +34,7 @@ def update(id_centro):
         centro.abreviatura = formulario.abreviatura.data
         centro.email = formulario.email.data
         centro.save()
+        flash('Centro modificado correctamente', 'alert alert-success alert-dismissible fade show')
         return redirect(url_for('centro_bp.index'))
     return render_template('centros/form.html', form=formulario)
 
@@ -42,4 +44,5 @@ def delete(id_centro):
     if centro is None:
         abort(404)
     centro.delete()
+    flash('Centro eliminado correctamente', 'alert alert-success alert-dismissible fade show')
     return redirect(url_for('centro_bp.index'))

@@ -3,6 +3,17 @@
 {% block title %}Áreas{% endblock %}
 
 {% block content %}
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="{{ category }}" role="alert">
+                    {{ message }}
+                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
     <h1 class="text-center">Áreas</h1>
     <a href="{{ url_for('area_bp.add') }}" class="btn btn-primary btn-nuevo">Nuevo</a>
     <div id="tablaAreas" class="text-center"></div>

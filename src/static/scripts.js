@@ -159,7 +159,7 @@ $(document).ready(function () {
                 "Id", "Nombre", "Abreviatura",
                 {
                     id: 'capacidad_anual',
-                    name: 'Capacidad anual'
+                    name: 'Capacidad anual (horas)'
                 },
                 {
                     name: 'Acciones',
