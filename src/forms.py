@@ -5,6 +5,7 @@ from wtforms.validators import DataRequired, Email, URL, InputRequired
 
 from models.Abreviatura import Abreviatura
 from models.Centro import Centro
+from models.Departamento import Departamento
 from models.Titulacion import Titulacion
 
 
@@ -65,3 +66,15 @@ class FormDepartamento(FlaskForm):
     nombre = StringField('Nombre', validators=[DataRequired(message='El nombre es obligatorio')])
     abreviatura = StringField('Abreviatura', validators=[DataRequired(message='La abreviatura es obligatoria')])
     submit = SubmitField('Añadir')
+
+
+class FormArea(FlaskForm):
+    nombre = StringField('Nombre', validators=[DataRequired(message='El nombre es obligatorio')])
+    abreviatura = StringField('Abreviatura', validators=[DataRequired(message='La abreviatura es obligatoria')])
+    departamento = SelectField('Departamento', choices=[],
+                                  validators=[DataRequired(message='El departamento es obligatorio')])
+    submit = SubmitField('Añadir')
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.departamento.choices = [(m.id, m.nombre) for m in Departamento.get_all()]

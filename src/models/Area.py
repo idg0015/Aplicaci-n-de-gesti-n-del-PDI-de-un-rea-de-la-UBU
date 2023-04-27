@@ -25,3 +25,15 @@ class Area(db.Model):
     def get_all_json():
         areas = Area.query.all()
         return [a.to_dict() for a in areas]
+
+    def get_area(id_area):
+        return Area.query.get(id_area)
+
+    def save(self):
+        if not self.id:
+            db.session.add(self)
+        db.session.commit()
+
+    def delete(self):
+        db.session.delete(self)
+        db.session.commit()

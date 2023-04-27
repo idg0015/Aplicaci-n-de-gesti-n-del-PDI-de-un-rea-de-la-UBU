@@ -21,6 +21,10 @@ class Departamento(db.Model):
             "abreviatura": self.abreviatura
         }
 
+    @staticmethod
+    def get_all():
+        return Departamento.query.all()
+
     def get_departamento(id_departamento):
         return Departamento.query.get(id_departamento)
 
