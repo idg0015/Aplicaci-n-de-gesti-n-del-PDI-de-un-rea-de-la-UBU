@@ -15,3 +15,6 @@ departamento_bp.route('/<int:id_departamento>/', methods=['GET', 'POST'])(update
 
 # Eliminación
 departamento_bp.route('/eliminar/<int:id_departamento>/', methods=['GET'])(delete)
+
+# Ajax get departamentos
+departamento_bp.route('/ajax/get_departamentos', methods=['GET'])(get_departamentos_ajax)

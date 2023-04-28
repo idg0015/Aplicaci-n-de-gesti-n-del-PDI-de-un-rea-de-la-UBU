@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, SelectField, HiddenField, IntegerField, FieldList, FormField, \
     SelectMultipleField
-from wtforms.validators import DataRequired, Email, URL, InputRequired
+from wtforms.validators import DataRequired, Email, URL, InputRequired, ValidationError
 
 from models.Abreviatura import Abreviatura
 from models.Centro import Centro
@@ -71,13 +71,19 @@ class FormDepartamento(FlaskForm):
 class FormArea(FlaskForm):
     nombre = StringField('Nombre', validators=[DataRequired(message='El nombre es obligatorio')])
     abreviatura = StringField('Abreviatura', validators=[DataRequired(message='La abreviatura es obligatoria')])
-    departamento = SelectField('Departamento', choices=[],
-                               validators=[DataRequired(message='El departamento es obligatorio')])
+    departamento = SelectField('Departamento', coerce=int, choices=[],
+                               validators=[DataRequired(message='El departamento es obligatorio')], validate_choice=False)
     submit = SubmitField('Añadir')
 
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.departamento.choices = [(m.id, m.nombre) for m in Departamento.get_all()]
+    def validate_departamento(self, departamento):
+        departamento_id = departamento.data
+        departamento_seleccionado = Departamento.get_departamento(departamento_id)
+        if not departamento_seleccionado:
+            raise ValidationError('Seleccione un departamento válido.')
+
+    # def __init__(self, *args, **kwargs):
+    #     super().__init__(*args, **kwargs)
+    #     self.departamento.choices = [(m.id, m.nombre) for m in Departamento.get_all()]
 
 
 class FormContrato(FlaskForm):

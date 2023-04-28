@@ -34,7 +34,7 @@
         <div class="mt-3 mb-3">
             {{ form.departamento.label }}
             <div>
-                {{ form.departamento(class_="form-select") }}
+                {{ form.departamento(class_="form-select select2") }}
             </div>
             {% for error in form.departamento.errors %}
                 <span class="msg-error">{{ error }}</span>
@@ -44,4 +44,33 @@
             {{ form.submit(class_="btn btn-primary") }}
         </div>
     </form>
+
+
+
+
+    <script>
+        $(document).ready(function () {
+            $('.select2').select2({
+                ajax: {
+                    locale: 'es',
+                    placeholder: 'Buscar departamento...',
+                    minimumInputLength: 1,
+                    url: '/departamentos/ajax/get_departamentos',
+                    dataType: 'json',
+                    data: function (params) {
+                        return {
+                            texto: params.term
+                        };
+                    },
+                    processResults: function (data) {
+                        return {
+                            results: data
+                        };
+                    },
+                    cache: true
+                    // Additional AJAX parameters go here; see the end of this chapter for the full code of this example
+                }
+            });
+        });
+    </script>
 {% endblock %}

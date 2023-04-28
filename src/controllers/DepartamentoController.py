@@ -1,4 +1,4 @@
-from flask import render_template, redirect, url_for, abort, flash
+from flask import render_template, redirect, url_for, abort, flash, request, jsonify
 
 from forms import FormDepartamento
 from models.Departamento import Departamento
@@ -45,4 +45,9 @@ def delete(id_departamento):
     departamento.delete()
     flash('Departamento eliminado correctamente', 'alert alert-success alert-dismissible fade show')
     return redirect(url_for('departamento_bp.index'))
+
+def get_departamentos_ajax():
+    texto = request.args.get('texto')
+    return Departamento.get_ajax(texto)
+
 

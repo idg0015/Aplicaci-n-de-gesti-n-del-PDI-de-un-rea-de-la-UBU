@@ -2,6 +2,7 @@ from flask import render_template, redirect, url_for, abort, flash
 
 from forms import FormArea
 from models.Area import Area
+from models.Departamento import Departamento
 
 
 def index():
@@ -11,6 +12,7 @@ def index():
 
 def add():
     formulario = FormArea()
+    # formulario.departamento.choices = [(m.id, m.nombre) for m in Departamento.get_all()]
     if formulario.validate_on_submit():
         nombre = formulario.nombre.data
         abreviatura = formulario.abreviatura.data
@@ -35,6 +37,7 @@ def update(id_area):
         area.save()
         flash('Área modificada correctamente', 'alert alert-success alert-dismissible fade show')
         return redirect(url_for('area_bp.index'))
+    formulario.departamento.choices = [(area.departamento.id, area.departamento.nombre)]
     return render_template('areas/form.html', form=formulario)
 
 

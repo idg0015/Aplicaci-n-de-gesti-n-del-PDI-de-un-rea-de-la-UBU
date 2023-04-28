@@ -1,3 +1,5 @@
+from flask import jsonify
+
 from utils.db import db
 
 
@@ -36,3 +38,16 @@ class Departamento(db.Model):
     def delete(self):
         db.session.delete(self)
         db.session.commit()
+
+    @staticmethod
+    def get_ajax(texto):
+        departamentos = Departamento.query.filter(Departamento.nombre.ilike(f'%{texto}%')).all()
+
+        results = []
+        for departamento in departamentos:
+            data = {
+                'id': departamento.id,
+                'text': departamento.nombre
+            }
+            results.append(data)
+        return results

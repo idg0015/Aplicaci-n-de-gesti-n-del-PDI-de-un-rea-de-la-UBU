@@ -7,26 +7,12 @@
     <list default="true" id="ae6b2c56-8d66-4217-a826-17f3975d95c3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/AreaController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/AreaController.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/AsignaturaController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/AsignaturaController.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/CentroController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/CentroController.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/ContratoController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/ContratoController.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/DepartamentoController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/DepartamentoController.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/DocenteController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/DocenteController.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/TitulacionController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/TitulacionController.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/scripts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/areas/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/areas/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/asignaturas/form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/asignaturas/form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/asignaturas/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/asignaturas/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/centros/form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/centros/form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/centros/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/centros/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/contratos/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contratos/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/departamentos/form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/departamentos/form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/departamentos/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/departamentos/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/docentes/form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/docentes/form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/docentes/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/docentes/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/titulaciones/form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/titulaciones/form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/titulaciones/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/titulaciones/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/Departamento.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/Departamento.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/departamento_bp.py" beforeDir="false" afterPath="$PROJECT_DIR$/routes/departamento_bp.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/areas/form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/areas/form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base/base_template.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base/base_template.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,30 +55,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/Nacho/Desktop/UBU/TFG/Aplicacion-de-gestion-del-PDI-de-un-area-de-la-UBU/src/templates/contratos",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "ts.external.directory.path": "E:\\Programas\\PyCharm 2022.3.2\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Nacho/Desktop/UBU/TFG/Aplicacion-de-gestion-del-PDI-de-un-area-de-la-UBU/src/templates/contratos&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;E:\\Programas\\PyCharm 2022.3.2\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Nacho\Desktop\UBU\TFG\Aplicacion-de-gestion-del-PDI-de-un-area-de-la-UBU\src\templates\contratos" />
@@ -163,7 +149,9 @@
       <workItem from="1682241101967" duration="25348000" />
       <workItem from="1682353552052" duration="2501000" />
       <workItem from="1682529710634" duration="3095000" />
-      <workItem from="1682605222562" duration="8055000" />
+      <workItem from="1682605222562" duration="8128000" />
+      <workItem from="1682691250864" duration="5169000" />
+      <workItem from="1682705667436" duration="9459000" />
     </task>
     <servers />
   </component>
@@ -182,6 +170,6 @@
     </option>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/src$src.coverage" NAME="src Coverage Results" MODIFIED="1682614834867" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/src$src.coverage" NAME="src Coverage Results" MODIFIED="1682705776672" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
