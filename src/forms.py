@@ -1,11 +1,14 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, SelectField, HiddenField, IntegerField, FieldList, FormField, \
-    SelectMultipleField
+    SelectMultipleField, DateField
 from wtforms.validators import DataRequired, Email, URL, InputRequired, ValidationError
 
 from models.Abreviatura import Abreviatura
+from models.Area import Area
 from models.Centro import Centro
+from models.Contrato import TipoContrato
 from models.Departamento import Departamento
+from models.Docente import Docente
 from models.Titulacion import Titulacion
 
 
@@ -72,7 +75,8 @@ class FormArea(FlaskForm):
     nombre = StringField('Nombre', validators=[DataRequired(message='El nombre es obligatorio')])
     abreviatura = StringField('Abreviatura', validators=[DataRequired(message='La abreviatura es obligatoria')])
     departamento = SelectField('Departamento', coerce=int, choices=[],
-                               validators=[DataRequired(message='El departamento es obligatorio')], validate_choice=False)
+                               validators=[DataRequired(message='El departamento es obligatorio')],
+                               validate_choice=False)
     submit = SubmitField('Añadir')
 
     def validate_departamento(self, departamento):
@@ -93,3 +97,44 @@ class FormContrato(FlaskForm):
                                    validators=[InputRequired(message='La capacidad anual es obligatoria')])
     # DataRequired para que no se pueda enviar 0
     submit = SubmitField('Añadir')
+
+
+class FormPlaza(FlaskForm):
+    nombre = StringField('Nombre', validators=[DataRequired(message='El nombre es obligatorio')])
+    rpt = StringField('RPT', validators=[DataRequired(message='La RPT es obligatoria')])
+    num_concursos_contratacion = IntegerField('Número de concursos de contratación',
+                                              validators=[InputRequired(
+                                                  message='El número de concursos de contratación es obligatorio')])
+    fecha_incorporacion = DateField('Fecha de incorporación',
+                                      validators=[DataRequired(message='La fecha de incorporación es obligatoria')])
+    fecha_cese = DateField('Fecha de cese', validators=[DataRequired(message='La fecha de cese es obligatoria')])
+    docente = SelectField('Docente', coerce=int, choices=[], validate_choice=False)
+    area = SelectField('Área', coerce=int, choices=[], validators=[DataRequired(message='El área es obligatoria')],
+                       validate_choice=False)
+    contrato = SelectField('Tipo de contrato', coerce=int, choices=[],
+                           validators=[DataRequired(message='El tipo de contrato es obligatorio')],
+                           validate_choice=False)
+    submit = SubmitField('Añadir')
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.contrato.choices = [(m.id, m.nombre) for m in TipoContrato.get_all()]
+
+    def validate_docente(self, docente):
+        docente_id = docente.data
+        if docente_id != -1:
+            docente_seleccionado = Docente.get_docente(docente_id)
+            if not docente_seleccionado:
+                raise ValidationError('Seleccione un docente válido.')
+
+    def validate_area(self, area):
+        area_id = area.data
+        area_seleccionada = Area.get_area(area_id)
+        if not area_seleccionada:
+            raise ValidationError('Seleccione un área válido.')
+
+    # def validate_contrato(self, contrato):
+    #     contrato_id = contrato.data
+    #     contrato_seleccionado = TipoContrato.get_contrato(contrato_id)
+    #     if not contrato_seleccionado:
+    #         raise ValidationError('Seleccione un tipo de contrato válido.')

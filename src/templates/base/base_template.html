@@ -28,7 +28,9 @@
 
 
 <body>
-{% include "base/navbar.html" %}
+{% if no_menu is not defined %}
+    {% include "base/navbar.html" %}
+{% endif %}
 <div class="contenido">
     {% block content %}{% endblock %}
 </div>

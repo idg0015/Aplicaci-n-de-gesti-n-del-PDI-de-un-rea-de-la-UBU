@@ -9,7 +9,7 @@ class TipoContrato(db.Model):
     abreviatura = db.Column(db.String(80), nullable=False)
     capacidad_anual = db.Column(db.Integer, nullable=False)
 
-    plazas = db.relationship('Plaza', back_populates='tipo_contrato')
+    plazas = db.relationship('Plaza', back_populates='tipo_contrato', cascade='all, delete-orphan')
 
     def to_dict(self):
         return {
@@ -35,3 +35,20 @@ class TipoContrato(db.Model):
     def delete(self):
         db.session.delete(self)
         db.session.commit()
+
+    @staticmethod
+    def get_all():
+        return TipoContrato.query.all()
+
+    # @staticmethod
+    # def get_ajax(texto):
+    #     tiposContrato = TipoContrato.query.filter(TipoContrato.nombre.ilike(f'%{texto}%')).all()
+    #
+    #     results = []
+    #     for tipoContrato in tiposContrato:
+    #         data = {
+    #             'id': tipoContrato.id,
+    #             'text': tipoContrato.nombre
+    #         }
+    #         results.append(data)
+    #     return results

@@ -11,7 +11,7 @@ $(document).ready(function () {
                 {
                     name: 'Acciones',
                     //width: '8%',
-                    sort:false,///update/${row.cells[0].data}
+                    sort: false,///update/${row.cells[0].data}
                     formatter: (_, row) => gridjs.html(`<a class="icono" href="/centros/${row.cells[0].data}"><i class="bi bi-pencil-square"></i></a> <a href="/centros/eliminar/${row.cells[0].data}" class="icono" onclick="return confirm('¿Está seguro de eliminar el centro? Se eliminarán sus titulaciones asociadas y todo lo que dependa de estas')"><i class="bi bi-trash3-fill"></i></a>`)
                 },
             ],
@@ -23,7 +23,7 @@ $(document).ready(function () {
             sort: true,
             search: true,
             width: "70%",
-            data:centros
+            data: centros
         }).render(document.getElementById("tablaCentros"));
     }
 
@@ -72,7 +72,7 @@ $(document).ready(function () {
                 {
                     id: 'creditos_practica',
                     name: 'Créditos práctica'
-                },"Curso", "Semestre", "Abreviaturas",
+                }, "Curso", "Semestre", "Abreviaturas",
                 {
                     name: 'Acciones',
                     formatter: (_, row) => gridjs.html(`<a class="icono" href="/asignaturas/${row.cells[0].data}"><i class="bi bi-pencil-square"></i></a> <a href="/asignaturas/eliminar/${row.cells[0].data}" class="icono" onclick="return confirm('¿Está seguro de eliminar la asignatura? Se eliminarán sus abreviaturas asociadas y los cursos donde se encuentren.')"><i class="bi bi-trash3-fill"></i></a>`)
@@ -118,18 +118,22 @@ $(document).ready(function () {
     if (document.getElementById('tablaPlazas') != null) {
         new gridjs.Grid({
             columns: [
-                "Id", "Nombre", "RPT",
+                "Id", "Nombre",
+                {
+                    id:"rpt",
+                    name: gridjs.html('<span title="Relación Puestos de Trabajo (RPT)">RPT</span>')
+                },
                 {
                     id: 'fecha_incorporacion',
-                    name: 'Fecha incorporación'
+                    name: gridjs.html('<span title="Fecha incorporación">Fecha incorporación</span>')
                 },
                 {
                     id: 'fecha_cese',
-                    name: 'Fecha cese'
+                    name: gridjs.html('<span title="Fecha cese">Fecha cese</span>')
                 },
                 {
                     id: 'num_concursos_contratacion',
-                    name: 'Nº concursos contratación'
+                    name: gridjs.html('<span title="Número concursos contratación">Nº C.C</span>'),
                 },
                 "Docente",
                 {
@@ -138,7 +142,7 @@ $(document).ready(function () {
                 },
                 {
                     name: 'Acciones',
-                    formatter: (_, row) => gridjs.html(`<a class="icono" href="#" onclick="alert( '${row.cells[0].data}');"><i class="bi bi-pencil-square"></i></a> <a href="#" class="icono" onclick="alert( '${row.cells[0].data}');"><i class="bi bi-trash3-fill"></i></a>`)
+                    formatter: (_, row) => gridjs.html(`<a class="icono" href="/plazas/${row.cells[0].data}"><i class="bi bi-pencil-square"></i></a> <a href="/plazas/eliminar/${row.cells[0].data}" class="icono" onclick="return confirm('¿Está seguro de eliminar la plaza? Se eliminarán sus relaciones con grupos.')"><i class="bi bi-trash3-fill"></i></a>`)
                 },
             ],
             language: gridjs.l10n.esES,
@@ -149,7 +153,7 @@ $(document).ready(function () {
                 td: "text-center",
                 th: "text-center"
             },
-            data:plazas
+            data: plazas
         }).render(document.getElementById("tablaPlazas"));
     }
 
@@ -287,7 +291,7 @@ $(document).ready(function () {
     if (document.getElementById('tablaHoras') != null) {
         new gridjs.Grid({
             columns: [
-                "Centro", "Titulación", "Asignatura", "Semestre", "Id Grupo", "Plaza/Docente", "Horas", "Horas totales docente", "Plaza/Docente","Horas", "Horas totales docente", "Plaza/Docente","Horas", "Horas totales docente",
+                "Centro", "Titulación", "Asignatura", "Semestre", "Id Grupo", "Plaza/Docente", "Horas", "Horas totales docente", "Plaza/Docente", "Horas", "Horas totales docente", "Plaza/Docente", "Horas", "Horas totales docente",
                 {
                     name: 'Acciones',
                     formatter: (_, row) => gridjs.html(`<button type="button" class="btn btn-primary" onclick="alert( '${row.cells[0].data}');">Editar</button>`)

@@ -1,0 +1,175 @@
+{% extends "base/base_template.html" %}
+{% block title %}
+    {% if form.nombre.data %}
+        {{ form.nombre.data }}
+    {% else %}
+        Añadir plaza
+    {% endif %}
+{% endblock %}
+{% block content %}
+    {% if form.nombre.data %}
+        <h1 class="text-center">{{ form.nombre.data }}</h1>
+    {% else %}
+        <h1 class="text-center">Añadir plaza</h1>
+    {% endif %}
+    <form action="" method="post" novalidate class="form-centro">
+        {{ form.hidden_tag() }}
+        <div class="row">
+            <div class="mt-3 mb-3 col-12 col-lg-6">
+                {{ form.nombre.label }}
+                <div>{{ form.nombre(class_="form-control") }}</div>
+
+                {% for error in form.nombre.errors %}
+                    <span class="msg-error">{{ error }}</span>
+                {% endfor %}
+            </div>
+
+            <div class="mt-3 mb-3 col-12 col-lg-6">
+                {{ form.rpt.label }}
+                <div>{{ form.rpt(class_="form-control") }}</div>
+                {% for error in form.rpt.errors %}
+                    <span class="msg-error">{{ error }}</span>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="mt-3 mb-3 col-12 col-lg-6">
+                {{ form.fecha_incorporacion.label }}
+                <div>{{ form.fecha_incorporacion(class_="form-control") }}</div>
+                {% for error in form.fecha_incorporacion.errors %}
+                    <span class="msg-error">{{ error }}</span>
+                {% endfor %}
+            </div>
+
+            <div class="mt-3 mb-3 col-12 col-lg-6">
+                {{ form.fecha_cese.label }}
+                <div>{{ form.fecha_cese(class_="form-control") }}</div>
+                {% for error in form.fecha_cese.errors %}
+                    <span class="msg-error">{{ error }}</span>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="mt-3 mb-3 col-12 col-lg-6">
+                {{ form.num_concursos_contratacion.label }}
+                <div>{{ form.num_concursos_contratacion(class_="form-control") }}</div>
+                {% for error in form.num_concursos_contratacion.errors %}
+                    <span class="msg-error">{{ error }}</span>
+                {% endfor %}
+            </div>
+
+            <div class="mt-3 mb-3 col-10 col-lg-4">
+                {{ form.docente.label }}
+                <div>{{ form.docente(class_="form-select select2") }}</div>
+                {% for error in form.docente.errors %}
+                    <span class="msg-error">{{ error }}</span>
+                {% endfor %}
+            </div>
+            <div class="mt-4 mb-3 col-2 col-lg-2">
+                <button type="button" id="btn-nuevo-docente" class="btn btn-primary">Nuevo docente</button>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="mt-3 mb-3 col-12 col-lg-6">
+                {{ form.area.label }}
+                <div>{{ form.area(class_="form-select select2") }}</div>
+                {% for error in form.area.errors %}
+                    <span class="msg-error">{{ error }}</span>
+                {% endfor %}
+            </div>
+
+            <div class="mt-3 mb-3 col-12 col-lg-6">
+                {{ form.contrato.label }}
+                <div>{{ form.contrato(class_="form-select select2") }}</div>
+                {% for error in form.contrato.errors %}
+                    <span class="msg-error">{{ error }}</span>
+                {% endfor %}
+            </div>
+        </div>
+
+
+        <div class="text-center mt-4">
+            {{ form.submit(class_="btn btn-primary") }}
+        </div>
+    </form>
+
+    <div class="modal fade" id="modal-crear-docente" tabindex="-1" aria-labelledby="modal-crear-docente-label"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal-crear-docente-label">Crear nuevo docente</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <iframe src="{{ url_for('docente_bp.add_modal') }}" style="width: 100%; height: 500px;"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <script>
+        $(document).ready(function () {
+            $('#docente').select2({
+                ajax: {
+                    locale: 'es',
+                    placeholder: 'Buscar docente...',
+                    minimumInputLength: 1,
+                    url: '/docentes/ajax/get_docentes',
+                    dataType: 'json',
+                    data: function (params) {
+                        return {
+                            texto: params.term
+                        };
+                    },
+                    processResults: function (data) {
+                        return {
+                            results: data
+                        };
+                    },
+                    cache: true
+                }
+            });
+
+            $('#area').select2({
+                ajax: {
+                    locale: 'es',
+                    placeholder: 'Buscar área...',
+                    minimumInputLength: 1,
+                    url: '/areas/ajax/get_areas',
+                    dataType: 'json',
+                    data: function (params) {
+                        return {
+                            texto: params.term
+                        };
+                    },
+                    processResults: function (data) {
+                        return {
+                            results: data
+                        };
+                    },
+                    cache: true
+                }
+            });
+
+            $('#contrato').select2({});
+
+
+            const btnNuevoDocente = document.getElementById('btn-nuevo-docente');
+            btnNuevoDocente.addEventListener('click', function () {
+                const modalCrearDocente = new bootstrap.Modal(document.getElementById('modal-crear-docente'));
+                modalCrearDocente.show();
+            });
+
+        });
+
+
+    </script>
+{% endblock %}

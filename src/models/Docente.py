@@ -1,3 +1,5 @@
+from sqlalchemy import or_
+
 from utils.db import db
 
 
@@ -37,3 +39,17 @@ class Docente(db.Model):
     def delete(self):
         db.session.delete(self)
         db.session.commit()
+
+    @staticmethod
+    def get_ajax(texto):
+        docentes = Docente.query.filter((Docente.nombre.ilike(f'%{texto}%') | Docente.apellidos.ilike(f'%{texto}%')))
+
+        results = []
+        results.append({'id': -1, 'text': 'Ninguno'})
+        for docente in docentes:
+            data = {
+                'id': docente.id,
+                'text': docente.nombre + ' ' + docente.apellidos
+            }
+            results.append(data)
+        return results

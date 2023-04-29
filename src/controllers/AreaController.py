@@ -1,4 +1,4 @@
-from flask import render_template, redirect, url_for, abort, flash
+from flask import render_template, redirect, url_for, abort, flash, request
 
 from forms import FormArea
 from models.Area import Area
@@ -48,3 +48,8 @@ def delete(id_area):
     area.delete()
     flash('Área eliminada correctamente', 'alert alert-success alert-dismissible fade show')
     return redirect(url_for('area_bp.index'))
+
+
+def get_areas_ajax():
+    texto = request.args.get('texto')
+    return Area.get_ajax(texto)

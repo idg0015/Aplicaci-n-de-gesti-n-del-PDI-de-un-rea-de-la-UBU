@@ -11,7 +11,7 @@ class Area(db.Model):
     departamento = db.relationship('Departamento', back_populates="areas")
 
     # Relacion con Plaza
-    plazas = db.relationship('Plaza', back_populates='area')
+    plazas = db.relationship('Plaza', back_populates='area', cascade='all, delete-orphan')
 
     def to_dict(self):
         return {
@@ -37,3 +37,16 @@ class Area(db.Model):
     def delete(self):
         db.session.delete(self)
         db.session.commit()
+
+    @staticmethod
+    def get_ajax(texto):
+        areas = Area.query.filter(Area.nombre.ilike(f'%{texto}%')).all()
+
+        results = []
+        for area in areas:
+            data = {
+                'id': area.id,
+                'text': area.nombre
+            }
+            results.append(data)
+        return results

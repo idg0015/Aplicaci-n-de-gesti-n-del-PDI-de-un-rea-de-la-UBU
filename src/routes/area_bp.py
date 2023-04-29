@@ -15,3 +15,6 @@ area_bp.route('/<int:id_area>/', methods=['GET', 'POST'])(update)
 
 # Eliminación
 area_bp.route('/eliminar/<int:id_area>/', methods=['GET'])(delete)
+
+# Ajax get areas
+area_bp.route('/ajax/get_areas', methods=['GET'])(get_areas_ajax)

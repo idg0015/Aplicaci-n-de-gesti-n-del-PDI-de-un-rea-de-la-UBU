@@ -3,8 +3,19 @@
 {% block title %}Plazas{% endblock %}
 
 {% block content %}
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="{{ category }}" role="alert">
+                    {{ message }}
+                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
     <h1 class="text-center">Plazas</h1>
-    <a href="#" class="btn btn-primary btn-nuevo">Nuevo</a>
+    <a href="{{ url_for('plaza_bp.add') }}" class="btn btn-primary btn-nuevo">Nuevo</a>
     <div id="tablaPlazas" class="text-center"></div>
     <script>
         let plazas = JSON.parse('{{ plazas | default([])| tojson }}');

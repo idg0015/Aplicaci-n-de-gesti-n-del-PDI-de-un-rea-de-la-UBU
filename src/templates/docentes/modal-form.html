@@ -1,0 +1,73 @@
+{% extends "base/base_template.html" %}
+{% set no_menu = true %}
+{% block title %}
+    {% if form.nombre.data %}
+        {{ form.nombre.data }}
+    {% else %}
+        Añadir docente
+    {% endif %}
+{% endblock %}
+{% block content %}
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="{{ category }}" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+
+    {% if form.nombre.data %}
+        <h1 class="text-center">{{ form.nombre.data }}</h1>
+    {% else %}
+        <h1 class="text-center">Añadir docente</h1>
+    {% endif %}
+    <form id="form-crear-docente" action="" method="post" novalidate class="form-centro">
+        {{ form.hidden_tag() }}
+        <div class="mt-3 mb-3">
+            {{ form.nombre.label(class_="col-sm-2") }}
+            <div>
+                {{ form.nombre(class_="form-control") }}
+            </div>
+
+            {% for error in form.nombre.errors %}
+                <span class="msg-error">{{ error }}</span>
+            {% endfor %}
+        </div>
+        <div class="mt-3 mb-3">
+            {{ form.apellidos.label(class_="col-sm-2") }}
+            <div>
+                {{ form.apellidos(class_="form-control") }}
+            </div>
+
+            {% for error in form.apellidos.errors %}
+                <span class="msg-error">{{ error }}</span>
+            {% endfor %}
+        </div>
+        <div class="mt-3 mb-3">
+            {{ form.email.label }}
+            <div>
+                {{ form.email(class_="form-control") }}
+            </div>
+            {% for error in form.email.errors %}
+                <span class="msg-error">{{ error }}</span>
+            {% endfor %}
+        </div>
+        <div class="mt-3 mb-3">
+            {{ form.reducciones.label(class_="col-sm-2") }}
+            <div>
+                {{ form.reducciones(class_="form-control") }}
+            </div>
+
+            {% for error in form.reducciones.errors %}
+                <span class="msg-error">{{ error }}</span>
+            {% endfor %}
+        </div>
+        <div class="text-center mt-4">
+            {{ form.submit(class_="btn btn-primary") }}
+        </div>
+    </form>
+{% endblock %}
