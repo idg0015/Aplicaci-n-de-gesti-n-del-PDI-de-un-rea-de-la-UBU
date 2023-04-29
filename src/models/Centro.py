@@ -5,6 +5,7 @@ from utils.db import db
 
 class Centro(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    codigo = db.Column(db.Integer, nullable=False)
     nombre = db.Column(db.String(256), nullable=False)
     abreviatura = db.Column(db.String(80), nullable=False)
     email = db.Column(db.String(256), nullable=False)
@@ -18,6 +19,7 @@ class Centro(db.Model):
     def to_dict(self):
         return {
             "id": self.id,
+            "codigo": self.codigo,
             "nombre": self.nombre,
             "abreviatura": self.abreviatura,
             "email": self.email

@@ -15,6 +15,17 @@
     <form action="" method="post" novalidate class="form-centro">
         {{ form.hidden_tag() }}
         <div class="mt-3 mb-3">
+            {{ form.codigo.label(class_="col-sm-2") }}
+            <div>
+                {{ form.codigo(class_="form-control") }}
+            </div>
+
+            {% for error in form.codigo.errors %}
+                <span class="msg-error">{{ error }}</span>
+            {% endfor %}
+        </div>
+
+        <div class="mt-3 mb-3">
             {{ form.nombre.label(class_="col-sm-2") }}
             <div>
                {{ form.nombre(class_="form-control") }}

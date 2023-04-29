@@ -13,6 +13,7 @@ from models.Titulacion import Titulacion
 
 
 class FormCentro(FlaskForm):
+    codigo = IntegerField('Código interno', validators=[DataRequired(message='El código interno es obligatorio')])
     nombre = StringField('Nombre', validators=[DataRequired(message='El nombre es obligatorio')])
     abreviatura = StringField('Abreviatura', validators=[DataRequired(message='La abreviatura es obligatoria')])
     email = StringField('Email del administrativo',
@@ -22,6 +23,7 @@ class FormCentro(FlaskForm):
 
 
 class FormTitulacion(FlaskForm):
+    codigo = IntegerField('Código interno', validators=[DataRequired(message='El código interno es obligatorio')])
     nombre = StringField('Nombre', validators=[DataRequired(message='El nombre es obligatorio')])
     abreviatura = StringField('Abreviatura', validators=[DataRequired(message='La abreviatura es obligatoria')])
     url = StringField('URL', validators=[DataRequired(message='La URL es obligatoria'),
@@ -35,15 +37,16 @@ class FormTitulacion(FlaskForm):
 
 
 class FormAsignatura(FlaskForm):
+    codigo = IntegerField('Código interno', validators=[DataRequired(message='El código interno es obligatorio')])
     nombre = StringField('Nombre', validators=[DataRequired(message='El nombre es obligatorio')])
     tipo = SelectField('Tipo', choices=[('FB', 'Formación Básica'), ('Ob', 'Obligatoria'), ('Op', 'Optativa')],
                        validators=[DataRequired(message='El tipo es obligatorio')])
     abreviatura = SelectMultipleField('Abreviatura(s)', choices=[], validate_choice=False)
     creditos_teoria = IntegerField('Créditos de teoría',
-                                   validators=[DataRequired(message='El número de créditos de teoría es obligatorio')])
+                                   validators=[InputRequired(message='El número de créditos de teoría es obligatorio')])
     creditos_practica = IntegerField('Créditos de práctica', validators=[
-        DataRequired(message='El número de créditos de práctica es obligatorio')])
-    curso = SelectField('Curso', choices=[('1', '1º'), ('2', '2º'), ('3', '3º'), ('4', '4º')],
+        InputRequired(message='El número de créditos de práctica es obligatorio')])
+    curso = SelectField('Curso', choices=[('1', '1º'), ('2', '2º'), ('3', '3º'), ('4', '4º'), ('Todos', 'Todos')],
                         validators=[DataRequired(message='El curso es obligatorio')])
     semestre = SelectField('Semestre', choices=[('1', '1º'), ('2', '2º'), ('1.2', '1º y 2º')],
                            validators=[DataRequired(message='El semestre es obligatorio')])

@@ -3,11 +3,12 @@ from utils.db import db
 
 class Titulacion(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    codigo = db.Column(db.Integer, nullable=False)
     nombre = db.Column(db.String(256), nullable=False)
     abreviatura = db.Column(db.String(80), nullable=False)
     url = db.Column(db.String(256), nullable=False)
 
-    id_centro = db.Column(db.Integer, db.ForeignKey('centro.id', ondelete='CASCADE'), nullable=False)
+    id_centro = db.Column(db.Integer, db.ForeignKey('centro.id'), nullable=False)
     centro = db.relationship("Centro", back_populates="titulaciones")
     asignaturas = db.relationship("Asignatura", back_populates="titulacion")
 
@@ -19,6 +20,7 @@ class Titulacion(db.Model):
     def to_dict(self):
         return {
             "id": self.id,
+            "codigo": self.codigo,
             "nombre": self.nombre,
             "abreviatura": self.abreviatura,
             "url": self.url,

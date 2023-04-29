@@ -16,3 +16,12 @@ class Abreviatura(db.Model):
     @staticmethod
     def get_all():
         return Abreviatura.query.all()
+
+    @staticmethod
+    def get_abreviatura(abreviatura, id_asignatura):
+        return Abreviatura.query.filter(Abreviatura.abreviatura == abreviatura,
+                                        Abreviatura.id_asignatura == id_asignatura).first()
+
+    def delete(self):
+        db.session.delete(self)
+        db.session.commit()

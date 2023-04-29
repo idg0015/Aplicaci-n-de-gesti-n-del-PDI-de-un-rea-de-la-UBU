@@ -11,12 +11,13 @@ def index():
 def add():
     formulario = FormTitulacion()
     if formulario.validate_on_submit():
+        codigo = formulario.codigo.data
         nombre = formulario.nombre.data
         abreviatura = formulario.abreviatura.data
         url = formulario.url.data
         id_centro = formulario.centro.data
 
-        titulacion = Titulacion(nombre=nombre, abreviatura=abreviatura, url=url, id_centro=id_centro)
+        titulacion = Titulacion(codigo=codigo, nombre=nombre, abreviatura=abreviatura, url=url, id_centro=id_centro)
         titulacion.save()
         flash('Tiulación añadida correctamente', 'alert alert-success alert-dismissible fade show')
         return redirect(url_for('titulacion_bp.index'))
@@ -30,6 +31,7 @@ def update(id_titulacion):
     formulario = FormTitulacion(obj=titulacion)
     formulario.submit.label.text = 'Modificar'
     if formulario.validate_on_submit():
+        titulacion.codigo = formulario.codigo.data
         titulacion.nombre = formulario.nombre.data
         titulacion.abreviatura = formulario.abreviatura.data
         titulacion.url = formulario.url.data

@@ -4,6 +4,7 @@ from utils.db import db
 
 class Asignatura(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    codigo = db.Column(db.Integer, nullable=False)
     nombre = db.Column(db.String(256), nullable=False)
     tipo = db.Column(db.String(256), nullable=False)
     creditos_teoria = db.Column(db.Integer, nullable=False)
@@ -24,6 +25,7 @@ class Asignatura(db.Model):
     def to_dict(self):
         return {
             "id": self.id,
+            "codigo": self.codigo,
             "nombre": self.nombre,
             "tipo": self.tipo,
             "titulacion": self.titulacion.nombre,
