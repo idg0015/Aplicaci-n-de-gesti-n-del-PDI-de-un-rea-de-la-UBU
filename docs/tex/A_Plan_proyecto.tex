@@ -173,6 +173,7 @@ En la reunión de planificación del sprint se fijaron las siguientes tareas:
 \end{enumerate}
 
 \item\textbf{\textit{Burndown Report}}
+
 Este \textit{sprint} tenía una duración inicial de una semana, pero debido a falta de tiempo por exámenes y entregas de trabajos, decidí aplazar una semana más la reunión de revisión para poder trabajar en el proyecto. 
 Además, se tuvo que cambiar la fecha habitual de las reuniones debido a que empecé prácticas en una empresa y ya no era compatible la hora/día que se tenía.
 
@@ -181,10 +182,68 @@ Se puso una estimación de 4 horas, que de trabajo real fue el doble, unas 8 hor
 Este exceso de tiempo fue debido en gran medida a errores surgidos a la hora de crear la base de datos utilizando el \textit{ORM} SQLAlchemy. 
 Los problemas eran principalmente por como hacía la carga de la base de datos que hacía que en algunos contextos estuviese disponible y en otros no, provocando errores al ejecutar la aplicación y generar las tablas de la base de datos.
 
-La tarea <<Crear la primera carga de la base de datos con CSV y script SQL>> tenía una planificación de 2 horas....
+La tarea <<Crear la primera carga de la base de datos con CSV y script SQL>> tenía una planificación de 2 horas y se completó en el tiempo. 
+Sólo quedo pendiente el hecho de que desde la interfaz phpMyAdmin que estoy utilizando para manejar la base de datos, no fui capaz de cargar los archivos csv desde el script de SQL y tuve que cargarlos por separado desde la interfaz.
+
+Para la tarea <<Creación de más vistas junto a su funcionalidad>> se tenía una estimación de 6 horas. 
+En este caso fui bastante optimista y el trabajo real termino siendo de 9 horas.
+Esto se debido en gran parte a la aparición de problemas que hicieron que tuviera que trabajar más horas de las planeadas en esta tarea.
+
+La tarea <<Cambios en la documentación>> tenía planificadas 2 horas de trabajo. 
+En horas reales termino siendo 2 horas y media aproximadamente.
+
+Finalmente, la tarea de <<Añadir más documentación>> tenía una estimación de 1 hora y el trabajo realizado fue también de 1 hora. 
+Se añadió sobre todo documentación sobre técnicas y herramientas, apartado de diseño y apartado de plan de proyecto.
+
+\item\textbf{Revisión del \textit{sprint}}
+
+En la reunión de revisión del \textit{sprint} 6 se estuvieron valorando los cambios realizados y las nuevas funcionalidades añadidas.
+También se resolvieron algunas dudas sobre la documentación y algunas partes de la funcionalidad de la aplicación web.
+Se discutieron algunos aspectos como el añadir algún nuevo campo en la base de datos para códigos internos o cómo tratar la eliminación de los centros, que hasta ahora se trataba como una eliminación en cascada, y se decidió cambiar al existir demasiado riesgo de pérdida de información por un borrado accidental o poco planificado.
+
+\end{itemize}
+
+
+\subsubsection{\textit{Sprint} 7: Creación de CRUDs y documentar}
+Fechas: 24 abril 2023 -- 2 mayo 2023.
+\begin{itemize}
+\item\textbf{Planificación del \textit{sprint}}
+
+
+En la reunión de planificación del sprint se fijaron las siguientes tareas:
+\begin{enumerate}
+		\item Comentarios sobre memoria y anexos.
+		\item Crear el CRUD de Docentes, Plazas, Contratos, Áreas y Departamentos.
+		\item Solucionar bug con las abreviaturas al modificar una asignatura.
+		\item Algunos cambios en campos de la base de datos.
+		\item Buscar cómo cargar un CSV desde un script de SQL en phpMyAdmin.
+		\item Añadir documentación.
+\end{enumerate}
+
+\item\textbf{\textit{Burndown Report}}
+La tarea de <<Comentarios sobre memoria y anexos>> fue una tarea creada por Álvar Arnaiz González para dejar las correcciones hechas en la memoria y los anexos. 
+Esta tarea fue reutilizada para indicar que se iban a subir esos cambios en la documentación. 
+Tenía una planificación de 30 minutos y se realizó dentro del tiempo estimado.
+
+La tarea <<Crear el CRUD de Docentes, Plazas, Contratos, Áreas y Departamentos>> era la que tenía más carga de trabajo en este \textit{sprint} con una estimación de 8 horas que se convirtió en 11 horas de trabajo real.
+Este incremento de horas se debió principalmente a problemas para configurar correctamente la biblioteca Select2 utilizando Ajax y para mantener las opciones marcadas en el campo en las modificaciones.
+
+La tarea <<Solucionar bug con las abreviaturas al modificar una asignatura>> era debida a errores en el campo Select2 al hacer una modificación de una asignatura. 
+Las abreviaturas de la asignatura aparecían bien, pero no se recuperaban de forma correcta en el servidor para saber cuales habían sido añadidas o eliminadas.
+Esta tarea tenía una estimación de 1 hora y no se pretendía superar ese tiempo de trabajo, ya que en la reunión de planificación no se consideró que fuese un problema crucial debido a que en este momento no era necesario que una asignatura tuviera varias abreviaturas y podía ser cambiado por un campo de texto normal que no diese ese problema y permitiese a una asignatura tener una única abreviatura.
+Al realizar la tarea anterior se tuvo un problema parecido que dio la pista para resolver este problema dejándolo totalmente subsanado.
+
+La tarea <<Algunos cambios en campos de la base de datos>> tenía una estimación de 1 hora y se realizó dentro del plazo.
+La tarea consistía en añadir nuevos campos en la base de datos, lo que suponía también hacer cambios en el código para introducir los nuevos atributos en los modelos y en los formularios.
+También se cambió el borrado en cascada que tenían los centros para evitar que se eliminen centros que tengan titulaciones vinculadas.
+
+Para la tarea <<Añadir documentación>> se estimaron 3 horas de trabajo que se cumplieron en cuanto a trabajo real.
+
+Finalmente, para la tarea <<Buscar cómo cargar un CSV desde un script de SQL en phpMyAdmin>> se estimó 1 hora de trabajo.........
 
 
 \item\textbf{Revisión del \textit{sprint}}
+
 
 \end{itemize}
 

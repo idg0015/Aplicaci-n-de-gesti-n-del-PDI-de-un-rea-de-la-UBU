@@ -14,6 +14,15 @@ La primera vista hace referencia al apartado de mantenimiento académico y se pu
 
 Del diagrama entidad-relación se puede obtener el diagrama relacional de la figura~\ref{DiagramaRelacional} en el que se pueden ver la tablas que contendrá la base de datos de la aplicación web.
 
+En este diagrama se pueden ver las tablas de la base de datos juntos los distintos campos que tendrá cada una.
+Cómo se puede ver en la figura~\ref{DiagramaRelacional}, las tablas centro, titulación y asignatura tienen un campo llamado código. 
+Este código campo podría haber sido utilizado como clave primaria, pero al ser un campo que introduce el usuario, se decidió mantener una clave primaria auto-incrementada con la que se hacen las relaciones de las tablas, y además, añadir ese campo para que se puedan hacer búsquedas o filtrar por el mismo sin que su uso pueda afectar a la consistencia del sistema.
+
+Otro aspecto relevante es que en las relaciones que dan lugar a la creación de una tabla intermedia se siguió el mismo patrón que antes. 
+Aunque la teoría diga que las claves de las tablas que se relacionan pasan a ser claves primarias de la nueva tabla que se genera, se decidió tener una única clave primaria auto-incrementada y tener las claves de las tablas relacionadas como claves foráneas.
+De esta manera, las búsquedas en la base de datos estarán más optimizadas al buscar como clave primaria un único campo y no la composición de varios.
+Además, se evita cualquier tipo de error de clave primaria al ser la propia base de datos la que asigna esta y no el código creado.
+
 \begin{figure}[!h]
 	\centering
 	\includegraphics[width=1.2\textwidth]{../img/Anexos/Diagrama relacional.pdf}
