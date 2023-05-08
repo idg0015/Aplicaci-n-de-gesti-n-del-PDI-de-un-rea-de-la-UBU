@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae6b2c56-8d66-4217-a826-17f3975d95c3" name="Changes" comment="Arreglo en el archivo Procfile">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="ae6b2c56-8d66-4217-a826-17f3975d95c3" name="Changes" comment="Arreglo en el archivo Procfile" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -152,7 +150,7 @@
       <workItem from="1682691250864" duration="5169000" />
       <workItem from="1682705667436" duration="9748000" />
       <workItem from="1682758116097" duration="25956000" />
-      <workItem from="1683574308567" duration="4761000" />
+      <workItem from="1683574308567" duration="5135000" />
     </task>
     <task id="LOCAL-00001" summary="Añadida parte de la funcionalidad de los cursos (no completo) y añadidos archivos necesarios para subir la web a Heroku">
       <created>1683562960132</created>

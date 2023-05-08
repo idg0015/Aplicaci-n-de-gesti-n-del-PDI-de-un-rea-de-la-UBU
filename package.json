@@ -1,3 +1,5 @@
-"scripts": {
-  "postinstall": "cd src/static && npm install"
-},
+{
+	"scripts": {
+	  "postinstall": "cd src/static && npm install"
+	},
+}
