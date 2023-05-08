@@ -1,5 +1,16 @@
 {
-	"scripts": {
+  "name": "static",
+  "version": "1.0.0",
+  "description": "",
+  "main": "scripts.js",
+  "scripts": {
 	  "postinstall": "cd src/static && npm install"
-	},
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "gridjs": "^6.0.6",
+    "select2": "^4.1.0-rc.0"
+  }
 }
