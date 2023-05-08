@@ -1,1 +1,1 @@
-web: cd src && gunicorn app:app
+web: cd src/static && npm i && cd .. && gunicorn app:app 
