@@ -69,10 +69,23 @@ a.show{
     margin:0 auto;
 }
 
+.form-curso{
+    width: 80%;
+    display:block;
+    margin:0 auto;
+}
+
 .msg-error{
     color: #b30000;
 }
 
 .select2{
     width: 100% !important;
+}
+
+.seccion-grupos{
+    border: 1px solid #16161652;
+    padding: 2%;
+    border-radius: 10px;
+    margin-bottom: 3%;
 }

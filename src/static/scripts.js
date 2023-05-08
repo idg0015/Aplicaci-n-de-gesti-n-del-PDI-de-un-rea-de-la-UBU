@@ -250,7 +250,15 @@ $(document).ready(function () {
     if (document.getElementById('tablaCursos') != null) {
         new gridjs.Grid({
             columns: [
-                "Id", "Año inicio", "Año fin",
+                "Id",
+                {
+                   id: "ano_inicio",
+                   name: "Año inicio"
+                },
+                {
+                   id: "ano_fin",
+                   name: "Año fin"
+                },
                 {
                     name: 'Acciones',
                     formatter: (_, row) => gridjs.html(`<button type="button" class="btn btn-primary">Modificar Año</button> <button type="button" class="btn btn-primary" onclick="alert( '${row.cells[0].data}');">Modificar</button> <button type="button" class="btn btn-primary">Duplicar</button> <button type="button" class="btn btn-primary" onclick="alert( '${row.cells[0].data}');">Eliminar</button>`)
@@ -287,28 +295,6 @@ $(document).ready(function () {
                 ["Centro 4", "Grado 4", "Asignatura 1", 1, 1, 1, 1, 1, 1, 1, null]
             ]
         }).render(document.getElementById("tablaGrupos"));
-    }
-
-    if (document.getElementById('tablaCursos') != null) {
-        new gridjs.Grid({
-            columns: [
-                "Id", "Año inicio", "Año fin",
-                {
-                    name: 'Acciones',
-                    formatter: (_, row) => gridjs.html(`<button type="button" class="btn btn-primary">Modificar Año</button> <button type="button" class="btn btn-primary" onclick="alert( '${row.cells[0].data}');">Modificar</button> <button type="button" class="btn btn-primary">Duplicar</button> <button type="button" class="btn btn-primary" onclick="alert( '${row.cells[0].data}');">Eliminar</button>`)
-                },
-            ],
-            language: gridjs.l10n.esES,
-            sort: true,
-            search: true,
-            width: "70%",
-            data: [
-                ["1", "2020", "2021", null],
-                ["2", "2021", "2022", null],
-                ["3", "2022", "2023", null],
-                ["4", "2023", "2024", null]
-            ]
-        }).render(document.getElementById("tablaCursos"));
     }
 
     if (document.getElementById('tablaHoras') != null) {

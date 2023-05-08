@@ -1,7 +1,8 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, SelectField, HiddenField, IntegerField, FieldList, FormField, \
-    SelectMultipleField, DateField
+    SelectMultipleField, DateField, MultipleFileField
 from wtforms.validators import DataRequired, Email, URL, InputRequired, ValidationError
+from wtforms.widgets import HiddenInput
 
 from models.Abreviatura import Abreviatura
 from models.Area import Area
@@ -109,7 +110,7 @@ class FormPlaza(FlaskForm):
                                               validators=[InputRequired(
                                                   message='El número de concursos de contratación es obligatorio')])
     fecha_incorporacion = DateField('Fecha de incorporación',
-                                      validators=[DataRequired(message='La fecha de incorporación es obligatoria')])
+                                    validators=[DataRequired(message='La fecha de incorporación es obligatoria')])
     fecha_cese = DateField('Fecha de cese', validators=[DataRequired(message='La fecha de cese es obligatoria')])
     docente = SelectField('Docente', coerce=int, choices=[], validate_choice=False)
     area = SelectField('Área', coerce=int, choices=[], validators=[DataRequired(message='El área es obligatoria')],
@@ -141,3 +142,35 @@ class FormPlaza(FlaskForm):
     #     contrato_seleccionado = TipoContrato.get_contrato(contrato_id)
     #     if not contrato_seleccionado:
     #         raise ValidationError('Seleccione un tipo de contrato válido.')
+
+
+class FormCurso(FlaskForm):
+    ano_inicio = IntegerField('Año de inicio', validators=[InputRequired(message='El año de inicio es obligatorio')])
+    n_a_p = IntegerField('Nº alumnos previstos',
+                         validators=[InputRequired(message='Debe indicar el número de alumnos previstos')])
+    n_g_t_p = IntegerField('Nº previsto de grupos de teoría',
+                           validators=[InputRequired(message='Las reducciones son obligatorias')])
+    n_g_p_p = IntegerField('Nº previsto de grupos de práctica',
+                           validators=[InputRequired(message='Las reducciones son obligatorias')])
+
+    n_a_o = IntegerField('Nº alumnos previstos',
+                         validators=[InputRequired(message='Debe indicar el número de alumnos previstos')])
+    n_g_t_o = IntegerField('Nº previsto de grupos de teoría',
+                           validators=[InputRequired(message='Las reducciones son obligatorias')])
+    n_g_p_o = IntegerField('Nº previsto de grupos de práctica',
+                           validators=[InputRequired(message='Las reducciones son obligatorias')])
+
+    n_a_i = IntegerField('Nº alumnos previstos',
+                         validators=[InputRequired(message='Debe indicar el número de alumnos previstos')])
+    n_g_t_i = IntegerField('Nº previsto de grupos de teoría',
+                           validators=[InputRequired(message='Las reducciones son obligatorias')])
+    n_g_p_i = IntegerField('Nº previsto de grupos de práctica',
+                           validators=[InputRequired(message='Las reducciones son obligatorias')])
+
+    id_asignaturas = MultipleFileField('Id Asignaturas', widget=HiddenInput(), id='id_asignaturas')
+
+    def validate_id_asignaturas(self, id_asignaturas):
+        if len(id_asignaturas.data) == 0 or id_asignaturas.data == ['']:
+            raise ValidationError('Es necesario seleccionar alguna asignatura')
+
+    submit = SubmitField('Añadir')

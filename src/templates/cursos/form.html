@@ -1,0 +1,306 @@
+{% extends "base/base_template.html" %}
+{% block title %}
+    {% if form.ano_inicio.data %}
+        {{ form.ano_inicio.data }}
+    {% else %}
+        Añadir curso
+    {% endif %}
+{% endblock %}
+{% block content %}
+    {% if form.ano_inicio.data %}
+        <h1 class="text-center">{{ form.ano_inicio.data }}</h1>
+    {% else %}
+        <h1 class="text-center">Añadir curso</h1>
+    {% endif %}
+    <form action="" method="post" novalidate class="form-curso">
+        {{ form.hidden_tag() }}
+        <div class="mt-3 mb-3">
+            {{ form.ano_inicio.label }}
+            <div>
+                {{ form.ano_inicio(class_="form-control") }}
+            </div>
+
+            {% for error in form.ano_inicio.errors %}
+                <span class="msg-error">{{ error }}</span>
+            {% endfor %}
+        </div>
+
+        <div class="row">
+            <h2 class="text-center">Grupos</h2>
+            <div class="seccion-grupos col-md-4">
+                <h3>Presencial</h3>
+                <div class="mt-3 mb-3">
+                    {{ form.n_a_p.label }}
+                    <div>
+                        {{ form.n_a_p(class_="form-control", value=0) }}
+                    </div>
+
+                    {% for error in form.n_a_p.errors %}
+                        <span class="msg-error">{{ error }}</span>
+                    {% endfor %}
+                </div>
+
+                <div class="mt-3 mb-3">
+                    {{ form.n_g_t_p.label }}
+                    <div>
+                        {{ form.n_g_t_p(class_="form-control", value=0) }}
+                    </div>
+
+                    {% for error in form.n_g_t_p.errors %}
+                        <span class="msg-error">{{ error }}</span>
+                    {% endfor %}
+                </div>
+
+                <div class="mt-3 mb-3">
+                    {{ form.n_g_p_p.label }}
+                    <div>
+                        {{ form.n_g_p_p(class_="form-control", value=0) }}
+                    </div>
+
+                    {% for error in form.n_g_p_p.errors %}
+                        <span class="msg-error">{{ error }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="seccion-grupos col-md-4">
+                <h3>Online</h3>
+                <div class="mt-3 mb-3">
+                    {{ form.n_a_o.label }}
+                    <div>
+                        {{ form.n_a_o(class_="form-control", value=0) }}
+                    </div>
+
+                    {% for error in form.n_a_o.errors %}
+                        <span class="msg-error">{{ error }}</span>
+                    {% endfor %}
+                </div>
+
+                <div class="mt-3 mb-3">
+                    {{ form.n_g_t_o.label }}
+                    <div>
+                        {{ form.n_g_t_o(class_="form-control", value=0) }}
+                    </div>
+
+                    {% for error in form.n_g_t_o.errors %}
+                        <span class="msg-error">{{ error }}</span>
+                    {% endfor %}
+                </div>
+
+                <div class="mt-3 mb-3">
+                    {{ form.n_g_p_o.label }}
+                    <div>
+                        {{ form.n_g_p_o(class_="form-control", value=0) }}
+                    </div>
+
+                    {% for error in form.n_g_p_o.errors %}
+                        <span class="msg-error">{{ error }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="seccion-grupos col-md-4">
+                <h3>Inglés</h3>
+                <div class="mt-3 mb-3">
+                    {{ form.n_a_i.label }}
+                    <div>
+                        {{ form.n_a_i(class_="form-control", value=0) }}
+                    </div>
+
+                    {% for error in form.n_a_i.errors %}
+                        <span class="msg-error">{{ error }}</span>
+                    {% endfor %}
+                </div>
+
+                <div class="mt-3 mb-3">
+                    {{ form.n_g_t_i.label }}
+                    <div>
+                        {{ form.n_g_t_i(class_="form-control", value=0) }}
+                    </div>
+
+                    {% for error in form.n_g_t_i.errors %}
+                        <span class="msg-error">{{ error }}</span>
+                    {% endfor %}
+                </div>
+
+                <div class="mt-3 mb-3">
+                    {{ form.n_g_p_i.label }}
+                    <div>
+                        {{ form.n_g_p_i(class_="form-control", value=0) }}
+                    </div>
+
+                    {% for error in form.n_g_p_i.errors %}
+                        <span class="msg-error">{{ error }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% for error in form.id_asignaturas.errors %}
+            <span class="msg-error">{{ error }}</span>
+        {% endfor %}
+
+
+        <div class="row">
+            <div class="col">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th><input type="checkbox" id="select-all"></th>
+                        <th>
+                            Código
+                            <input type="text" class="form-control form-control-sm column-search" data-column="1"
+                                   placeholder="Buscar">
+                        </th>
+                        <th>
+                            Nombre
+                            <input type="text" class="form-control form-control-sm column-search" data-column="2"
+                                   placeholder="Buscar">
+                        </th>
+                        <th>
+                            Titulación
+                            <input type="text" class="form-control form-control-sm column-search"
+                                   data-column="3" placeholder="Buscar">
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for asignatura in asignaturas %}
+                        <tr data-id="{{ asignatura.id }}">
+                            <td><input type="checkbox" class="select-row"></td>
+                            <td>{{ asignatura.codigo }}</td>
+                            <td>{{ asignatura.nombre }}</td>
+                            <td>{{ asignatura.titulacion }}</td>
+                        </tr>
+                    {% endfor %}
+
+                    </tbody>
+                </table>
+                <div class="pagination-container">
+                    <nav>
+                        <ul class="pagination justify-content-center"></ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="tablaAsignaturas-curso"></div>
+        <div class="text-center mt-4">
+            {{ form.submit(class_="btn btn-primary") }}
+        </div>
+    </form>
+
+    <script src="https://unpkg.com/gridjs/plugins/selection/dist/selection.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+    <script>
+        let selectedRows = [];
+        const idField = document.getElementById("id_asignaturas");
+
+        $(document).ready(function () {
+            // Configuración de paginación
+            var itemsPerPage = 5;
+            var currentPage = 1;
+            var totalPages = Math.ceil($('table tbody tr').length / itemsPerPage);
+            updatePagination();
+
+            // Selección de todas las filas
+            $('#select-all').click(function () {
+                var isChecked = $(this).prop('checked');
+                selectedRows = [];
+                $('table tbody tr').each(function () {
+                    $(this).find(':checkbox').prop('checked', isChecked);
+                    $(this).toggleClass('selected', isChecked);
+                    if (isChecked) {
+                        selectedRows.push($(this).data('id'));
+                    } else {
+                        selectedRows = [];
+                        var index = selectedRows.indexOf($(this).data('id'));
+                        if (index > -1) {
+                            selectedRows.splice(index, 1);
+                        }
+                    }
+                });
+                idField.value= selectedRows;
+            });
+
+            // Selección de una fila
+            $('table tbody').on('click', 'tr', function () {
+                $(this).toggleClass('selected');
+                $(this).find(':checkbox').prop('checked', $(this).hasClass('selected'));
+                var id = $(this).data('id');
+                var index = selectedRows.indexOf(id);
+                if (index > -1) {
+                    selectedRows.splice(index, 1);
+                } else {
+                    selectedRows.push(id);
+                }
+                $('#select-all').prop('checked', $('table tbody :checkbox:checked').length == $('table tbody :checkbox').length);
+                idField.value= selectedRows;
+            });
+
+            // Búsqueda en cada columna
+            $('.column-search').keyup(function () {
+                var column = $(this).data('column');
+                var searchText = $(this).val().toLowerCase();
+                $('table tbody tr').each(function () {
+                    var row = $(this);
+                    var cells = row.find('td');
+                    var match = false;
+                    cells.each(function (cellIndex) {
+                        var cellText = $(this).text().toLowerCase();
+                        if (cellIndex == column && cellText.indexOf(searchText) !== -1) {
+                            match = true;
+                        }
+                    });
+                    row.toggle(match);
+                });
+                currentPage = 1;
+                console.log($('table tbody tr:visible'))
+                totalPages = Math.ceil($('table tbody tr:visible').length / itemsPerPage);
+                updatePagination();
+            });
+
+
+            // Actualización de la paginación
+            function updatePagination() {
+                $('.pagination-container .pagination').empty();
+                for (var i = 1; i <= totalPages; i++) {
+                    var listItem = $('<li class="page-item"><a class="page-link" href="#">' + i + '</a></li>');
+                    $('.pagination-container .pagination').append(listItem);
+                }
+                $('.pagination-container .pagination li').eq(currentPage - 1).addClass('active');
+                showItems();
+            }
+
+            // Muestra los elementos de la página actual
+            function showItems() {
+                var startIndex = (currentPage - 1) * itemsPerPage;
+                var endIndex = startIndex + itemsPerPage;
+                $('table tbody tr').hide().slice(startIndex, endIndex).show();
+            }
+
+            // Navegación de la paginación
+            $('.pagination-container').on('click', '.page-link', function (event) {
+                event.preventDefault();
+                currentPage = $(this).text();
+                updatePagination();
+            });
+        });
+    </script>
+    <style>
+        .selected {
+            background-color: #c3e6cb;
+        }
+
+        .pagination-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .pagination-container .pagination {
+            margin: 0;
+        }
+
+    </style>
+{% endblock %}
