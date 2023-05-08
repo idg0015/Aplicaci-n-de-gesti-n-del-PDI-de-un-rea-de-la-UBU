@@ -1,0 +1,3 @@
+"scripts": {
+  "postinstall": "cd src/static && npm install"
+},
