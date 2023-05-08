@@ -15,7 +15,7 @@ from utils.db import db
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '\xa2\xff\xc0\x97\xeb%\x81\xa6L\xe3\x9aK\x19y\xa6(\xcf\xa2^c\xe1?\x8bG'
-app.config["SQLALCHEMY_DATABASE_URI"] = "mysql://root:@localhost/ubu"
+app.config["SQLALCHEMY_DATABASE_URI"] = "mysql://zbsq33h1pl7u7b5t:dlgdfhx30l58iktl@j5zntocs2dn6c3fj.chr7pe7iynqr.eu-west-1.rds.amazonaws.com:3306/hg67y1474ek9zjug"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 # SQLAlchemy(app)
 db.init_app(app)
