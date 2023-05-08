@@ -16,5 +16,9 @@ class Curso(db.Model):
         return {
             'id': self.id,
             'ano_inicio': self.ano_inicio,
-            'ano_fin': self.ano_inicio + 1,
+            'ano_fin': int(self.ano_inicio) + 1,
         }
+
+    def save(self):
+        db.session.add(self)
+        # db.session.commit()
