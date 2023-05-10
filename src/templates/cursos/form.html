@@ -1,10 +1,6 @@
 {% extends "base/base_template.html" %}
 {% block title %}
-    {% if form.ano_inicio.data %}
-        {{ form.ano_inicio.data }}
-    {% else %}
-        Añadir curso
-    {% endif %}
+    Añadir curso
 {% endblock %}
 {% block content %}
     {% if form.ano_inicio.data %}
@@ -140,47 +136,37 @@
         {% endfor %}
 
 
-        <div class="row">
-            <div class="col">
-                <table class="table table-striped">
-                    <thead>
-                    <tr>
-                        <th><input type="checkbox" id="select-all"></th>
-                        <th>
-                            Código
-                            <input type="text" class="form-control form-control-sm column-search" data-column="1"
-                                   placeholder="Buscar">
-                        </th>
-                        <th>
-                            Nombre
-                            <input type="text" class="form-control form-control-sm column-search" data-column="2"
-                                   placeholder="Buscar">
-                        </th>
-                        <th>
-                            Titulación
-                            <input type="text" class="form-control form-control-sm column-search"
-                                   data-column="3" placeholder="Buscar">
-                        </th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {% for asignatura in asignaturas %}
-                        <tr data-id="{{ asignatura.id }}">
-                            <td><input type="checkbox" class="select-row"></td>
-                            <td>{{ asignatura.codigo }}</td>
-                            <td>{{ asignatura.nombre }}</td>
-                            <td>{{ asignatura.titulacion }}</td>
-                        </tr>
-                    {% endfor %}
+        <select class="js-data-example-ajax" onchange="getAsignaturas()"></select>
+        <div class="row text-center">
+            <div class="col-md-6"><h3>Asignaturas</h3></div>
+            <div class="col-md-6"><h3>Asignaturas seleccionadas</h3></div>
+        </div>
+        {#        <div class="row">#}
+        {#            <div id="container1" class="col-md-6">#}
+        {#                {% for centro, asignaturas in asignaturas.items() %}#}
+        {#                    <div class="list-group-item">#}
+        {#                        {{ centro }}#}
+        {#                        <div class="test">#}
+        {#                            {% for asignatura in asignaturas %}#}
+        {#                                <div id="asig-{{ asignatura.id }}"#}
+        {#                                     class="el-list-asignaturas list-group-item">{{ asignatura.nombre }}</div>#}
+        {#                            {% endfor %}#}
+        {#                        </div>#}
+        {#                    </div>#}
+        {#                {% endfor %}#}
+        {#            </div>#}
+        {#            <div id="container1" class="col-md-6">#}
+        {#                {% for asignatura in asignaturas %}#}
+        {#                    <div id="asig-{{ asignatura.id }}"#}
+        {#                         class="el-list-asignaturas list-group-item">{{ asignatura.nombre }}</div>#}
+        {#                {% endfor %}#}
+        {#            </div>#}
+        {#            <div id="container2" class="col-md-6"></div>#}
+        {#        </div>#}
 
-                    </tbody>
-                </table>
-                <div class="pagination-container">
-                    <nav>
-                        <ul class="pagination justify-content-center"></ul>
-                    </nav>
-                </div>
-            </div>
+        <div class="row">
+            <div id="container1" class="col-md-6">{% include 'cursos/sortable.html' %}</div>
+            <div id="container2" class="col-md-6"></div>
         </div>
 
 
@@ -190,101 +176,105 @@
         </div>
     </form>
 
-    <script src="https://unpkg.com/gridjs/plugins/selection/dist/selection.umd.js"></script>
+    {#    <script src="https://unpkg.com/gridjs/plugins/selection/dist/selection.umd.js"></script>#}
     <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+
     <script>
-        let selectedRows = [];
         const idField = document.getElementById("id_asignaturas");
+        let ids = [];
+
+        function getAsignaturas() {
+            $.ajax({
+                url: "/cursos/sortable",
+                type: "POST",
+                dataType: "json",
+                data: {'id_titulacion': $('.js-data-example-ajax').val()},
+                success: function (data) {
+                    $('#container1').html(data);
+                }
+            });
+
+            new Sortable($('#container1').get(0), {
+                group: 'shared', // set both lists to same group
+                animation: 150,
+                multiDrag: true,
+                selectedClass: 'selected',
+            });
+        }
 
         $(document).ready(function () {
-            // Configuración de paginación
-            var itemsPerPage = 5;
-            var currentPage = 1;
-            var totalPages = Math.ceil($('table tbody tr').length / itemsPerPage);
-            updatePagination();
+            $('.js-data-example-ajax').select2({
+                ajax: {
+                    locale: 'es',
+                    placeholder: 'Buscar docente...',
+                    minimumInputLength: 1,
+                    url: '/titulaciones/ajax/get_titulaciones',
+                    dataType: 'json',
+                    data: function (params) {
+                        return {
+                            texto: params.term
+                        };
+                    },
+                    processResults: function (data) {
+                        return {
+                            results: data
+                        };
+                    },
+                    cache: true
+                }
+            });
 
-            // Selección de todas las filas
-            $('#select-all').click(function () {
-                var isChecked = $(this).prop('checked');
-                selectedRows = [];
-                $('table tbody tr').each(function () {
-                    $(this).find(':checkbox').prop('checked', isChecked);
-                    $(this).toggleClass('selected', isChecked);
-                    if (isChecked) {
-                        selectedRows.push($(this).data('id'));
+
+            /*new Sortable($('.test').get(0), {
+                group: 'shared', // set both lists to same group
+                animation: 150,
+                multiDrag: true,
+                selectedClass: 'selected',
+            });*/
+
+            new Sortable($('#container2').get(0), {
+                group: 'shared', // set both lists to same group
+                animation: 150,
+                multiDrag: true,
+                selectedClass: 'selected',
+                onAdd: function (event) {
+                    if (event.items.length === 0) {
+                        let idAsignatura = event.item.id.replace('asig-', '');
+                        if (!ids.includes(idAsignatura)) {
+                            ids.push(idAsignatura);
+                        }
                     } else {
-                        selectedRows = [];
-                        var index = selectedRows.indexOf($(this).data('id'));
-                        if (index > -1) {
-                            selectedRows.splice(index, 1);
+                        for (let i = 0; i < event.items.length; i++) {
+                            let idAsignatura = event.items[i].id.replace('asig-', '');
+                            if (!ids.includes(idAsignatura)) {
+                                ids.push(idAsignatura);
+                            }
                         }
                     }
-                });
-                idField.value= selectedRows;
-            });
-
-            // Selección de una fila
-            $('table tbody').on('click', 'tr', function () {
-                $(this).toggleClass('selected');
-                $(this).find(':checkbox').prop('checked', $(this).hasClass('selected'));
-                var id = $(this).data('id');
-                var index = selectedRows.indexOf(id);
-                if (index > -1) {
-                    selectedRows.splice(index, 1);
-                } else {
-                    selectedRows.push(id);
-                }
-                $('#select-all').prop('checked', $('table tbody :checkbox:checked').length == $('table tbody :checkbox').length);
-                idField.value= selectedRows;
-            });
-
-            // Búsqueda en cada columna
-            $('.column-search').keyup(function () {
-                var column = $(this).data('column');
-                var searchText = $(this).val().toLowerCase();
-                $('table tbody tr').each(function () {
-                    var row = $(this);
-                    var cells = row.find('td');
-                    var match = false;
-                    cells.each(function (cellIndex) {
-                        var cellText = $(this).text().toLowerCase();
-                        if (cellIndex == column && cellText.indexOf(searchText) !== -1) {
-                            match = true;
+                    idField.value = ids;
+                    console.log(ids);
+                },
+                onRemove: function (event) {
+                    if (event.items.length === 0) {
+                        const index = ids.indexOf(event.item.id.replace('asig-', ''));
+                        if (index > -1) {
+                            ids.splice(index, 1);
                         }
-                    });
-                    row.toggle(match);
-                });
-                currentPage = 1;
-                console.log($('table tbody tr:visible'))
-                totalPages = Math.ceil($('table tbody tr:visible').length / itemsPerPage);
-                updatePagination();
+                    } else {
+                        for (let i = 0; i < event.items.length; i++) {
+                            const index = ids.indexOf(event.items[i].id.replace('asig-', ''));
+                            if (index > -1) {
+                                ids.splice(index, 1);
+                            }
+                        }
+                    }
+
+                    idField.value = ids;
+                    console.log(ids);
+                },
             });
 
 
-            // Actualización de la paginación
-            function updatePagination() {
-                $('.pagination-container .pagination').empty();
-                for (var i = 1; i <= totalPages; i++) {
-                    var listItem = $('<li class="page-item"><a class="page-link" href="#">' + i + '</a></li>');
-                    $('.pagination-container .pagination').append(listItem);
-                }
-                $('.pagination-container .pagination li').eq(currentPage - 1).addClass('active');
-                showItems();
-            }
-
-            // Muestra los elementos de la página actual
-            function showItems() {
-                var startIndex = (currentPage - 1) * itemsPerPage;
-                var endIndex = startIndex + itemsPerPage;
-                $('table tbody tr').hide().slice(startIndex, endIndex).show();
-            }
-
-            // Navegación de la paginación
-            $('.pagination-container').on('click', '.page-link', function (event) {
-                event.preventDefault();
-                currentPage = $(this).text();
-                updatePagination();
-            });
         });
     </script>
     <style>
@@ -300,6 +290,29 @@
 
         .pagination-container .pagination {
             margin: 0;
+        }
+
+        #container1, #container2 {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 49%;
+            min-height: 100px;
+            max-height: 500px;
+            overflow-y: scroll;
+            padding: 5px;
+        {#background-color: #e5e8eb;#} background-color: hsl(223.08deg 25.14% 92.47% / 59%);
+        {#background-image: linear-gradient(76deg,hsl(223.08,25.14%,92.47%) 0,hsl(151.18,42.40%,90.76%) 100%);#}
+        }
+
+        #container1 {
+            margin-right: 1%;
+        }
+
+        .el-list-asignaturas {
+            padding: 5px;
+            margin: 0.125rem;
+            cursor: move;
+            border-radius: 6px;
         }
 
     </style>

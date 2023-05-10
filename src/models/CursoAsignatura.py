@@ -16,4 +16,3 @@ class CursoAsignatura(db.Model):
     # Relaciones
     curso = db.relationship('Curso', back_populates='asignaturas')
     asignatura = db.relationship('Asignatura', back_populates='cursos')
-

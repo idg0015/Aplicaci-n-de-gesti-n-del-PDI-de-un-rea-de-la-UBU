@@ -45,6 +45,20 @@ class Asignatura(db.Model):
     def get_asignatura(id_asignatura):
         return Asignatura.query.get(id_asignatura)
 
+    @staticmethod
+    def get_asignaturas_groupby_titulacion():
+        asignaturas = Asignatura.query.all()
+        asignaturas_groupby_titulacion = {}
+        for a in asignaturas:
+            if a.titulacion.nombre not in asignaturas_groupby_titulacion.keys():
+                asignaturas_groupby_titulacion[a.titulacion.nombre] = []
+            asignaturas_groupby_titulacion[a.titulacion.nombre].append(a)
+        return asignaturas_groupby_titulacion
+
+    @staticmethod
+    def get_asignaturas_by_titulacion(id_titulacion):
+        return Asignatura.query.filter_by(id_titulacion=id_titulacion).all()
+
     def save(self):
         if not self.id:
             db.session.add(self)

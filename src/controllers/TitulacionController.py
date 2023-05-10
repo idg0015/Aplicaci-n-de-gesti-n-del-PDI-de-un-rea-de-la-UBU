@@ -1,4 +1,4 @@
-from flask import render_template, redirect, url_for, abort, flash
+from flask import render_template, redirect, url_for, abort, flash, request
 from forms import FormTitulacion
 from models.Titulacion import Titulacion
 
@@ -49,3 +49,7 @@ def delete(id_titulacion):
     titulacion.delete()
     flash('Titulación eliminada correctamente', 'alert alert-success alert-dismissible fade show')
     return redirect(url_for('titulacion_bp.index'))
+
+def get_titulaciones_ajax():
+    texto = request.args.get('texto')
+    return Titulacion.get_ajax(texto)

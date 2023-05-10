@@ -43,3 +43,18 @@ class Titulacion(db.Model):
     def delete(self):
         db.session.delete(self)
         db.session.commit()
+
+
+    @staticmethod
+    def get_ajax(texto):
+        titulaciones = Titulacion.query.filter(Titulacion.nombre.ilike(f'%{texto}%'))
+
+        results = []
+        for titulacion in titulaciones:
+            data = {
+                'id': titulacion.id,
+                'text': titulacion.nombre
+            }
+            results.append(data)
+        return results
+

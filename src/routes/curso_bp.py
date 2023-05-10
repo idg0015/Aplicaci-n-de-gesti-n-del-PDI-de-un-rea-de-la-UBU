@@ -9,3 +9,6 @@ curso_bp.route('/', methods=['GET'])(index)
 
 # Creación
 curso_bp.route('/nuevo', methods=['GET', 'POST'])(add)
+
+# Render sortable
+curso_bp.route('/sortable', methods=['POST'])(render_sortable)
