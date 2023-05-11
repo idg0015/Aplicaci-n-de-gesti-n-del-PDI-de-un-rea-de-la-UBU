@@ -9,21 +9,28 @@ $(document).ready(function () {
                 },
                 {
                     id: 'codigo',
-                    name: 'Código interno'
+                    name: 'Código interno',
+                    attributes: {style: 'text-align: center!important;'},
                 },
-                "Nombre", "Abreviatura",
+                "Nombre",
+                {
+                    id: "abreviatura",
+                    name: "Abreviatura",
+                    attributes: {style: 'text-align: center!important;'},
+                },
                 {
                     id: 'email',
                     name: 'Email administrativo'
                 },
                 {
                     name: 'Acciones',
+                    attributes: {style: 'text-align: center!important;'},
                     sort: false,
                     formatter: (_, row) => gridjs.html(`<a class="icono" href="/centros/${row.cells[0].data}"><i class="bi bi-pencil-square"></i></a> <a href="/centros/eliminar/${row.cells[0].data}" class="icono" onclick="return confirm('¿Está seguro de eliminar el centro? No se podrá eliminar si tiene alguna titulación vinculada')"><i class="bi bi-trash3-fill"></i></a>`)
                 },
             ],
             className: {
-                td: "text-center",
+                // td: "text-center",
                 th: "text-center"
             },
             language: gridjs.l10n.esES,
@@ -43,21 +50,30 @@ $(document).ready(function () {
                 },
                 {
                     id: 'codigo',
-                    name: 'Código interno'
+                    name: 'Código interno',
+                    attributes: {style: 'text-align: center!important;'},
                 },
-                "Nombre", "Abreviatura",
+                "Nombre",
+                {
+                    id: "abreviatura",
+                    name: "Abreviatura",
+                    attributes: {style: 'text-align: center!important;'},
+                },
                 {
                     name: 'URL',
-                    formatter: (_, row) => gridjs.html(`<a href='${row.cells[3].data}' class="enlace">Web</a>`)
+                    sort: false,
+                    formatter: (_, row) => gridjs.html(`<a href='${row.cells[3].data}' class="enlace">Web</a>`),
+                    attributes: {style: 'text-align: center!important;'},
                 },
                 "Centro",
                 {
                     name: 'Acciones',
+                    attributes: {style: 'text-align: center!important;'},
+                    sort: false,
                     formatter: (_, row) => gridjs.html(`<a class="icono" href="/titulaciones/${row.cells[0].data}"><i class="bi bi-pencil-square"></i></a> <a href="/titulaciones/eliminar/${row.cells[0].data}" class="icono" onclick="return confirm('¿Está seguro de eliminar la titulación? Se eliminarán sus asignaturas asociadas y todo lo que dependa de estas.')"><i class="bi bi-trash3-fill"></i></a>`)
                 },
             ],
             className: {
-                td: "text-center",
                 th: "text-center"
             },
             width: "95%",
@@ -81,28 +97,48 @@ $(document).ready(function () {
                 },
                 {
                     id: 'codigo',
-                    name: 'Código interno'
+                    name: 'Código interno',
+                    attributes: {style: 'text-align: center!important;'},
                 },
-                "Nombre", "Tipo",
+                "Nombre",
+                {
+                    id: 'tipo',
+                    name: 'Tipo',
+                    attributes: {style: 'text-align: center!important;'},
+                },
                 {
                     id: 'titulacion',
                     name: 'Titulación'
                 },
                 {
                     id: 'creditos_teoria',
-                    name: 'Créditos teoría'
+                    name: 'Créditos teoría',
+                    attributes: {style: 'text-align: center!important;'},
                 },
                 {
                     id: 'creditos_practica',
-                    name: 'Créditos práctica'
-                }, "Curso", "Semestre", "Abreviaturas",
+                    name: 'Créditos práctica',
+                    attributes: {style: 'text-align: center!important;'},
+                },
+                {
+                    id: 'curso',
+                    name: 'Curso',
+                    attributes: {style: 'text-align: center!important;'}
+                },
+                {
+                    id: 'semestre',
+                    name: 'Semestre',
+                    attributes: {style: 'text-align: center!important;'}
+                },
+                "Abreviaturas",
                 {
                     name: 'Acciones',
+                    sort: false,
+                    attributes: {style: 'text-align: center!important;'},
                     formatter: (_, row) => gridjs.html(`<a class="icono" href="/asignaturas/${row.cells[0].data}"><i class="bi bi-pencil-square"></i></a> <a href="/asignaturas/eliminar/${row.cells[0].data}" class="icono" onclick="return confirm('¿Está seguro de eliminar la asignatura? Se eliminarán sus abreviaturas asociadas y los cursos donde se encuentren.')"><i class="bi bi-trash3-fill"></i></a>`)
                 },
             ],
             className: {
-                td: "text-center",
                 th: "text-center"
             },
             width: "95%",
@@ -120,14 +156,20 @@ $(document).ready(function () {
     if (document.getElementById('tablaDocentes') != null) {
         new gridjs.Grid({
             columns: [
-                "Id", "Nombre", "Apellidos", "Email", "Reducciones",
+                "Nombre", "Apellidos", "Email",
+                {
+                    id: 'reducciones',
+                    name: 'Reducciones',
+                    attributes: {style: 'text-align: center!important;'},
+                },
                 {
                     name: 'Acciones',
+                    sort: false,
+                    attributes: {style: 'text-align: center!important;'},
                     formatter: (_, row) => gridjs.html(`<a class="icono" href="/docentes/${row.cells[0].data}"><i class="bi bi-pencil-square"></i></a> <a href="/docentes/eliminar/${row.cells[0].data}" class="icono" onclick="return confirm('¿Está seguro de eliminar el docente?')"><i class="bi bi-trash3-fill"></i></a>`)
                 },
             ],
             className: {
-                td: "text-center",
                 th: "text-center"
             },
             language: gridjs.l10n.esES,
@@ -141,30 +183,41 @@ $(document).ready(function () {
     if (document.getElementById('tablaPlazas') != null) {
         new gridjs.Grid({
             columns: [
-                "Id", "Nombre",
+                {
+                    id: 'nombre',
+                    name: 'Nombre'
+                },
                 {
                     id: "rpt",
-                    name: gridjs.html('<span title="Relación Puestos de Trabajo (RPT)">RPT</span>')
+                    name: gridjs.html('<span title="Relación Puestos de Trabajo (RPT)">RPT</span>'),
+                    attributes: {style: 'text-align: center!important;'},
                 },
                 {
                     id: 'fecha_incorporacion',
-                    name: gridjs.html('<span title="Fecha incorporación">Fecha incorporación</span>')
+                    name: gridjs.html('<span title="Fecha incorporación">Fecha incorporación</span>'),
+                    attributes: {style: 'text-align: center!important;'},
                 },
                 {
                     id: 'fecha_cese',
-                    name: gridjs.html('<span title="Fecha cese">Fecha cese</span>')
+                    name: gridjs.html('<span title="Fecha cese">Fecha cese</span>'),
+                    attributes: {style: 'text-align: center!important;'},
                 },
                 {
                     id: 'num_concursos_contratacion',
                     name: gridjs.html('<span title="Número concursos contratación">Nº C.C</span>'),
+                    attributes: {style: 'text-align: center!important;'},
                 },
-                "Docente",
+                {
+                    id: 'docente',
+                    name: 'Docente',
+                },
                 {
                     id: 'tipo_contrato',
-                    name: 'Tipo Contrato'
+                    name: 'Tipo Contrato',
                 },
                 {
                     name: 'Acciones',
+                    sort: false,
                     formatter: (_, row) => gridjs.html(`<a class="icono" href="/plazas/${row.cells[0].data}"><i class="bi bi-pencil-square"></i></a> <a href="/plazas/eliminar/${row.cells[0].data}" class="icono" onclick="return confirm('¿Está seguro de eliminar la plaza? Se eliminarán sus relaciones con grupos.')"><i class="bi bi-trash3-fill"></i></a>`)
                 },
             ],
@@ -173,7 +226,6 @@ $(document).ready(function () {
             search: true,
             width: "70%",
             className: {
-                td: "text-center",
                 th: "text-center"
             },
             data: plazas
@@ -183,13 +235,24 @@ $(document).ready(function () {
     if (document.getElementById('tablaContratos') != null) {
         new gridjs.Grid({
             columns: [
-                "Id", "Nombre", "Abreviatura",
+                {
+                    id: 'nombre',
+                    name: 'Nombre',
+                },
+                {
+                    id: 'abreviatura',
+                    name: 'Abreviatura',
+                    attributes: {style: 'text-align: center!important;'},
+                },
                 {
                     id: 'capacidad_anual',
-                    name: 'Capacidad anual (horas)'
+                    name: 'Capacidad anual (horas)',
+                    attributes: {style: 'text-align: center!important;'},
                 },
                 {
                     name: 'Acciones',
+                    sort: false,
+                    attributes: {style: 'text-align: center!important;'},
                     formatter: (_, row) => gridjs.html(`<a class="icono" href="/contratos/${row.cells[0].data}"><i class="bi bi-pencil-square"></i></a> <a href="/contratos/eliminar/${row.cells[0].data}" class="icono" onclick="return confirm('¿Está seguro de eliminar el tipo de contrato? Se eliminarán las plazas asociadas y todo lo que dependa de ellas.')"><i class="bi bi-trash3-fill"></i></a>`)
                 },
             ],
@@ -198,7 +261,6 @@ $(document).ready(function () {
             search: true,
             width: "70%",
             className: {
-                td: "text-center",
                 th: "text-center"
             },
             data: contratos
@@ -208,9 +270,11 @@ $(document).ready(function () {
     if (document.getElementById('tablaAreas') != null) {
         new gridjs.Grid({
             columns: [
-                "Id", "Nombre", "Abreviatura", "Departamento",
+                "Nombre", "Abreviatura", "Departamento",
                 {
                     name: 'Acciones',
+                    sort: false,
+                    attributes: {style: 'text-align: center!important;'},
                     formatter: (_, row) => gridjs.html(`<a class="icono" href="/areas/${row.cells[0].data}"><i class="bi bi-pencil-square"></i></a> <a href="/areas/eliminar/${row.cells[0].data}" class="icono" onclick="return confirm('¿Está seguro de eliminar el área? Se eliminarán las plazas asociadas y todo lo que dependa de ellas.')"><i class="bi bi-trash3-fill"></i></a>`)
                 },
             ],
@@ -219,7 +283,6 @@ $(document).ready(function () {
             search: true,
             width: "70%",
             className: {
-                td: "text-center",
                 th: "text-center"
             },
             data: areas
@@ -229,9 +292,16 @@ $(document).ready(function () {
     if (document.getElementById('tablaDepartamentos') != null) {
         new gridjs.Grid({
             columns: [
-                "Id", "Nombre", "Abreviatura",
+                "Nombre",
+                {
+                    id: 'abreviatura',
+                    name: 'Abreviatura',
+                    attributes: {style: 'text-align: center!important;'},
+                },
                 {
                     name: 'Acciones',
+                    sort: false,
+                    attributes: {style: 'text-align: center!important;'},
                     formatter: (_, row) => gridjs.html(`<a class="icono" href="/departamentos/${row.cells[0].data}"><i class="bi bi-pencil-square"></i></a> <a href="/departamentos/eliminar/${row.cells[0].data}" class="icono" onclick="return confirm('¿Está seguro de eliminar el departamento? Se eliminarán sus áreas y todo lo relacionado con ellas.')"><i class="bi bi-trash3-fill"></i></a>`)
                 },
             ],
@@ -240,7 +310,6 @@ $(document).ready(function () {
             search: true,
             width: "70%",
             className: {
-                td: "text-center",
                 th: "text-center"
             },
             data: departamentos
@@ -250,17 +319,17 @@ $(document).ready(function () {
     if (document.getElementById('tablaCursos') != null) {
         new gridjs.Grid({
             columns: [
-                "Id",
                 {
-                   id: "ano_inicio",
-                   name: "Año inicio"
+                    id: "ano_inicio",
+                    name: "Año inicio"
                 },
                 {
-                   id: "ano_fin",
-                   name: "Año fin"
+                    id: "ano_fin",
+                    name: "Año fin"
                 },
                 {
                     name: 'Acciones',
+                    sort: false,
                     formatter: (_, row) => gridjs.html(`<button type="button" class="btn btn-primary">Modificar Año</button> <button type="button" class="btn btn-primary" onclick="alert( '${row.cells[0].data}');">Modificar</button> <button type="button" class="btn btn-primary">Duplicar</button> <button type="button" class="btn btn-primary" onclick="alert( '${row.cells[0].data}');">Eliminar</button>`)
                 },
             ],
