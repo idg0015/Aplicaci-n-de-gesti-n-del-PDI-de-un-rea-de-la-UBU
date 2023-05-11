@@ -1,4 +1,11 @@
+from enum import Enum
 from utils.db import db
+
+
+class Modalidad(Enum):
+    Presencial = 'Presencial'
+    Ingles = 'Inglés'
+    Online = 'Online'
 
 
 class CursoAsignatura(db.Model):

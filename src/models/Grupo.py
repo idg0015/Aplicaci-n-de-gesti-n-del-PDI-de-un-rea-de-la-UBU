@@ -1,5 +1,10 @@
+from enum import Enum
+
 from utils.db import db
 
+class Tipo(Enum):
+    Teorico = 'Teórico'
+    Practico = 'Práctico'
 
 class Grupo(db.Model):
     id = db.Column(db.Integer, primary_key=True)

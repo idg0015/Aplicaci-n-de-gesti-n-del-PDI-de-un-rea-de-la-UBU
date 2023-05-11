@@ -4,20 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae6b2c56-8d66-4217-a826-17f3975d95c3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/cursos/sortable.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8bc95a40-cbe9-40de-b55c-34ed89972485.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/8bc95a40-cbe9-40de-b55c-34ed89972485.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_08_05_2023_18_11__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_08_05_2023_18_11__Changes_.xml" afterDir="false" />
+    <list default="true" id="ae6b2c56-8d66-4217-a826-17f3975d95c3" name="Changes" comment="Pruebas en la creación de curso utilizando la biblioteca Sortable">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/CursoController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/CursoController.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/TitulacionController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/TitulacionController.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Asignatura.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/Asignatura.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/CursoAsignatura.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/CursoAsignatura.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Titulacion.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/Titulacion.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/curso_bp.py" beforeDir="false" afterPath="$PROJECT_DIR$/routes/curso_bp.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/titulacion_bp.py" beforeDir="false" afterPath="$PROJECT_DIR$/routes/titulacion_bp.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/Grupo.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/Grupo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/asignaturas/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/asignaturas/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/cursos/form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cursos/form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/cursos/form2.hmtl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cursos/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cursos/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cursos/sortable.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cursos/sortable.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,8 +154,17 @@
       <workItem from="1682691250864" duration="5169000" />
       <workItem from="1682705667436" duration="9748000" />
       <workItem from="1682758116097" duration="25956000" />
-      <workItem from="1683725776753" duration="14325000" />
+      <workItem from="1683725776753" duration="14619000" />
+      <workItem from="1683814397920" duration="15446000" />
     </task>
+    <task id="LOCAL-00001" summary="Pruebas en la creación de curso utilizando la biblioteca Sortable">
+      <created>1683754273306</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1683754273306</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -177,7 +181,11 @@
       </map>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Pruebas en la creación de curso utilizando la biblioteca Sortable" />
+    <option name="LAST_COMMIT_MESSAGE" value="Pruebas en la creación de curso utilizando la biblioteca Sortable" />
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/src$src.coverage" NAME="src Coverage Results" MODIFIED="1683726241279" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/src$src.coverage" NAME="src Coverage Results" MODIFIED="1683816713001" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
