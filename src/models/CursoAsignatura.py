@@ -25,3 +25,7 @@ class CursoAsignatura(db.Model):
     curso = db.relationship('Curso', back_populates='asignaturas')
     asignatura = db.relationship('Asignatura', back_populates='cursos')
     grupos = db.relationship('Grupo', back_populates='curso_asignatura', cascade='all, delete')
+
+    @staticmethod
+    def get_curso_asignatura(id_asignatura, id_curso):
+        return CursoAsignatura.query.filter_by(id_asignatura=id_asignatura, id_curso=id_curso).all()

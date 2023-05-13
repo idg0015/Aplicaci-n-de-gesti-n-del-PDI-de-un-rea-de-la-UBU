@@ -94,3 +94,11 @@ a.show {
     border-radius: 10px;
     margin-bottom: 3%;
 }
+
+.info{
+    margin: 0.25rem;
+    padding: 0.5rem;
+    background-color: #baffff;
+    border-radius: 0.25rem;
+    font-size: 0.85rem;
+}

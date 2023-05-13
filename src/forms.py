@@ -167,7 +167,7 @@ class FormCurso(FlaskForm):
     n_g_p_i = IntegerField('Nº previsto de grupos de práctica',
                            validators=[InputRequired(message='Las reducciones son obligatorias')])
 
-    id_asignaturas = MultipleFileField('Id Asignaturas', widget=HiddenInput(), id='id_asignaturas')
+    id_asignaturas = StringField('Id Asignaturas', widget=HiddenInput(), id='id_asignaturas')
 
     def validate_id_asignaturas(self, id_asignaturas):
         if len(id_asignaturas.data) == 0 or id_asignaturas.data == ['']:
@@ -180,3 +180,4 @@ class UpdateYearCursoForm(FlaskForm):
     id_curso = IntegerField('Id Curso', widget=HiddenInput())
     year = IntegerField('Año de inicio del curso', validators=[DataRequired('El año es obligatorio')])
     submit = SubmitField('Guardar Cambios')
+

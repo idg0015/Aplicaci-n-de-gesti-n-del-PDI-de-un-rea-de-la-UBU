@@ -1,9 +1,10 @@
 {% extends "base/base_template.html" %}
 {% block title %}
-    Añadir curso
+    Modificar curso {{ form.ano_inicio.data }} - {{ form.ano_inicio.data + 1 }}
 {% endblock %}
 {% block content %}
-    <h1 class="text-center">Añadir curso</h1>
+    <h1 class="text-center">Curso {{ form.ano_inicio.data }} - {{ form.ano_inicio.data + 1 }}</h1>
+
     <form action="" method="post" novalidate class="form-curso">
         {{ form.hidden_tag() }}
         <div class="row">
@@ -151,8 +152,8 @@
         <div id="container-asignaturas">
             <div class="row">
                 <div class="col-md-4 col-centered">
-                    <label for="select-titulaciones">Buscar titulación</label>
-                    <select id="select-titulaciones" class="js-data-example-ajax" onchange="getAsignaturas()"></select>
+                    <label for="select-titulaciones">Buscar por titulación nuevas asignaturas:</label>
+                    <select id="select-titulaciones" class="js-titulaciones-ajax" onchange="getAsignaturas()"></select>
                 </div>
             </div>
 
@@ -160,14 +161,31 @@
                 <span class="msg-error">{{ error }}</span>
             {% endfor %}
 
-            <div class="row text-center mt-5">
-                <div class="col-md-6"><h3>Asignaturas</h3></div>
-                <div class="col-md-6"><h3>Asignaturas seleccionadas</h3></div>
+            <div class="row text-center mt-5 mb-3">
+                <div class="col-md-6">
+                    <h3>Asignaturas</h3>
+                    <div class="info"><i class="bi bi-info-circle-fill"></i> Las asignaturas que arrastre al bloque de
+                        la derecha serán añadidas al curso
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h3>Asignaturas seleccionadas</h3>
+                    <div class="info"><i class="bi bi-info-circle-fill"></i> Las asignaturas que arrastre al bloque de
+                        la izquierda serán eliminadas junto a sus grupos (Para todas la modalidades que tengan esa
+                        asignatura)
+                    </div>
+                </div>
             </div>
 
             <div class="row">
                 <div id="container1" class="col-md-6">{% include 'cursos/sortable.html' %}</div>
-                <div id="container2" class="col-md-6"></div>
+                <div id="container2" class="col-md-6">
+                    {% for asignatura in asig_actuales %}
+                        <div id="asig-{{ asignatura.id }}"
+                             class="el-list-asignaturas list-group-item">{{ asignatura.codigo }}
+                            - {{ asignatura.nombre }}</div>
+                    {% endfor %}
+                </div>
             </div>
         </div>
 
@@ -186,10 +204,13 @@
 
         function getAsignaturas() {
             $.ajax({
-                url: "/cursos/sortable",
+                url: "/cursos/sortable-edit",
                 type: "POST",
                 dataType: "json",
-                data: {'id_titulacion': $('.js-data-example-ajax').val()},
+                data: {
+                    'id_curso': {{ id_curso }},
+                    'id_titulacion': $('.js-titulaciones-ajax').val()
+                },
                 success: function (data) {
                     $('#container1').html(data);
                 }
@@ -204,7 +225,16 @@
         }
 
         $(document).ready(function () {
-            $('.js-data-example-ajax').select2({
+            ids = idField.value.split(',');
+
+            new Sortable($('#container1').get(0), {
+                group: 'shared', // set both lists to same group
+                animation: 150,
+                multiDrag: true,
+                selectedClass: 'selected',
+            });
+
+            $('.js-titulaciones-ajax').select2({
                 ajax: {
                     locale: 'es',
                     placeholder: 'Buscar docente...',
@@ -224,14 +254,6 @@
                     cache: true
                 }
             });
-
-
-            /*new Sortable($('.test').get(0), {
-                group: 'shared', // set both lists to same group
-                animation: 150,
-                multiDrag: true,
-                selectedClass: 'selected',
-            });*/
 
             new Sortable($('#container2').get(0), {
                 group: 'shared', // set both lists to same group
@@ -254,6 +276,15 @@
                     }
                     idField.value = ids;
                     console.log(ids);
+                },
+                put: (to, from, dragEl, event) => {
+                    for (let i = 0; i < to.el.children.length; i++) {
+                        if (to.el.children[i].getAttribute("id") === dragEl.getAttribute("id")) {
+                            console.log("already exist");
+                            return false
+                        }
+                    }
+                    return true
                 },
                 onRemove: function (event) {
                     if (event.items.length === 0) {

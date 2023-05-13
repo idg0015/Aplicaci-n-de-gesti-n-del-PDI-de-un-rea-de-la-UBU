@@ -1,6 +1,4 @@
 import math
-from copy import copy
-
 from flask import render_template, jsonify, request, flash, redirect, url_for
 from forms import FormCurso, UpdateYearCursoForm
 from models.Asignatura import Asignatura
@@ -31,7 +29,7 @@ def add():
         alumnos_ingles = formulario.n_a_i.data
         alumnos_online = formulario.n_a_o.data
 
-        for id_asignatura in formulario.id_asignaturas.data[0].split(','):
+        for id_asignatura in formulario.id_asignaturas.data.split(','):
             if alumnos_presencial > 0:
                 num_grupos_teoricos = formulario.n_g_t_p.data
                 num_grupos_practicos = formulario.n_g_p_p.data
@@ -66,38 +64,51 @@ def create_relation(n_g_t, n_g_p, id_asignatura, id_curso, alumnos, modalidad):
     db.session.add(curso_asignatura)
     db.session.flush()
 
-    grupos_practicos_por_teorico = math.floor(n_g_p / n_g_t)
-    grupos_practicos_restantes = n_g_p % n_g_t
+    if n_g_t > 0:
+        grupos_practicos_por_teorico = math.floor(n_g_p / n_g_t)
+        grupos_practicos_restantes = n_g_p % n_g_t
 
-    for i in range(n_g_t):
-        inicio_nombre = 100 * (i + 1) + 1
-        nombre = i + 1
+        for i in range(n_g_t):
+            inicio_nombre = 100 * (i + 1) + 1
+            nombre = i + 1
 
-        if modalidad == Modalidad.Ingles:
-            nombre = i + 80
-            inicio_nombre = nombre * 10 + 1
-        elif modalidad == Modalidad.Online:
-            nombre = i + 90
-            inicio_nombre = nombre * 10 + 1
+            if modalidad == Modalidad.Ingles:
+                nombre = i + 80
+                inicio_nombre = nombre * 10 + 1
+            elif modalidad == Modalidad.Online:
+                nombre = i + 90
+                inicio_nombre = nombre * 10 + 1
 
-        grupo = Grupo(nombre=nombre, tipo=Tipo.Teorico.value, id_curso_asignatura=curso_asignatura.id)
-        db.session.add(grupo)
+            grupo = Grupo(nombre=nombre, tipo=Tipo.Teorico.value, id_curso_asignatura=curso_asignatura.id)
+            db.session.add(grupo)
 
-        num_grupos_practicos_teorico = grupos_practicos_por_teorico
-        if i < grupos_practicos_restantes:
-            num_grupos_practicos_teorico += 1
+            num_grupos_practicos_teorico = grupos_practicos_por_teorico
+            if i < grupos_practicos_restantes:
+                num_grupos_practicos_teorico += 1
 
-        fin_nombre = inicio_nombre + num_grupos_practicos_teorico - 1
+            fin_nombre = inicio_nombre + num_grupos_practicos_teorico - 1
 
-        for j in range(inicio_nombre, fin_nombre + 1):
-            grupo_practico = Grupo(nombre=j, tipo=Tipo.Practico.value, id_curso_asignatura=curso_asignatura.id)
-            db.session.add(grupo_practico)
+            for j in range(inicio_nombre, fin_nombre + 1):
+                grupo_practico = Grupo(nombre=j, tipo=Tipo.Practico.value, id_curso_asignatura=curso_asignatura.id)
+                db.session.add(grupo_practico)
 
 
 def render_sortable():
     if request.method == "POST":
         asignaturas = Asignatura.get_asignaturas_by_titulacion(request.form.get('id_titulacion'))
         return jsonify(render_template('cursos/sortable.html', asignaturas=asignaturas))
+
+
+def render_sortable_edit():
+    if request.method == "POST":
+        cursos_asignaturas = Curso.get_curso(request.form.get('id_curso')).asignaturas
+        asignaturas_curso = []
+        for curso_asignatura in cursos_asignaturas:
+            asignaturas_curso.append(curso_asignatura.asignatura)
+        asignaturas = Asignatura.get_asignaturas_by_titulacion(request.form.get('id_titulacion'))
+
+        return jsonify(
+            render_template('cursos/sortable.html', asignaturas=list(set(asignaturas) - set(asignaturas_curso))))
 
 
 def delete(id_curso):
@@ -123,7 +134,6 @@ def update_year():
             flash('Curso no encontrado', 'alert alert-danger alert-dismissible fade show')
         return redirect(url_for('curso_bp.index'))
     return render_template('cursos/modal.html', form=form)
-
 
 
 def duplicate(id_curso):
@@ -164,3 +174,61 @@ def duplicate(id_curso):
         flash('Error al duplicar el curso: ' + str(e), 'alert alert-danger alert-dismissible fade show')
 
     return redirect(url_for('curso_bp.index'))
+
+
+def update(id_curso):
+    curso = Curso.get_curso(id_curso)
+    formulario = FormCurso(obj=curso)
+    list_asignaturas = list(set([str(curso_asignatura.id_asignatura) for curso_asignatura in curso.asignaturas]))
+    asignaturas_actuales = list(set([curso_asignatura.asignatura for curso_asignatura in curso.asignaturas]))
+    formulario.submit.label.text = 'Modificar'
+
+    if curso is None:
+        flash('Curso no encontrado', 'alert alert-danger alert-dismissible fade show')
+        return redirect(url_for('curso_bp.index'))
+    if formulario.validate_on_submit():
+        curso.ano_inicio = formulario.ano_inicio.data
+
+        alumnos_presencial = formulario.n_a_p.data
+        alumnos_ingles = formulario.n_a_i.data
+        alumnos_online = formulario.n_a_o.data
+
+        asignaturas_nuevas = formulario.id_asignaturas.data.split(',')
+        asignaturas_to_add = list(set(asignaturas_nuevas) - set(list_asignaturas))
+
+        if len(asignaturas_to_add) > 0:
+            for id_asignatura in asignaturas_to_add:
+                if alumnos_presencial > 0:
+                    num_grupos_teoricos = formulario.n_g_t_p.data
+                    num_grupos_practicos = formulario.n_g_p_p.data
+                    create_relation(num_grupos_teoricos, num_grupos_practicos, id_asignatura, curso.id,
+                                    alumnos_presencial,
+                                    Modalidad.Presencial)
+
+                if alumnos_ingles > 0:
+                    num_grupos_teoricos = formulario.n_g_t_i.data
+                    num_grupos_practicos = formulario.n_g_p_i.data
+                    create_relation(num_grupos_teoricos, num_grupos_practicos, id_asignatura, curso.id, alumnos_ingles,
+                                    Modalidad.Ingles)
+
+                if alumnos_online > 0:
+                    num_grupos_teoricos = formulario.n_g_t_o.data
+                    num_grupos_practicos = formulario.n_g_p_o.data
+                    create_relation(num_grupos_teoricos, num_grupos_practicos, id_asignatura, curso.id, alumnos_online,
+                                    Modalidad.Online)
+
+        delete_elements = list(set(list_asignaturas) - set(asignaturas_nuevas))
+        if len(delete_elements) > 0:
+            for id_asignatura in delete_elements:
+                cursos_asignaturas = CursoAsignatura.get_curso_asignatura(id_asignatura, curso.id)
+                if cursos_asignaturas is not None:
+                    for curso_asignatura in cursos_asignaturas:
+                        db.session.delete(curso_asignatura)
+        db.session.commit()
+
+        flash('Curso actualizado correctamente', 'alert alert-success alert-dismissible fade show')
+        return redirect(url_for('curso_bp.index'))
+    formulario.id_asignaturas.data = ','.join(
+        set([str(curso_asignatura.id_asignatura) for curso_asignatura in curso.asignaturas]))
+    return render_template('cursos/form-update.html', form=formulario, asig_actuales=asignaturas_actuales,
+                           id_curso=id_curso)

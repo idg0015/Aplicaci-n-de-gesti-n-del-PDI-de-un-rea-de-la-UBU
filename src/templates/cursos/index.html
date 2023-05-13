@@ -23,8 +23,6 @@
     <script>
         let cursos = JSON.parse('{{ cursos | default([])| tojson }}');
 
-
-
         function getId(id){
             $("#id_curso").val(id);
         }

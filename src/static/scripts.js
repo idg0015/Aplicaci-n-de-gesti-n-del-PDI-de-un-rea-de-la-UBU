@@ -354,10 +354,10 @@ $(document).ready(function () {
                 {
                     name: 'Acciones',
                     sort: false,
-                    formatter: (_, row) => gridjs.html(`<a href="#" class="icono" title="Modificar curso" data-bs-toggle="modal" data-bs-target="#year-modal" onclick="getId(${row.cells[0].data})"><i class="bi bi-calendar-date-fill"></i></a>
-                    <a class="icono" href="#" onclick="alert( '${row.cells[0].data}');"><i class="bi bi-pencil-square"></i></a>
-                    <a class="icono" href="/cursos/duplicar/${row.cells[0].data}" onclick="return confirm('¿Está seguro de duplicar el curso? Se creará un curso con el año de inicio ${parseInt(row.cells[1].data) + 1}')"><i class="bi bi-clipboard-plus-fill"></i></a>
-                    <a href="/cursos/eliminar/${row.cells[0].data}" class="icono" title="Eliminar" onclick="return confirm('¿Está seguro de eliminar el curso? Se eliminarán todas las relaciones de asignaturas y sus grupos.')"><i class="bi bi-trash3-fill"></i></a>`)
+                    formatter: (_, row) => gridjs.html(`<a href="#" class="icono" title="Modificar año" data-bs-toggle="modal" data-bs-target="#year-modal" onclick="getId(${row.cells[0].data})"><i class="bi bi-calendar-date-fill"></i></a>
+                    <a class="icono" href="/cursos/${row.cells[0].data}" title="Modificar curso"><i class="bi bi-pencil-square"></i></a>
+                    <a class="icono" href="/cursos/duplicar/${row.cells[0].data}" title="Duplicar curso" onclick="return confirm('¿Está seguro de duplicar el curso? Se creará un curso con el año de inicio ${parseInt(row.cells[1].data) + 1}')"><i class="bi bi-clipboard-plus-fill"></i></a>
+                    <a href="/cursos/eliminar/${row.cells[0].data}" class="icono" title="Eliminar curso" onclick="return confirm('¿Está seguro de eliminar el curso? Se eliminarán todas las relaciones de asignaturas y sus grupos.')"><i class="bi bi-trash3-fill"></i></a>`)
                 },
             ],
             className: {
