@@ -1,0 +1,22 @@
+<div class="modal fade" id="year-modal" tabindex="-1" aria-labelledby="year-modal-label"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="year-modal-label">Modificar Año</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                <form method="POST" action="{{ url_for('curso_bp.update_year') }}">
+                    {{ form.hidden_tag() }}
+                    <div class="form-group">
+                        {{ form.year.label }} {{ form.year(class_="form-control") }}
+                    </div>
+                    <div class="modal-footer">
+                        {{ form.submit(class='btn btn-primary') }}
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -17,7 +17,21 @@
     <h1 class="text-center">Cursos</h1>
     <a href="{{ url_for('curso_bp.add') }}" class="btn btn-primary btn-nuevo">Nuevo</a>
     <div id="tablaCursos" class="text-center"></div>
+
+    {% include 'cursos/modal.html' %}
+
     <script>
         let cursos = JSON.parse('{{ cursos | default([])| tojson }}');
+
+
+
+        function getId(id){
+            $("#id_curso").val(id);
+        }
+
+        /*function modalYear() {
+            const modalUpdateYear = new bootstrap.Modal(document.getElementById('year-modal'));
+            modalUpdateYear.show();
+        }*/
     </script>
 {% endblock %}

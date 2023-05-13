@@ -10,7 +10,7 @@ class Titulacion(db.Model):
 
     id_centro = db.Column(db.Integer, db.ForeignKey('centro.id'), nullable=False)
     centro = db.relationship("Centro", back_populates="titulaciones")
-    asignaturas = db.relationship("Asignatura", back_populates="titulacion")
+    asignaturas = db.relationship("Asignatura", back_populates="titulacion", passive_deletes=True, cascade='all, delete')
 
     @staticmethod
     def get_all_json():

@@ -5,7 +5,7 @@ class Curso(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     ano_inicio = db.Column(db.String(256), nullable=False)
 
-    asignaturas = db.relationship('CursoAsignatura', back_populates='curso')
+    asignaturas = db.relationship('CursoAsignatura', back_populates='curso', cascade='all, delete-orphan')
 
     @staticmethod
     def get_all_json():
@@ -18,6 +18,10 @@ class Curso(db.Model):
             'ano_inicio': self.ano_inicio,
             'ano_fin': int(self.ano_inicio) + 1,
         }
+
+    @staticmethod
+    def get_curso(id_curso):
+        return Curso.query.get(id_curso)
 
     def save(self):
         db.session.add(self)

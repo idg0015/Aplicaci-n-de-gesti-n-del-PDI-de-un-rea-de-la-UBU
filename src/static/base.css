@@ -1,89 +1,94 @@
-.contenido{
+.contenido {
     padding: 10px;
 }
 
+body {
+    font-family: Helvetica Neue, sans-serif;
+    font-size: 1rem;
+}
+
 /*Botones*/
-.btn-primary{
+.btn-primary {
     background-color: #aa223c !important;
     border-color: #aa223c !important;
 }
 
-.btn-primary:focus{
+.btn-primary:focus {
     box-shadow: 0 0 0 0.1rem rgba(255, 12, 12, 0.5) !important;
 }
 
-.btn-primary:hover{
+.btn-primary:hover {
     background-color: #490f1b !important;
     border-color: #490f1b !important;
 }
 
-.icono{
+.icono {
     color: #aa223c;
 }
 
-.icono:hover{
+.icono:hover {
     color: #490f1b;
 }
 
-.btn-nuevo{
+.btn-nuevo {
     margin-left: 15%;
 }
 
-.btn-nuevo-2{
+.btn-nuevo-2 {
     margin-left: 2.6%;
 }
 
 /*Menú*/
-.dropdown-item.active, .dropdown-item:active{
+.dropdown-item.active, .dropdown-item:active {
     background-color: #aa223c !important;
-    color:white !important;
+    color: white !important;
 }
 
-#navbarSupportedContent > ul > li> a {
+#navbarSupportedContent > ul > li > a {
     line-height: 60px;
 }
 
-.navbar{
-    padding: 0  1rem !important;
+.navbar {
+    padding: 0 1rem !important;
 }
 
 /* Enlaces */
-.enlace{
+.enlace {
     color: #aa223c !important;
 }
 
-a.nav-link:hover, a.nav-link.active{
+a.nav-link:hover, a.nav-link.active {
     color: white !important;
     background-color: #aa223c;
 }
 
-a.show{
+a.show {
     background-color: #aa223c;
     color: white !important;
 }
 
 /* Formularios */
-.form-centro{
+.form-centro {
     width: 50%;
-    display:block;
-    margin:0 auto;
+    display: block;
+    margin: 0 auto;
 }
 
-.form-curso{
+.form-curso {
     width: 80%;
-    display:block;
-    margin:0 auto;
+    display: block;
+    margin: 0 auto;
 }
 
-.msg-error{
+.msg-error {
     color: #b30000;
 }
 
-.select2{
+.select2 {
     width: 100% !important;
 }
 
-.seccion-grupos{
+.seccion-grupos {
     border: 1px solid #16161652;
     padding: 2%;
     border-radius: 10px;

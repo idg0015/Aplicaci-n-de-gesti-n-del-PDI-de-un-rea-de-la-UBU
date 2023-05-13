@@ -17,10 +17,10 @@ class Asignatura(db.Model):
     titulacion = db.relationship('Titulacion', back_populates='asignaturas')
 
     # Relación con los cursos
-    cursos = db.relationship('CursoAsignatura', back_populates='asignatura')
+    cursos = db.relationship('CursoAsignatura', back_populates='asignatura', cascade='all, delete-orphan')
 
     # Relación con sus abreviaturas
-    abreviaturas = db.relationship('Abreviatura', back_populates='asignatura')
+    abreviaturas = db.relationship('Abreviatura', back_populates='asignatura', cascade='all, delete')
 
     def to_dict(self):
         return {

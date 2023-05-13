@@ -1,7 +1,8 @@
 import math
+from copy import copy
 
 from flask import render_template, jsonify, request, flash, redirect, url_for
-from forms import FormCurso
+from forms import FormCurso, UpdateYearCursoForm
 from models.Asignatura import Asignatura
 from models.Curso import Curso
 from models.CursoAsignatura import CursoAsignatura, Modalidad
@@ -11,7 +12,8 @@ from utils.db import db
 
 def index():
     cursos = Curso.get_all_json()
-    return render_template('cursos/index.html', cursos=cursos)
+    form = UpdateYearCursoForm()
+    return render_template('cursos/index.html', cursos=cursos, form=form)
 
 
 def add():
@@ -96,3 +98,69 @@ def render_sortable():
     if request.method == "POST":
         asignaturas = Asignatura.get_asignaturas_by_titulacion(request.form.get('id_titulacion'))
         return jsonify(render_template('cursos/sortable.html', asignaturas=asignaturas))
+
+
+def delete(id_curso):
+    curso = Curso.get_curso(id_curso)
+    if curso is not None:
+        db.session.delete(curso)
+        db.session.commit()
+        flash('Curso eliminado correctamente', 'alert alert-success alert-dismissible fade show')
+    else:
+        flash('Curso no encontrado', 'alert alert-danger alert-dismissible fade show')
+    return redirect(url_for('curso_bp.index'))
+
+
+def update_year():
+    form = UpdateYearCursoForm()
+    if form.validate_on_submit():
+        curso = Curso.get_curso(form.id_curso.data)
+        if curso is not None:
+            curso.ano_inicio = form.year.data
+            db.session.commit()
+            flash('Curso actualizado correctamente', 'alert alert-success alert-dismissible fade show')
+        else:
+            flash('Curso no encontrado', 'alert alert-danger alert-dismissible fade show')
+        return redirect(url_for('curso_bp.index'))
+    return render_template('cursos/modal.html', form=form)
+
+
+
+def duplicate(id_curso):
+    try:
+        curso = Curso.get_curso(id_curso)
+        if curso is not None:
+            with db.session.begin_nested():
+                # Creo el nuevo curso copiando el anteior y le sumo 1 al año de inicio
+                nuevo_curso = Curso(ano_inicio=int(curso.ano_inicio) + 1)
+                db.session.add(nuevo_curso)
+                db.session.flush()
+
+                # Recojo los curso_asignatura del curso a duplicar
+                curso_asignaturas = curso.asignaturas
+
+                for curso_asignatura in curso_asignaturas:
+                    # Recojo los grupos del curso_asignatura
+                    grupos = curso_asignatura.grupos
+                    nuevo_curso_asignatura = CursoAsignatura(id_asignatura=curso_asignatura.id_asignatura,
+                                                             id_curso=nuevo_curso.id,
+                                                             modalidad=curso_asignatura.modalidad,
+                                                             num_alumnos_previstos=curso_asignatura.num_alumnos_previstos,
+                                                             num_grupos_teoricos_previstos=curso_asignatura.num_grupos_teoricos_previstos,
+                                                             num_grupos_practicos_previstos=curso_asignatura.num_grupos_practicos_previstos)
+                    db.session.add(nuevo_curso_asignatura)
+                    db.session.flush()
+
+                    for grupo in grupos:
+                        nuevo_grupo = Grupo(nombre=grupo.nombre, tipo=grupo.tipo,
+                                            id_curso_asignatura=nuevo_curso_asignatura.id)
+                        db.session.add(nuevo_grupo)
+                db.session.commit()
+                flash('Curso duplicado correctamente', 'alert alert-success alert-dismissible fade show')
+        else:
+            flash('Curso no encontrado', 'alert alert-danger alert-dismissible fade show')
+    except Exception as e:
+        db.session.rollback()
+        flash('Error al duplicar el curso: ' + str(e), 'alert alert-danger alert-dismissible fade show')
+
+    return redirect(url_for('curso_bp.index'))

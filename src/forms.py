@@ -174,3 +174,9 @@ class FormCurso(FlaskForm):
             raise ValidationError('Es necesario seleccionar alguna asignatura')
 
     submit = SubmitField('Añadir')
+
+
+class UpdateYearCursoForm(FlaskForm):
+    id_curso = IntegerField('Id Curso', widget=HiddenInput())
+    year = IntegerField('Año de inicio del curso', validators=[DataRequired('El año es obligatorio')])
+    submit = SubmitField('Guardar Cambios')

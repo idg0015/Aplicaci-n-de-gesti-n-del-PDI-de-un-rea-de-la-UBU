@@ -156,6 +156,10 @@ $(document).ready(function () {
     if (document.getElementById('tablaDocentes') != null) {
         new gridjs.Grid({
             columns: [
+                {
+                    name: 'Id',
+                    hidden: true
+                },
                 "Nombre", "Apellidos", "Email",
                 {
                     id: 'reducciones',
@@ -183,6 +187,10 @@ $(document).ready(function () {
     if (document.getElementById('tablaPlazas') != null) {
         new gridjs.Grid({
             columns: [
+                {
+                    name: 'Id',
+                    hidden: true
+                },
                 {
                     id: 'nombre',
                     name: 'Nombre'
@@ -236,6 +244,10 @@ $(document).ready(function () {
         new gridjs.Grid({
             columns: [
                 {
+                    name: 'Id',
+                    hidden: true
+                },
+                {
                     id: 'nombre',
                     name: 'Nombre',
                 },
@@ -270,6 +282,10 @@ $(document).ready(function () {
     if (document.getElementById('tablaAreas') != null) {
         new gridjs.Grid({
             columns: [
+                {
+                    name: 'Id',
+                    hidden: true
+                },
                 "Nombre", "Abreviatura", "Departamento",
                 {
                     name: 'Acciones',
@@ -292,6 +308,10 @@ $(document).ready(function () {
     if (document.getElementById('tablaDepartamentos') != null) {
         new gridjs.Grid({
             columns: [
+                {
+                    name: 'Id',
+                    hidden: true
+                },
                 "Nombre",
                 {
                     id: 'abreviatura',
@@ -320,17 +340,24 @@ $(document).ready(function () {
         new gridjs.Grid({
             columns: [
                 {
+                    name: 'Id',
+                    hidden: true
+                },
+                {
                     id: "ano_inicio",
-                    name: "Año inicio"
+                    name: gridjs.html('<span title="Año inicio">Año inicio</span>'),
                 },
                 {
                     id: "ano_fin",
-                    name: "Año fin"
+                    name: gridjs.html('<span title="Año fin">Año fin</span>'),
                 },
                 {
                     name: 'Acciones',
                     sort: false,
-                    formatter: (_, row) => gridjs.html(`<button type="button" class="btn btn-primary">Modificar Año</button> <button type="button" class="btn btn-primary" onclick="alert( '${row.cells[0].data}');">Modificar</button> <button type="button" class="btn btn-primary">Duplicar</button> <button type="button" class="btn btn-primary" onclick="alert( '${row.cells[0].data}');">Eliminar</button>`)
+                    formatter: (_, row) => gridjs.html(`<a href="#" class="icono" title="Modificar curso" data-bs-toggle="modal" data-bs-target="#year-modal" onclick="getId(${row.cells[0].data})"><i class="bi bi-calendar-date-fill"></i></a>
+                    <a class="icono" href="#" onclick="alert( '${row.cells[0].data}');"><i class="bi bi-pencil-square"></i></a>
+                    <a class="icono" href="/cursos/duplicar/${row.cells[0].data}" onclick="return confirm('¿Está seguro de duplicar el curso? Se creará un curso con el año de inicio ${parseInt(row.cells[1].data) + 1}')"><i class="bi bi-clipboard-plus-fill"></i></a>
+                    <a href="/cursos/eliminar/${row.cells[0].data}" class="icono" title="Eliminar" onclick="return confirm('¿Está seguro de eliminar el curso? Se eliminarán todas las relaciones de asignaturas y sus grupos.')"><i class="bi bi-trash3-fill"></i></a>`)
                 },
             ],
             className: {
