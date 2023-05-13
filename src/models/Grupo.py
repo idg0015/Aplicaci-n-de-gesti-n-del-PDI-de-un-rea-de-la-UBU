@@ -15,7 +15,7 @@ class Grupo(db.Model):
 
     id_curso_asignatura = db.Column(db.Integer, db.ForeignKey('curso_asignatura.id', ondelete='CASCADE'),
                                     nullable=False)
-    plazas = db.relationship('PlazaGrupo', back_populates='grupo')
+    plazas = db.relationship('PlazaGrupo', back_populates='grupo', cascade='all, delete-orphan')
     curso_asignatura = db.relationship("CursoAsignatura", back_populates="grupos")
 
 

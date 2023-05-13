@@ -9,7 +9,7 @@ class Departamento(db.Model):
     abreviatura = db.Column(db.String(80), nullable=False)
 
     # Relacion con Area
-    areas = db.relationship('Area', back_populates="departamento")
+    areas = db.relationship('Area', back_populates="departamento", cascade='all, delete')
 
     @staticmethod
     def get_all_json():

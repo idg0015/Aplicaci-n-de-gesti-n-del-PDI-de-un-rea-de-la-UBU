@@ -33,7 +33,7 @@ class Asignatura(db.Model):
             "creditos_practica": self.creditos_practica,
             "curso": self.curso,
             "semestre": self.semestre,
-            "abreviaturas": [a.abreviatura+" " for a in self.abreviaturas]
+            "abreviaturas": [a.abreviatura + " " for a in self.abreviaturas]
         }
 
     @staticmethod

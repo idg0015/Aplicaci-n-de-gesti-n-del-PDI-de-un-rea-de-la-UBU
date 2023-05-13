@@ -9,18 +9,21 @@ $(document).ready(function () {
                 },
                 {
                     id: 'codigo',
-                    name: 'Código interno',
+                    name: gridjs.html('<span title="Código">Código</span>'),
                     attributes: {style: 'text-align: center!important;'},
                 },
-                "Nombre",
+                {
+                    id: 'nombre',
+                    name: gridjs.html('<span title="Nombre">Nombre</span>'),
+                },
                 {
                     id: "abreviatura",
-                    name: "Abreviatura",
+                    name: gridjs.html('<span title="Abreviatura">Abreviatura</span>'),
                     attributes: {style: 'text-align: center!important;'},
                 },
                 {
                     id: 'email',
-                    name: 'Email administrativo'
+                    name: gridjs.html('<span title="Email administrativo">Email administrativo</span>'),
                 },
                 {
                     name: 'Acciones',
@@ -30,7 +33,6 @@ $(document).ready(function () {
                 },
             ],
             className: {
-                // td: "text-center",
                 th: "text-center"
             },
             language: gridjs.l10n.esES,
@@ -50,22 +52,28 @@ $(document).ready(function () {
                 },
                 {
                     id: 'codigo',
-                    name: 'Código interno',
+                    name: gridjs.html('<span title="Código">Código</span>'),
                     attributes: {style: 'text-align: center!important;'},
                 },
-                "Nombre",
+                {
+                    id: 'nombre',
+                    name: gridjs.html('<span title="Nombre">Nombre</span>'),
+                },
                 {
                     id: "abreviatura",
-                    name: "Abreviatura",
+                    name: gridjs.html('<span title="Abreviatura">Abreviatura</span>'),
                     attributes: {style: 'text-align: center!important;'},
                 },
                 {
-                    name: 'URL',
+                    name: gridjs.html('<span title="URL">URL</span>'),
                     sort: false,
                     formatter: (_, row) => gridjs.html(`<a href='${row.cells[3].data}' class="enlace">Web</a>`),
                     attributes: {style: 'text-align: center!important;'},
                 },
-                "Centro",
+                {
+                    id: 'centro',
+                    name: gridjs.html('<span title="Centro">Centro</span>'),
+                },
                 {
                     name: 'Acciones',
                     attributes: {style: 'text-align: center!important;'},
@@ -97,40 +105,46 @@ $(document).ready(function () {
                 },
                 {
                     id: 'codigo',
-                    name: 'Código interno',
+                    name: gridjs.html('<span title="Código">Código</span>'),
                     attributes: {style: 'text-align: center!important;'},
                 },
-                "Nombre",
+                {
+                    id: 'nombre',
+                    name: gridjs.html('<span title="Nombre">Nombre</span>'),
+                },
                 {
                     id: 'tipo',
-                    name: 'Tipo',
+                    name: gridjs.html('<span title="Tipo">Tipo</span>'),
                     attributes: {style: 'text-align: center!important;'},
                 },
                 {
                     id: 'titulacion',
-                    name: 'Titulación'
+                    name: gridjs.html('<span title="Titulación">Titulación</span>'),
                 },
                 {
                     id: 'creditos_teoria',
-                    name: 'Créditos teoría',
+                    name: gridjs.html('<span title="Créditos teoría">ECTS teoría</span>'),
                     attributes: {style: 'text-align: center!important;'},
                 },
                 {
                     id: 'creditos_practica',
-                    name: 'Créditos práctica',
+                    name: gridjs.html('<span title="Créditos práctica">ECTS práctica</span>'),
                     attributes: {style: 'text-align: center!important;'},
                 },
                 {
                     id: 'curso',
-                    name: 'Curso',
+                    name: gridjs.html('<span title="Curso">Curso</span>'),
                     attributes: {style: 'text-align: center!important;'}
                 },
                 {
                     id: 'semestre',
-                    name: 'Semestre',
+                    name: gridjs.html('<span title="Semestre">Semestre</span>'),
                     attributes: {style: 'text-align: center!important;'}
                 },
-                "Abreviaturas",
+                {
+                    id: 'abreviaturas',
+                    name: gridjs.html('<span title="Abreviaturas">Abreviaturas</span>'),
+                },
                 {
                     name: 'Acciones',
                     sort: false,
@@ -160,10 +174,21 @@ $(document).ready(function () {
                     name: 'Id',
                     hidden: true
                 },
-                "Nombre", "Apellidos", "Email",
+                {
+                    id: 'nombre',
+                    name: gridjs.html('<span title="Nombre">Nombre</span>'),
+                },
+                {
+                    id: 'apellidos',
+                    name: gridjs.html('<span title="Apellidos">Apellidos</span>'),
+                },
+                {
+                    id: 'email',
+                    name: gridjs.html('<span title="Email">Email</span>'),
+                },
                 {
                     id: 'reducciones',
-                    name: 'Reducciones',
+                    name: gridjs.html('<span title="Reducciones">Reducciones</span>'),
                     attributes: {style: 'text-align: center!important;'},
                 },
                 {
@@ -193,7 +218,7 @@ $(document).ready(function () {
                 },
                 {
                     id: 'nombre',
-                    name: 'Nombre'
+                    name: gridjs.html('<span title="Nombre">Nombre</span>'),
                 },
                 {
                     id: "rpt",
@@ -217,15 +242,16 @@ $(document).ready(function () {
                 },
                 {
                     id: 'docente',
-                    name: 'Docente',
+                    name: gridjs.html('<span title="Docente">Docente</span>'),
                 },
                 {
                     id: 'tipo_contrato',
-                    name: 'Tipo Contrato',
+                    name: gridjs.html('<span title="Tipo contrato">Tipo contrato</span>'),
                 },
                 {
                     name: 'Acciones',
                     sort: false,
+                    attributes: {style: 'text-align: center!important;'},
                     formatter: (_, row) => gridjs.html(`<a class="icono" href="/plazas/${row.cells[0].data}"><i class="bi bi-pencil-square"></i></a> <a href="/plazas/eliminar/${row.cells[0].data}" class="icono" onclick="return confirm('¿Está seguro de eliminar la plaza? Se eliminarán sus relaciones con grupos.')"><i class="bi bi-trash3-fill"></i></a>`)
                 },
             ],
@@ -249,16 +275,16 @@ $(document).ready(function () {
                 },
                 {
                     id: 'nombre',
-                    name: 'Nombre',
+                    name: gridjs.html('<span title="Nombre">Nombre</span>'),
                 },
                 {
                     id: 'abreviatura',
-                    name: 'Abreviatura',
+                    name: gridjs.html('<span title="Abreviatura">Abreviatura</span>'),
                     attributes: {style: 'text-align: center!important;'},
                 },
                 {
                     id: 'capacidad_anual',
-                    name: 'Capacidad anual (horas)',
+                    name: gridjs.html('<span title="Capacidad anual (horas)">Capacidad anual (horas)</span>'),
                     attributes: {style: 'text-align: center!important;'},
                 },
                 {
@@ -286,7 +312,18 @@ $(document).ready(function () {
                     name: 'Id',
                     hidden: true
                 },
-                "Nombre", "Abreviatura", "Departamento",
+                {
+                    id: 'nombre',
+                    name: gridjs.html('<span title="Nombre">Nombre</span>'),
+                },
+                {
+                    id: 'abreviatura',
+                    name: gridjs.html('<span title="Abreviatura">Abreviatura</span>'),
+                },
+                {
+                    id: 'departamento',
+                    name: gridjs.html('<span title="Departamento">Departamento</span>'),
+                },
                 {
                     name: 'Acciones',
                     sort: false,
@@ -312,10 +349,13 @@ $(document).ready(function () {
                     name: 'Id',
                     hidden: true
                 },
-                "Nombre",
+                {
+                  id: 'nombre',
+                  name: gridjs.html('<span title="Nombre">Nombre</span>'),
+                },
                 {
                     id: 'abreviatura',
-                    name: 'Abreviatura',
+                    name: gridjs.html('<span title="Abreviatura">Abreviatura</span>'),
                     attributes: {style: 'text-align: center!important;'},
                 },
                 {

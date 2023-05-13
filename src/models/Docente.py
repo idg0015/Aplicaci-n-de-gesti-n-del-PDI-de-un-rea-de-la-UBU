@@ -1,5 +1,3 @@
-from sqlalchemy import or_
-
 from utils.db import db
 
 
@@ -11,7 +9,7 @@ class Docente(db.Model):
     reducciones = db.Column(db.Integer, nullable=False)
 
     # Relación con plaza
-    plazas = db.relationship('Plaza', back_populates='docente')
+    plazas = db.relationship('Plaza', back_populates='docente', cascade='all, delete-orphan')
 
     @staticmethod
     def get_all_json():

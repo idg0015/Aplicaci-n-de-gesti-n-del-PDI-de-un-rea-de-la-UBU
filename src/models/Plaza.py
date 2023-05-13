@@ -21,7 +21,7 @@ class Plaza(db.Model):
     id_contrato = db.Column(db.Integer, db.ForeignKey('tipo_contrato.id', ondelete='CASCADE'), nullable=False)
     tipo_contrato = db.relationship('TipoContrato', back_populates='plazas')
 
-    grupos = db.relationship('PlazaGrupo', back_populates='plaza')
+    grupos = db.relationship('PlazaGrupo', back_populates='plaza', cascade='all, delete-orphan')
 
     def to_dict(self):
         docente = None

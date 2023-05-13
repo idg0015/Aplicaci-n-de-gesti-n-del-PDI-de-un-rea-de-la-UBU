@@ -10,7 +10,8 @@ class Titulacion(db.Model):
 
     id_centro = db.Column(db.Integer, db.ForeignKey('centro.id'), nullable=False)
     centro = db.relationship("Centro", back_populates="titulaciones")
-    asignaturas = db.relationship("Asignatura", back_populates="titulacion", passive_deletes=True, cascade='all, delete')
+    asignaturas = db.relationship("Asignatura", back_populates="titulacion", passive_deletes=True,
+                                  cascade='all, delete')
 
     @staticmethod
     def get_all_json():
@@ -44,7 +45,6 @@ class Titulacion(db.Model):
         db.session.delete(self)
         db.session.commit()
 
-
     @staticmethod
     def get_ajax(texto):
         titulaciones = Titulacion.query.filter(Titulacion.nombre.ilike(f'%{texto}%'))
@@ -57,4 +57,3 @@ class Titulacion(db.Model):
             }
             results.append(data)
         return results
-
