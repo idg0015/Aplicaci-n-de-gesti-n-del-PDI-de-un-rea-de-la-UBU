@@ -23,6 +23,9 @@ class Curso(db.Model):
     def get_curso(id_curso):
         return Curso.query.get(id_curso)
 
+    @staticmethod
+    def get_all():
+        return Curso.query.all()
+
     def save(self):
         db.session.add(self)
-        # db.session.commit()

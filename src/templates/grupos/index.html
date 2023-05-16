@@ -4,6 +4,83 @@
 
 {% block content %}
     <h1 class="text-center">Grupos</h1>
-    <a href="#" class="btn btn-primary">Nuevo</a>
+    <div class="row mb-3">
+        <div class="col-md-2"><label for="cursos"></label>
+            <label for="cursos" class="form-label">Curso:</label>
+            <select name="cursos" id="cursos" class="form-select">
+                <option value="0" selected>Seleccione un curso</option>
+                {% for curso in cursos %}
+                    {% set ano_inicio = curso.ano_inicio | int %}
+                    <option value="{{ curso.id }}">{{ curso.ano_inicio }} - {{ ano_inicio+1 }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+
     <div id="tablaGrupos"></div>
+
+    <script>
+        let info = [];
+        let table = null;
+
+        if (document.getElementById('tablaGrupos') != null) {
+            table = new gridjs.Grid({
+                columns: [
+                    {
+                        name: 'Id',
+                        hidden: true
+                    },
+                    {
+                        id: 'asignatura',
+                        name: gridjs.html('<span title="Asignatura">Asignatura</span>'),
+                    },
+                    {
+                        id: 'modalidad',
+                        name: gridjs.html('<span title="Modalidad">Modalidad</span>'),
+                    },
+                    {
+                        id: 'num_alumnos_previstos',
+                        name: gridjs.html('<span title="Número de alumnos previstos">Nº Alumnos Previstos</span>'),
+                        attributes: {style: 'text-align: center!important;'},
+                    },
+                    {
+                        id: 'num_grupos_teoricos_previstos',
+                        name: gridjs.html('<span title="Número de grupos teóricos previstos">Nº Grupos Teóricos Previstos</span>'),
+                        attributes: {style: 'text-align: center!important;'},
+                    },
+                    {
+                        id: 'num_grupos_practicos_previstos',
+                        name: gridjs.html('<span title="Número de grupos prácticos previstos">Nº Grupos Prácticos Previstos</span>'),
+                        attributes: {style: 'text-align: center!important;'},
+                    },
+                    {
+                        name: 'Acciones',
+                        formatter: (_, row) => gridjs.html(`<a type="button" class="btn btn-primary" href="/cursos/gestion/${row.cells[0].data}">Gestionar grupos</a>`)
+                    },
+                ],
+                language: gridjs.l10n.esES,
+                sort: true,
+                search: true,
+                pagination: {
+                    limit: 7
+                },
+                resizable: true,
+                data: [],
+            }).render(document.getElementById("tablaGrupos"));
+        }
+
+        $(document).ready(function () {
+            $("#cursos").change(function () {
+                let id = $(this).val();
+                $.ajax({
+                    url: "/grupos/cursos-asignaturas",
+                    method: "POST",
+                    data: {id: id},
+                    success: function (data) {
+                        table.updateConfig({data: data}).forceRender();
+                    }
+                });
+            });
+        });
+    </script>
 {% endblock %}

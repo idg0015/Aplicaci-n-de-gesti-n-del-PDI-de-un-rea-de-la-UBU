@@ -350,8 +350,8 @@ $(document).ready(function () {
                     hidden: true
                 },
                 {
-                  id: 'nombre',
-                  name: gridjs.html('<span title="Nombre">Nombre</span>'),
+                    id: 'nombre',
+                    name: gridjs.html('<span title="Nombre">Nombre</span>'),
                 },
                 {
                     id: 'abreviatura',
@@ -412,26 +412,7 @@ $(document).ready(function () {
         }).render(document.getElementById("tablaCursos"));
     }
 
-    if (document.getElementById('tablaGrupos') != null) {
-        new gridjs.Grid({
-            columns: [
-                "Centro", "Titulación", "Asignatura", "Semestre", "Nº grupos teoría", "Nº grupos práctica", "Nº grupos online teoría", "Nº grupos online práctica", "Nº grupos inglés teoría", "Nº grupos inglés práctica",
-                {
-                    name: 'Acciones',
-                    formatter: (_, row) => gridjs.html(`<button type="button" class="btn btn-primary" onclick="alert( '${row.cells[0].data}');">Gestionar grupos</button>`)
-                },
-            ],
-            language: gridjs.l10n.esES,
-            sort: true,
-            search: true,
-            data: [
-                ["Centro 1", "Grado 1", "Asignatura 1", 1, 1, 1, 1, 1, 1, 1, null],
-                ["Centro 2", "Grado 2", "Asignatura 1", 1, 1, 1, 1, 1, 1, 1, null],
-                ["Centro 3", "Grado 3", "Asignatura 1", 2, 1, 1, 1, 1, 1, 1, null],
-                ["Centro 4", "Grado 4", "Asignatura 1", 1, 1, 1, 1, 1, 1, 1, null]
-            ]
-        }).render(document.getElementById("tablaGrupos"));
-    }
+
 
     if (document.getElementById('tablaHoras') != null) {
         new gridjs.Grid({

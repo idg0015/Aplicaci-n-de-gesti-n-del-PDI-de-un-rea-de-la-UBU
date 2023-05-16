@@ -29,3 +29,18 @@ class CursoAsignatura(db.Model):
     @staticmethod
     def get_curso_asignatura(id_asignatura, id_curso):
         return CursoAsignatura.query.filter_by(id_asignatura=id_asignatura, id_curso=id_curso).all()
+
+    @staticmethod
+    def get_all_json(id_curso):
+        curso_asignaturas = CursoAsignatura.query.filter_by(id_curso=id_curso).all()
+        return [ca.to_dict() for ca in curso_asignaturas]
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'asignatura': self.asignatura.nombre,
+            'modalidad': self.modalidad,
+            'num_alumnos_previstos': self.num_alumnos_previstos,
+            'num_grupos_teoricos_previstos': self.num_grupos_teoricos_previstos,
+            'num_grupos_practicos_previstos': self.num_grupos_practicos_previstos
+        }
