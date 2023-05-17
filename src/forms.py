@@ -145,27 +145,23 @@ class FormPlaza(FlaskForm):
 
 
 class FormCurso(FlaskForm):
-    ano_inicio = IntegerField('Año de inicio', validators=[InputRequired(message='El año de inicio es obligatorio')])
-    n_a_p = IntegerField('Nº alumnos previstos',
-                         validators=[InputRequired(message='Debe indicar el número de alumnos previstos')])
-    n_g_t_p = IntegerField('Nº previsto de grupos de teoría',
-                           validators=[InputRequired(message='Las reducciones son obligatorias')])
-    n_g_p_p = IntegerField('Nº previsto de grupos de práctica',
-                           validators=[InputRequired(message='Las reducciones son obligatorias')])
+    # id_curso = IntegerField('Id Curso', widget=HiddenInput())
+    ano_inicio = IntegerField('Año de inicio del curso', validators=[DataRequired('El año es obligatorio')])
+    submit = SubmitField('Añadir')
 
-    n_a_o = IntegerField('Nº alumnos previstos',
-                         validators=[InputRequired(message='Debe indicar el número de alumnos previstos')])
-    n_g_t_o = IntegerField('Nº previsto de grupos de teoría',
-                           validators=[InputRequired(message='Las reducciones son obligatorias')])
-    n_g_p_o = IntegerField('Nº previsto de grupos de práctica',
-                           validators=[InputRequired(message='Las reducciones son obligatorias')])
 
-    n_a_i = IntegerField('Nº alumnos previstos',
-                         validators=[InputRequired(message='Debe indicar el número de alumnos previstos')])
-    n_g_t_i = IntegerField('Nº previsto de grupos de teoría',
-                           validators=[InputRequired(message='Las reducciones son obligatorias')])
-    n_g_p_i = IntegerField('Nº previsto de grupos de práctica',
-                           validators=[InputRequired(message='Las reducciones son obligatorias')])
+class FormCursoUpdate(FlaskForm):
+    ano_inicio = IntegerField('Año de inicio', validators=[DataRequired(message='El año de inicio es obligatorio')])
+    message = "No puede dejar el campo vacío. Al menos introduzca 0"
+
+    n_a_p = IntegerField('Nº alumnos previstos presencial',
+                         validators=[InputRequired(message='Presencial: ' + message)])
+
+    n_a_o = IntegerField('Nº alumnos previstos online',
+                         validators=[InputRequired(message='Online: ' + message)])
+
+    n_a_i = IntegerField('Nº alumnos previstos inglés',
+                         validators=[InputRequired(message='Inglés: ' + message)])
 
     id_asignaturas = StringField('Id Asignaturas', widget=HiddenInput(), id='id_asignaturas')
 
@@ -180,4 +176,3 @@ class UpdateYearCursoForm(FlaskForm):
     id_curso = IntegerField('Id Curso', widget=HiddenInput())
     year = IntegerField('Año de inicio del curso', validators=[DataRequired('El año es obligatorio')])
     submit = SubmitField('Guardar Cambios')
-

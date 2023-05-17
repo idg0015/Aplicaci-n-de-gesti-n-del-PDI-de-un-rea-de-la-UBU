@@ -7,7 +7,7 @@ body {
     font-size: 1rem;
 }
 
-/*Botones*/
+/* ---------------------- Botones ---------------------- */
 .btn-primary {
     background-color: #aa223c !important;
     border-color: #aa223c !important;
@@ -38,7 +38,11 @@ body {
     margin-left: 2.6%;
 }
 
-/*Menú*/
+.icon-lt {
+    font-size: 1rem;
+}
+
+/* ---------------------- Menú ---------------------- */
 .dropdown-item.active, .dropdown-item:active {
     background-color: #aa223c !important;
     color: white !important;
@@ -52,7 +56,7 @@ body {
     padding: 0 1rem !important;
 }
 
-/* Enlaces */
+/* ---------------------- Enlaces ---------------------- */
 .enlace {
     color: #aa223c !important;
 }
@@ -67,7 +71,7 @@ a.show {
     color: white !important;
 }
 
-/* Formularios */
+/* ---------------------- Formularios ---------------------- */
 .form-centro {
     width: 50%;
     display: block;
@@ -95,10 +99,47 @@ a.show {
     margin-bottom: 3%;
 }
 
-.info{
+.info {
     margin: 0.25rem;
     padding: 0.5rem;
     background-color: #baffff;
     border-radius: 0.25rem;
     font-size: 0.85rem;
+}
+
+.col-centered {
+    margin: 0 auto;
+    float: none;
+}
+
+#info-grupos {
+    display: none;
+}
+
+#container1, #container2 {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 49%;
+    min-height: 100px;
+    max-height: 500px;
+    overflow-y: scroll;
+    padding: 5px;
+    background-color: hsl(223.08deg 25.14% 92.47% / 59%);
+}
+
+#container1 {
+    margin-right: 1%;
+}
+
+.el-list-asignaturas {
+    padding: 5px;
+    margin: 0.125rem;
+    cursor: move;
+    border-radius: 6px;
+}
+
+#container-asignaturas {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 2%;
 }

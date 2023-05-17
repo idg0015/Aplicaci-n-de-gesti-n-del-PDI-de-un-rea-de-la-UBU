@@ -56,8 +56,11 @@ class Asignatura(db.Model):
         return asignaturas_groupby_titulacion
 
     @staticmethod
-    def get_asignaturas_by_titulacion(id_titulacion):
-        return Asignatura.query.filter_by(id_titulacion=id_titulacion).all()
+    def get_asignaturas_by_titulacion_curso(id_titulacion, curso):
+        if int(curso) == 0:
+            return Asignatura.query.filter_by(id_titulacion=id_titulacion).all()
+        else:
+            return Asignatura.query.filter_by(id_titulacion=id_titulacion, curso=curso).all()
 
     def save(self):
         if not self.id:

@@ -1,27 +1,18 @@
 {% extends "base/base_template.html" %}
 {% block title %}
-    Modificar curso {{ form.ano_inicio.data }} - {{ form.ano_inicio.data + 1 }}
+    Añadir asignaturas curso {{ form.ano_inicio.data }} - {{ form.ano_inicio.data + 1 }}
 {% endblock %}
 {% block content %}
     <h1 class="text-center">Curso {{ form.ano_inicio.data }} - {{ form.ano_inicio.data + 1 }}</h1>
 
     <form action="" method="post" novalidate class="form-curso">
         {{ form.hidden_tag() }}
-        <div class="row">
-            <div class="col-md-3 mt-3 mb-3 col-centered">
-                {{ form.ano_inicio.label }}
-                <div>
-                    {{ form.ano_inicio(class_="form-control") }}
-                </div>
-
-                {% for error in form.ano_inicio.errors %}
-                    <span class="msg-error">{{ error }}</span>
-                {% endfor %}
+        <div class="row mb-4 mt-4">
+            <h2 class="text-center">Grupos <i id="icn-info-grupos" class="bi bi-info-circle-fill icon-lt"></i></h2>
+            <div id="info-grupos" class="info"><i class="bi bi-info-circle-fill"></i> Si introduce un número de alumnos
+                mayor que 0, se creará un grupo de teoría y un grupo de práctica por cada asiagnatura seleccionada.
+                Desde la opción del menú "Grupos" podrá modificar o añadir nuevos grupos por cada asignatura
             </div>
-        </div>
-
-        <div class="row mb-4">
-            <h2 class="text-center">Grupos</h2>
             <div class="col-md-4 mb-3">
                 <div class="card">
                     <div class="card-body">
@@ -34,28 +25,6 @@
                                 </div>
 
                                 {% for error in form.n_a_p.errors %}
-                                    <span class="msg-error">{{ error }}</span>
-                                {% endfor %}
-                            </div>
-
-                            <div class="mt-3 mb-3">
-                                {{ form.n_g_t_p.label }}
-                                <div>
-                                    {{ form.n_g_t_p(class_="form-control", value=0) }}
-                                </div>
-
-                                {% for error in form.n_g_t_p.errors %}
-                                    <span class="msg-error">{{ error }}</span>
-                                {% endfor %}
-                            </div>
-
-                            <div class="mt-3 mb-3">
-                                {{ form.n_g_p_p.label }}
-                                <div>
-                                    {{ form.n_g_p_p(class_="form-control", value=0) }}
-                                </div>
-
-                                {% for error in form.n_g_p_p.errors %}
                                     <span class="msg-error">{{ error }}</span>
                                 {% endfor %}
                             </div>
@@ -79,28 +48,6 @@
                                     <span class="msg-error">{{ error }}</span>
                                 {% endfor %}
                             </div>
-
-                            <div class="mt-3 mb-3">
-                                {{ form.n_g_t_o.label }}
-                                <div>
-                                    {{ form.n_g_t_o(class_="form-control", value=0) }}
-                                </div>
-
-                                {% for error in form.n_g_t_o.errors %}
-                                    <span class="msg-error">{{ error }}</span>
-                                {% endfor %}
-                            </div>
-
-                            <div class="mt-3 mb-3">
-                                {{ form.n_g_p_o.label }}
-                                <div>
-                                    {{ form.n_g_p_o(class_="form-control", value=0) }}
-                                </div>
-
-                                {% for error in form.n_g_p_o.errors %}
-                                    <span class="msg-error">{{ error }}</span>
-                                {% endfor %}
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -120,28 +67,6 @@
                                     <span class="msg-error">{{ error }}</span>
                                 {% endfor %}
                             </div>
-
-                            <div class="mt-3 mb-3">
-                                {{ form.n_g_t_i.label }}
-                                <div>
-                                    {{ form.n_g_t_i(class_="form-control", value=0) }}
-                                </div>
-
-                                {% for error in form.n_g_t_i.errors %}
-                                    <span class="msg-error">{{ error }}</span>
-                                {% endfor %}
-                            </div>
-
-                            <div class="mt-3 mb-3">
-                                {{ form.n_g_p_i.label }}
-                                <div>
-                                    {{ form.n_g_p_i(class_="form-control", value=0) }}
-                                </div>
-
-                                {% for error in form.n_g_p_i.errors %}
-                                    <span class="msg-error">{{ error }}</span>
-                                {% endfor %}
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -151,9 +76,19 @@
 
         <div id="container-asignaturas">
             <div class="row">
-                <div class="col-md-4 col-centered">
+                <div class="col-md-4 offset-md-2">
                     <label for="select-titulaciones">Buscar por titulación nuevas asignaturas:</label>
                     <select id="select-titulaciones" class="js-titulaciones-ajax" onchange="getAsignaturas()"></select>
+                </div>
+                <div class="col-md-4">
+                    <label for="select-curso">Curso:</label>
+                    <select disabled id="select-curso" class="form-select form-select-sm" aria-label=".form-select-sm">
+                        <option selected value="0">Todos</option>
+                        <option value="1">1º</option>
+                        <option value="2">2º</option>
+                        <option value="3">3º</option>
+                        <option value="3">4º</option>
+                    </select>
                 </div>
             </div>
 
@@ -171,8 +106,7 @@
                 <div class="col-md-6">
                     <h3>Asignaturas seleccionadas</h3>
                     <div class="info"><i class="bi bi-info-circle-fill"></i> Las asignaturas que arrastre al bloque de
-                        la izquierda serán eliminadas junto a sus grupos (Para todas la modalidades que tengan esa
-                        asignatura)
+                        la izquierda serán eliminadas de la selección
                     </div>
                 </div>
             </div>
@@ -195,8 +129,7 @@
         </div>
     </form>
 
-    {#    <script src="https://unpkg.com/gridjs/plugins/selection/dist/selection.umd.js"></script>#}
-    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+    <script src="{{ url_for('static', filename='node_modules/sortablejs/Sortable.min.js') }}"></script>
 
     <script>
         const idField = document.getElementById("id_asignaturas");
@@ -209,7 +142,8 @@
                 dataType: "json",
                 data: {
                     'id_curso': {{ id_curso }},
-                    'id_titulacion': $('.js-titulaciones-ajax').val()
+                    'id_titulacion': $('.js-titulaciones-ajax').val(),
+                    'curso': $('#select-curso').val(),
                 },
                 success: function (data) {
                     $('#container1').html(data);
@@ -217,7 +151,7 @@
             });
 
             new Sortable($('#container1').get(0), {
-                group: 'shared', // set both lists to same group
+                group: 'shared',
                 animation: 150,
                 multiDrag: true,
                 selectedClass: 'selected',
@@ -225,10 +159,12 @@
         }
 
         $(document).ready(function () {
-            ids = idField.value.split(',');
+            if (idField.value !== '') {
+                ids = idField.value.split(',');
+            }
 
             new Sortable($('#container1').get(0), {
-                group: 'shared', // set both lists to same group
+                group: 'shared',
                 animation: 150,
                 multiDrag: true,
                 selectedClass: 'selected',
@@ -255,8 +191,16 @@
                 }
             });
 
+            $('#select-titulaciones').on('change', function (e) {
+                $('#select-curso').prop('disabled', false);
+            });
+
+            $('#select-curso').on('change', function (e) {
+                getAsignaturas();
+            });
+
             new Sortable($('#container2').get(0), {
-                group: 'shared', // set both lists to same group
+                group: 'shared',
                 animation: 150,
                 multiDrag: true,
                 selectedClass: 'selected',
@@ -306,6 +250,10 @@
                 },
             });
 
+            $('#icn-info-grupos').hover(function () {
+                $('#info-grupos').toggle();
+            });
+
 
         });
     </script>
@@ -313,50 +261,5 @@
         .selected {
             background-color: #c3e6cb;
         }
-
-        .pagination-container {
-            margin-top: 20px;
-            display: flex;
-            justify-content: center;
-        }
-
-        .pagination-container .pagination {
-            margin: 0;
-        }
-
-        #container1, #container2 {
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            width: 49%;
-            min-height: 100px;
-            max-height: 500px;
-            overflow-y: scroll;
-            padding: 5px;
-        {#background-color: #e5e8eb;#} background-color: hsl(223.08deg 25.14% 92.47% / 59%);
-        {#background-image: linear-gradient(76deg,hsl(223.08,25.14%,92.47%) 0,hsl(151.18,42.40%,90.76%) 100%);#}
-        }
-
-        #container1 {
-            margin-right: 1%;
-        }
-
-        .el-list-asignaturas {
-            padding: 5px;
-            margin: 0.125rem;
-            cursor: move;
-            border-radius: 6px;
-        }
-
-        .col-centered {
-            margin: 0 auto;
-            float: none;
-        }
-
-        #container-asignaturas {
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            padding: 2%;
-        }
-
     </style>
 {% endblock %}

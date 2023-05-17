@@ -1,0 +1,26 @@
+{% extends "base/base_template.html" %}
+{% block title %}
+    Añadir curso
+{% endblock %}
+{% block content %}
+    <h1 class="text-center">Añadir curso</h1>
+    <form action="" method="post" novalidate class="form-curso">
+        {{ form.hidden_tag() }}
+        <div class="row">
+            <div class="col-md-3 mt-3 mb-3 col-centered">
+                {{ form.ano_inicio.label }}
+                <div>
+                    {{ form.ano_inicio(class_="form-control") }}
+                </div>
+
+                {% for error in form.ano_inicio.errors %}
+                    <span class="msg-error">{{ error }}</span>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="text-center mt-4">
+            {{ form.submit(class_="btn btn-primary") }}
+        </div>
+    </form>
+{% endblock %}
