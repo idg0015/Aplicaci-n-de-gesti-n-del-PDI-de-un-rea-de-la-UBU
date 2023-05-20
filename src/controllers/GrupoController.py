@@ -30,7 +30,6 @@ def add():
         curso_asignatura = CursoAsignatura.get_with_id(form.id_curso_asignatura.data)
         if curso_asignatura is not None:
             create_check_grupos(curso_asignatura.id, form.tipo.data)
-            flash('Grupo creado correctamente', 'alert alert-success alert-dismissible fade show')
         else:
             flash('Asignatura no encontrada en el curso', 'alert alert-danger alert-dismissible fade show')
         return redirect(url_for('curso_bp.gestion', id_curso_asignatura=curso_asignatura.id))
@@ -55,15 +54,21 @@ def create_check_grupos(id_curso_asignatura, tipoNuevo):
             nombre_nuevo = n_g_t + 89
 
         nuevo = Grupo(nombre=nombre_nuevo, tipo=tipoNuevo, id_curso_asignatura=curso_asignatura.id)
+        flash('Grupo creado correctamente', 'alert alert-success alert-dismissible fade show')
         db.session.add(nuevo)
 
         change_names(curso_asignatura, n_g_t, grupos_practicos_por_teorico, grupos_practicos_restantes, False)
 
     elif tipoNuevo == Tipo.Practico.value:
-        n_g_p += 1
-        grupos_practicos_por_teorico = math.floor(n_g_p / n_g_t)
-        grupos_practicos_restantes = n_g_p % n_g_t
-        change_names(curso_asignatura, n_g_t, grupos_practicos_por_teorico, grupos_practicos_restantes, True)
+        if n_g_t > 0:
+            n_g_p += 1
+            grupos_practicos_por_teorico = math.floor(n_g_p / n_g_t)
+            grupos_practicos_restantes = n_g_p % n_g_t
+            change_names(curso_asignatura, n_g_t, grupos_practicos_por_teorico, grupos_practicos_restantes, True)
+        else:
+            flash('No se puede crear un grupo práctico sin que exista al menos un grupo teórico',
+                  'alert alert-danger alert-dismissible fade show')
+            return redirect(url_for('curso_bp.gestion', id_curso_asignatura=curso_asignatura.id))
 
     db.session.commit()
 
@@ -96,4 +101,31 @@ def change_names(curso_asignatura, n_g_t, grupos_practicos_por_teorico, grupos_p
     if new_p:
         nuevo = Grupo(nombre=nombres_practicos.pop(0), tipo=Tipo.Practico.value,
                       id_curso_asignatura=curso_asignatura.id)
+        flash('Grupo creado correctamente', 'alert alert-success alert-dismissible fade show')
         db.session.add(nuevo)
+
+
+def delete(id_grupo):
+    grupo = Grupo.get_with_id(id_grupo)
+    id_curso_asignatura = grupo.id_curso_asignatura
+    if grupo is not None:
+        db.session.delete(grupo)
+        db.session.flush()
+        curso_asignatura = CursoAsignatura.get_with_id(id_curso_asignatura)
+
+        n_g_t = curso_asignatura.num_grupos_teoricos()
+        n_g_p = curso_asignatura.num_grupos_practicos()
+        if n_g_t > 0:
+            grupos_practicos_por_teorico = math.floor(n_g_p / n_g_t)
+            grupos_practicos_restantes = n_g_p % n_g_t
+            change_names(curso_asignatura, n_g_t, grupos_practicos_por_teorico, grupos_practicos_restantes, False)
+        else:
+            if len(curso_asignatura.grupos) > 0:
+                flash('No se puede eliminar el último grupo teórico si tiene grupos prácticos. Elimínelos antes',
+                      'alert alert-danger alert-dismissible fade show')
+                return redirect(url_for('curso_bp.gestion', id_curso_asignatura=id_curso_asignatura))
+        db.session.commit()
+        flash('Grupo eliminado correctamente', 'alert alert-success alert-dismissible fade show')
+    else:
+        flash('Grupo no encontrado', 'alert alert-danger alert-dismissible fade show')
+    return redirect(url_for('curso_bp.gestion', id_curso_asignatura=id_curso_asignatura))

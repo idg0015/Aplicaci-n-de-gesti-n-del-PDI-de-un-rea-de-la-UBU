@@ -15,3 +15,6 @@ grupo_bp.route('/cursos-asignaturas', methods=['POST'])(get_all_json)
 
 # Creación
 grupo_bp.route('/nuevo/', methods=['POST'])(add)
+
+# Eliminación
+grupo_bp.route('/eliminar/<int:id_grupo>', methods=['GET'])(delete)
