@@ -3,25 +3,40 @@
 {% block title %}Grupos{% endblock %}
 
 {% block content %}
-    <h1 class="text-center">Grupos</h1>
-    <div class="row mb-3">
-        <div class="col-md-2"><label for="cursos"></label>
-            <label for="cursos" class="form-label">Curso:</label>
-            <select name="cursos" id="cursos" class="form-select">
-                <option value="0" selected>Seleccione un curso</option>
-                {% for curso in cursos %}
-                    {% set ano_inicio = curso.ano_inicio | int %}
-                    <option value="{{ curso.id }}">{{ curso.ano_inicio }} - {{ ano_inicio+1 }}</option>
-                {% endfor %}
-            </select>
+    <div class="container-fluid">
+        <h1 class="text-center">Grupos</h1>
+        <div class="mb-3">
+            <div class="col-md-2"><label for="cursos"></label>
+                <label for="cursos" class="form-label">Curso:</label>
+                <select name="cursos" id="cursos" class="form-select">
+                    <option value="0" selected>Seleccione un curso</option>
+                    {% for curso in cursos %}
+                        {% set ano_inicio = curso.ano_inicio | int %}
+                        <option value="{{ curso.id }}">{{ curso.ano_inicio }} - {{ ano_inicio+1 }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div id="tablaGrupos" class="col-md-12"></div>
         </div>
     </div>
-
-    <div id="tablaGrupos"></div>
 
     <script>
         let info = [];
         let table = null;
+
+        if ($("#cursos").children().length > 1) {
+            $("#cursos").children()[1].selected = true;
+            $.ajax({
+                url: "/grupos/cursos-asignaturas",
+                method: "POST",
+                data: {id: $("#cursos").children()[1].value},
+                success: function (data) {
+                    table.updateConfig({data: data}).forceRender();
+                }
+            });
+        }
 
         if (document.getElementById('tablaGrupos') != null) {
             table = new gridjs.Grid({
@@ -44,13 +59,13 @@
                         attributes: {style: 'text-align: center!important;'},
                     },
                     {
-                        id: 'num_grupos_teoricos_previstos',
-                        name: gridjs.html('<span title="Número de grupos teóricos previstos">Nº Grupos Teóricos Previstos</span>'),
+                        id: 'num_grupos_teoricos',
+                        name: gridjs.html('<span title="Número de grupos teóricos">Nº Grupos Teóricos</span>'),
                         attributes: {style: 'text-align: center!important;'},
                     },
                     {
-                        id: 'num_grupos_practicos_previstos',
-                        name: gridjs.html('<span title="Número de grupos prácticos previstos">Nº Grupos Prácticos Previstos</span>'),
+                        id: 'num_grupos_practicos',
+                        name: gridjs.html('<span title="Número de grupos prácticos">Nº Grupos Prácticos</span>'),
                         attributes: {style: 'text-align: center!important;'},
                     },
                     {

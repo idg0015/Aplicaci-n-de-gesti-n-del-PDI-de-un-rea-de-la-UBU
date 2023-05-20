@@ -1,6 +1,7 @@
 from flask import Blueprint
 
 from controllers.CursoController import *
+from controllers.CursoAsignaturaController import gestion
 
 curso_bp = Blueprint('curso_bp', __name__)
 
@@ -27,3 +28,6 @@ curso_bp.route('/actualizar-a', methods=['GET', 'POST'])(update_year)
 
 # Edición
 curso_bp.route('/<int:id_curso>', methods=['GET', 'POST'])(update)
+
+# Gestión de asignaturas
+curso_bp.route('/gestion/<int:id_curso_asignatura>', methods=['GET'])(gestion)

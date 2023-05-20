@@ -27,5 +27,11 @@ class Curso(db.Model):
     def get_all():
         return Curso.query.all()
 
+    def check_asignatura_modalidad(self, id_asignatura, modalidad):
+        for curso_asignatura in self.asignaturas:
+            if curso_asignatura.asignatura.id == id_asignatura and curso_asignatura.modalidad == modalidad:
+                return True
+        return False
+
     def save(self):
         db.session.add(self)

@@ -1,0 +1,76 @@
+{% extends "base/base_template.html" %}
+{% block title %}{{ curso_asignatura.curso.ano_inicio }} - {{ curso_asignatura.asignatura.nombre }}{% endblock %}
+
+{% block content %}
+    <div class="container-fluid">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="{{ category }}" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <h1 class="text-center">
+            Curso {{ curso_asignatura.curso.ano_inicio }}/{{ curso_asignatura.curso.ano_inicio|int +1}}</h1>
+
+        <div class="row text-center">
+            <div class="col-md-4">{{ curso_asignatura.asignatura.titulacion.centro.nombre }}</div>
+            <div class="col-md-4">{{ curso_asignatura.asignatura.nombre }}</div>
+            <div class="col-md-4">{{ curso_asignatura.asignatura.titulacion.nombre }}</div>
+        </div>
+        <a href="" class="btn btn-primary btn-nuevo" data-bs-toggle="modal" data-bs-target="#create-modal">Añadir
+            grupo</a>
+        <div class="row">
+            <div class="col-md-6 offset-md-3 text-center">
+                <div id="tabla_grupos"></div>
+            </div>
+        </div>
+    </div>
+
+    {% include 'grupos/form.html' %}
+
+    <script>
+        let grupos = JSON.parse('{{ grupos | default([])| tojson }}');
+        $(document).ready(function () {
+
+            if (document.getElementById('tabla_grupos') != null) {
+                table = new gridjs.Grid({
+                    columns: [
+                        {
+                            name: 'Id',
+                            hidden: true
+                        },
+                        {
+                            id: 'tipo',
+                            name: gridjs.html('<span title="Tipo">Tipo</span>'),
+                        },
+                        {
+                            id: 'nombre',
+                            name: gridjs.html('<span title="Nombre">Nombre</span>'),
+                        },
+                        {
+                            name: 'Acciones',
+                            formatter: (_, row) => gridjs.html(`<a class="icono" href="/grupos/${row.cells[0].data}"><i class="bi bi-pencil-square"></i></a> <a href="/grupos/eliminar/${row.cells[0].data}" class="icono" onclick="return confirm('¿Está seguro de eliminar el grupo?')"><i class="bi bi-trash3-fill"></i></a>`)
+                        },
+                    ],
+                    language: gridjs.l10n.esES,
+                    sort: true,
+                    search: true,
+                    pagination: {
+                        limit: 10
+                    },
+                    resizable: true,
+                    data: grupos,
+                }).render(document.getElementById("tabla_grupos"));
+            }
+
+            function getIdGrupo(id) {
+                $("#id_curso_asignatura").val(id);
+            }
+        });
+    </script>
+
+{% endblock %}

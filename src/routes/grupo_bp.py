@@ -12,3 +12,6 @@ grupo_bp.route('/gestion/<int:id_curso_asignatura>', methods=['GET'])(gestion)
 
 # Get Cursos Asignaturas
 grupo_bp.route('/cursos-asignaturas', methods=['POST'])(get_all_json)
+
+# Creación
+grupo_bp.route('/nuevo/', methods=['POST'])(add)

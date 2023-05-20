@@ -41,26 +41,27 @@ def update(id_curso):
         alumnos_online = formulario.n_a_o.data
 
         asignaturas_nuevas = formulario.id_asignaturas.data.split(',')
-        asignaturas_to_add = list(set(asignaturas_nuevas) - set(list_asignaturas))
+        # asignaturas_to_add = list(set(asignaturas_nuevas) - set(list_asignaturas))
 
-        if len(asignaturas_to_add) > 0:
-            for id_asignatura in asignaturas_to_add:
+        if len(asignaturas_nuevas) > 0:
+            for id_asignatura in asignaturas_nuevas:
                 if alumnos_presencial > 0:
-                    create_relation(1, 1, id_asignatura, curso.id, alumnos_presencial, Modalidad.Presencial)
-
+                    if not curso.check_asignatura_modalidad(id_asignatura, Modalidad.Presencial.value):
+                        create_relation(1, 1, id_asignatura, curso.id, alumnos_presencial, Modalidad.Presencial)
                 if alumnos_ingles > 0:
-                    create_relation(1, 1, id_asignatura, curso.id, alumnos_ingles, Modalidad.Ingles)
-
+                    if not curso.check_asignatura_modalidad(id_asignatura, Modalidad.Ingles.value):
+                        create_relation(1, 1, id_asignatura, curso.id, alumnos_ingles, Modalidad.Ingles)
                 if alumnos_online > 0:
-                    create_relation(1, 1, id_asignatura, curso.id, alumnos_online, Modalidad.Online)
+                    if not curso.check_asignatura_modalidad(id_asignatura, Modalidad.Online.value):
+                        create_relation(1, 1, id_asignatura, curso.id, alumnos_online, Modalidad.Online)
 
         db.session.commit()
 
         flash('Asignaturas y grupos añadidos correctamente', 'alert alert-success alert-dismissible fade show')
         return redirect(url_for('curso_bp.index'))
 
-    formulario.id_asignaturas.data = ','.join(
-        set([str(curso_asignatura.id_asignatura) for curso_asignatura in curso.asignaturas]))
+    # formulario.id_asignaturas.data = ','.join(
+    #     set([str(curso_asignatura.id_asignatura) for curso_asignatura in curso.asignaturas]))
     return render_template('cursos/form-update.html', form=formulario, asig_actuales=[],
                            id_curso=id_curso)
 
@@ -105,7 +106,12 @@ def create_relation(n_g_t, n_g_p, id_asignatura, id_curso, alumnos, modalidad):
 
 def render_sortable():
     if request.method == "POST":
-        asignaturas = Asignatura.get_asignaturas_by_titulacion(request.form.get('id_titulacion'))
+        cursos_asignaturas = Curso.get_curso(request.form.get('id_curso')).asignaturas
+        asignaturas_curso = []
+        for curso_asignatura in cursos_asignaturas:
+            asignaturas_curso.append(curso_asignatura.asignatura)
+        asignaturas = Asignatura.get_asignaturas_by_titulacion_curso(request.form.get('id_titulacion'),
+                                                                     request.form.get('curso'))
         return jsonify(render_template('cursos/sortable.html', asignaturas=asignaturas))
 
 

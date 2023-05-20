@@ -10,6 +10,7 @@ from models.Centro import Centro
 from models.Contrato import TipoContrato
 from models.Departamento import Departamento
 from models.Docente import Docente
+from models.Grupo import Grupo
 from models.Titulacion import Titulacion
 
 
@@ -176,3 +177,11 @@ class UpdateYearCursoForm(FlaskForm):
     id_curso = IntegerField('Id Curso', widget=HiddenInput())
     year = IntegerField('Año de inicio del curso', validators=[DataRequired('El año es obligatorio')])
     submit = SubmitField('Guardar Cambios')
+
+
+class FormGrupo(FlaskForm):
+    tipo = SelectField('Tipo', coerce=str, choices=Grupo.Tipos,
+                       validators=[DataRequired(message='El tipo del grupo es obligatorio')],
+                       validate_choice=False)
+    id_curso_asignatura = IntegerField('Id Curso_Asignatura', widget=HiddenInput())
+    submit = SubmitField('Añadir')
