@@ -32,6 +32,8 @@
         </div>
     </div>
 
+    {% include('cursos/form-ca.html') %}
+
     <script>
         let info = [];
         let table = null;
@@ -53,6 +55,14 @@
                 columns: [
                     {
                         name: 'Id',
+                        hidden: true
+                    },
+                    {
+                        name: 'num_grupos_teoricos_previstos',
+                        hidden: true
+                    },
+                    {
+                        name: 'num_grupos_practicos_previstos',
                         hidden: true
                     },
                     {
@@ -82,6 +92,7 @@
                         name: 'Acciones',
                         attributes: {style: 'text-align: center!important;'},
                         formatter: (_, row) => gridjs.html(`<a type="button" class="btn btn-primary" href="/cursos/gestion/${row.cells[0].data}">Gestionar grupos</a>
+                                                            <a class="icono" href="#" data-bs-toggle="modal" data-bs-target="#ca-modal" data-ca="${row.cells[0].data}" data-na="${row.cells[5].data}" data-gt="${row.cells[1].data}" data-gp="${row.cells[2].data}" onclick="editForm(this)"><i class="bi bi-pencil-square"></i></a>
                                                             <a class="icono" href="/cursos/delete-ca/${row.cells[0].data}" onclick="return confirm('¿Está seguro de eliminar la asignatura del curso?')"><i class="bi bi-trash3-fill"></i></a>`),
                     },
                 ],
@@ -94,6 +105,18 @@
                 resizable: true,
                 data: [],
             }).render(document.getElementById("tablaGrupos"));
+        }
+
+        // Recojo los datos al pulsar el botón y los muestro en la ventana modal
+        function editForm(btn){
+            let id = btn.dataset.ca;
+            let n_a = btn.dataset.na;
+            let gt = btn.dataset.gt;
+            let gp = btn.dataset.gp;
+            $('#ca-modal').find('form').attr('action', '/cursos/edit-ca/'+id);
+            $('#ca-modal').find('#n_a_p').val(n_a);
+            $('#ca-modal').find('#n_g_t').val(gt);
+            $('#ca-modal').find('#n_g_p').val(gp);
         }
 
         $(document).ready(function () {

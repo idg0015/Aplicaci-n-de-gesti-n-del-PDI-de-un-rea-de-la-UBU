@@ -1,7 +1,7 @@
 from flask import Blueprint
 
 from controllers.CursoController import *
-from controllers.CursoAsignaturaController import gestion, delete_ca
+from controllers.CursoAsignaturaController import gestion, delete_ca, edit_ca
 
 curso_bp = Blueprint('curso_bp', __name__)
 
@@ -34,3 +34,6 @@ curso_bp.route('/gestion/<int:id_curso_asignatura>', methods=['GET'])(gestion)
 
 # Eliminar curso asignatura
 curso_bp.route('/delete-ca/<int:id_curso_asignatura>', methods=['GET'])(delete_ca)
+
+# Editar curso asignatura
+curso_bp.route('/edit-ca/<int:id_curso_asignatura>', methods=['POST'])(edit_ca)

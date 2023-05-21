@@ -185,3 +185,13 @@ class FormGrupo(FlaskForm):
                        validate_choice=False)
     id_curso_asignatura = IntegerField('Id Curso_Asignatura', widget=HiddenInput())
     submit = SubmitField('Añadir')
+
+
+class FormCursoAsignatura(FlaskForm):
+    n_a_p = IntegerField('Nº alumnos previstos',
+                         validators=[InputRequired(message='Debe indicar el número de alumnos previstos')])
+    n_g_t = IntegerField('Nº grupos teoría previstos',
+                         validators=[InputRequired(message='Debe indicar el número de grupos teoría previstos')])
+    n_g_p = IntegerField('Nº grupos prácticas previstos',
+                         validators=[InputRequired(message='Debe indicar el número de grupos prácticas previstos')])
+    submit = SubmitField('Modificar')

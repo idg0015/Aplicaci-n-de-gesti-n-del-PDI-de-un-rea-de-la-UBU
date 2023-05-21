@@ -2,7 +2,7 @@ import math
 
 from flask import render_template, request, flash, redirect, url_for
 
-from forms import FormGrupo
+from forms import FormGrupo, FormCursoAsignatura
 from models.Curso import Curso
 from models.CursoAsignatura import CursoAsignatura, Modalidad
 from models.Grupo import Grupo, Tipo
@@ -11,7 +11,8 @@ from utils.db import db
 
 def index():
     # info = CursoAsignatura.get_all_json()
-    return render_template('grupos/index.html', cursos=Curso.get_all())
+    form = FormCursoAsignatura()
+    return render_template('grupos/index.html', cursos=Curso.get_all(), form=form)
 
 
 def gestion(id_curso_asignatura):

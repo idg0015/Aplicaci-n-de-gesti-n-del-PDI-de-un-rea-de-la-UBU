@@ -53,6 +53,8 @@ class CursoAsignatura(db.Model):
             'asignatura': self.asignatura.nombre,
             'modalidad': self.modalidad,
             'num_alumnos_previstos': self.num_alumnos_previstos,
+            'num_grupos_teoricos_previstos': self.num_grupos_teoricos_previstos,
+            'num_grupos_practicos_previstos': self.num_grupos_practicos_previstos,
             'num_grupos_teoricos': self.num_grupos_teoricos(),
             'num_grupos_practicos': self.num_grupos_practicos()
         }
