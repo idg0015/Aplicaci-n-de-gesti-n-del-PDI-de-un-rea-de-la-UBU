@@ -65,9 +65,10 @@ $(document).ready(function () {
                     attributes: {style: 'text-align: center!important;'},
                 },
                 {
+                    id: 'url',
                     name: gridjs.html('<span title="URL">URL</span>'),
                     sort: false,
-                    formatter: (_, row) => gridjs.html(`<a href='${row.cells[3].data}' class="enlace">Web</a>`),
+                    formatter: (_, row) => gridjs.html(`<a href='${row.cells[4].data}' class="enlace">Web</a>`),
                     attributes: {style: 'text-align: center!important;'},
                 },
                 {

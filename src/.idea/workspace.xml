@@ -4,15 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae6b2c56-8d66-4217-a826-17f3975d95c3" name="Changes" comment="Pequeños cambios en la ventana de gestión de grupos">
-      <change afterPath="$PROJECT_DIR$/templates/cursos/form-ca.html" afterDir="false" />
+    <list default="true" id="ae6b2c56-8d66-4217-a826-17f3975d95c3" name="Changes" comment="Añadida modificación de los datos de la relación de curso académico y asignatura">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/CursoAsignaturaController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/CursoAsignaturaController.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/GrupoController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/GrupoController.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/CursoAsignatura.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/CursoAsignatura.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/curso_bp.py" beforeDir="false" afterPath="$PROJECT_DIR$/routes/curso_bp.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/grupos/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/grupos/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/scripts.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,7 +162,7 @@
       <workItem from="1684441051474" duration="1663000" />
       <workItem from="1684507353682" duration="11159000" />
       <workItem from="1684572675072" duration="17994000" />
-      <workItem from="1684662314593" duration="5259000" />
+      <workItem from="1684662314593" duration="5699000" />
     </task>
     <task id="LOCAL-00001" summary="Pruebas en la creación de curso utilizando la biblioteca Sortable">
       <created>1683754273306</created>
@@ -240,7 +234,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684605256302</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Añadida modificación de los datos de la relación de curso académico y asignatura">
+      <created>1684681714601</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1684681714601</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -268,7 +269,8 @@
     <MESSAGE value="Añadida creación de grupos y cambios en los cursos" />
     <MESSAGE value="Añadida la eliminación de grupos y de asignaturas de un curso, y arreglos en la creación de grupos," />
     <MESSAGE value="Pequeños cambios en la ventana de gestión de grupos" />
-    <option name="LAST_COMMIT_MESSAGE" value="Pequeños cambios en la ventana de gestión de grupos" />
+    <MESSAGE value="Añadida modificación de los datos de la relación de curso académico y asignatura" />
+    <option name="LAST_COMMIT_MESSAGE" value="Añadida modificación de los datos de la relación de curso académico y asignatura" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/src$src.coverage" NAME="src Coverage Results" MODIFIED="1684674350907" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
