@@ -38,6 +38,10 @@ $(document).ready(function () {
             language: gridjs.l10n.esES,
             sort: true,
             search: true,
+            resizable: true,
+            pagination: {
+                limit: 10
+            },
             width: "70%",
             data: centros
         }).render(document.getElementById("tablaCentros"));
@@ -91,7 +95,7 @@ $(document).ready(function () {
             search: true,
             resizable: true,
             pagination: {
-                limit: 7
+                limit: 10
             },
             data: titulaciones
         }).render(document.getElementById("tablaTitulaciones"));
@@ -162,7 +166,7 @@ $(document).ready(function () {
             search: true,
             resizable: true,
             pagination: {
-                limit: 7
+                limit: 10
             },
             data: asignaturas
         }).render(document.getElementById("tablaAsignaturas"));
@@ -205,6 +209,9 @@ $(document).ready(function () {
             language: gridjs.l10n.esES,
             sort: true,
             search: true,
+            pagination: {
+                limit: 10
+            },
             width: "70%",
             data: docentes
         }).render(document.getElementById("tablaDocentes"));
@@ -260,6 +267,10 @@ $(document).ready(function () {
             sort: true,
             search: true,
             width: "70%",
+            resizable: true,
+            pagination: {
+                limit: 10
+            },
             className: {
                 th: "text-center"
             },
@@ -299,6 +310,9 @@ $(document).ready(function () {
             sort: true,
             search: true,
             width: "70%",
+            pagination: {
+                limit: 10
+            },
             className: {
                 th: "text-center"
             },
@@ -336,6 +350,9 @@ $(document).ready(function () {
             sort: true,
             search: true,
             width: "70%",
+            pagination: {
+                limit: 10
+            },
             className: {
                 th: "text-center"
             },
@@ -370,6 +387,9 @@ $(document).ready(function () {
             sort: true,
             search: true,
             width: "70%",
+            pagination: {
+                limit: 10
+            },
             className: {
                 th: "text-center"
             },
@@ -409,10 +429,12 @@ $(document).ready(function () {
             sort: true,
             search: true,
             width: "70%",
+            pagination: {
+                limit: 10
+            },
             data: cursos
         }).render(document.getElementById("tablaCursos"));
     }
-
 
 
     if (document.getElementById('tablaHoras') != null) {
@@ -427,6 +449,9 @@ $(document).ready(function () {
             language: gridjs.l10n.esES,
             sort: true,
             search: true,
+            pagination: {
+                limit: 10
+            },
             data: [
                 ["Centro 1", "Grado 1", "Asignatura 1", 1, 1, "Plaza 1", 1, 1, "Plaza 2", 1, 1, "Plaza 3", 1, 1, null],
                 ["Centro 2", "Grado 2", "Asignatura 1", 1, 1, "Docente 1", 1, 1, "Plaza 2", 1, 1, "Plaza 3", 1, 1, null],

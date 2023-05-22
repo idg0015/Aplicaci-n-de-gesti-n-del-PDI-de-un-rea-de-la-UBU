@@ -1,3 +1,8 @@
+:root {
+    --ubu-main-color: #aa223c;
+}
+
+
 .contenido {
     padding: 10px;
 }
@@ -7,10 +12,38 @@ body {
     font-size: 1rem;
 }
 
+/* ---------------------- Títulos ---------------------- */
+h1.text-center {
+    position: relative;
+    padding-bottom: 1rem;
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    letter-spacing: 4px
+}
+
+h1.text-center:after {
+    position: absolute;
+    content: "";
+    border-bottom: 4px solid var(--ubu-main-color);
+    display: block;
+    width: 20px;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%)
+}
+
+
 /* ---------------------- Botones ---------------------- */
+.btn {
+    border-radius: 0 !important;
+    text-transform: uppercase;
+    font-size: .8em;
+}
+
+
 .btn-primary {
-    background-color: #aa223c !important;
-    border-color: #aa223c !important;
+    background-color: var(--ubu-main-color) !important;
+    border-color: var(--ubu-main-color) !important;
 }
 
 .btn-primary:focus {
@@ -23,7 +56,7 @@ body {
 }
 
 .icono {
-    color: #aa223c;
+    color: var(--ubu-main-color);
 }
 
 .icono:hover {
@@ -34,7 +67,7 @@ body {
     margin-left: 15%;
 }
 
-.btn-nuevo-grupo{
+.btn-nuevo-grupo {
     margin-left: 25%;
 }
 
@@ -48,7 +81,7 @@ body {
 
 /* ---------------------- Menú ---------------------- */
 .dropdown-item.active, .dropdown-item:active {
-    background-color: #aa223c !important;
+    background-color: var(--ubu-main-color) !important;
     color: white !important;
 }
 
@@ -62,16 +95,16 @@ body {
 
 /* ---------------------- Enlaces ---------------------- */
 .enlace {
-    color: #aa223c !important;
+    color: var(--ubu-main-color) !important;
 }
 
 a.nav-link:hover, a.nav-link.active {
     color: white !important;
-    background-color: #aa223c;
+    background-color: var(--ubu-main-color);
 }
 
 a.show {
-    background-color: #aa223c;
+    background-color: var(--ubu-main-color);
     color: white !important;
 }
 
