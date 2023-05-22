@@ -108,6 +108,14 @@ a.show {
     color: white !important;
 }
 
+a#icn-info-grupos{
+    color: var(--ubu-main-color);
+}
+
+a#icn-info-grupos:hover{
+    color: #490f1b !important;
+}
+
 /* ---------------------- Formularios ---------------------- */
 .form-centro {
     width: 50%;
@@ -147,10 +155,6 @@ a.show {
 .col-centered {
     margin: 0 auto;
     float: none;
-}
-
-#info-grupos {
-    display: none;
 }
 
 #container1, #container2 {

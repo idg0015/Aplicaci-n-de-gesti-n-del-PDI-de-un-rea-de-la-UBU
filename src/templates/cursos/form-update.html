@@ -8,11 +8,18 @@
     <form action="" method="post" novalidate class="form-curso">
         {{ form.hidden_tag() }}
         <div class="row mb-4 mt-4">
-            <h2 class="text-center">Grupos <i id="icn-info-grupos" class="bi bi-info-circle-fill icon-lt"></i></h2>
-            <div id="info-grupos" class="info"><i class="bi bi-info-circle-fill"></i> Si introduce un número de alumnos
-                mayor que 0, se creará un grupo de teoría y un grupo de práctica por cada asiagnatura seleccionada.
-                Desde la opción del menú "Grupos" podrá modificar o añadir nuevos grupos por cada asignatura
+            {#            <h2 class="text-center">Grupos <i id="icn-info-grupos" class="bi bi-info-circle-fill icon-lt" data-bs-toggle="collapse" data-bs-target="#info-grupos"></i></h2>#}
+            {#            <div id="info-grupos" class="info collapse"><i class="bi bi-info-circle-fill"></i> Si introduce un número de alumnos#}
+            {#                mayor que 0, se creará un grupo de teoría y un grupo de práctica por cada asiagnatura seleccionada.#}
+            {#                Desde la opción del menú "Grupos" podrá modificar o añadir nuevos grupos por cada asignatura#}
+            {#            </div>#}
+            <h2 class="text-center">Grupos <a id="icn-info-grupos" href="#info-grupos" data-bs-toggle="collapse"><i class="bi bi-info-circle-fill icon-lt"></i></a></h2>
+            <div id="info-grupos" class="info collapse"><i class="bi bi-info-circle-fill"></i> Si introduce un número de
+                alumnos mayor que 0, se creará un grupo de teoría y un grupo de práctica por cada asignatura
+                seleccionada. Desde la opción del menú "Grupos" podrá modificar o añadir nuevos grupos por cada
+                asignatura.
             </div>
+
             <div class="col-md-4 mb-3">
                 <div class="card">
                     <div class="card-body">
@@ -136,20 +143,6 @@
         let ids = [];
 
         function getAsignaturas() {
-            /*$.ajax({
-                url: "/cursos/sortable-edit",
-                type: "POST",
-                dataType: "json",
-                data: {
-                    'id_curso': {{ id_curso }},
-                    'id_titulacion': $('.js-titulaciones-ajax').val(),
-                    'curso': $('#select-curso').val(),
-                },
-                success: function (data) {
-                    $('#container1').html(data);
-                }
-            });*/
-
             $.ajax({
                 url: "/cursos/sortable",
                 type: "POST",
@@ -233,7 +226,6 @@
                         }
                     }
                     idField.value = ids;
-                    console.log(ids);
                 },
                 put: (to, from, dragEl, event) => {
                     for (let i = 0; i < to.el.children.length; i++) {
@@ -258,16 +250,9 @@
                             }
                         }
                     }
-
                     idField.value = ids;
-                    console.log(ids);
                 },
             });
-
-            $('#icn-info-grupos').hover(function () {
-                $('#info-grupos').toggle();
-            });
-
 
         });
     </script>
