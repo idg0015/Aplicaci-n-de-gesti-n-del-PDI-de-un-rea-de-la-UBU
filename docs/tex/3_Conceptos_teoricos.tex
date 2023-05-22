@@ -1,83 +1,20 @@
 \capitulo{3}{Conceptos teóricos}
 
-En aquellos proyectos que necesiten para su comprensión y desarrollo de unos conceptos teóricos de una determinada materia o de un determinado dominio de conocimiento, debe existir un apartado que sintetice dichos conceptos.
+En este apartado se presentarán los conceptos teóricos fundamentales para la correcta comprensión del trabajo.
 
-Algunos conceptos teóricos de \LaTeX \footnote{Créditos a los proyectos de Álvaro López Cantero: Configurador de Presupuestos y Roberto Izquierdo Amo: PLQuiz}.
+\section{Seguridad}
+\subsection{\textit{Cross-Site Request Forgery}}
+El \textit{Cross-Site Request Forgery} (CSRF) o  falsificación de petición en sitios cruzados es un tipo de ataque en el que un sitio web malicioso engaña al navegador de un usuario para que realice acciones no deseadas en otro sitio web en el que el usuario está autenticado~\cite{wiki:csrf}.
+Por ejemplo, un atacante puede enviar una solicitud HTTP en nombre del usuario autenticado para cambiar su contraseña sin su consentimiento.
+Para mitigar este tipo de ataques al renderizar un formulario, se genera un token único y se almacenará en la sesión del usuario.
+Cuando el usuario envía el formulario, el valor del token se incluye en la solicitud HTTP. 
+En el lado del servidor, se verifica si el token enviado coincide con el valor almacenado en la sesión del usuario. 
+Si hay una coincidencia, se considera que la solicitud es válida, pero si el token no coincide o falta, se interpreta como una posible falsificación y se rechaza la solicitud.
 
-\section{Secciones}
-
-Las secciones se incluyen con el comando section.
-
-\subsection{Subsecciones}
-
-Además de secciones tenemos subsecciones.
-
-\subsubsection{Subsubsecciones}
-
-Y subsecciones. 
-
-
-\section{Referencias}
-
-Las referencias se incluyen en el texto usando cite \cite{wiki:latex}. Para citar webs, artículos o libros \cite{koza92}.
-
-
-\section{Imágenes}
-
-Se pueden incluir imágenes con los comandos standard de \LaTeX, pero esta plantilla dispone de comandos propios como por ejemplo el siguiente:
-
-\imagen{escudoInfor}{Autómata para una expresión vacía}{.5}
-
-
-
-\section{Listas de items}
-
-Existen tres posibilidades:
-
-\begin{itemize}
-	\item primer item.
-	\item segundo item.
-\end{itemize}
-
-\begin{enumerate}
-	\item primer item.
-	\item segundo item.
-\end{enumerate}
-
-\begin{description}
-	\item[Primer item] más información sobre el primer item.
-	\item[Segundo item] más información sobre el segundo item.
-\end{description}
-	
-\begin{itemize}
-\item 
-\end{itemize}
-
-\section{Tablas}
-
-Igualmente se pueden usar los comandos específicos de \LaTeX o bien usar alguno de los comandos de la plantilla.
-
-\tablaSmall{Herramientas y tecnologías utilizadas en cada parte del proyecto}{l c c c c}{herramientasportipodeuso}
-{ \multicolumn{1}{l}{Herramientas} & App AngularJS & API REST & BD & Memoria \\}{ 
-HTML5 & X & & &\\
-CSS3 & X & & &\\
-BOOTSTRAP & X & & &\\
-JavaScript & X & & &\\
-AngularJS & X & & &\\
-Bower & X & & &\\
-PHP & & X & &\\
-Karma + Jasmine & X & & &\\
-Slim framework & & X & &\\
-Idiorm & & X & &\\
-Composer & & X & &\\
-JSON & X & X & &\\
-PhpStorm & X & X & &\\
-MySQL & & & X &\\
-PhpMyAdmin & & & X &\\
-Git + BitBucket & X & X & X & X\\
-Mik\TeX{} & & & & X\\
-\TeX{}Maker & & & & X\\
-Astah & & & & X\\
-Balsamiq Mockups & X & & &\\
-VersionOne & X & X & X & X\\
-} 
+\subsection{\textit{Cross-site Scripting}}
+El Cross-site Scripting (XSS) es una vulnerabilidad común en aplicaciones web que permite a un atacante inyectar código malicioso en páginas web visitadas por otros usuarios~\cite{wiki:xss}.
+Este código malicioso se ejecuta en el navegador de la víctima mediante JavaScript, lo que puede llevar a robo de información confidencial, manipulación de contenido o redirección a otros sitios web.
+Para protegerse de este tipo de vulnerabilidades es necesario validar y sanear las entradas que realizan los usuarios. 
+Para ello se utiliza la biblioteca WTForms que proporciona mecanismos para validar y filtrar las entradas de los formularios, lo que ayuda a prevenir la ejecución de código malicioso.
+También es importante escapar caracteres especiales.
+En este caso, Flask y las plantillas Jinja2 realizan automáticamente el escape de variables al renderizar las páginas, aun así hay que tener cuidado con las vistas no renderizadas de esta forma.

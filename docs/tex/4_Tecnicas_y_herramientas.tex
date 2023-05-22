@@ -5,7 +5,7 @@ Tanto para la parte de documentación, como para la parte de desarrollo de la ap
 
 \section{Técnicas}
 \subsection{Scrum}
-Scrum es una metodología para realizar el seguimiento de proyectos que comparte los principios del desarrollo ágil de partir de un concepto, seguir un desarrollo incremental (en \textit{sprints}) y cerrar el producto.
+Scrum es una metodología para realizar el seguimiento de proyectos que comparte los principios del desarrollo ágil de partir de un concepto, seguir un desarrollo incremental (en \textit{sprints}) y cerrar el producto.~\cite{scrum}
 
 \subsubsection{Elementos}
 \begin{itemize}
@@ -38,7 +38,7 @@ Persona con conocimientos avanzados en la metodología Scrum que se encarga de q
 Es la persona que hace de representación del cliente. Se encarga de la gestión de la pila del producto dando visión al producto con las historias de usuario y definiendo las prioridades de las mismas. Participa en cada reunión de planificación de los \textit{sprints}.
 
 \item \textbf{Equipo de desarrollo:}
-Es recomendable que no sea un equipo con un gran número de personal (entre 4 y 8 personas). El equipo debe trabajar de forma simultanea para cumplir las tareas indicadas en la reunión de planificación del \textit{sprint}.
+Es recomendable que no sea un equipo con un gran número de personal (entre 4 y 8 personas). El equipo debe trabajar de forma simultánea para cumplir las tareas indicadas en la reunión de planificación del \textit{sprint}.
 \end{itemize}
 
 En las figuras~\ref{ProcesoScrum1} y~\ref{ProcesoScrum2} se puede ver tanto un resumen del proceso seguido en Scrum como de los diferentes elementos que interactúan en el mismo.
@@ -46,14 +46,14 @@ En las figuras~\ref{ProcesoScrum1} y~\ref{ProcesoScrum2} se puede ver tanto un r
 \begin{figure}
 	\centering
 	\includegraphics[width=\textwidth]{../img/Scrum/Scrum.png}
-	\caption{\textit{Proceso seguido en Scrum \cite{scrum}}}\label{ProcesoScrum1}
+	\caption{\textit{Proceso seguido en Scrum \cite{scrum}.}}\label{ProcesoScrum1}
 \end{figure}
 
 
 \begin{figure}
 	\centering
 	\includegraphics[width=\textwidth]{../img/Scrum/Scrum1.png}
-	\caption{\textit{Explicación de los elementos del proceso \cite{scrum}}}\label{ProcesoScrum2}
+	\caption{\textit{Explicación de los elementos del proceso \cite{scrum}.}}\label{ProcesoScrum2}
 \end{figure}
 
 
@@ -64,7 +64,6 @@ Después de esta reunión, el equipo de desarrollo comienza a trabajar en las ta
 
 Al final del \textit{sprint}, todo el personal se vuelve a reunir para presentar el incremento realizado y ver posibles cambios. Además, se fija el anuncio del próximo \textit{sprint} que comenzará de nuevo con una reunión de planificación.
 
-Durante este proyecto se ha seguido una metodología Scrum con algunos cambios ya que no se hacían reuniones diarias ni los roles estaban tan marcados, pero la forma de trabajar era la misma con planificaciones y revisiones de \textit{sprints}.
 
 \subsection{Web}
 La web (\textit{World Wide Web}) es un sistema que permite la transmisión y acceso a datos y documentos a través de internet utilizando el protocolo HTTP para la comunicación y el lenguaje HTML para la representación de las páginas web~\cite{wiki:web}.
@@ -74,13 +73,13 @@ La tecnología web es una de las que más desarrollo ha sufrido en los últimos 
  
 \section{Herramientas}
 \subsection{GitHub}
-GitHub es una plataforma de alojamiento en la nube que permite llevar un control de versiones Git para los proyectos subidos. Además del control de versiones, GitHub posee distintas características como la creación de repositorios, el uso de \textit{issues}, \textit{Pull requests}, las páginas de \textit{wiki}, añadir distintos usuarios al repositorio con diferentes permisos, etc\cite{wiki:github}.
+GitHub es una plataforma de alojamiento en la nube que permite llevar un control de versiones Git para los proyectos subidos. Además del control de versiones, GitHub posee distintas características como la creación de repositorios, el uso de \textit{issues}, \textit{Pull requests}, las páginas de \textit{wiki}, añadir distintos usuarios al repositorio con diferentes permisos, etc.~\cite{wiki:github}.
 
 \subsection{ZenHub}
 Extensión para navegador web que se integra con GitHub para permitir añadir los elementos de Scrum al repositorio. De esta manera se puede llevar un mejor seguimiento del trabajo realizado en el proyecto.
 
 \subsection{Python}
-Python es un popular lenguaje de programación que puede ser utilizado en diferentes ámbitos, entre ellos el desarrollo web. Algunas de las razones para utilizar este lenguaje es su facilidad de uso, la posibilidad de orientación a objetos y la amplia variedad de bibliotecas y frameworks, como puede ser Flask~\cite{python}.
+Python es un popular lenguaje de programación que puede ser utilizado en diferentes ámbitos, entre ellos el desarrollo web. Algunas de las razones para utilizar este lenguaje es su facilidad de uso, la posibilidad de programar con orientación a objetos y la amplia variedad de bibliotecas y frameworks, como puede ser Flask~\cite{python}.
 
 Se estudió la posibilidad de uso de PHP para realizar la aplicación web, pero al final se decidió trabajar con Python debido a que es más conocido para los tutores del proyecto y a que, al utilizarlo durante el grado, es más fácil la adaptación para alumnos que en un futuro hagan nuevas versiones partiendo de este proyecto.
 
@@ -109,7 +108,7 @@ Además, al estar los objetos vinculados a registros de una tabla SQL, cuenta co
 
 Grid.js es un \textit{plugin} de JavaScript que ayuda con el tratamiento de tablas. 
 Gracias a esta biblioteca se pueden crear tablas con búsqueda, ordenamiento, redimensión de columnas, etc., de una forma sencilla gracias a sus herramientas. 
-Además, Grid.js se puede incluir con \textit{frameworks} como Reac, Angular o Vue, pero también puede ser utilizado con JavaScript \textit{vanilla}.
+Además, Grid.js se puede incluir con \textit{frameworks} como React, Angular o Vue, pero también puede ser utilizado con JavaScript \textit{vanilla}.
 
 
 Antes de la elección de este \textit{plugin} se estuvo valorando el uso de otro llamado DataTables. Al final se decidió utilizar Grid.js a pesar de que DataTables es más completo.
@@ -129,6 +128,7 @@ Gracias a esta biblioteca es posible escribir en el campo y realizar búsquedas 
 Además, se pueden realizar consultas Ajax de los datos para no tener que realizar la carga completa de la información desde el inicio, sino que la información se va cargando según sea pedida por el usuario que maneja la aplicación.
 
 \item\textbf{Sortable}
+
 Se trata de una biblioteca de JavaScript que facilita la creación de listas con elementos arrastrables. También permite la ordenación en las listas creadas.
 
 Esta biblioteca permite de una forma muy sencilla convertir listas estáticas de HTML en listas interactivas, lo que ofrece una gran personalización y posibilidades de manejo de la interfaz al poder gestionar los eventos de arrastrar o soltar elementos entre muchos otros. 
@@ -148,7 +148,7 @@ Sin embargo, es posible cargar más de estos objetos creados por la comunidad o 
 Aplicación web que permite la creación de diagramas utilizando diferentes figuras geométricas. 
 Además cuenta con objetos ya creados para crear diagramas utilizando UML, diagramas entidad-relación, diagramas relacionales, etc. 
 Esta aplicación permite una personalización avanzada por lo que es muy útil para crear cualquier tipo de diagrama. 
-Además, al ser una aplicación web no requiere de ningún tipo de instalación aunque si que cuenta con una versión de escritorio para Windows, Linux, macOS y Chrome OS.
+Además, al ser una aplicación web no requiere de ningún tipo de instalación aunque sí que cuenta con una versión de escritorio para Windows, Linux, macOS y Chrome OS.
 
 \item\textbf{PyCharm}
 
@@ -157,6 +157,18 @@ Cuenta con una licencia de uso gratuita con funciones limitadas, aunque para est
 
 PyCharm es uno de los IDE más completos y avanzados para el desarrollo con Python, ya que cuenta con una gran cantidad de características que facilitan el trabajo y ayudan a ahorrar tiempo. 
 Además, a la hora de crear proyectos se puede indicar el tipo de \textit{framework} a utilizar, lo que hará que cargue de forma automática todos los paquetes necesarios y creará una versión simple del proyecto desde la que empezar a trabajar. 
-Esto ahorra mucho tiempo al no tener que ir buscando e instalando los paquetes necesarios desde distintos repositorios. 
+Esto ahorra mucho tiempo al no tener que ir buscando e instalando los paquetes necesarios desde distintos repositorios.
+
+\item\textbf{Postman}
+
+Postman es una herramienta pensada para el desarrollo de API que permite crear y enviar solicitudes HTTP, realizar pruebas automatizadas y depurar errores.
+Además, la herramienta proporciona una interfaz fácil de usar.
+Gracias a esta herramienta se pueden realizar distintas peticiones a una web y ver si los resultados son los esperados.
+Esto permite ver de forma más sencilla la información devuelta por la aplicación, lo que aumenta la facilidad para detectar errores o ver la estructura de la información.
+
+\item\textbf{Texmaker}
+
+Editor de documentos de código abierto diseñado para la creación y edición de documentos en formato LaTeX.
+
 \end{itemize}
 \subsection{}
