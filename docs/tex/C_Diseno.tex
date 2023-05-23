@@ -10,7 +10,14 @@ En primer lugar, podemos obtener la visión global de las entidades relacionadas
 El diagrama obtenido tiene un gran tamaño y, para mejorar la visualización y comprensión del mismo, se ha decidido dividir en vistas donde se incluyan los datos de cada una de las entidades.\\
 La primera vista hace referencia al apartado de mantenimiento académico y se puede ver en la figura~\ref{er_cu1}, la segunda al mantenimiento de profesorado~\ref{er_cu2} y la última a la asignación docente~\ref{er_cu3}.
 
-\figuraApaisadaSinMarco{}{../img/Anexos/Diagrama E-R.pdf}{Diagrama general entidad-relación}{DiagramaGeneralE-R}{}
+\begin{landscape}
+	\begin{figure}[h]
+		\caption{Diagrama general entidad-relación}
+		\centering
+		\includegraphics[scale=0.65]{../img/Anexos/Diagrama E-R.pdf}
+		\label{DiagramaGeneralE-R}
+	\end{figure}
+\end{landscape}
 
 Del diagrama entidad-relación se puede obtener el diagrama relacional de la figura~\ref{DiagramaRelacional} en el que se pueden ver la tablas que contendrá la base de datos de la aplicación web.
 
@@ -23,7 +30,14 @@ Aunque la teoría diga que las claves de las tablas que se relacionan pasan a se
 De esta manera, las búsquedas en la base de datos estarán más optimizadas al buscar como clave primaria un único campo y no la composición de varios.
 Además, se evita cualquier tipo de error de clave primaria al ser la propia base de datos la que asigna esta y no el código creado.
 
-\figuraApaisadaSinMarco{}{../img/Anexos/Diagrama relacional.pdf}{Diagrama relacional}{DiagramaRelacional}{}
+\begin{landscape}
+	\begin{figure}[h]
+		\caption[DiagramaRelacional]{Diagrama relacional}
+		\centering
+		\includegraphics[scale=0.7]{../img/Anexos/Diagrama relacional.pdf}
+		\label{DiagramaRelacional}
+	\end{figure}
+\end{landscape}
 
 
 \section{Diseño procedimental}
