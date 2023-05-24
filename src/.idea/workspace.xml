@@ -4,25 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae6b2c56-8d66-4217-a826-17f3975d95c3" name="Changes" comment="Pequeño cambio de css">
-      <change afterPath="$PROJECT_DIR$/migrations/README" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/alembic.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/env.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/script.py.mako" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/versions/08c291294e3a_cambios_en_la_tabla_plaza.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../requirements.txt" afterDir="false" />
+    <list default="true" id="ae6b2c56-8d66-4217-a826-17f3975d95c3" name="Changes" comment="Arreglos en el formulario de las plazas y añadidas las migraciones de base de datos">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Docente.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/Docente.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Plaza.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/Plaza.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/PlazaGrupo.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/PlazaGrupo.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/scripts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/grupos/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/grupos/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/horas/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/horas/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cursos/form-update.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cursos/form-update.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/plazas/form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/plazas/form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/db.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/db.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,7 +166,7 @@
       <workItem from="1684662314593" duration="6437000" />
       <workItem from="1684781774530" duration="2202000" />
       <workItem from="1684855326109" duration="4145000" />
-      <workItem from="1684937343150" duration="4808000" />
+      <workItem from="1684937343150" duration="5296000" />
     </task>
     <task id="LOCAL-00001" summary="Pruebas en la creación de curso utilizando la biblioteca Sortable">
       <created>1683754273306</created>
@@ -281,7 +266,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684783371473</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Arreglos en el formulario de las plazas y añadidas las migraciones de base de datos">
+      <created>1684942665420</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1684942665420</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -313,7 +305,8 @@
     <MESSAGE value="Solucionado pequeño bug con las urls de las titulaciones" />
     <MESSAGE value="Pequeños cambios en las tablas y algún estilo css" />
     <MESSAGE value="Pequeño cambio de css" />
-    <option name="LAST_COMMIT_MESSAGE" value="Pequeño cambio de css" />
+    <MESSAGE value="Arreglos en el formulario de las plazas y añadidas las migraciones de base de datos" />
+    <option name="LAST_COMMIT_MESSAGE" value="Arreglos en el formulario de las plazas y añadidas las migraciones de base de datos" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/src$src.coverage" NAME="src Coverage Results" MODIFIED="1684941754441" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />

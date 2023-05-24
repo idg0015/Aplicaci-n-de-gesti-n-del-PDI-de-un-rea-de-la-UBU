@@ -61,7 +61,13 @@
             </div>
 
             <div class="mt-3 mb-3 col-10 col-lg-4">
-                {{ form.docente.label }}
+                {{ form.docente.label }} <a id="icn-info-grupos" href="#info-docente" data-bs-toggle="collapse"><i
+                    class="bi bi-info-circle-fill icon-lt"></i></a>
+                <div id="info-docente" class="info collapse"><i class="bi bi-info-circle-fill"></i>
+                    Si no quiere introducir un docente deje la opción 'Ninguno' que viene por defecto.<br>
+                    Si elige un docente y luego quiere quitarlo, seleccione la opción 'Ninguno' buscando la palabra en
+                    el campo.
+                </div>
                 <div>{{ form.docente(class_="form-select select2") }}</div>
                 {% for error in form.docente.errors %}
                     <span class="msg-error">{{ error }}</span>
