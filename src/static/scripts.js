@@ -436,30 +436,4 @@ $(document).ready(function () {
         }).render(document.getElementById("tablaCursos"));
     }
 
-
-    if (document.getElementById('tablaHoras') != null) {
-        new gridjs.Grid({
-            columns: [
-                "Centro", "Titulación", "Asignatura", "Semestre", "Id Grupo", "Plaza/Docente", "Horas", "Horas totales docente", "Plaza/Docente", "Horas", "Horas totales docente", "Plaza/Docente", "Horas", "Horas totales docente",
-                {
-                    name: 'Acciones',
-                    formatter: (_, row) => gridjs.html(`<button type="button" class="btn btn-primary" onclick="alert( '${row.cells[0].data}');">Editar</button>`)
-                },
-            ],
-            language: gridjs.l10n.esES,
-            sort: true,
-            search: true,
-            pagination: {
-                limit: 10
-            },
-            data: [
-                ["Centro 1", "Grado 1", "Asignatura 1", 1, 1, "Plaza 1", 1, 1, "Plaza 2", 1, 1, "Plaza 3", 1, 1, null],
-                ["Centro 2", "Grado 2", "Asignatura 1", 1, 1, "Docente 1", 1, 1, "Plaza 2", 1, 1, "Plaza 3", 1, 1, null],
-                ["Centro 3", "Grado 3", "Asignatura 1", 2, 1, "Plaza 5", 1, 1, "Plaza 3", 1, 1, "Plaza 4", 1, 1, null],
-                ["Centro 4", "Grado 4", "Asignatura 1", 1, 1, "Plaza 3", 1, 1, "Plaza 2", 1, 1, "Plaza 3", 1, 1, null]
-            ]
-        }).render(document.getElementById("tablaHoras"));
-    }
-
-
 });

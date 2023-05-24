@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, SelectField, HiddenField, IntegerField, FieldList, FormField, \
     SelectMultipleField, DateField, MultipleFileField
-from wtforms.validators import DataRequired, Email, URL, InputRequired, ValidationError
+from wtforms.validators import DataRequired, Email, URL, InputRequired, ValidationError, Optional, NumberRange
 from wtforms.widgets import HiddenInput
 
 from models.Abreviatura import Abreviatura
@@ -108,12 +108,13 @@ class FormPlaza(FlaskForm):
     nombre = StringField('Nombre', validators=[DataRequired(message='El nombre es obligatorio')])
     rpt = StringField('RPT', validators=[DataRequired(message='La RPT es obligatoria')])
     num_concursos_contratacion = IntegerField('Número de concursos de contratación',
-                                              validators=[InputRequired(
-                                                  message='El número de concursos de contratación es obligatorio')])
+                                              validators=[Optional(), InputRequired(
+                                                  message='El número de concursos de contratación es obligatorio'),
+                                                          NumberRange(min=0, message='El número debe ser mayor que 0')])
     fecha_incorporacion = DateField('Fecha de incorporación',
                                     validators=[DataRequired(message='La fecha de incorporación es obligatoria')])
-    fecha_cese = DateField('Fecha de cese', validators=[DataRequired(message='La fecha de cese es obligatoria')])
-    docente = SelectField('Docente', coerce=int, choices=[], validate_choice=False)
+    fecha_cese = DateField('Fecha de cese', validators=[Optional()])
+    docente = SelectField('Docente', coerce=int, choices=[(-1, 'Ninguno')], validate_choice=False)
     area = SelectField('Área', coerce=int, choices=[], validators=[DataRequired(message='El área es obligatoria')],
                        validate_choice=False)
     contrato = SelectField('Tipo de contrato', coerce=int, choices=[],
@@ -124,6 +125,15 @@ class FormPlaza(FlaskForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.contrato.choices = [(m.id, m.nombre) for m in TipoContrato.get_all()]
+
+    def validate_fecha_cese(self, fecha_cese):
+        fecha_cese = fecha_cese.data
+        if fecha_cese is not None:
+            fecha_incorporacion = self.fecha_incorporacion.data
+            if fecha_cese and fecha_cese < fecha_incorporacion:
+                raise ValidationError('La fecha de cese no puede ser anterior a la fecha de incorporación.')
+        else:
+            self.fecha_cese.data = None
 
     def validate_docente(self, docente):
         docente_id = docente.data

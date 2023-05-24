@@ -68,7 +68,7 @@
                 {% endfor %}
             </div>
             <div class="mt-4 mb-3 col-2 col-lg-2">
-                <button type="button" id="btn-nuevo-docente" class="btn btn-primary">Nuevo docente</button>
+                <button type="button" id="btn-nuevo-docente" class="btn btn-primary">Nuevo</button>
             </div>
         </div>
 
@@ -112,16 +112,13 @@
     </div>
 
 
-
-
-
     <script>
         $(document).ready(function () {
             $('#docente').select2({
+                locale: 'es',
+                placeholder: 'Buscar docente...',
+                minimumInputLength: 3,
                 ajax: {
-                    locale: 'es',
-                    placeholder: 'Buscar docente...',
-                    minimumInputLength: 1,
                     url: '/docentes/ajax/get_docentes',
                     dataType: 'json',
                     data: function (params) {
@@ -138,11 +135,12 @@
                 }
             });
 
+
             $('#area').select2({
+                locale: 'es',
+                placeholder: 'Buscar área...',
+                minimumInputLength: 3,
                 ajax: {
-                    locale: 'es',
-                    placeholder: 'Buscar área...',
-                    minimumInputLength: 1,
                     url: '/areas/ajax/get_areas',
                     dataType: 'json',
                     data: function (params) {

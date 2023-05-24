@@ -12,3 +12,16 @@ class PlazaGrupo(db.Model):
     grupo = db.relationship('Grupo', back_populates="plazas")
     plaza = db.relationship('Plaza', back_populates="grupos")
 
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'horas': self.horas,
+            'id_grupo': self.id_grupo,
+            'id_plaza': self.id_plaza
+        }
+
+    @staticmethod
+    def get_all_json():
+        plazas_grupos = PlazaGrupo.query.all()
+        return [pg.to_dict() for pg in plazas_grupos]
+

@@ -27,6 +27,8 @@ class Docente(db.Model):
 
     @staticmethod
     def get_docente(id_docente):
+        if id_docente is None:
+            return None
         return Docente.query.get(id_docente)
 
     def save(self):

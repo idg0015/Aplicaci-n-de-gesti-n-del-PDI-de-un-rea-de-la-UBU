@@ -10,7 +10,7 @@ from routes.plaza_bp import plaza_bp
 from routes.contrato_bp import contrato_bp
 from routes.departamento_bp import departamento_bp
 from routes.horas_bp import horas_bp
-from utils.db import db
+from utils.db import db, migrate
 import os
 
 app = Flask(__name__)
@@ -21,6 +21,7 @@ else:
     app.config.from_object('config.development.DevelopmentConfig')
 
 db.init_app(app)
+migrate.init_app(app, db)
 with app.app_context():
     db.create_all()
 

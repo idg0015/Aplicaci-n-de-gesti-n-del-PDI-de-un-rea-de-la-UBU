@@ -5,9 +5,9 @@ class Plaza(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     nombre = db.Column(db.String(256), nullable=False)
     rpt = db.Column(db.String(256), nullable=False)
-    num_concursos_contratacion = db.Column(db.Integer, nullable=False)
+    num_concursos_contratacion = db.Column(db.Integer, nullable=True)
     fecha_incorporacion = db.Column(db.Date, nullable=False)
-    fecha_cese = db.Column(db.Date, nullable=False)
+    fecha_cese = db.Column(db.Date, nullable=True)
 
     # Relación con docente
     id_docente = db.Column(db.Integer, db.ForeignKey('docente.id', ondelete='CASCADE'), nullable=True)
@@ -30,13 +30,18 @@ class Plaza(db.Model):
         else:
             docente = '-'
 
+        if self.fecha_cese is None:
+            f_cese = '-'
+        else:
+            f_cese = self.fecha_cese.strftime("%d-%m-%Y")
+
         return {
             'id': self.id,
             'nombre': self.nombre,
             'rpt': self.rpt,
             'num_concursos_contratacion': self.num_concursos_contratacion,
             'fecha_incorporacion': self.fecha_incorporacion.strftime("%d-%m-%Y"),
-            'fecha_cese': self.fecha_cese.strftime("%d-%m-%Y"),
+            'fecha_cese': f_cese,
             'docente': docente,
             # 'area': self.area.nombre,
             'tipo_contrato': self.tipo_contrato.nombre

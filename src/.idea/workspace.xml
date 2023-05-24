@@ -4,7 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae6b2c56-8d66-4217-a826-17f3975d95c3" name="Changes" comment="Pequeño cambio de css" />
+    <list default="true" id="ae6b2c56-8d66-4217-a826-17f3975d95c3" name="Changes" comment="Pequeño cambio de css">
+      <change afterPath="$PROJECT_DIR$/migrations/README" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/alembic.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/env.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/script.py.mako" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/versions/08c291294e3a_cambios_en_la_tabla_plaza.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/Docente.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/Docente.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/Plaza.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/Plaza.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/PlazaGrupo.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/PlazaGrupo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/scripts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/grupos/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/grupos/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/horas/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/horas/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/plazas/form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/plazas/form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/db.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/db.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -161,6 +180,8 @@
       <workItem from="1684572675072" duration="17994000" />
       <workItem from="1684662314593" duration="6437000" />
       <workItem from="1684781774530" duration="2202000" />
+      <workItem from="1684855326109" duration="4145000" />
+      <workItem from="1684937343150" duration="4808000" />
     </task>
     <task id="LOCAL-00001" summary="Pruebas en la creación de curso utilizando la biblioteca Sortable">
       <created>1683754273306</created>
@@ -295,6 +316,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="Pequeño cambio de css" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/src$src.coverage" NAME="src Coverage Results" MODIFIED="1684781784813" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/src$src.coverage" NAME="src Coverage Results" MODIFIED="1684941754441" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
