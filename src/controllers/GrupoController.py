@@ -106,6 +106,36 @@ def change_names(curso_asignatura, n_g_t, grupos_practicos_por_teorico, grupos_p
         db.session.add(nuevo)
 
 
+def change_names_delete(curso_asignatura, n_g_t, grupos_practicos_por_teorico, grupos_practicos_restantes):
+    nombres_practicos = []
+    nombres_teoricos = []
+    for i in range(n_g_t):
+        inicio_nombre = 100 * (i + 1) + 1
+        nombre = i + 1
+        if curso_asignatura.modalidad == Modalidad.Ingles.value:
+            nombre = i + 80
+            inicio_nombre = nombre * 10 + 1
+        elif curso_asignatura.modalidad == Modalidad.Online.value:
+            nombre = i + 90
+            inicio_nombre = nombre * 10 + 1
+
+        nombres_teoricos.append(nombre)
+        num_grupos_practicos_teorico = grupos_practicos_por_teorico
+        if i < grupos_practicos_restantes:
+            num_grupos_practicos_teorico += 1
+
+        fin_nombre = inicio_nombre + num_grupos_practicos_teorico - 1
+
+        for j in range(inicio_nombre, fin_nombre + 1):
+            nombres_practicos.append(j)
+
+    for grupo in curso_asignatura.grupos:
+        if grupo.tipo == Tipo.Practico.value:
+            grupo.nombre = nombres_practicos.pop(0)
+        else:
+            grupo.nombre = nombres_teoricos.pop(0)
+
+
 def delete(id_grupo):
     grupo = Grupo.get_with_id(id_grupo)
     id_curso_asignatura = grupo.id_curso_asignatura
@@ -116,15 +146,19 @@ def delete(id_grupo):
 
         n_g_t = curso_asignatura.num_grupos_teoricos()
         n_g_p = curso_asignatura.num_grupos_practicos()
-        if n_g_t > 0:
-            grupos_practicos_por_teorico = math.floor(n_g_p / n_g_t)
-            grupos_practicos_restantes = n_g_p % n_g_t
-            change_names(curso_asignatura, n_g_t, grupos_practicos_por_teorico, grupos_practicos_restantes, False)
+        if len(grupo.plazas) == 0:
+            if n_g_t > 0:
+                grupos_practicos_por_teorico = math.floor(n_g_p / n_g_t)
+                grupos_practicos_restantes = n_g_p % n_g_t
+                change_names_delete(curso_asignatura, n_g_t, grupos_practicos_por_teorico, grupos_practicos_restantes)
+            else:
+                if len(curso_asignatura.grupos) > 0:
+                    flash('No se puede eliminar el último grupo teórico si tiene grupos prácticos. Elimínelos antes',
+                          'alert alert-danger alert-dismissible fade show')
+                    return redirect(url_for('curso_bp.gestion', id_curso_asignatura=id_curso_asignatura))
         else:
-            if len(curso_asignatura.grupos) > 0:
-                flash('No se puede eliminar el último grupo teórico si tiene grupos prácticos. Elimínelos antes',
-                      'alert alert-danger alert-dismissible fade show')
-                return redirect(url_for('curso_bp.gestion', id_curso_asignatura=id_curso_asignatura))
+            flash('No se puede eliminar un grupo con plazas asignadas', 'alert alert-danger alert-dismissible fade show')
+            return redirect(url_for('curso_bp.gestion', id_curso_asignatura=id_curso_asignatura))
         db.session.commit()
         flash('Grupo eliminado correctamente', 'alert alert-success alert-dismissible fade show')
     else:

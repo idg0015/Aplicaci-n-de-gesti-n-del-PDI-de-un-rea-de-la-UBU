@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae6b2c56-8d66-4217-a826-17f3975d95c3" name="Changes" comment="Añadida información en el campo docente del formulario de plazas.">
+    <list default="true" id="ae6b2c56-8d66-4217-a826-17f3975d95c3" name="Changes" comment="Arreglado bug de números negativos">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/GrupoController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/GrupoController.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,7 +165,7 @@
       <workItem from="1684662314593" duration="6437000" />
       <workItem from="1684781774530" duration="2202000" />
       <workItem from="1684855326109" duration="4145000" />
-      <workItem from="1684937343150" duration="6744000" />
+      <workItem from="1684937343150" duration="9416000" />
     </task>
     <task id="LOCAL-00001" summary="Pruebas en la creación de curso utilizando la biblioteca Sortable">
       <created>1683754273306</created>
@@ -279,7 +279,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684943031876</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Arreglado bug de números negativos">
+      <created>1684944424268</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1684944424268</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -313,7 +320,8 @@
     <MESSAGE value="Pequeño cambio de css" />
     <MESSAGE value="Arreglos en el formulario de las plazas y añadidas las migraciones de base de datos" />
     <MESSAGE value="Añadida información en el campo docente del formulario de plazas." />
-    <option name="LAST_COMMIT_MESSAGE" value="Añadida información en el campo docente del formulario de plazas." />
+    <MESSAGE value="Arreglado bug de números negativos" />
+    <option name="LAST_COMMIT_MESSAGE" value="Arreglado bug de números negativos" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/src$src.coverage" NAME="src Coverage Results" MODIFIED="1684941754441" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
