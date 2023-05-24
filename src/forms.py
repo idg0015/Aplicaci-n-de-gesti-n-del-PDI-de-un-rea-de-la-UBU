@@ -15,7 +15,9 @@ from models.Titulacion import Titulacion
 
 
 class FormCentro(FlaskForm):
-    codigo = IntegerField('Código interno', validators=[DataRequired(message='El código interno es obligatorio')])
+    codigo = IntegerField('Código interno', validators=[InputRequired(message='El código interno es obligatorio'),
+                                                        NumberRange(min=0,
+                                                                    message='El código interno debe ser mayor o igual que 0')])
     nombre = StringField('Nombre', validators=[DataRequired(message='El nombre es obligatorio')])
     abreviatura = StringField('Abreviatura', validators=[DataRequired(message='La abreviatura es obligatoria')])
     email = StringField('Email del administrativo',
@@ -25,7 +27,9 @@ class FormCentro(FlaskForm):
 
 
 class FormTitulacion(FlaskForm):
-    codigo = IntegerField('Código interno', validators=[DataRequired(message='El código interno es obligatorio')])
+    codigo = IntegerField('Código interno', validators=[InputRequired(message='El código interno es obligatorio'),
+                                                        NumberRange(min=0,
+                                                                    message='El código interno debe ser mayor o igual que 0')])
     nombre = StringField('Nombre', validators=[DataRequired(message='El nombre es obligatorio')])
     abreviatura = StringField('Abreviatura', validators=[DataRequired(message='La abreviatura es obligatoria')])
     url = StringField('URL', validators=[DataRequired(message='La URL es obligatoria'),
@@ -39,15 +43,20 @@ class FormTitulacion(FlaskForm):
 
 
 class FormAsignatura(FlaskForm):
-    codigo = IntegerField('Código interno', validators=[DataRequired(message='El código interno es obligatorio')])
+    codigo = IntegerField('Código interno', validators=[DataRequired(message='El código interno es obligatorio'),
+                                                        NumberRange(min=0,
+                                                                    message='El código interno debe ser mayor o igual que 0')])
     nombre = StringField('Nombre', validators=[DataRequired(message='El nombre es obligatorio')])
     tipo = SelectField('Tipo', choices=[('FB', 'Formación Básica'), ('Ob', 'Obligatoria'), ('Op', 'Optativa')],
                        validators=[DataRequired(message='El tipo es obligatorio')])
     abreviatura = SelectMultipleField('Abreviatura(s)', choices=[], validate_choice=False)
     creditos_teoria = IntegerField('Créditos de teoría',
-                                   validators=[InputRequired(message='El número de créditos de teoría es obligatorio')])
+                                   validators=[InputRequired(message='El número de créditos de teoría es obligatorio'),
+                                               NumberRange(min=0,
+                                                           message='El número de créditos de teoría debe ser mayor o igual que 0')])
     creditos_practica = IntegerField('Créditos de práctica', validators=[
-        InputRequired(message='El número de créditos de práctica es obligatorio')])
+        InputRequired(message='El número de créditos de práctica es obligatorio'),
+        NumberRange(min=0, message='El número de créditos de práctica debe ser mayor o igual que 0')])
     curso = SelectField('Curso', choices=[('1', '1º'), ('2', '2º'), ('3', '3º'), ('4', '4º'), ('Todos', 'Todos')],
                         validators=[DataRequired(message='El curso es obligatorio')])
     semestre = SelectField('Semestre', choices=[('1', '1º'), ('2', '2º'), ('1.2', '1º y 2º')],
@@ -66,7 +75,9 @@ class FormDocente(FlaskForm):
     apellidos = StringField('Apellidos', validators=[DataRequired(message='Los apellidos son obligatorios')])
     email = StringField('Email', validators=[DataRequired(message='El email es obligatorio'),
                                              Email(message='La dirección de email no es válida')])
-    reducciones = IntegerField('Reducciones', validators=[InputRequired(message='Las reducciones son obligatorias')])
+    reducciones = IntegerField('Reducciones', validators=[InputRequired(message='Las reducciones son obligatorias'),
+                                                          NumberRange(min=0,
+                                                                      message='El número de reducciones debe ser mayor o igual que 0')])
     submit = SubmitField('Añadir')
 
 
@@ -99,8 +110,8 @@ class FormContrato(FlaskForm):
     nombre = StringField('Nombre', validators=[DataRequired(message='El nombre es obligatorio')])
     abreviatura = StringField('Abreviatura', validators=[DataRequired(message='La abreviatura es obligatoria')])
     capacidad_anual = IntegerField('Capacidad anual (horas)',
-                                   validators=[InputRequired(message='La capacidad anual es obligatoria')])
-    # DataRequired para que no se pueda enviar 0
+                                   validators=[InputRequired(message='La capacidad anual es obligatoria'),
+                                               NumberRange(min=0,message='La capacidad anual debe ser mayor o igual que 0')])
     submit = SubmitField('Añadir')
 
 
@@ -156,8 +167,9 @@ class FormPlaza(FlaskForm):
 
 
 class FormCurso(FlaskForm):
-    # id_curso = IntegerField('Id Curso', widget=HiddenInput())
-    ano_inicio = IntegerField('Año de inicio del curso', validators=[DataRequired('El año es obligatorio')])
+    ano_inicio = IntegerField('Año de inicio del curso', validators=[DataRequired('El año es obligatorio'),
+                                                                     NumberRange(min=2000,
+                                                                                 message='El año de inicio debe ser mayor que 2000')])
     submit = SubmitField('Añadir')
 
 
@@ -166,13 +178,18 @@ class FormCursoUpdate(FlaskForm):
     message = "No puede dejar el campo vacío. Al menos introduzca 0"
 
     n_a_p = IntegerField('Nº alumnos previstos presencial',
-                         validators=[InputRequired(message='Presencial: ' + message)])
+                         validators=[InputRequired(message='Presencial: ' + message), NumberRange(min=0,
+                                                                                                  message='El número de alumnos previstos para presencial debe ser mayor que 0')])
 
     n_a_o = IntegerField('Nº alumnos previstos online',
-                         validators=[InputRequired(message='Online: ' + message)])
+                         validators=[InputRequired(message='Online: ' + message),
+                                     NumberRange(min=0,
+                                                 message='El número de alumnos previstos para online debe ser mayor que 0')])
 
     n_a_i = IntegerField('Nº alumnos previstos inglés',
-                         validators=[InputRequired(message='Inglés: ' + message)])
+                         validators=[InputRequired(message='Inglés: ' + message),
+                                     NumberRange(min=0,
+                                                 message='El número de alumnos previstos para inglés debe ser mayor que 0')])
 
     id_asignaturas = StringField('Id Asignaturas', widget=HiddenInput(), id='id_asignaturas')
 
@@ -185,7 +202,9 @@ class FormCursoUpdate(FlaskForm):
 
 class UpdateYearCursoForm(FlaskForm):
     id_curso = IntegerField('Id Curso', widget=HiddenInput())
-    year = IntegerField('Año de inicio del curso', validators=[DataRequired('El año es obligatorio')])
+    year = IntegerField('Año de inicio del curso', validators=[DataRequired('El año es obligatorio'),
+                                                               NumberRange(min=2000,
+                                                                           message='El año de inicio debe ser mayor que 2000')])
     submit = SubmitField('Guardar Cambios')
 
 
@@ -199,9 +218,14 @@ class FormGrupo(FlaskForm):
 
 class FormCursoAsignatura(FlaskForm):
     n_a_p = IntegerField('Nº alumnos previstos',
-                         validators=[InputRequired(message='Debe indicar el número de alumnos previstos')])
+                         validators=[InputRequired(message='Debe indicar el número de alumnos previstos'),
+                                     NumberRange(min=0, message='El número de alumnos previstos debe ser mayor que 0')])
     n_g_t = IntegerField('Nº grupos teoría previstos',
-                         validators=[InputRequired(message='Debe indicar el número de grupos teoría previstos')])
+                         validators=[InputRequired(message='Debe indicar el número de grupos teoría previstos'),
+                                     NumberRange(min=0,
+                                                 message='El número de grupos teoría previstos debe ser mayor que 0')])
     n_g_p = IntegerField('Nº grupos prácticas previstos',
-                         validators=[InputRequired(message='Debe indicar el número de grupos prácticas previstos')])
+                         validators=[InputRequired(message='Debe indicar el número de grupos prácticas previstos'),
+                                     NumberRange(min=0,
+                                                 message='El número de grupos prácticas previstos debe ser mayor que 0')])
     submit = SubmitField('Modificar')
