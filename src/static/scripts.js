@@ -128,12 +128,12 @@ $(document).ready(function () {
                 },
                 {
                     id: 'creditos_teoria',
-                    name: gridjs.html('<span title="Créditos teoría">ECTS teoría</span>'),
+                    name: gridjs.html('<span title="Créditos teoría">ECTS<br> Teoría</span>'),
                     attributes: {style: 'text-align: center!important;'},
                 },
                 {
                     id: 'creditos_practica',
-                    name: gridjs.html('<span title="Créditos práctica">ECTS práctica</span>'),
+                    name: gridjs.html('<span title="Créditos práctica">ECTS<br> Práctica</span>'),
                     attributes: {style: 'text-align: center!important;'},
                 },
                 {
@@ -235,7 +235,7 @@ $(document).ready(function () {
                 },
                 {
                     id: 'fecha_incorporacion',
-                    name: gridjs.html('<span title="Fecha incorporación">Fecha incorporación</span>'),
+                    name: gridjs.html('<span title="Fecha incorporación">Fecha<br> incorporación</span>'),
                     attributes: {style: 'text-align: center!important;'},
                 },
                 {
@@ -266,7 +266,7 @@ $(document).ready(function () {
             language: gridjs.l10n.esES,
             sort: true,
             search: true,
-            width: "70%",
+            width: "80%",
             resizable: true,
             pagination: {
                 limit: 10

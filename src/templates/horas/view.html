@@ -1,0 +1,112 @@
+{% extends "base/base_template.html" %}
+{% block title %}
+    Horas: Grupo {{ grupo.nombre }} - {{ grupo.curso_asignatura.asignatura.nombre }}
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="{{ category }}" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <div class="row">
+            <div class="col-4">
+                <h2 class="text-center">{{ grupo.curso_asignatura.asignatura.nombre }}</h2>
+            </div>
+            <div class="col-4">
+                <h1 class="text-center">Horas - Grupo {{ grupo.nombre }}</h1>
+            </div>
+            <div class="col-4">
+                <h2 class="text-center">{{ grupo.curso_asignatura.asignatura.titulacion.nombre }}</h2>
+            </div>
+        </div>
+
+        <a href="" class="btn btn-primary btn-nuevo" data-bs-toggle="modal" data-bs-target="#vacant-modal"
+           onclick="editForm()">Añadir
+            plaza</a>
+        <div class="row">
+            <div id="groupVacantTable" class="col-md-12 text-center"></div>
+        </div>
+    </div>
+    {% include 'horas/form.html' %}
+
+    <script>
+        let table = null;
+        let plazas = JSON.parse('{{ plazas | default([])| tojson }}');
+        console.log(plazas);
+
+        function editForm() {
+            $('#group_id').attr('value', {{ grupo.id }});
+        }
+
+        table = new gridjs.Grid({
+            columns: [
+                {id: 'group_id', hidden: true},
+                {id: 'vacant_id', hidden: true},
+                {
+                    id: 'teacher',
+                    name: 'Plaza/Docente'
+                },
+                {
+                    id: 'hours',
+                    name: 'Horas anuales'
+                },
+                {
+                    id: 'hours_in_other_groups',
+                    name: 'Horas anuales en otros grupos'
+                },
+                {
+                    id: 'credits_in_other_groups',
+                    name: 'Créditos en otros grupos'
+                },
+                {
+                    name: 'Acciones', formatter: (cell, row) => gridjs.html(`
+                    <a href="/horas/editar/${row.cells[0].data}" class="btn btn-primary">Editar</a>
+                    <a href="/horas/eliminar/${row.cells[0].data}" class="btn btn-danger">Eliminar</a>
+                `)
+                }
+            ],
+            language: gridjs.l10n.esES,
+            sort: true,
+            search: true,
+            pagination: {
+                enabled: true,
+                limit: 10
+            },
+            width: '70%',
+            data: plazas
+        }).render(document.getElementById("groupVacantTable"));
+
+        $(document).ready(function () {
+
+            $('#vacant').select2({
+                locale: 'es',
+                placeholder: 'Buscar plaza...',
+                minimumInputLength: 3,
+                dropdownParent: $('#vacant-modal'),
+                ajax: {
+                    url: '/plazas/ajax/get_plazas',
+                    dataType: 'json',
+                    data: function (params) {
+                        return {
+                            text: params.term
+                        };
+                    },
+                    processResults: function (data) {
+                        return {
+                            results: data
+                        };
+                    },
+                    cache: true
+                }
+            });
+        });
+
+    </script>
+{% endblock %}

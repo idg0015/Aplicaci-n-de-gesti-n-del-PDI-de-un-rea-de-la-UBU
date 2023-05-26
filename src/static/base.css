@@ -71,6 +71,10 @@ h1.text-center:after {
     margin-left: 25%;
 }
 
+.btn-nuevo-plaza{
+    margin-left: 10%;
+}
+
 .btn-nuevo-2 {
     margin-left: 2.6%;
 }
@@ -147,7 +151,7 @@ a#icn-info-grupos:hover{
 .info {
     margin: 0.25rem;
     padding: 0.5rem;
-    background-color: #baffff;
+    background-color: rgba(186, 255, 255, 0.51);
     border-radius: 0.25rem;
     font-size: 0.85rem;
 }

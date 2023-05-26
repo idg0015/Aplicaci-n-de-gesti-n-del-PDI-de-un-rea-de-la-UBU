@@ -1,0 +1,38 @@
+<div class="modal fade" id="vacant-modal" tabindex="-1" aria-labelledby="vacant-modal-label"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="create-modal-label">Añadir Paza/Docente</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                <form method="POST" action="{{ url_for('horas_bp.assign_hours') }}">
+                    {{ form.hidden_tag() }}
+
+                    <div class="form-group">
+                        <div class="mt-3 mb-3">
+                            {{ form.vacant.label }}
+                            <div>{{ form.vacant(class_="form-select") }}</div>
+                            {% for error in form.vacant.errors %}
+                                <span class="msg-error">{{ error }}</span>
+                            {% endfor %}
+                        </div>
+
+                        <div class="mt-3 mb-3">
+                            {{ form.hours.label }}
+                            <div>{{ form.hours(class_="form-control") }}</div>
+                            {% for error in form.hours.errors %}
+                                <span class="msg-error">{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        {{ form.submit(class='btn btn-primary') }}
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>

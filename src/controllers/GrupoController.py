@@ -25,6 +25,11 @@ def get_all_json():
         return CursoAsignatura.get_all_json(request.form.get('id'))
 
 
+def get_all_json_hours():
+    if request.method == "POST":
+        return Grupo.get_all_json_hours(request.form.get('id'))
+
+
 def add():
     form = FormGrupo()
     if form.validate_on_submit():

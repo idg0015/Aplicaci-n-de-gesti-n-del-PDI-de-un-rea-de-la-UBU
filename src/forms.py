@@ -11,6 +11,7 @@ from models.Contrato import TipoContrato
 from models.Departamento import Departamento
 from models.Docente import Docente
 from models.Grupo import Grupo
+from models.Plaza import Plaza
 from models.Titulacion import Titulacion
 
 
@@ -111,7 +112,8 @@ class FormContrato(FlaskForm):
     abreviatura = StringField('Abreviatura', validators=[DataRequired(message='La abreviatura es obligatoria')])
     capacidad_anual = IntegerField('Capacidad anual (horas)',
                                    validators=[InputRequired(message='La capacidad anual es obligatoria'),
-                                               NumberRange(min=0,message='La capacidad anual debe ser mayor o igual que 0')])
+                                               NumberRange(min=0,
+                                                           message='La capacidad anual debe ser mayor o igual que 0')])
     submit = SubmitField('Añadir')
 
 
@@ -229,3 +231,20 @@ class FormCursoAsignatura(FlaskForm):
                                      NumberRange(min=0,
                                                  message='El número de grupos prácticas previstos debe ser mayor que 0')])
     submit = SubmitField('Modificar')
+
+
+class FormPlazaGrupo(FlaskForm):
+    group_id = IntegerField('Id Grupo', widget=HiddenInput())
+    vacant = SelectField('Plaza', coerce=int, choices=[], validators=[DataRequired(message='La plaza es obligatoria')],
+                       validate_choice=False)
+    hours = IntegerField('Horas anuales',
+                         validators=[DataRequired(message='Las horas son obligatorias'),
+                                     NumberRange(min=1,
+                                                 message='El número de grupos prácticas previstos debe ser mayor que 0')])
+    submit = SubmitField('Añadir')
+
+    def validate_vacant(self, vacant):
+        vacant_id = vacant.data
+        selected_vacant = Plaza.get_plaza(vacant_id)
+        if not selected_vacant:
+            raise ValidationError('Seleccione una plaza válida.')

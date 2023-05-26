@@ -4,47 +4,113 @@
 
 {% block content %}
     <h1 class="text-center">Horas</h1>
-    <a href="#" class="btn btn-primary">Nuevo</a>
-    <div id="tablaHoras"></div>
+    <div class="mb-3">
+        <div class="col-md-2"><label for="cursos"></label>
+            <label for="cursos" class="form-label">Curso:</label>
+            <select name="cursos" id="cursos" class="form-select">
+                <option value="0" selected>Seleccione un curso</option>
+                {% for curso in cursos %}
+                    {% set ano_inicio = curso.ano_inicio | int %}
+                    <option value="{{ curso.id }}">{{ curso.ano_inicio }} - {{ ano_inicio+1 }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+
+    <div id="tablaHoras" class="col-md-12"></div>
 
     <script>
-        let horas = JSON.parse('{{ horas | default([])| tojson }}');
+        let table = null;
 
         if (document.getElementById('tablaHoras') != null) {
-            new gridjs.Grid({
+            table = new gridjs.Grid({
                 columns: [
-                    "Centro",
-                    "Titulación",
-                    "Asignatura",
-                    "Semestre",
-                    "Id Grupo",
-                    "Plaza/Docente",
-                    "Horas",
-                    "Horas totales docente",
-                    "Plaza/Docente",
-                    "Horas",
-                    "Horas totales docente",
-                    "Plaza/Docente",
-                    "Horas",
-                    "Horas totales docente",
+                    {
+                        id: 'group_id',
+                        hidden: true,
+                    },
+                    {
+                        id: 'degree',
+                        name: gridjs.html('Titulación'),
+                    },
+                    {
+                        id: 'subject_name',
+                        name: gridjs.html('Asignatura'),
+                    },
+                    {
+                        id: 'group_name',
+                        name: gridjs.html('Grupo'),
+                    },
+                    {
+                        id: 'semester',
+                        name: gridjs.html('Semestre'),
+                    },
+                    {
+                        id: 'teacher_1',
+                        name: gridjs.html('Plaza/<br>Vacante'),
+                    },
+                    {
+                        id: 'hours_1',
+                        name: gridjs.html('Horas'),
+                    },
+                    {
+                        id: 'teacher_2',
+                        name: gridjs.html('Plaza/Vacante'),
+                    },
+                    {
+                        id: 'hours_2',
+                        name: gridjs.html('Horas'),
+                    },
+                    {
+                        id: 'teacher_3',
+                        name: gridjs.html('Plaza/Vacante'),
+                    },
+                    {
+                        id: 'hours_3',
+                        name: gridjs.html('Horas'),
+                    },
                     {
                         name: 'Acciones',
-                        formatter: (_, row) => gridjs.html(`<button type="button" class="btn btn-primary" onclick="alert( '${row.cells[0].data}');">Editar</button>`)
+                        formatter: (_, row) => gridjs.html(`<a type="button" class="btn btn-primary" href="/horas/grupo/${row.cells[0].data}">Editar</a>`)
                     },
                 ],
                 language: gridjs.l10n.esES,
                 sort: true,
                 search: true,
+                resizable: true,
                 pagination: {
                     limit: 10
                 },
-                data: [
-                    ["Centro 1", "Grado 1", "Asignatura 1", 1, 1, "Plaza 1", 1, 1, "Plaza 2", 1, 1, "Plaza 3", 1, 1, null],
-                    ["Centro 2", "Grado 2", "Asignatura 1", 1, 1, "Docente 1", 1, 1, "Plaza 2", 1, 1, "Plaza 3", 1, 1, null],
-                    ["Centro 3", "Grado 3", "Asignatura 1", 2, 1, "Plaza 5", 1, 1, "Plaza 3", 1, 1, "Plaza 4", 1, 1, null],
-                    ["Centro 4", "Grado 4", "Asignatura 1", 1, 1, "Plaza 3", 1, 1, "Plaza 2", 1, 1, "Plaza 3", 1, 1, null]
-                ]
+                data: [],
             }).render(document.getElementById("tablaHoras"));
+
+            if ($("#cursos").children().length > 1) {
+                $("#cursos").children()[1].selected = true;
+                $.ajax({
+                    url: "/grupos/horas",
+                    method: "POST",
+                    data: {id: $("#cursos").children()[1].value},
+                    success: function (data) {
+                        table.updateConfig({data: data}).forceRender();
+                    }
+                });
+            }
+
+            $(document).ready(function () {
+                $("#cursos").change(function () {
+                    let id = $(this).val();
+                    $.ajax({
+                        url: "/grupos/horas",
+                        method: "POST",
+                        data: {id: id},
+                        success: function (data) {
+                            table.updateConfig({data: data}).forceRender();
+                        }
+                    });
+                });
+            });
         }
+
+
     </script>
 {% endblock %}

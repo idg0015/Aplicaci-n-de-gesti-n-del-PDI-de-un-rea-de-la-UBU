@@ -1,4 +1,4 @@
-from flask import render_template, redirect, url_for, flash, abort
+from flask import render_template, redirect, url_for, flash, abort, request
 
 from forms import FormPlaza
 from models.Plaza import Plaza
@@ -67,4 +67,8 @@ def delete(id_plaza):
     plaza.delete()
     flash('La plaza se ha eliminado correctamente', 'alert alert-success alert-dismissible fade show')
     return redirect(url_for('plaza_bp.index'))
+
+def get_plazas_ajax():
+    text = request.args.get('text')
+    return Plaza.get_ajax(text)
 

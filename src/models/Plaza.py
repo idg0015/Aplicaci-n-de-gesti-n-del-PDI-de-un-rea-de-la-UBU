@@ -1,3 +1,6 @@
+from sqlalchemy import or_
+
+from models.Docente import Docente
 from utils.db import db
 
 
@@ -64,3 +67,26 @@ class Plaza(db.Model):
     @staticmethod
     def get_plaza(id_plaza):
         return Plaza.query.get(id_plaza)
+
+    @staticmethod
+    def get_ajax(text):
+        vacancies = Plaza.query.join(Docente).filter(
+            or_(Plaza.nombre.ilike(f'%{text}%'),
+                Docente.nombre.ilike(f'%{text}%'))
+        ).all()
+
+        results = []
+        for vacant in vacancies:
+            data = {
+                'id': vacant.id,
+                'text': vacant.nombre + ': ' + vacant.docente.nombre + ' ' + vacant.docente.apellidos
+            }
+            results.append(data)
+        return results
+
+    def hours_in_other_groups(self, id_group):
+        hours = 0
+        for group in self.grupos:
+            if int(group.id) != int(id_group):
+                hours += group.horas
+        return hours
