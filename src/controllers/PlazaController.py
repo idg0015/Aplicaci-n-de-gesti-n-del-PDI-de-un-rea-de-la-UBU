@@ -54,7 +54,8 @@ def update(id_plaza):
         return redirect(url_for('plaza_bp.index'))
     formulario.area.choices = [(plaza.area.id, plaza.area.nombre)]  # Carga de la opción seleccionada
     if plaza.docente is not None:
-        formulario.docente.choices = [(plaza.docente.id, plaza.docente.nombre+' '+plaza.docente.apellidos)]  # Carga de la opción seleccionada
+        formulario.docente.choices = [
+            (plaza.docente.id, plaza.docente.nombre + ' ' + plaza.docente.apellidos)]  # Carga de la opción seleccionada
     else:
         formulario.docente.choices = [(-1, 'Ninguno')]
     return render_template('plazas/form.html', form=formulario)
@@ -68,7 +69,7 @@ def delete(id_plaza):
     flash('La plaza se ha eliminado correctamente', 'alert alert-success alert-dismissible fade show')
     return redirect(url_for('plaza_bp.index'))
 
+
 def get_plazas_ajax():
     text = request.args.get('text')
     return Plaza.get_ajax(text)
-

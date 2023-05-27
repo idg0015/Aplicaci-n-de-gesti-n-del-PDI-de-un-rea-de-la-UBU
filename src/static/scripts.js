@@ -10,7 +10,14 @@ $(document).ready(function () {
                 {
                     id: 'codigo',
                     name: gridjs.html('<span title="Código">Código</span>'),
-                    attributes: {style: 'text-align: center!important;'},
+                    attributes: (cell) => {
+                        if (cell != null) {
+                            return {
+                                'data-cell-content': cell,
+                                'style': 'text-align: center!important;',
+                            };
+                        }
+                    }
                 },
                 {
                     id: 'nombre',
@@ -19,7 +26,14 @@ $(document).ready(function () {
                 {
                     id: "abreviatura",
                     name: gridjs.html('<span title="Abreviatura">Abreviatura</span>'),
-                    attributes: {style: 'text-align: center!important;'},
+                    attributes: (cell) => {
+                        if (cell != null) {
+                            return {
+                                'data-cell-content': cell,
+                                'style': 'text-align: center!important;',
+                            };
+                        }
+                    }
                 },
                 {
                     id: 'email',
@@ -57,7 +71,14 @@ $(document).ready(function () {
                 {
                     id: 'codigo',
                     name: gridjs.html('<span title="Código">Código</span>'),
-                    attributes: {style: 'text-align: center!important;'},
+                    attributes: (cell) => {
+                        if (cell != null) {
+                            return {
+                                'data-cell-content': cell,
+                                'style': 'text-align: center!important;',
+                            };
+                        }
+                    }
                 },
                 {
                     id: 'nombre',
@@ -66,14 +87,28 @@ $(document).ready(function () {
                 {
                     id: "abreviatura",
                     name: gridjs.html('<span title="Abreviatura">Abreviatura</span>'),
-                    attributes: {style: 'text-align: center!important;'},
+                    attributes: (cell) => {
+                        if (cell != null) {
+                            return {
+                                'data-cell-content': cell,
+                                'style': 'text-align: center!important;',
+                            };
+                        }
+                    }
                 },
                 {
                     id: 'url',
                     name: gridjs.html('<span title="URL">URL</span>'),
                     sort: false,
                     formatter: (_, row) => gridjs.html(`<a href='${row.cells[4].data}' class="enlace">Web</a>`),
-                    attributes: {style: 'text-align: center!important;'},
+                    attributes: (cell) => {
+                        if (cell != null) {
+                            return {
+                                'data-cell-content': cell,
+                                'style': 'text-align: center!important;',
+                            };
+                        }
+                    }
                 },
                 {
                     id: 'centro',
@@ -111,7 +146,14 @@ $(document).ready(function () {
                 {
                     id: 'codigo',
                     name: gridjs.html('<span title="Código">Código</span>'),
-                    attributes: {style: 'text-align: center!important;'},
+                    attributes: (cell) => {
+                        if (cell != null) {
+                            return {
+                                'data-cell-content': cell,
+                                'style': 'text-align: center!important;',
+                            };
+                        }
+                    }
                 },
                 {
                     id: 'nombre',
@@ -120,7 +162,14 @@ $(document).ready(function () {
                 {
                     id: 'tipo',
                     name: gridjs.html('<span title="Tipo">Tipo</span>'),
-                    attributes: {style: 'text-align: center!important;'},
+                    attributes: (cell) => {
+                        if (cell != null) {
+                            return {
+                                'data-cell-content': cell,
+                                'style': 'text-align: center!important;',
+                            };
+                        }
+                    }
                 },
                 {
                     id: 'titulacion',
@@ -129,22 +178,50 @@ $(document).ready(function () {
                 {
                     id: 'creditos_teoria',
                     name: gridjs.html('<span title="Créditos teoría">ECTS<br> Teoría</span>'),
-                    attributes: {style: 'text-align: center!important;'},
+                    attributes: (cell) => {
+                        if (cell != null) {
+                            return {
+                                'data-cell-content': cell,
+                                'style': 'text-align: center!important;',
+                            };
+                        }
+                    }
                 },
                 {
                     id: 'creditos_practica',
                     name: gridjs.html('<span title="Créditos práctica">ECTS<br> Práctica</span>'),
-                    attributes: {style: 'text-align: center!important;'},
+                    attributes: (cell) => {
+                        if (cell != null) {
+                            return {
+                                'data-cell-content': cell,
+                                'style': 'text-align: center!important;',
+                            };
+                        }
+                    }
                 },
                 {
                     id: 'curso',
                     name: gridjs.html('<span title="Curso">Curso</span>'),
-                    attributes: {style: 'text-align: center!important;'}
+                    attributes: (cell) => {
+                        if (cell != null) {
+                            return {
+                                'data-cell-content': cell,
+                                'style': 'text-align: center!important;',
+                            };
+                        }
+                    }
                 },
                 {
                     id: 'semestre',
                     name: gridjs.html('<span title="Semestre">Semestre</span>'),
-                    attributes: {style: 'text-align: center!important;'}
+                    attributes: (cell) => {
+                        if (cell != null) {
+                            return {
+                                'data-cell-content': cell,
+                                'style': 'text-align: center!important;',
+                            };
+                        }
+                    }
                 },
                 {
                     id: 'abreviaturas',
@@ -194,7 +271,12 @@ $(document).ready(function () {
                 {
                     id: 'reducciones',
                     name: gridjs.html('<span title="Reducciones">Reducciones</span>'),
-                    attributes: {style: 'text-align: center!important;'},
+                    attributes: (cell) => {
+                        return {
+                            'data-cell-content': cell,
+                            'style': 'text-align: center!important;',
+                        };
+                    }
                 },
                 {
                     name: 'Acciones',
@@ -231,22 +313,50 @@ $(document).ready(function () {
                 {
                     id: "rpt",
                     name: gridjs.html('<span title="Relación Puestos de Trabajo (RPT)">RPT</span>'),
-                    attributes: {style: 'text-align: center!important;'},
+                    attributes: (cell) => {
+                        if (cell != null) {
+                            return {
+                                'data-cell-content': cell,
+                                'style': 'text-align: center!important;',
+                            };
+                        }
+                    }
                 },
                 {
                     id: 'fecha_incorporacion',
                     name: gridjs.html('<span title="Fecha incorporación">Fecha<br> incorporación</span>'),
-                    attributes: {style: 'text-align: center!important;'},
+                    attributes: (cell) => {
+                        if (cell != null) {
+                            return {
+                                'data-cell-content': cell,
+                                'style': 'text-align: center!important;',
+                            };
+                        }
+                    }
                 },
                 {
                     id: 'fecha_cese',
                     name: gridjs.html('<span title="Fecha cese">Fecha cese</span>'),
-                    attributes: {style: 'text-align: center!important;'},
+                    attributes: (cell) => {
+                        if (cell != null) {
+                            return {
+                                'data-cell-content': cell,
+                                'style': 'text-align: center!important;',
+                            };
+                        }
+                    }
                 },
                 {
                     id: 'num_concursos_contratacion',
                     name: gridjs.html('<span title="Número concursos contratación">Nº C.C</span>'),
-                    attributes: {style: 'text-align: center!important;'},
+                    attributes: (cell) => {
+                        if (cell != null) {
+                            return {
+                                'data-cell-content': cell,
+                                'style': 'text-align: center!important;',
+                            };
+                        }
+                    }
                 },
                 {
                     id: 'docente',
@@ -292,12 +402,26 @@ $(document).ready(function () {
                 {
                     id: 'abreviatura',
                     name: gridjs.html('<span title="Abreviatura">Abreviatura</span>'),
-                    attributes: {style: 'text-align: center!important;'},
+                    attributes: (cell) => {
+                        if (cell != null) {
+                            return {
+                                'data-cell-content': cell,
+                                'style': 'text-align: center!important;',
+                            };
+                        }
+                    }
                 },
                 {
                     id: 'capacidad_anual',
                     name: gridjs.html('<span title="Capacidad anual (horas)">Capacidad anual (horas)</span>'),
-                    attributes: {style: 'text-align: center!important;'},
+                    attributes: (cell) => {
+                        if (cell != null) {
+                            return {
+                                'data-cell-content': cell,
+                                'style': 'text-align: center!important;',
+                            };
+                        }
+                    }
                 },
                 {
                     name: 'Acciones',
@@ -374,7 +498,14 @@ $(document).ready(function () {
                 {
                     id: 'abreviatura',
                     name: gridjs.html('<span title="Abreviatura">Abreviatura</span>'),
-                    attributes: {style: 'text-align: center!important;'},
+                    attributes: (cell) => {
+                        if (cell != null) {
+                            return {
+                                'data-cell-content': cell,
+                                'style': 'text-align: center!important;',
+                            };
+                        }
+                    }
                 },
                 {
                     name: 'Acciones',

@@ -31,47 +31,60 @@
                     },
                     {
                         id: 'degree',
-                        name: gridjs.html('Titulación'),
+                        name: gridjs.html('<span title="Titulación">Titulación</span>'),
                     },
                     {
                         id: 'subject_name',
-                        name: gridjs.html('Asignatura'),
+                        name: gridjs.html('<span title="Asignatura">Asignatura</span>'),
                     },
                     {
                         id: 'group_name',
-                        name: gridjs.html('Grupo'),
+                        name: gridjs.html('<span title="Grupo">Grupo</span>'),
                     },
                     {
                         id: 'semester',
-                        name: gridjs.html('Semestre'),
+                        name: gridjs.html('<span title="Semestre">Semestre</span>'),
                     },
                     {
                         id: 'teacher_1',
-                        name: gridjs.html('Plaza/<br>Vacante'),
+                        name: gridjs.html('<span title="Plaza/Vacante">Plaza/<br>Vacante</span>'),
                     },
                     {
                         id: 'hours_1',
-                        name: gridjs.html('Horas'),
+                        name: gridjs.html('<span title="Horas">Horas</span>'),
+                    },
+                    {
+                      id: 'total_hours_1',
+                        name: gridjs.html('<span title="Horas totales docente"> Horas<br> totales<br> docente</span>'),
                     },
                     {
                         id: 'teacher_2',
-                        name: gridjs.html('Plaza/Vacante'),
+                        name: gridjs.html('<span title="Plaza/Vacante">Plaza/<br>Vacante</span>'),
                     },
                     {
                         id: 'hours_2',
-                        name: gridjs.html('Horas'),
+                        name: gridjs.html('<span title="Horas">Horas</span>'),
+                    },
+                    {
+                      id: 'total_hours_2',
+                        name: gridjs.html('<span title="Horas totales docente">Horas<br> totales<br> docente</span>'),
                     },
                     {
                         id: 'teacher_3',
-                        name: gridjs.html('Plaza/Vacante'),
+                        name: gridjs.html('<span title="Plaza/Vacante">Plaza/<br>Vacante</span>'),
                     },
                     {
                         id: 'hours_3',
-                        name: gridjs.html('Horas'),
+                        name: gridjs.html('<span title="Horas">Horas</span>'),
+                    },
+                    {
+                      id: 'total_hours_3',
+                        name: gridjs.html('<span title="Horas totales docente">Horas<br> totales<br> docente</span>'),
                     },
                     {
                         name: 'Acciones',
-                        formatter: (_, row) => gridjs.html(`<a type="button" class="btn btn-primary" href="/horas/grupo/${row.cells[0].data}">Editar</a>`)
+                        formatter: (_, row) => gridjs.html(`<a type="button" class="btn btn-primary" href="/horas/grupo/${row.cells[0].data}">Editar</a>`),
+                        sort: false,
                     },
                 ],
                 language: gridjs.l10n.esES,

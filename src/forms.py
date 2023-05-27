@@ -236,7 +236,7 @@ class FormCursoAsignatura(FlaskForm):
 class FormPlazaGrupo(FlaskForm):
     group_id = IntegerField('Id Grupo', widget=HiddenInput())
     vacant = SelectField('Plaza', coerce=int, choices=[], validators=[DataRequired(message='La plaza es obligatoria')],
-                       validate_choice=False)
+                         validate_choice=False)
     hours = IntegerField('Horas anuales',
                          validators=[DataRequired(message='Las horas son obligatorias'),
                                      NumberRange(min=1,
@@ -248,3 +248,12 @@ class FormPlazaGrupo(FlaskForm):
         selected_vacant = Plaza.get_plaza(vacant_id)
         if not selected_vacant:
             raise ValidationError('Seleccione una plaza válida.')
+
+
+class FormPlazaGrupoUpdate(FlaskForm):
+    vacant_group_id = IntegerField('Id Plaza_Grupo', widget=HiddenInput())
+    hours = IntegerField('Horas anuales',
+                         validators=[DataRequired(message='Las horas son obligatorias'),
+                                     NumberRange(min=1,
+                                                 message='El número de grupos prácticas previstos debe ser mayor que 0')])
+    submit = SubmitField('Modificar')

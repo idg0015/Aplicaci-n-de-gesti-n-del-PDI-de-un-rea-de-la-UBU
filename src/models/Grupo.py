@@ -48,17 +48,20 @@ class Grupo(db.Model):
                 total_data[i] = {
                     'teacher': '-',
                     'hours': '-',
+                    'total_hours': '-',
                 }
             else:
                 if vacant_group.plaza.docente is not None:
                     total_data[i] = {
                         'teacher': vacant_group.plaza.docente.nombre + " " + vacant_group.plaza.docente.apellidos,
                         'hours': vacant_group.horas,
+                        'total_hours': vacant_group.plaza.tipo_contrato.capacidad_anual,
                     }
                 else:
                     total_data[i] = {
                         'teacher': vacant_group.plaza.nombre,
                         'hours': vacant_group.horas,
+                        'total_hours': vacant_group.plaza.tipo_contrato.capacidad_anual,
                     }
         return total_data
 
@@ -66,13 +69,16 @@ class Grupo(db.Model):
         vacancies = self.dict_vacancies()
         hours = []
         teachers = []
+        total_hours = []
         for i in range(3):
             if i < len(vacancies):
                 hours.append(vacancies[i]['hours'])
                 teachers.append(vacancies[i]['teacher'])
+                total_hours.append(vacancies[i]['total_hours'])
             else:
                 hours.append('-')
                 teachers.append('-')
+                total_hours.append('-')
 
         return {
             'group_id': self.id,
@@ -81,10 +87,13 @@ class Grupo(db.Model):
             'degree': self.curso_asignatura.asignatura.titulacion.nombre,
             'semester': self.curso_asignatura.asignatura.semestre,
             'hours_1': hours[0],
+            'total_hours_1': total_hours[0],
             'teacher_1': teachers[0],
             'hours_2': hours[1],
+            'total_hours_2': total_hours[1],
             'teacher_2': teachers[1],
             'hours_3': hours[2],
+            'total_hours_3': total_hours[2],
             'teacher_3': teachers[2],
         }
 

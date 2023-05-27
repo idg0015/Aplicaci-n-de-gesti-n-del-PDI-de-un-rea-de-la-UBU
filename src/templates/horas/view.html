@@ -35,41 +35,84 @@
         </div>
     </div>
     {% include 'horas/form.html' %}
+    {% include 'horas/form-update.html' %}
 
     <script>
         let table = null;
         let plazas = JSON.parse('{{ plazas | default([])| tojson }}');
-        console.log(plazas);
 
         function editForm() {
             $('#group_id').attr('value', {{ grupo.id }});
+        }
+
+        function editFormUpdate(btn) {
+            let id = btn.dataset.id;
+            let hours = btn.dataset.hours;
+
+            $('#vacant-update-modal').find('#vacant_group_id').val(id);
+            $('#vacant-update-modal').find('#hours').val(hours);
         }
 
         table = new gridjs.Grid({
             columns: [
                 {id: 'group_id', hidden: true},
                 {id: 'vacant_id', hidden: true},
+                {id: 'id', hidden: true},
                 {
                     id: 'teacher',
-                    name: 'Plaza/Docente'
+                    name: gridjs.html('<span title="Plaza/Docente">Plaza/Docente</span>'),
                 },
                 {
                     id: 'hours',
-                    name: 'Horas anuales'
+                    name: gridjs.html('<span title="Horas anuales">Horas anuales</span>'),
+                    attributes: (cell) => {
+                        if (cell != null) {
+                            return {
+                                'style': 'text-align: center!important;',
+                            };
+                        }
+                    }
                 },
                 {
                     id: 'hours_in_other_groups',
-                    name: 'Horas anuales en otros grupos'
+                    name: gridjs.html('<span title="Horas anuales en otros grupos">Horas anuales en otros grupos</span>'),
+                    attributes: (cell) => {
+                        if (cell != null) {
+                            return {
+                                'style': 'text-align: center!important;',
+                            };
+                        }
+                    }
                 },
                 {
                     id: 'credits_in_other_groups',
-                    name: 'Créditos en otros grupos'
+                    name: gridjs.html('<span title="Créditos en otros grupos">ECTS en otros grupos</span>'),
+                    attributes: (cell) => {
+                        if (cell != null) {
+                            return {
+                                'style': 'text-align: center!important;',
+                            };
+                        }
+                    }
+                },
+                {
+                    id: 'annual_capacity',
+                    name: gridjs.html('<span title="Capacidad anual en horas">Capacidad anual (horas)</span>'),
+                    attributes: (cell) => {
+                        if (cell != null) {
+                            return {
+                                'style': 'text-align: center!important;',
+                            };
+                        }
+                    }
                 },
                 {
                     name: 'Acciones', formatter: (cell, row) => gridjs.html(`
-                    <a href="/horas/editar/${row.cells[0].data}" class="btn btn-primary">Editar</a>
-                    <a href="/horas/eliminar/${row.cells[0].data}" class="btn btn-danger">Eliminar</a>
-                `)
+                    <a href="#" class="icono" data-bs-toggle="modal" data-bs-target="#vacant-update-modal" data-id="${row.cells[2].data}" data-hours="${row.cells[4].data}" onclick="editFormUpdate(this)"><i class="bi bi-pencil-square"></i></a>
+                    <a href="/horas/eliminar/${row.cells[2].data}" class="icono" onclick="return confirm('¿Está seguro de eliminar la asignación de la plaza al grupo?')"><i class="bi bi-trash3-fill"></i></a>
+                `),
+                    sort: false,
+                    attributes: {style: 'text-align: center!important;'},
                 }
             ],
             language: gridjs.l10n.esES,

@@ -76,20 +76,42 @@
                     {
                         id: 'num_alumnos_previstos',
                         name: gridjs.html('<span title="Número de alumnos previstos">Nº Alumnos Previstos</span>'),
-                        attributes: {style: 'text-align: center!important;'},
+                        attributes: (cell) => {
+                            if (cell != null) {
+                                return {
+                                    'data-cell-content': cell,
+                                    'style': 'text-align: center!important;',
+                                };
+                            }
+                        }
                     },
                     {
                         id: 'num_grupos_teoricos',
                         name: gridjs.html('<span title="Número de grupos teóricos">Nº Grupos Teóricos</span>'),
-                        attributes: {style: 'text-align: center!important;'},
+                        attributes: (cell) => {
+                            if (cell != null) {
+                                return {
+                                    'data-cell-content': cell,
+                                    'style': 'text-align: center!important;',
+                                };
+                            }
+                        }
                     },
                     {
                         id: 'num_grupos_practicos',
                         name: gridjs.html('<span title="Número de grupos prácticos">Nº Grupos Prácticos</span>'),
-                        attributes: {style: 'text-align: center!important;'},
+                        attributes: (cell) => {
+                            if (cell != null) {
+                                return {
+                                    'data-cell-content': cell,
+                                    'style': 'text-align: center!important;',
+                                };
+                            }
+                        }
                     },
                     {
                         name: 'Acciones',
+                        sort: false,
                         attributes: {style: 'text-align: center!important;'},
                         formatter: (_, row) => gridjs.html(`<a class="icono" href="/cursos/gestion/${row.cells[0].data}" title="Gestionar grupos"><i class="bi bi-people-fill"></i></a>
                                                             <a class="icono" href="#" title="Modificar datos alumnos" data-bs-toggle="modal" data-bs-target="#ca-modal" data-ca="${row.cells[0].data}" data-na="${row.cells[5].data}" data-gt="${row.cells[1].data}" data-gp="${row.cells[2].data}" onclick="editForm(this)"><i class="bi bi-pencil-square"></i></a>
@@ -108,12 +130,12 @@
         }
 
         // Recojo los datos al pulsar el botón y los muestro en la ventana modal
-        function editForm(btn){
+        function editForm(btn) {
             let id = btn.dataset.ca;
             let n_a = btn.dataset.na;
             let gt = btn.dataset.gt;
             let gp = btn.dataset.gp;
-            $('#ca-modal').find('form').attr('action', '/cursos/edit-ca/'+id);
+            $('#ca-modal').find('form').attr('action', '/cursos/edit-ca/' + id);
             $('#ca-modal').find('#n_a_p').val(n_a);
             $('#ca-modal').find('#n_g_t').val(gt);
             $('#ca-modal').find('#n_g_p').val(gp);

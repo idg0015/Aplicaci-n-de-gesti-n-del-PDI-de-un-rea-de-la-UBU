@@ -1,0 +1,31 @@
+<div class="modal fade" id="vacant-update-modal" tabindex="-1" aria-labelledby="vacant-update-modal-label"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="create-modal-label">Modificar horas</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                <form method="POST" action="{{ url_for('horas_bp.update_hours') }}">
+                    {{ form_update.hidden_tag() }}
+
+                    <div class="form-group">
+
+                        <div class="mt-3 mb-3">
+                            {{ form_update.hours.label }}
+                            <div>{{ form_update.hours(class_="form-control") }}</div>
+                            {% for error in form_update.hours.errors %}
+                                <span class="msg-error">{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        {{ form_update.submit(class='btn btn-primary') }}
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -70,7 +70,7 @@ class Plaza(db.Model):
 
     @staticmethod
     def get_ajax(text):
-        vacancies = Plaza.query.join(Docente).filter(
+        vacancies = Plaza.query.outerjoin(Docente).filter(
             or_(Plaza.nombre.ilike(f'%{text}%'),
                 Docente.nombre.ilike(f'%{text}%'))
         ).all()
@@ -79,14 +79,17 @@ class Plaza(db.Model):
         for vacant in vacancies:
             data = {
                 'id': vacant.id,
-                'text': vacant.nombre + ': ' + vacant.docente.nombre + ' ' + vacant.docente.apellidos
+                'text': vacant.nombre
             }
+            if vacant.docente is not None:
+                data['text'] += ': ' + vacant.docente.nombre + ' ' + vacant.docente.apellidos
             results.append(data)
         return results
 
-    def hours_in_other_groups(self, id_group):
+    def hours_in_other_groups(self, group_id, course_id):
         hours = 0
         for group in self.grupos:
-            if int(group.id) != int(id_group):
-                hours += group.horas
+            if group.grupo.curso_asignatura.curso.id == course_id:
+                if int(group.id) != int(group_id):
+                    hours += group.horas
         return hours
