@@ -38,8 +38,16 @@
 
     <script>
         let grupos = JSON.parse('{{ grupos | default([])| tojson }}');
-        $(document).ready(function () {
 
+        const center = (data, row, col) => {
+            if (row) {
+                return {class: 'gridjs-td text-center'};
+            } else {
+                return {};
+            }
+        };
+
+        $(document).ready(function () {
             if (document.getElementById('tabla_grupos') != null) {
                 table = new gridjs.Grid({
                     columns: [
@@ -57,10 +65,13 @@
                         },
                         {
                             name: 'Acciones',
-                            attributes: {style: 'text-align: center!important;'},
+                            attributes: center,
                             formatter: (_, row) => gridjs.html(`<a href="/grupos/eliminar/${row.cells[0].data}" class="icono" onclick="return confirm('¿Está seguro de eliminar el grupo?')"><i class="bi bi-trash3-fill"></i></a>`)
                         },
                     ],
+                    className: {
+                        th: "text-center"
+                    },
                     language: gridjs.l10n.esES,
                     sort: true,
                     search: true,

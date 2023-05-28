@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae6b2c56-8d66-4217-a826-17f3975d95c3" name="Changes" comment="Creación de asignación de horas [WIP]">
+    <list default="true" id="ae6b2c56-8d66-4217-a826-17f3975d95c3" name="Changes" comment="Arreglo en las tablas">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/scripts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/grupos/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/grupos/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/horas/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/horas/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cursos/gestion.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cursos/gestion.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/horas/view.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/horas/view.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,7 +173,7 @@
       <workItem from="1685023554840" duration="9976000" />
       <workItem from="1685111296395" duration="17629000" />
       <workItem from="1685175658438" duration="23105000" />
-      <workItem from="1685262761246" duration="11264000" />
+      <workItem from="1685262761246" duration="11485000" />
     </task>
     <task id="LOCAL-00001" summary="Pruebas en la creación de curso utilizando la biblioteca Sortable">
       <created>1683754273306</created>
@@ -323,7 +322,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685276984057</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Arreglo en las tablas">
+      <created>1685287468752</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1685287468752</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -360,7 +366,8 @@
     <MESSAGE value="Arreglado bug de números negativos" />
     <MESSAGE value="Solucionado bug al eliminar grupos." />
     <MESSAGE value="Creación de asignación de horas [WIP]" />
-    <option name="LAST_COMMIT_MESSAGE" value="Creación de asignación de horas [WIP]" />
+    <MESSAGE value="Arreglo en las tablas" />
+    <option name="LAST_COMMIT_MESSAGE" value="Arreglo en las tablas" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/src$src.coverage" NAME="src Coverage Results" MODIFIED="1685286664157" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />

@@ -53,6 +53,14 @@
             $('#vacant-update-modal').find('#hours').val(hours);
         }
 
+        const center = (data, row, col) => {
+            if (row) {
+                return {class: 'gridjs-td text-center'};
+            } else {
+                return {};
+            }
+        };
+
         table = new gridjs.Grid({
             columns: [
                 {id: 'group_id', hidden: true},
@@ -65,46 +73,22 @@
                 {
                     id: 'hours',
                     name: gridjs.html('<span title="Horas anuales">Horas anuales</span>'),
-                    attributes: (cell) => {
-                        if (cell != null) {
-                            return {
-                                'style': 'text-align: center!important;',
-                            };
-                        }
-                    }
+                    attributes: center
                 },
                 {
                     id: 'hours_in_other_groups',
                     name: gridjs.html('<span title="Horas anuales en otros grupos">Horas anuales en otros grupos</span>'),
-                    attributes: (cell) => {
-                        if (cell != null) {
-                            return {
-                                'style': 'text-align: center!important;',
-                            };
-                        }
-                    }
+                    attributes: center
                 },
                 {
                     id: 'credits_in_other_groups',
                     name: gridjs.html('<span title="Créditos en otros grupos">ECTS en otros grupos</span>'),
-                    attributes: (cell) => {
-                        if (cell != null) {
-                            return {
-                                'style': 'text-align: center!important;',
-                            };
-                        }
-                    }
+                    attributes: center
                 },
                 {
                     id: 'annual_capacity',
                     name: gridjs.html('<span title="Capacidad anual en horas">Capacidad anual (horas)</span>'),
-                    attributes: (cell) => {
-                        if (cell != null) {
-                            return {
-                                'style': 'text-align: center!important;',
-                            };
-                        }
-                    }
+                    attributes: center
                 },
                 {
                     name: 'Acciones', formatter: (cell, row) => gridjs.html(`
@@ -112,7 +96,7 @@
                     <a href="/horas/eliminar/${row.cells[2].data}" class="icono" onclick="return confirm('¿Está seguro de eliminar la asignación de la plaza al grupo?')"><i class="bi bi-trash3-fill"></i></a>
                 `),
                     sort: false,
-                    attributes: {style: 'text-align: center!important;'},
+                    attributes: center,
                 }
             ],
             language: gridjs.l10n.esES,
