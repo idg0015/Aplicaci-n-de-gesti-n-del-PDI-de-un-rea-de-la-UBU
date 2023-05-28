@@ -1,5 +1,7 @@
 {% extends "base/base_template.html" %}
-{% block title %}{{ curso_asignatura.curso.ano_inicio }} - {{ curso_asignatura.asignatura.nombre }}{% endblock %}
+{% block title %}
+    Gestión de grupos - {{ curso_asignatura.curso.ano_inicio }} - {{ curso_asignatura.asignatura.nombre }}
+{% endblock %}
 
 {% block content %}
     <div class="container-fluid">
@@ -20,7 +22,7 @@
                     Curso {{ curso_asignatura.curso.ano_inicio }}/{{ curso_asignatura.curso.ano_inicio|int +1}}</h2>
             </div>
             <div class="col-md-4"><h1
-                    class="text-center">{{ curso_asignatura.asignatura.nombre }}, {{ curso_asignatura.modalidad }}</h1>
+                    class="text-center">Gestión de grupos - {{ curso_asignatura.asignatura.nombre }} ({{ curso_asignatura.modalidad }})</h1>
             </div>
             <div class="col-md-4"><h2 class="h2-view">{{ curso_asignatura.asignatura.titulacion.nombre }}</h2></div>
         </div>

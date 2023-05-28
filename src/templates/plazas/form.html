@@ -1,14 +1,14 @@
 {% extends "base/base_template.html" %}
 {% block title %}
     {% if form.nombre.data %}
-        {{ form.nombre.data }}
+        Modificar plaza - {{ form.nombre.data }}
     {% else %}
         Añadir plaza
     {% endif %}
 {% endblock %}
 {% block content %}
     {% if form.nombre.data %}
-        <h1 class="text-center">{{ form.nombre.data }}</h1>
+        <h1 class="text-center">Modificar plaza - {{ form.nombre.data }}</h1>
     {% else %}
         <h1 class="text-center">Añadir plaza</h1>
     {% endif %}
@@ -98,6 +98,7 @@
 
 
         <div class="text-center mt-4">
+            <a class="btn btn-secondary" href="{{ url_for('plaza_bp.index') }}">Volver</a>
             {{ form.submit(class_="btn btn-primary") }}
         </div>
     </form>

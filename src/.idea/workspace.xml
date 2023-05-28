@@ -4,10 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae6b2c56-8d66-4217-a826-17f3975d95c3" name="Changes" comment="Arreglo en las tablas">
+    <list default="true" id="ae6b2c56-8d66-4217-a826-17f3975d95c3" name="Changes" comment="Pequeño arreglo en las tablas">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/areas/form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/areas/form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/asignaturas/form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/asignaturas/form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/centros/form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/centros/form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/contratos/form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contratos/form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cursos/form-create.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cursos/form-create.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/cursos/gestion.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cursos/gestion.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/departamentos/form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/departamentos/form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/docentes/form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/docentes/form.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/horas/view.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/horas/view.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/plazas/form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/plazas/form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/titulaciones/form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/titulaciones/form.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,7 +182,7 @@
       <workItem from="1685023554840" duration="9976000" />
       <workItem from="1685111296395" duration="17629000" />
       <workItem from="1685175658438" duration="23105000" />
-      <workItem from="1685262761246" duration="11485000" />
+      <workItem from="1685262761246" duration="14174000" />
     </task>
     <task id="LOCAL-00001" summary="Pruebas en la creación de curso utilizando la biblioteca Sortable">
       <created>1683754273306</created>
@@ -329,7 +338,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685287468752</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Pequeño arreglo en las tablas">
+      <created>1685287742897</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1685287742897</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -367,7 +383,8 @@
     <MESSAGE value="Solucionado bug al eliminar grupos." />
     <MESSAGE value="Creación de asignación de horas [WIP]" />
     <MESSAGE value="Arreglo en las tablas" />
-    <option name="LAST_COMMIT_MESSAGE" value="Arreglo en las tablas" />
+    <MESSAGE value="Pequeño arreglo en las tablas" />
+    <option name="LAST_COMMIT_MESSAGE" value="Pequeño arreglo en las tablas" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/src$src.coverage" NAME="src Coverage Results" MODIFIED="1685286664157" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
