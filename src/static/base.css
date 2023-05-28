@@ -32,6 +32,18 @@ h1.text-center:after {
     transform: translateX(-50%)
 }
 
+.h2-view {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    padding-bottom: 10px;
+}
+
 
 /* ---------------------- Botones ---------------------- */
 .btn {
@@ -71,7 +83,7 @@ h1.text-center:after {
     margin-left: 25%;
 }
 
-.btn-nuevo-plaza{
+.btn-nuevo-plaza {
     margin-left: 10%;
 }
 
@@ -112,11 +124,11 @@ a.show {
     color: white !important;
 }
 
-a#icn-info-grupos{
+a#icn-info-grupos {
     color: var(--ubu-main-color);
 }
 
-a#icn-info-grupos:hover{
+a#icn-info-grupos:hover {
     color: #490f1b !important;
 }
 

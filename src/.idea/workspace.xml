@@ -5,17 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ae6b2c56-8d66-4217-a826-17f3975d95c3" name="Changes" comment="Creación de asignación de horas [WIP]">
-      <change afterPath="$PROJECT_DIR$/templates/horas/form-update.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/HorasController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/HorasController.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/PlazaController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/PlazaController.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/Grupo.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/Grupo.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Plaza.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/Plaza.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/PlazaGrupo.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/PlazaGrupo.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/horas_bp.py" beforeDir="false" afterPath="$PROJECT_DIR$/routes/horas_bp.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/scripts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/grupos/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/grupos/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/base.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/base.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cursos/gestion.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cursos/gestion.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/horas/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/horas/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/horas/view.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/horas/view.html" afterDir="false" />
     </list>
@@ -82,6 +77,9 @@
   "keyToStringList": {
     "DatabaseDriversLRU": [
       "mysql"
+    ],
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "HTML"
     ]
   }
 }]]></component>
@@ -179,7 +177,8 @@
       <workItem from="1684937343150" duration="10246000" />
       <workItem from="1685023554840" duration="9976000" />
       <workItem from="1685111296395" duration="17629000" />
-      <workItem from="1685175658438" duration="19088000" />
+      <workItem from="1685175658438" duration="23105000" />
+      <workItem from="1685262761246" duration="10272000" />
     </task>
     <task id="LOCAL-00001" summary="Pruebas en la creación de curso utilizando la biblioteca Sortable">
       <created>1683754273306</created>
@@ -314,7 +313,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685141988622</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Creación de asignación de horas [WIP]">
+      <created>1685214303111</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1685214303111</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -354,6 +360,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="Creación de asignación de horas [WIP]" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/src$src.coverage" NAME="src Coverage Results" MODIFIED="1685192236315" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/src$src.coverage" NAME="src Coverage Results" MODIFIED="1685263032145" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

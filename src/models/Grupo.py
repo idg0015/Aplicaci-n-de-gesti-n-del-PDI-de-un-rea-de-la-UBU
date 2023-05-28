@@ -49,6 +49,7 @@ class Grupo(db.Model):
                     'teacher': '-',
                     'hours': '-',
                     'total_hours': '-',
+                    'vacant_group_id': '-',
                 }
             else:
                 if vacant_group.plaza.docente is not None:
@@ -56,12 +57,14 @@ class Grupo(db.Model):
                         'teacher': vacant_group.plaza.docente.nombre + " " + vacant_group.plaza.docente.apellidos,
                         'hours': vacant_group.horas,
                         'total_hours': vacant_group.plaza.tipo_contrato.capacidad_anual,
+                        'vacant_group_id': vacant_group.id,
                     }
                 else:
                     total_data[i] = {
                         'teacher': vacant_group.plaza.nombre,
                         'hours': vacant_group.horas,
                         'total_hours': vacant_group.plaza.tipo_contrato.capacidad_anual,
+                        'vacant_group_id': vacant_group.id,
                     }
         return total_data
 
@@ -70,15 +73,18 @@ class Grupo(db.Model):
         hours = []
         teachers = []
         total_hours = []
+        vacant_group_ids = []
         for i in range(3):
             if i < len(vacancies):
                 hours.append(vacancies[i]['hours'])
                 teachers.append(vacancies[i]['teacher'])
                 total_hours.append(vacancies[i]['total_hours'])
+                vacant_group_ids.append(vacancies[i]['vacant_group_id'])
             else:
                 hours.append('-')
                 teachers.append('-')
                 total_hours.append('-')
+                vacant_group_ids.append('-')
 
         return {
             'group_id': self.id,
@@ -87,12 +93,15 @@ class Grupo(db.Model):
             'degree': self.curso_asignatura.asignatura.titulacion.nombre,
             'semester': self.curso_asignatura.asignatura.semestre,
             'hours_1': hours[0],
+            'vacant_group_id_1': vacant_group_ids[0],
             'total_hours_1': total_hours[0],
             'teacher_1': teachers[0],
             'hours_2': hours[1],
+            'vacant_group_id_2': vacant_group_ids[1],
             'total_hours_2': total_hours[1],
             'teacher_2': teachers[1],
             'hours_3': hours[2],
+            'vacant_group_id_3': vacant_group_ids[2],
             'total_hours_3': total_hours[2],
             'teacher_3': teachers[2],
         }

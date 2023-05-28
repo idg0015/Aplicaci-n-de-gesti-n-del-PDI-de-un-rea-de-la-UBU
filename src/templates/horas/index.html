@@ -16,11 +16,46 @@
             </select>
         </div>
     </div>
-
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="{{ category }}" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <div id="ajax-response"></div>
     <div id="tablaHoras" class="col-md-12"></div>
 
     <script>
         let table = null;
+
+        const editableCell1 = (data, row, col) => {
+            if (row && data !== '-') {
+                return {contentEditable: 'true', 'data-vacant-group-id': row.cells[6].data};
+            } else {
+                return {};
+            }
+        };
+
+        const editableCell2 = (data, row, col) => {
+            if (row && data !== '-') {
+                return {contentEditable: 'true', 'data-vacant-group-id': row.cells[10].data};
+            } else {
+                return {};
+            }
+        };
+
+        const editableCell3 = (data, row, col) => {
+            if (row && data !== '-') {
+                return {contentEditable: 'true', 'data-vacant-group-id': row.cells[14].data};
+            } else {
+                return {};
+            }
+        };
+
 
         if (document.getElementById('tablaHoras') != null) {
             table = new gridjs.Grid({
@@ -29,6 +64,7 @@
                         id: 'group_id',
                         hidden: true,
                     },
+
                     {
                         id: 'degree',
                         name: gridjs.html('<span title="Titulación">Titulación</span>'),
@@ -50,11 +86,16 @@
                         name: gridjs.html('<span title="Plaza/Vacante">Plaza/<br>Vacante</span>'),
                     },
                     {
-                        id: 'hours_1',
-                        name: gridjs.html('<span title="Horas">Horas</span>'),
+                        id: 'vacant_group_id_1',
+                        hidden: true,
                     },
                     {
-                      id: 'total_hours_1',
+                        id: 'hours_1',
+                        name: gridjs.html('<span title="Horas">Horas</span>'),
+                        'attributes': editableCell1
+                    },
+                    {
+                        id: 'total_hours_1',
                         name: gridjs.html('<span title="Horas totales docente"> Horas<br> totales<br> docente</span>'),
                     },
                     {
@@ -62,11 +103,16 @@
                         name: gridjs.html('<span title="Plaza/Vacante">Plaza/<br>Vacante</span>'),
                     },
                     {
-                        id: 'hours_2',
-                        name: gridjs.html('<span title="Horas">Horas</span>'),
+                        id: 'vacant_group_id_2',
+                        hidden: true,
                     },
                     {
-                      id: 'total_hours_2',
+                        id: 'hours_2',
+                        name: gridjs.html('<span title="Horas">Horas</span>'),
+                        'attributes': editableCell2
+                    },
+                    {
+                        id: 'total_hours_2',
                         name: gridjs.html('<span title="Horas totales docente">Horas<br> totales<br> docente</span>'),
                     },
                     {
@@ -74,16 +120,22 @@
                         name: gridjs.html('<span title="Plaza/Vacante">Plaza/<br>Vacante</span>'),
                     },
                     {
-                        id: 'hours_3',
-                        name: gridjs.html('<span title="Horas">Horas</span>'),
+                        id: 'vacant_group_id_3',
+                        hidden: true,
                     },
                     {
-                      id: 'total_hours_3',
+                        id: 'hours_3',
+                        name: gridjs.html('<span title="Horas">Horas</span>'),
+                        'attributes': editableCell3
+                    },
+                    {
+                        id: 'total_hours_3',
                         name: gridjs.html('<span title="Horas totales docente">Horas<br> totales<br> docente</span>'),
                     },
                     {
                         name: 'Acciones',
-                        formatter: (_, row) => gridjs.html(`<a type="button" class="btn btn-primary" href="/horas/grupo/${row.cells[0].data}">Editar</a>`),
+                        attributes: {style: 'text-align: center!important;'},
+                        formatter: (_, row) => gridjs.html(`<a class="icono" href="/horas/grupo/${row.cells[0].data}" title="Editar asignaciones"><i class="bi bi-clock-fill"></i></a>`),
                         sort: false,
                     },
                 ],
@@ -121,9 +173,66 @@
                         }
                     });
                 });
+
+                let valueHours;
+
+                // Cambios mediante AJAX de las horas
+                const hoursTable = document.getElementById('tablaHoras');
+                hoursTable.addEventListener('focusin', ev => {
+                    if (ev.target.tagName === 'TD' && ev.target.textContent !== '-') {
+                        valueHours = ev.target.textContent;
+                    }
+                });
+
+                hoursTable.addEventListener('input', ev => {
+                    if (ev.target.tagName === 'TD') {
+                        ev.target.textContent = ev.target.textContent.replace(/\D/g, '');
+                    }
+                });
+
+                hoursTable.addEventListener('keydown', ev => {
+                    if (ev.target.tagName === 'TD') {
+                        if (ev.key === 'Escape') {
+                            ev.target.textContent = valueHours;
+                            ev.target.blur();
+                        } else if (ev.key === 'Enter') {
+                            ev.preventDefault();
+                            ev.target.blur();
+                        }
+                    }
+                });
+
+                hoursTable.addEventListener('focusout', ev => {
+                    if (ev.target.tagName === 'TD' && ev.target.textContent !== '-') {
+                        if (valueHours !== ev.target.textContent) {
+                            if (parseInt(ev.target.textContent) > 0) {
+                                hours = ev.target.textContent;
+                                vacant_group_id = ev.target.dataset.vacantGroupId;
+                                $.ajax({
+                                    url: "/horas/asignar-horas-ajax",
+                                    method: "POST",
+                                    data: {hours: hours, vacant_group_id: vacant_group_id},
+                                    dataType: "json",
+                                    success: function (data) {
+                                        $("#ajax-response").html("<div id='alert-message' class='alert alert-success alert-dismissible fade show'>" + data.message + "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>");
+                                        setTimeout(function () {
+                                            $("#alert-message").alert('close');
+                                        }, 700);
+                                    },
+                                    error: function (xhr, status, error) {
+                                        var errorMessage = xhr.responseJSON && xhr.responseJSON.error ? xhr.responseJSON.error : "Error en la solicitud";
+                                        $("#ajax-response").html("<div id='alert-message' class='alert alert-danger alert-dismissible fade show'>" + errorMessage + "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>");
+                                        setTimeout(function () {
+                                            $("#alert-message").alert('close');
+                                        }, 700);
+                                    }
+                                });
+                            }
+                        }
+                    }
+                });
             });
         }
-
 
     </script>
 {% endblock %}

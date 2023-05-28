@@ -1,4 +1,4 @@
-from flask import render_template, redirect, url_for, flash
+from flask import render_template, redirect, url_for, flash, request, jsonify
 
 from forms import FormPlazaGrupo, FormPlazaGrupoUpdate
 from models.Curso import Curso
@@ -71,3 +71,42 @@ def update_hours():
         return redirect(url_for('horas_bp.group_view', group_id=vacant_group.id_grupo))
     flash('Se produjo un error al actualizar las horas', 'alert alert-danger alert-dismissible fade show')
     return redirect(url_for('horas_bp.index'))
+
+
+def assign_hours_ajax():
+    hours = request.form.get('hours')
+    vacant_group_id = request.form.get('vacant_group_id')
+
+    # Validar que se recibieron ambos valores
+    if hours is None or vacant_group_id is None:
+        return jsonify({'error': 'Se requieren las horas y el ID del grupo vacante.'}), 400
+
+    # Validar que las horas sean un número entero positivo
+    try:
+        hours = int(hours)
+        if hours <= 0:
+            return jsonify({'error': 'Las horas deben ser un número entero positivo.'}), 400
+    except ValueError:
+        return jsonify({'error': 'Las horas deben ser un número entero positivo.'}), 400
+
+    # Validar que el ID del grupo vacante sea un número entero positivo
+    try:
+        vacant_group_id = int(vacant_group_id)
+        if vacant_group_id <= 0:
+            return jsonify({'error': 'El ID del grupo vacante debe ser un número entero positivo.'}), 400
+    except ValueError:
+        return jsonify({'error': 'El ID del grupo vacante debe ser un número entero positivo.'}), 400
+
+    # Aquí puedes realizar el procesamiento necesario con las horas y el ID del grupo vacante
+
+    # Por ejemplo, puedes imprimir los valores recibidos
+    print('Horas:', hours)
+    print('ID del grupo vacante:', vacant_group_id)
+    vacat_group = PlazaGrupo.get_with_id(vacant_group_id)
+    if vacat_group is None:
+        return jsonify({'error': 'No existe la asociación de plaza-grupo con el ID recibido.'}), 400
+    vacat_group.horas = hours
+    db.session.commit()
+
+    result = 'Horas asignadas correctamente'
+    return jsonify({'message': result})

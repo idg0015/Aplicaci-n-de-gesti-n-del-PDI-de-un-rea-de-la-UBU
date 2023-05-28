@@ -16,9 +16,13 @@
 
         <div class="row text-center mb-5">
             <div class="col-md-4">
-                <h3>Curso {{ curso_asignatura.curso.ano_inicio }}/{{ curso_asignatura.curso.ano_inicio|int +1}}</h3></div>
-            <div class="col-md-4"><h1>{{ curso_asignatura.asignatura.nombre }}, {{ curso_asignatura.modalidad }}</h1></div>
-            <div class="col-md-4"><h3>{{ curso_asignatura.asignatura.titulacion.nombre }}</h3></div>
+                <h2 class="h2-view">
+                    Curso {{ curso_asignatura.curso.ano_inicio }}/{{ curso_asignatura.curso.ano_inicio|int +1}}</h2>
+            </div>
+            <div class="col-md-4"><h1
+                    class="text-center">{{ curso_asignatura.asignatura.nombre }}, {{ curso_asignatura.modalidad }}</h1>
+            </div>
+            <div class="col-md-4"><h2 class="h2-view">{{ curso_asignatura.asignatura.titulacion.nombre }}</h2></div>
         </div>
 
         <a href="" class="btn btn-primary btn-nuevo-grupo" data-bs-toggle="modal" data-bs-target="#create-modal">Añadir
