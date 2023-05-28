@@ -1,0 +1,76 @@
+{% extends "base/base_template.html" %}
+{% set active_page = "centros" %}
+{% block title %}Centro - {{ centro.nombre }}{% endblock %}
+
+{% block content %}
+    <div class="container-fluid">
+        <h1 class="text-center">Centro - {{ centro.nombre }}</h1>
+        <div id="tablaTitulacionesCentro" class="text-center mt-5"></div>
+    </div>
+
+
+    <script>
+        let titulaciones = JSON.parse('{{ titulaciones | default([])| tojson }}');
+        const center = (data, row, col) => {
+            if (row) {
+                return {class: 'gridjs-td text-center'};
+            } else {
+                return {};
+            }
+        };
+
+        new gridjs.Grid({
+            columns: [
+                {
+                    name: 'Id',
+                    hidden: true
+                },
+                {
+                    id: 'codigo',
+                    name: gridjs.html('<span title="Código">Código</span>'),
+                    attributes: center
+                },
+                {
+                    id: 'nombre',
+                    name: gridjs.html('<span title="Nombre">Nombre</span>'),
+                },
+                {
+                    id: "abreviatura",
+                    name: gridjs.html('<span title="Abreviatura">Abreviatura</span>'),
+                    attributes: center
+                },
+                {
+                    id: 'url',
+                    name: gridjs.html('<span title="URL">URL</span>'),
+                    sort: false,
+                    formatter: (_, row) => gridjs.html(`<a href='${row.cells[4].data}' class="enlace">Web</a>`),
+                    attributes: center
+                },
+                {
+                    id: 'centro',
+                    name: gridjs.html('<span title="Centro">Centro</span>'),
+                },
+                {
+                    name: 'Acciones',
+                    attributes: center,
+                    sort: false,
+                    formatter: (_, row) => gridjs.html(`<a class="icono" href="/titulaciones/titulacion/${row.cells[0].data}"><i class="bi bi-eye-fill"></i></a>
+<a class="icono" href="/titulaciones/${row.cells[0].data}"><i class="bi bi-pencil-square"></i></a>
+<a href="/titulaciones/eliminar/${row.cells[0].data}" class="icono" onclick="return confirm('¿Está seguro de eliminar la titulación? Se eliminarán sus asignaturas asociadas y todo lo que dependa de estas.')"><i class="bi bi-trash3-fill"></i></a>`)
+                },
+            ],
+            className: {
+                th: "text-center"
+            },
+            width: "80%",
+            language: gridjs.l10n.esES,
+            sort: true,
+            search: true,
+            resizable: true,
+            pagination: {
+                limit: 10
+            },
+            data: titulaciones
+        }).render(document.getElementById("tablaTitulacionesCentro"));
+    </script>
+{% endblock %}

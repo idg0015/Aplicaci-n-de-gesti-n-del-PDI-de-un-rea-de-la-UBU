@@ -18,3 +18,6 @@ titulacion_bp.route('/eliminar/<int:id_titulacion>/', methods=['GET'])(delete)
 
 # Ajax get titulaciones
 titulacion_bp.route('/ajax/get_titulaciones', methods=['GET'])(get_titulaciones_ajax)
+
+# View
+titulacion_bp.route('/titulacion/<int:id_titulacion>/', methods=['GET'])(view)

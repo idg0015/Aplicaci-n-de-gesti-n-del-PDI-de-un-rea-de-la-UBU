@@ -41,3 +41,6 @@ class Centro(db.Model):
     @staticmethod
     def get_all():
         return Centro.query.all()
+
+    def get_titulaciones(self):
+        return [t.to_dict() for t in self.titulaciones]

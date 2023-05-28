@@ -57,3 +57,6 @@ class Titulacion(db.Model):
             }
             results.append(data)
         return results
+
+    def get_asignaturas(self):
+        return [a.to_dict() for a in self.asignaturas]

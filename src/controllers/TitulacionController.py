@@ -50,6 +50,15 @@ def delete(id_titulacion):
     flash('Titulación eliminada correctamente', 'alert alert-success alert-dismissible fade show')
     return redirect(url_for('titulacion_bp.index'))
 
+
 def get_titulaciones_ajax():
     texto = request.args.get('texto')
     return Titulacion.get_ajax(texto)
+
+
+def view(id_titulacion):
+    titulacion = Titulacion.get_titulacion(id_titulacion)
+    asignaturas = titulacion.get_asignaturas()
+    if titulacion is None:
+        abort(404)
+    return render_template('titulaciones/view.html', titulacion=titulacion, asignaturas=asignaturas)

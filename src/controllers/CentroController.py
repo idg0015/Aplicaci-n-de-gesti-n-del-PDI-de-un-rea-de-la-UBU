@@ -52,3 +52,11 @@ def delete(id_centro):
     centro.delete()
     flash('Centro eliminado correctamente', 'alert alert-success alert-dismissible fade show')
     return redirect(url_for('centro_bp.index'))
+
+
+def view(id_centro):
+    centro = Centro.get_centro(id_centro)
+    titulaciones = centro.get_titulaciones()
+    if centro is None:
+        abort(404)
+    return render_template('centros/view.html', centro=centro, titulaciones=titulaciones)

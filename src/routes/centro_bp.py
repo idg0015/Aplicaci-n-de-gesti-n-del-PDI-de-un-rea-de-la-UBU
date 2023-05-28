@@ -15,3 +15,6 @@ centro_bp.route('/<int:id_centro>/', methods=['GET', 'POST'])(update)
 
 # Eliminación
 centro_bp.route('/eliminar/<int:id_centro>/', methods=['GET', 'POST'])(delete)
+
+# View
+centro_bp.route('/centro/<int:id_centro>/', methods=['GET'])(view)

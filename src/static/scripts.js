@@ -37,7 +37,9 @@ $(document).ready(function () {
                     name: 'Acciones',
                     attributes: center,
                     sort: false,
-                    formatter: (_, row) => gridjs.html(`<a class="icono" href="/centros/${row.cells[0].data}"><i class="bi bi-pencil-square"></i></a> <a href="/centros/eliminar/${row.cells[0].data}" class="icono" onclick="return confirm('¿Está seguro de eliminar el centro? No se podrá eliminar si tiene alguna titulación vinculada')"><i class="bi bi-trash3-fill"></i></a>`)
+                    formatter: (_, row) => gridjs.html(`<a class="icono" href="/centros/centro/${row.cells[0].data}"><i class="bi bi-eye-fill"></i></a>
+<a class="icono" href="/centros/${row.cells[0].data}"><i class="bi bi-pencil-square"></i></a> 
+<a href="/centros/eliminar/${row.cells[0].data}" class="icono" onclick="return confirm('¿Está seguro de eliminar el centro? No se podrá eliminar si tiene alguna titulación vinculada')"><i class="bi bi-trash3-fill"></i></a>`)
                 },
             ],
             className: {
@@ -91,7 +93,9 @@ $(document).ready(function () {
                     name: 'Acciones',
                     attributes: center,
                     sort: false,
-                    formatter: (_, row) => gridjs.html(`<a class="icono" href="/titulaciones/${row.cells[0].data}"><i class="bi bi-pencil-square"></i></a> <a href="/titulaciones/eliminar/${row.cells[0].data}" class="icono" onclick="return confirm('¿Está seguro de eliminar la titulación? Se eliminarán sus asignaturas asociadas y todo lo que dependa de estas.')"><i class="bi bi-trash3-fill"></i></a>`)
+                    formatter: (_, row) => gridjs.html(`<a class="icono" href="/titulaciones/titulacion/${row.cells[0].data}"><i class="bi bi-eye-fill"></i></a>
+<a class="icono" href="/titulaciones/${row.cells[0].data}"><i class="bi bi-pencil-square"></i></a> 
+<a href="/titulaciones/eliminar/${row.cells[0].data}" class="icono" onclick="return confirm('¿Está seguro de eliminar la titulación? Se eliminarán sus asignaturas asociadas y todo lo que dependa de estas.')"><i class="bi bi-trash3-fill"></i></a>`)
                 },
             ],
             className: {
