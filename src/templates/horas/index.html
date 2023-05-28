@@ -32,6 +32,14 @@
     <script>
         let table = null;
 
+        const center = (data, row, col) => {
+            if (row) {
+                return {class: 'gridjs-td text-center'};
+            } else {
+                return {};
+            }
+        };
+
         const editableCell1 = (data, row, col) => {
             if (row && data !== '-') {
                 return {contentEditable: 'true', 'data-vacant-group-id': row.cells[6].data};
@@ -134,9 +142,9 @@
                     },
                     {
                         name: 'Acciones',
-                        attributes: {style: 'text-align: center!important;'},
-                        formatter: (_, row) => gridjs.html(`<a class="icono" href="/horas/grupo/${row.cells[0].data}" title="Editar asignaciones"><i class="bi bi-clock-fill"></i></a>`),
+                        attributes: center,
                         sort: false,
+                        formatter: (_, row) => gridjs.html(`<a class="icono" href="/horas/grupo/${row.cells[0].data}" title="Editar asignaciones"><i class="bi bi-clock-fill"></i></a>`),
                     },
                 ],
                 language: gridjs.l10n.esES,
