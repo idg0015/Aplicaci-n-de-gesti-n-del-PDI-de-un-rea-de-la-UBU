@@ -226,6 +226,7 @@ En la reunión de planificación del sprint se fijaron las siguientes tareas:
 \end{enumerate}
 
 \item\textbf{\textit{Burndown Report}}
+
 La tarea de <<Comentarios sobre memoria y anexos>> fue una tarea creada por Álvar Arnaiz González para dejar las correcciones hechas en la memoria y los anexos. 
 Esta tarea fue reutilizada para indicar que se iban a subir esos cambios en la documentación. 
 Tenía una planificación de 30 minutos y se realizó dentro del tiempo estimado.
@@ -248,6 +249,7 @@ Finalmente, para la tarea <<Buscar cómo cargar un CSV desde un script de SQL en
 
 
 \item\textbf{Revisión del \textit{sprint}}
+
 En la reunión de revisión se mostró el trabajo realizado y se resolvieron algunas dudas acerca de la memoria y algunas partes del funcionamiento de la aplicación web.
 \end{itemize}
 
@@ -267,6 +269,7 @@ En la reunión de planificación del sprint se fijaron las siguientes tareas:
 \end{enumerate}
 
 \item\textbf{\textit{Burndown Report}}
+
 La primera tarea que se realizó fue <<Subir la web a Heroku>>.
 La tarea tenía una carga de trabajo estimada en 2 horas.
 Para esta tarea la estimación no fue nada correcta, ya que el trabajo real fue aproximadamente de 8 horas.
@@ -286,6 +289,7 @@ Finalmente, la tarea <<Añadir documentación de trabajos relacionados>> tenía 
 
 
 \item\textbf{Revisión del \textit{sprint}}
+
 Durante la reunión de revisión se vieron principalmente los cambios realizados en la web. Se estuvieron discutiendo diferentes formas de crear los cursos y se llegó a la conclusión de hacer pequeños cambios para que fuese más cómoda la creación de cursos.
 También se estuvieron viendo las diferentes secciones de la memoria para dar ideas sobre la documentación que se podía ir introduciendo.
 \end{itemize}
@@ -306,6 +310,7 @@ En la reunión de planificación del sprint se fijaron las siguientes tareas:
 \end{enumerate}
 
 \item\textbf{\textit{Burndown Report}}
+
 Para la tarea <<Algunos cambios en la gestión de cursos>> se fijaron 4 horas. 
 Esta tarea tenía como propósito realizar los cambios vistos en la reunión de revisión del \textit{sprint} anterior.
 Estos cambios llevaron unas 3 horas de trabajo, pero debido a algunos errores al realizar los cambios se consumieron las 4 horas planificadas.
@@ -320,10 +325,62 @@ En esta tarea se realizaron algunos cambios menores de diseño, cambios en vista
 
 Finalmente, la tarea de <<Avanzar en la memoria>> tenía una estimación de 3 horas.
 En esta tarea se pretendían realizar los cambios vistos en la documentación y añadir nueva información a la memoria.
-La tarea llevó un trabajo real de..........
+La tarea llevó un trabajo real de aproximadamente las 3 horas. Se hicieron avances en la memoria y se añadió en los anexos el diccionario de datos, además de realizar los cambios vistos por toda la documentación.
 
 \item\textbf{Revisión del \textit{sprint}}
 
+En la reunión del \textit{sprint} 9 se estuvieron viendo los avances realizados. Se comentó que podría ser buena idea realizar algunos cambios en la creación de grupos y añadir una vista donde visualizar las titulaciones de un centro y las asignaturas de una titulación. Además, se descubrió un error en la eliminación de grupos y se estuvo hablando sobre como realizar el inicio de sesión de la aplicación a través de un \textit{token} devuelto por la UBU.
+\end{itemize}
+
+\subsubsection{\textit{Sprint} 10: Asignación de horas}
+Fechas: 23 mayo 2023 -- 29 mayo 2023.
+\begin{itemize}
+\item\textbf{Planificación del \textit{sprint}}
+
+En la reunión de planificación del sprint se fijaron las siguientes tareas:
+\begin{enumerate}
+		\item Crear la asignación de horas de plazas a grupos.
+		\item Añadir forma avanzada de creación de grupos.
+		\item Arreglar la eliminación de grupos.
+		\item Cambios de campos obligatorios en "Añadir Plaza".
+		\item Arreglo \textit{bug} de números negativos.
+		\item Mejoras de navegación en la web.
+		\item Añadir documentación en los anexos.
+\end{enumerate}
+
+\item\textbf{\textit{Burndown Report}}
+
+Para la tarea <<Crear la asignación de horas de plazas a grupos>> se fijaron 8 horas de trabajo.
+La realidad fue un trabajo de aproximadamente 12 horas.
+Este exceso de horas es debido a algunas complicaciones para realizar lo deseado que no se habían tenido en cuenta, pero que se fueron solucionando durante el desarrollo.
+
+Para la tarea <<Añadir forma avanzada de creación de grupos>> se realizó una estimación de 4 horas.
+Sin embargo, se dejó la tarea pausada hasta la próxima reunión debido a algunas incompatibilidades con el funcionamiento actual del sistema.
+En la próxima reunión habrá que decidir si añadir esa funcionalidad cambiando las actuales o descartar la idea.
+
+En la tarea <<Arreglar la eliminación de grupos>> se pretendía arreglar la reasignación de nombres de grupos al eliminar un grupo teórico.
+En la creación de esta funcionalidad no se había probado bien y si se eliminaba un grupo teórico al que le pertenecían grupos prácticos, estos no se renombraban y daban lugar a futuros problemas.
+Para la realización de la tarea se hizo una estimación de 2 horas y se realizó dentro de ese tiempo.
+
+La tarea <<Cambios de campos obligatorios en "Añadir Plaza">> fue añadida por los tutores del proyecto al probar la aplicación y decidir realizar algunos cambios en los campos que debían ser obligatorios al crear una nueva plaza. 
+Tenía una previsión de 15 minutos, pero estos pequeños cambios llevaron entre 20 y 30 minutos debido a que hubo que realizar cambios en la base de datos y, para ello, instalar y configurar una biblioteca para migraciones de la base de datos.
+
+La tarea <<Arreglo \textit{bug} de números negativos>> también fue añadida por los tutores del proyecto al realizar sus pruebas en la web.
+Algunos campos no se validaban bien y permitían ingresar números negativos en sitios donde esto no debía se posible.
+Estos pequeños cambios llevaron aproximadamente 15 minutos.
+
+La tarea <<Mejoras de navegación en la web>> fue otra de las añadidas por los tutores del proyecto.
+Se pretendía mejorar la navegación por la web añadiendo botones de volver atrás sin realizar cambios en los formularios.
+Además, se deseaba añadir una ventana desde donde ver las titulaciones de un centro y las asignaturas de una titulación.
+Estos cambios tuvieron una estimasción y, al final, un trabajo real de poco más de una hora.
+
+Finalmente, para la tarea de <<Añadir documentación en los anexos>> se realizó una estimación de 3 horas.
+Debido a falta de tiempo apenas se pudo avanzar y el trabajo real se quedó en aproximadamente media hora.
+
+
+\item\textbf{Revisión del \textit{sprint}}
+
+En la reunión del \textit{sprint} 10...........
 \end{itemize}
 
 
