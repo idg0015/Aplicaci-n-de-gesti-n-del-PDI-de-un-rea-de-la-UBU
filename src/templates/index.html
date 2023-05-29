@@ -1,3 +1,54 @@
 {% extends "base/base_template.html" %}
 {% set active_page = "inicio" %}
-{% block title %}Inicio{% endblock %}
+{% block title %}
+    Inicio
+{% endblock %}
+{% block content %}
+    <div class="container-fluid index text-center">
+        <h1 id="index-title" class="mt-5 text-center">Gestión Universidad de Burgos</h1>
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-lg-4 mb-5 mr-4">
+                <a href="{{ url_for('centro_bp.index') }}" class="card-link">
+                    <div class="card card-index">
+                        <div class="card-body">
+                            <h5 class="card-title">Centros</h5>
+                            <p class="card-text">{{ n_centros }}</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-6 col-lg-4 mb-5">
+                <a href="{{ url_for('titulacion_bp.index') }}" class="card-link">
+                    <div class="card card-index">
+                        <div class="card-body">
+                            <h5 class="card-title">Titulaciones</h5>
+                            <p class="card-text">{{ n_titulaciones }}</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-lg-4 mb-5 mr-4">
+                <a href="{{ url_for('docente_bp.index') }}" class="card-link">
+                    <div class="card card-index">
+                        <div class="card-body">
+                            <h5 class="card-title">Docentes</h5>
+                            <p class="card-text">{{ n_docentes }}</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-6 col-lg-4 mb-5">
+                <a href="{{ url_for('horas_bp.index') }}" class="card-link">
+                    <div class="card card-index">
+                        <div class="card-body">
+                            <h5 class="card-title">Plazas</h5>
+                            <p class="card-text">{{ n_plazas }}</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

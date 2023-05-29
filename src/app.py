@@ -1,4 +1,9 @@
 from flask import Flask, render_template
+
+from models.Centro import Centro
+from models.Docente import Docente
+from models.Plaza import Plaza
+from models.Titulacion import Titulacion
 from routes.centro_bp import centro_bp
 from routes.titulacion_bp import titulacion_bp
 from routes.area_bp import area_bp
@@ -41,7 +46,11 @@ app.register_blueprint(horas_bp, url_prefix='/horas')
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    n_centros = Centro.query.count()
+    n_titulaciones = Titulacion.query.count()
+    n_docentes = Docente.query.count()
+    n_plazas = Plaza.query.count()
+    return render_template('index.html', n_centros=n_centros, n_titulaciones=n_titulaciones, n_docentes=n_docentes, n_plazas=n_plazas)
 
 
 if __name__ == '__main__':
