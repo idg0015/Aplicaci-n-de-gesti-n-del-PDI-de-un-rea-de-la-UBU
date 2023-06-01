@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ae6b2c56-8d66-4217-a826-17f3975d95c3" name="Changes" comment="Solucionado bug plazas">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/PlazaController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/PlazaController.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/CursoController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/CursoController.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/forms.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -176,7 +176,7 @@
       <workItem from="1685262761246" duration="18934000" />
       <workItem from="1685367001759" duration="6418000" />
       <workItem from="1685559537837" duration="914000" />
-      <workItem from="1685620921471" duration="2289000" />
+      <workItem from="1685620921471" duration="3156000" />
     </task>
     <task id="LOCAL-00001" summary="Pruebas en la creación de curso utilizando la biblioteca Sortable">
       <created>1683754273306</created>
@@ -374,7 +374,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685621530359</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Solucionado bug plazas">
+      <created>1685626784146</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1685626784146</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -8,6 +8,7 @@ from models.Abreviatura import Abreviatura
 from models.Area import Area
 from models.Centro import Centro
 from models.Contrato import TipoContrato
+from models.Curso import Curso
 from models.Departamento import Departamento
 from models.Docente import Docente
 from models.Grupo import Grupo
@@ -180,6 +181,12 @@ class FormCurso(FlaskForm):
                                                                      NumberRange(min=2000,
                                                                                  message='El año de inicio debe ser mayor que 2000')])
     submit = SubmitField('Añadir')
+
+    def validate_ano_inicio(self, ano_inicio):
+        ano_inicio = ano_inicio.data
+        curso = Curso.get_curso_by_year(ano_inicio)
+        if curso:
+            raise ValidationError('Ya existe un curso con ese año de inicio.')
 
 
 class FormCursoUpdate(FlaskForm):

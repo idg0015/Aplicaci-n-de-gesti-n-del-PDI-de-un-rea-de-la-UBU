@@ -152,8 +152,18 @@ def update_year():
         curso = Curso.get_curso(form.id_curso.data)
         if curso is not None:
             curso.ano_inicio = form.year.data
-            db.session.commit()
-            flash('Curso actualizado correctamente', 'alert alert-success alert-dismissible fade show')
+            cursos = Curso.get_all()
+            flag = True
+            for c in cursos:
+                if int(c.ano_inicio) == int(form.year.data) and int(c.id) != int(form.id_curso.data):
+                    flag = False
+
+            if flag:
+                db.session.commit()
+                flash('Curso actualizado correctamente', 'alert alert-success alert-dismissible fade show')
+            else:
+                flash('No se puede modificar a ese año. Ya existe un curso con ese año de inicio',
+                      'alert alert-danger alert-dismissible fade show')
         else:
             flash('Curso no encontrado', 'alert alert-danger alert-dismissible fade show')
         return redirect(url_for('curso_bp.index'))
