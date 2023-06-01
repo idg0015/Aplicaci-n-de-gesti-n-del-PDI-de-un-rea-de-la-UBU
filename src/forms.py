@@ -154,6 +154,13 @@ class FormPlaza(FlaskForm):
             docente_seleccionado = Docente.get_docente(docente_id)
             if not docente_seleccionado:
                 raise ValidationError('Seleccione un docente válido.')
+            else:
+                plazas_docente = docente_seleccionado.plazas
+                if plazas_docente is not None:
+                    for plaza in plazas_docente:
+                        if plaza.fecha_cese is None and plaza.fecha_cese is not self.fecha_cese.data:
+                            raise ValidationError(
+                                'El docente ' + docente_seleccionado.nombre + ' ' + docente_seleccionado.apellidos + ' ya tiene una plaza activa.')
 
     def validate_area(self, area):
         area_id = area.data
