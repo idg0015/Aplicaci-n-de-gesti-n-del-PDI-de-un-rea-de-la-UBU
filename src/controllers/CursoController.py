@@ -18,6 +18,9 @@ def add():
     formulario = FormCurso()
     if formulario.validate_on_submit():
         ano_inicio = formulario.ano_inicio.data
+        if Curso.get_curso_by_year(ano_inicio) is not None:
+            flash('Ya existe un curso con ese año de inicio', 'alert alert-danger alert-dismissible fade show')
+            return redirect(url_for('curso_bp.index'))
         curso = Curso(ano_inicio=ano_inicio)
         db.session.add(curso)
         db.session.commit()

@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="ae6b2c56-8d66-4217-a826-17f3975d95c3" name="Changes" comment="Cambios en el index">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/CursoController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/CursoController.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/Curso.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/Curso.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,7 +174,9 @@
       <workItem from="1685111296395" duration="17629000" />
       <workItem from="1685175658438" duration="23105000" />
       <workItem from="1685262761246" duration="18934000" />
-      <workItem from="1685367001759" duration="5817000" />
+      <workItem from="1685367001759" duration="6418000" />
+      <workItem from="1685559537837" duration="914000" />
+      <workItem from="1685620921471" duration="554000" />
     </task>
     <task id="LOCAL-00001" summary="Pruebas en la creación de curso utilizando la biblioteca Sortable">
       <created>1683754273306</created>
@@ -409,6 +413,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="Cambios en el index" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/src$src.coverage" NAME="src Coverage Results" MODIFIED="1685378007726" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/src$src.coverage" NAME="src Coverage Results" MODIFIED="1685620922779" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

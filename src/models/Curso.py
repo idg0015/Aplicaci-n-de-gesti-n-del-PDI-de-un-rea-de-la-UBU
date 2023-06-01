@@ -24,6 +24,10 @@ class Curso(db.Model):
         return Curso.query.get(id_curso)
 
     @staticmethod
+    def get_curso_by_year(year):
+        return Curso.query.filter(Curso.ano_inicio == year).first()
+
+    @staticmethod
     def get_all():
         return Curso.query.all()
 
