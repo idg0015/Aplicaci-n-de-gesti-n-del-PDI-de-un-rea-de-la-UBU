@@ -93,3 +93,10 @@ class Plaza(db.Model):
                 if int(group.id) != int(group_id):
                     hours += group.horas
         return hours
+
+    def hours_in_course(self, course_id):
+        hours = 0
+        for group in self.grupos:
+            if group.grupo.curso_asignatura.curso.id == course_id:
+                hours += group.horas
+        return hours

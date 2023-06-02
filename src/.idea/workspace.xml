@@ -4,10 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae6b2c56-8d66-4217-a826-17f3975d95c3" name="Changes" comment="Solucionado bug plazas">
+    <list default="true" id="ae6b2c56-8d66-4217-a826-17f3975d95c3" name="Changes" comment="Arreglado bug en la modificación del año del curso">
+      <change afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/CursoController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/CursoController.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/HorasController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/HorasController.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/Grupo.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/Grupo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/Plaza.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/Plaza.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/PlazaGrupo.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/PlazaGrupo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/base.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/base.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/horas/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/horas/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/horas/view.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/horas/view.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,8 +27,8 @@
         <option value="Flask Main" />
         <option value="CSS File" />
         <option value="JavaScript File" />
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -176,7 +183,8 @@
       <workItem from="1685262761246" duration="18934000" />
       <workItem from="1685367001759" duration="6418000" />
       <workItem from="1685559537837" duration="914000" />
-      <workItem from="1685620921471" duration="3156000" />
+      <workItem from="1685620921471" duration="4294000" />
+      <workItem from="1685697095947" duration="8409000" />
     </task>
     <task id="LOCAL-00001" summary="Pruebas en la creación de curso utilizando la biblioteca Sortable">
       <created>1683754273306</created>
@@ -381,7 +389,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685626784146</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Arreglado bug en la modificación del año del curso">
+      <created>1685627704504</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1685627704504</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -399,7 +414,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Cambios en las tablas." />
     <MESSAGE value="Implementadas las opciones de duplicar curso y modificar año de curso." />
     <MESSAGE value="Añadida la modificación de cursos y solucionados algunos problemas." />
     <MESSAGE value="Cambios en tablas y tratamiento de eliminaciones." />
@@ -424,9 +438,10 @@
     <MESSAGE value="Cambios en el index" />
     <MESSAGE value="Añadido control de curso con mismo año" />
     <MESSAGE value="Solucionado bug plazas" />
-    <option name="LAST_COMMIT_MESSAGE" value="Solucionado bug plazas" />
+    <MESSAGE value="Arreglado bug en la modificación del año del curso" />
+    <option name="LAST_COMMIT_MESSAGE" value="Arreglado bug en la modificación del año del curso" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/src$src.coverage" NAME="src Coverage Results" MODIFIED="1685620922779" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/src$src.coverage" NAME="src Coverage Results" MODIFIED="1685697115660" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

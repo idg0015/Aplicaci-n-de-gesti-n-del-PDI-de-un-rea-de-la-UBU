@@ -1,0 +1,30 @@
+{% extends "base/base_template.html" %}
+{% set no_menu = True %}
+{% block title %}
+    Inicio de sesión
+{% endblock %}
+{% block content %}
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+    </style>
+    <div class="container">
+        <div class="login-container">
+            <h1 class="text-center">Iniciar sesión</h1>
+            <form>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Correo electrónico</label>
+                    <input type="email" class="form-control" id="email" placeholder="Correo electrónico" required>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Contraseña</label>
+                    <input type="password" class="form-control" id="password" placeholder="Contraseña" required>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

@@ -231,20 +231,46 @@ a#icn-info-grupos:hover {
     color: #777;
 }
 
-.card-link{
-    text-decoration:none;
+.card-link {
+    text-decoration: none;
     color: #000000;
 }
 
-.card-link:hover{
-    text-decoration:none;
+.card-link:hover {
+    text-decoration: none;
     color: var(--ubu-main-color);
 }
 
 .row .mr-4 {
-  margin-right: 1.5rem;
+    margin-right: 1.5rem;
 }
 
-#index-title{
+#index-title {
     margin-bottom: 4rem;
+}
+
+/* ---------------------- Login ---------------------- */
+.login-container {
+    max-width: 400px;
+    padding: 40px;
+    margin: 100px auto 0;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.login-container h1 {
+    margin-bottom: 30px;
+}
+
+.login-container .form-control {
+    margin-bottom: 20px;
+}
+
+.login-container .btn {
+    padding: 10px 20px;
+}
+
+.login-container .register-link {
+    text-align: center;
 }

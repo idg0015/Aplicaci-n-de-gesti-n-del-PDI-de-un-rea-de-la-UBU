@@ -97,16 +97,13 @@ def assign_hours_ajax():
     except ValueError:
         return jsonify({'error': 'El ID del grupo vacante debe ser un número entero positivo.'}), 400
 
-    # Aquí puedes realizar el procesamiento necesario con las horas y el ID del grupo vacante
-
-    # Por ejemplo, puedes imprimir los valores recibidos
-    print('Horas:', hours)
-    print('ID del grupo vacante:', vacant_group_id)
     vacat_group = PlazaGrupo.get_with_id(vacant_group_id)
     if vacat_group is None:
         return jsonify({'error': 'No existe la asociación de plaza-grupo con el ID recibido.'}), 400
     vacat_group.horas = hours
     db.session.commit()
 
+    # info = Grupo.get_all_json_hours(vacat_group.grupo.curso_asignatura.curso.id)
     result = 'Horas asignadas correctamente'
+    # return jsonify({'message': result, 'info': info})
     return jsonify({'message': result})

@@ -27,8 +27,11 @@ class PlazaGrupo(db.Model):
             'id': self.id,
             'hours': self.horas,
             'teacher': teacher,
-            'hours_in_other_groups': self.plaza.hours_in_other_groups(self.id, self.grupo.curso_asignatura.curso.id),
-            'credits_in_other_groups': self.plaza.hours_in_other_groups(self.id, self.grupo.curso_asignatura.curso.id) / PlazaGrupo.ECTS_HOUR,
+            'in_other_groups': str(self.plaza.hours_in_other_groups(self.id,
+                                                                    self.grupo.curso_asignatura.curso.id)) + ' h = ' +
+                               str(self.plaza.hours_in_other_groups(self.id,
+                                                                    self.grupo.curso_asignatura.curso.id) / PlazaGrupo.ECTS_HOUR)
+                               + ' ECTS',
             'annual_capacity': anual_capacity,
             'group_id': self.id_grupo,
             'vacant_id': self.id_plaza

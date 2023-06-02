@@ -52,18 +52,23 @@ class Grupo(db.Model):
                     'vacant_group_id': '-',
                 }
             else:
+                total_h_course = vacant_group.plaza.hours_in_course(vacant_group.grupo.curso_asignatura.curso.id)
                 if vacant_group.plaza.docente is not None:
                     total_data[i] = {
                         'teacher': vacant_group.plaza.docente.nombre + " " + vacant_group.plaza.docente.apellidos,
                         'hours': vacant_group.horas,
-                        'total_hours': vacant_group.plaza.tipo_contrato.capacidad_anual,
+                        'total_hours': str(
+                            round((total_h_course * 100) / vacant_group.plaza.tipo_contrato.capacidad_anual,
+                                  2)) + ' %',
                         'vacant_group_id': vacant_group.id,
                     }
                 else:
                     total_data[i] = {
                         'teacher': vacant_group.plaza.nombre,
                         'hours': vacant_group.horas,
-                        'total_hours': vacant_group.plaza.tipo_contrato.capacidad_anual,
+                        'total_hours': str(
+                            round((total_h_course * 100) / vacant_group.plaza.tipo_contrato.capacidad_anual,
+                                  2)) + ' %',
                         'vacant_group_id': vacant_group.id,
                     }
         return total_data
@@ -76,10 +81,20 @@ class Grupo(db.Model):
         vacant_group_ids = []
         for i in range(3):
             if i < len(vacancies):
-                hours.append(vacancies[i]['hours'])
-                teachers.append(vacancies[i]['teacher'])
-                total_hours.append(vacancies[i]['total_hours'])
-                vacant_group_ids.append(vacancies[i]['vacant_group_id'])
+                if i == 2 and len(vacancies) > 3:
+                    total_h = 0
+                    for j in range(len(vacancies)):
+                        if j >= 2:
+                            total_h += vacancies[j]['hours']
+                    hours.append(total_h)
+                    teachers.append('...')
+                    total_hours.append('-')
+                    vacant_group_ids.append('...')
+                else:
+                    hours.append(vacancies[i]['hours'])
+                    teachers.append(vacancies[i]['teacher'])
+                    total_hours.append(vacancies[i]['total_hours'])
+                    vacant_group_ids.append(vacancies[i]['vacant_group_id'])
             else:
                 hours.append('-')
                 teachers.append('-')
