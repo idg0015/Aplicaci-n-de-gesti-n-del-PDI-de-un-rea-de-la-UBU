@@ -10,14 +10,13 @@ from utils.db import db
 
 
 def index():
+    breadcrumbs = [
+        ('/', 'Inicio'),
+        (url_for('grupo_bp.index'), 'Grupos'),
+    ]
     # info = CursoAsignatura.get_all_json()
     form = FormCursoAsignatura()
-    return render_template('grupos/index.html', cursos=Curso.get_all(), form=form)
-
-
-def gestion(id_curso_asignatura):
-    grupos = Grupo.get_all_json(id_curso_asignatura)
-    return render_template('grupos/gestion.html', grupos=grupos)
+    return render_template('grupos/index.html', cursos=Curso.get_all(), form=form, breadcrumbs=breadcrumbs)
 
 
 def get_all_json():

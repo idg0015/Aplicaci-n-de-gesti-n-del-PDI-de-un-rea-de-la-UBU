@@ -5,10 +5,19 @@ from models.Departamento import Departamento
 
 
 def index():
+    breadcrumbs = [
+        ('/', 'Inicio'),
+        (url_for('departamento_bp.index'), 'Departamentos'),
+    ]
     departamentos = Departamento.get_all_json()
-    return render_template('departamentos/index.html', departamentos=departamentos)
+    return render_template('departamentos/index.html', departamentos=departamentos, breadcrumbs=breadcrumbs)
 
 def add():
+    breadcrumbs = [
+        ('/', 'Inicio'),
+        (url_for('departamento_bp.index'), 'Departamentos'),
+        ('', 'Añadir departamento'),
+    ]
     formulario = FormDepartamento()
     if formulario.validate_on_submit():
         nombre = formulario.nombre.data
@@ -18,10 +27,15 @@ def add():
         flash('Departamento añadido correctamente', 'alert alert-success alert-dismissible fade show')
         return redirect(url_for('departamento_bp.index'))
 
-    return render_template('departamentos/form.html', form=formulario)
+    return render_template('departamentos/form.html', form=formulario, breadcrumbs=breadcrumbs)
 
 
 def update(id_departamento):
+    breadcrumbs = [
+        ('/', 'Inicio'),
+        (url_for('departamento_bp.index'), 'Departamentos'),
+        ('', 'Modificar departamento ' + str(id_departamento)),
+    ]
     departamento = Departamento.get_departamento(id_departamento)
     if departamento is None:
         abort(404)
@@ -35,7 +49,7 @@ def update(id_departamento):
 
         flash('Departamento modificado correctamente', 'alert alert-success alert-dismissible fade show')
         return redirect(url_for('departamento_bp.index'))
-    return render_template('departamentos/form.html', form=formulario)
+    return render_template('departamentos/form.html', form=formulario, breadcrumbs=breadcrumbs)
 
 
 def delete(id_departamento):

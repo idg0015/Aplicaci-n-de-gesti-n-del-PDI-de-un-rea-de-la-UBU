@@ -6,11 +6,20 @@ from models.Plaza import Plaza
 
 
 def index():
+    breadcrumbs = [
+        ('/', 'Inicio'),
+        (url_for('plaza_bp.index'), 'Plazas'),
+    ]
     plazas = Plaza.get_all_json()
-    return render_template('plazas/index.html', plazas=plazas)
+    return render_template('plazas/index.html', plazas=plazas, breadcrumbs=breadcrumbs)
 
 
 def add():
+    breadcrumbs = [
+        ('/', 'Inicio'),
+        (url_for('plaza_bp.index'), 'Plazas'),
+        ('', 'Añadir plaza'),
+    ]
     formulario = FormPlaza()
     if formulario.validate_on_submit():
         nombre = formulario.nombre.data
@@ -44,10 +53,15 @@ def add():
                       id_area=id_area, id_contrato=id_contrato)
         plaza.save()
         return redirect(url_for('plaza_bp.index'))
-    return render_template('plazas/form.html', form=formulario)
+    return render_template('plazas/form.html', form=formulario, breadcrumbs=breadcrumbs)
 
 
 def update(id_plaza):
+    breadcrumbs = [
+        ('/', 'Inicio'),
+        (url_for('plaza_bp.index'), 'Plazas'),
+        ('', 'Modificar plaza '+str(id_plaza)),
+    ]
     plaza = Plaza.get_plaza(id_plaza)
     if plaza is None:
         abort(404)
@@ -89,7 +103,7 @@ def update(id_plaza):
             (plaza.docente.id, plaza.docente.nombre + ' ' + plaza.docente.apellidos)]  # Carga de la opción seleccionada
     else:
         formulario.docente.choices = [(-1, 'Ninguno')]
-    return render_template('plazas/form.html', form=formulario)
+    return render_template('plazas/form.html', form=formulario, breadcrumbs=breadcrumbs)
 
 
 def delete(id_plaza):

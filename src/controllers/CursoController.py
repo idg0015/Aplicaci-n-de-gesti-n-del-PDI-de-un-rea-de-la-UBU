@@ -9,12 +9,21 @@ from utils.db import db
 
 
 def index():
+    breadcrumbs = [
+        ('/', 'Inicio'),
+        (url_for('curso_bp.index'), 'Cursos'),
+    ]
     cursos = Curso.get_all_json()
     form = UpdateYearCursoForm()
-    return render_template('cursos/index.html', cursos=cursos, form=form)
+    return render_template('cursos/index.html', cursos=cursos, form=form, breadcrumbs=breadcrumbs)
 
 
 def add():
+    breadcrumbs = [
+        ('/', 'Inicio'),
+        (url_for('curso_bp.index'), 'Cursos'),
+        ('', 'Añadir curso'),
+    ]
     formulario = FormCurso()
     if formulario.validate_on_submit():
         ano_inicio = formulario.ano_inicio.data
@@ -26,10 +35,15 @@ def add():
         db.session.commit()
         flash('Curso creado correctamente', 'alert alert-success alert-dismissible fade show')
         return redirect(url_for('curso_bp.update', id_curso=curso.id))
-    return render_template('cursos/form-create.html', form=formulario)
+    return render_template('cursos/form-create.html', form=formulario, breadcrumbs=breadcrumbs)
 
 
 def update(id_curso):
+    breadcrumbs = [
+        ('/', 'Inicio'),
+        (url_for('curso_bp.index'), 'Cursos'),
+        ('', 'Modificar curso ' + str(id_curso)),
+    ]
     curso = Curso.get_curso(id_curso)
     formulario = FormCursoUpdate(obj=curso)
     list_asignaturas = list(set([str(curso_asignatura.id_asignatura) for curso_asignatura in curso.asignaturas]))
@@ -66,7 +80,7 @@ def update(id_curso):
     # formulario.id_asignaturas.data = ','.join(
     #     set([str(curso_asignatura.id_asignatura) for curso_asignatura in curso.asignaturas]))
     return render_template('cursos/form-update.html', form=formulario, asig_actuales=[],
-                           id_curso=id_curso)
+                           id_curso=id_curso, breadcrumbs=breadcrumbs)
 
 
 def create_relation(n_g_t, n_g_p, id_asignatura, id_curso, alumnos, modalidad):

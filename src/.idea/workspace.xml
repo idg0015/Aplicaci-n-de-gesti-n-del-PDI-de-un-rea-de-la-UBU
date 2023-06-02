@@ -4,17 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae6b2c56-8d66-4217-a826-17f3975d95c3" name="Changes" comment="Arreglado bug en la modificación del año del curso">
-      <change afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
+    <list default="true" id="ae6b2c56-8d66-4217-a826-17f3975d95c3" name="Changes" comment="Cambios en la visualización de las horas y creación del html del login">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/AreaController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/AreaController.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/AsignaturaController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/AsignaturaController.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/CentroController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/CentroController.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/ContratoController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/ContratoController.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/CursoAsignaturaController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/CursoAsignaturaController.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/CursoController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/CursoController.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/DepartamentoController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/DepartamentoController.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/DocenteController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/DocenteController.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/GrupoController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/GrupoController.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/HorasController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/HorasController.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Grupo.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/Grupo.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Plaza.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/Plaza.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/PlazaGrupo.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/PlazaGrupo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/PlazaController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/PlazaController.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/TitulacionController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/TitulacionController.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/grupo_bp.py" beforeDir="false" afterPath="$PROJECT_DIR$/routes/grupo_bp.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/base.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/base.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/horas/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/horas/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/horas/view.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/horas/view.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base/base_template.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base/base_template.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,7 +190,7 @@
       <workItem from="1685367001759" duration="6418000" />
       <workItem from="1685559537837" duration="914000" />
       <workItem from="1685620921471" duration="4294000" />
-      <workItem from="1685697095947" duration="8409000" />
+      <workItem from="1685697095947" duration="16125000" />
     </task>
     <task id="LOCAL-00001" summary="Pruebas en la creación de curso utilizando la biblioteca Sortable">
       <created>1683754273306</created>
@@ -396,7 +402,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685627704504</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Cambios en la visualización de las horas y creación del html del login">
+      <created>1685713545572</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1685713545572</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -414,7 +427,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Implementadas las opciones de duplicar curso y modificar año de curso." />
     <MESSAGE value="Añadida la modificación de cursos y solucionados algunos problemas." />
     <MESSAGE value="Cambios en tablas y tratamiento de eliminaciones." />
     <MESSAGE value="Cambios en la tabla de grupos." />
@@ -439,7 +451,8 @@
     <MESSAGE value="Añadido control de curso con mismo año" />
     <MESSAGE value="Solucionado bug plazas" />
     <MESSAGE value="Arreglado bug en la modificación del año del curso" />
-    <option name="LAST_COMMIT_MESSAGE" value="Arreglado bug en la modificación del año del curso" />
+    <MESSAGE value="Cambios en la visualización de las horas y creación del html del login" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cambios en la visualización de las horas y creación del html del login" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/src$src.coverage" NAME="src Coverage Results" MODIFIED="1685697115660" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />

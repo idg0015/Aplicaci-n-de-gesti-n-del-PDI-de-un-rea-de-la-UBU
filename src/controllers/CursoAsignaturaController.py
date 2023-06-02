@@ -7,11 +7,16 @@ from utils.db import db
 
 
 def gestion(id_curso_asignatura):
+    breadcrumbs = [
+        ('/', 'Inicio'),
+        (url_for('grupo_bp.index'), 'Grupos'),
+        ('', 'Gestión')
+    ]
     curso_asignatura = CursoAsignatura.get_with_id(id_curso_asignatura)
     grupos = Grupo.get_all_json(curso_asignatura.id)
     form = FormGrupo()
 
-    return render_template('cursos/gestion.html', curso_asignatura=curso_asignatura, grupos=grupos, form=form)
+    return render_template('cursos/gestion.html', curso_asignatura=curso_asignatura, grupos=grupos, form=form, breadcrumbs=breadcrumbs)
 
 
 def delete_ca(id_curso_asignatura):

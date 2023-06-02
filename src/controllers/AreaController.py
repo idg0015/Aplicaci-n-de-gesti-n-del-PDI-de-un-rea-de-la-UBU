@@ -6,11 +6,20 @@ from models.Departamento import Departamento
 
 
 def index():
+    breadcrumbs = [
+        ('/', 'Inicio'),
+        ('', 'Áreas'),
+    ]
     areas = Area.get_all_json()
-    return render_template('areas/index.html', areas=areas)
+    return render_template('areas/index.html', areas=areas, breadcrumbs=breadcrumbs)
 
 
 def add():
+    breadcrumbs = [
+        ('/', 'Inicio'),
+        (url_for('area_bp.index'), 'Áreas'),
+        ('', 'Añadir área'),
+    ]
     formulario = FormArea()
     # formulario.departamento.choices = [(m.id, m.nombre) for m in Departamento.get_all()]
     if formulario.validate_on_submit():
@@ -21,10 +30,15 @@ def add():
         area.save()
         flash('Área añadida correctamente', 'alert alert-success alert-dismissible fade show')
         return redirect(url_for('area_bp.index'))
-    return render_template('areas/form.html', form=formulario)
+    return render_template('areas/form.html', form=formulario, breadcrumbs=breadcrumbs)
 
 
 def update(id_area):
+    breadcrumbs = [
+        ('/', 'Inicio'),
+        (url_for('area_bp.index'), 'Áreas'),
+        ('', 'Modificar área ' + str(id_area)),
+    ]
     area = Area.get_area(id_area)
     if area is None:
         abort(404)
@@ -38,7 +52,7 @@ def update(id_area):
         flash('Área modificada correctamente', 'alert alert-success alert-dismissible fade show')
         return redirect(url_for('area_bp.index'))
     formulario.departamento.choices = [(area.departamento.id, area.departamento.nombre)]
-    return render_template('areas/form.html', form=formulario)
+    return render_template('areas/form.html', form=formulario, breadcrumbs=breadcrumbs)
 
 
 def delete(id_area):

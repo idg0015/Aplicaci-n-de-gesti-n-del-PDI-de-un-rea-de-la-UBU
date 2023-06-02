@@ -6,11 +6,20 @@ from models.Abreviatura import Abreviatura
 
 
 def index():
+    breadcrumbs = [
+        ('/', 'Inicio'),
+        (url_for('asignatura_bp.index'), 'Asignaturas'),
+    ]
     asignaturas = Asignatura.get_all_json()
-    return render_template('asignaturas/index.html', asignaturas=asignaturas)
+    return render_template('asignaturas/index.html', asignaturas=asignaturas, breadcrumbs=breadcrumbs)
 
 
 def add():
+    breadcrumbs = [
+        ('/', 'Inicio'),
+        (url_for('asignatura_bp.index'), 'Asignaturas'),
+        ('', 'Añadir asignatura'),
+    ]
     formulario = FormAsignatura()
     if formulario.validate_on_submit():
         nombre = formulario.nombre.data
@@ -32,10 +41,15 @@ def add():
             abreviatura.save()
         flash('Asignatura añadida correctamente', 'alert alert-success alert-dismissible fade show')
         return redirect(url_for('asignatura_bp.index'))
-    return render_template('asignaturas/form.html', form=formulario)
+    return render_template('asignaturas/form.html', form=formulario, breadcrumbs=breadcrumbs)
 
 
 def update(id_asignatura):
+    breadcrumbs = [
+        ('/', 'Inicio'),
+        (url_for('asignatura_bp.index'), 'Asignaturas'),
+        ('', 'Modificar asignatura '+str(id_asignatura)),
+    ]
     asignatura = Asignatura.get_asignatura(id_asignatura)
     if asignatura is None:
         abort(404)
@@ -70,7 +84,7 @@ def update(id_asignatura):
     abreviaturas_actuales = [a.abreviatura for a in asignatura.abreviaturas]
     formulario.abreviatura.choices = abreviaturas_actuales
     formulario.abreviatura.data = abreviaturas_actuales
-    return render_template('asignaturas/form.html', form=formulario)
+    return render_template('asignaturas/form.html', form=formulario, breadcrumbs=breadcrumbs)
 
 
 def delete(id_asignatura):

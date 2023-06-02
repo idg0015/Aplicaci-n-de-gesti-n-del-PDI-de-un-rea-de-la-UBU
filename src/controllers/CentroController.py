@@ -5,11 +5,20 @@ from models.Centro import Centro
 
 
 def index():
+    breadcrumbs = [
+        ('/', 'Inicio'),
+        ('', 'Centros'),
+    ]
     centros = Centro.get_all_json()
-    return render_template('centros/index.html', centros=centros)
+    return render_template('centros/index.html', centros=centros, breadcrumbs=breadcrumbs)
 
 
 def add():
+    breadcrumbs = [
+        ('/', 'Inicio'),
+        (url_for('centro_bp.index'), 'Centros'),
+        ('', 'Añadir centro')
+    ]
     formulario = FormCentro()
     if formulario.validate_on_submit():
         codigo = formulario.codigo.data
@@ -21,10 +30,15 @@ def add():
         centro.save()
         flash('Centro añadido correctamente', 'alert alert-success alert-dismissible fade show')
         return redirect(url_for('centro_bp.index'))
-    return render_template('centros/form.html', form=formulario)
+    return render_template('centros/form.html', form=formulario, breadcrumbs=breadcrumbs)
 
 
 def update(id_centro):
+    breadcrumbs = [
+        ('/', 'Inicio'),
+        (url_for('centro_bp.index'), 'Centros'),
+        ('', 'Modificar centro '+str(id_centro))
+    ]
     centro = Centro.get_centro(id_centro)
     if centro is None:
         abort(404)
@@ -38,7 +52,7 @@ def update(id_centro):
         centro.save()
         flash('Centro modificado correctamente', 'alert alert-success alert-dismissible fade show')
         return redirect(url_for('centro_bp.index'))
-    return render_template('centros/form.html', form=formulario)
+    return render_template('centros/form.html', form=formulario, breadcrumbs=breadcrumbs)
 
 
 def delete(id_centro):
@@ -55,8 +69,13 @@ def delete(id_centro):
 
 
 def view(id_centro):
+    breadcrumbs = [
+        ('/', 'Inicio'),
+        (url_for('centro_bp.index'), 'Centros'),
+        ('', 'Información centro ' + str(id_centro))
+    ]
     centro = Centro.get_centro(id_centro)
     titulaciones = centro.get_titulaciones()
     if centro is None:
         abort(404)
-    return render_template('centros/view.html', centro=centro, titulaciones=titulaciones)
+    return render_template('centros/view.html', centro=centro, titulaciones=titulaciones, breadcrumbs=breadcrumbs)

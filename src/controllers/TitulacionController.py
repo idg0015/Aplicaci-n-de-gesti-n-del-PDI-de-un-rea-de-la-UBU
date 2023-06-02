@@ -4,11 +4,20 @@ from models.Titulacion import Titulacion
 
 
 def index():
+    breadcrumbs = [
+        ('/', 'Inicio'),
+        (url_for('titulacion_bp.index'), 'Titulaciones'),
+    ]
     titulaciones = Titulacion.get_all_json()
-    return render_template('titulaciones/index.html', titulaciones=titulaciones)
+    return render_template('titulaciones/index.html', titulaciones=titulaciones, breadcrumbs=breadcrumbs)
 
 
 def add():
+    breadcrumbs = [
+        ('/', 'Inicio'),
+        (url_for('titulacion_bp.index'), 'Titulaciones'),
+        ('', 'Añadir titulación'),
+    ]
     formulario = FormTitulacion()
     if formulario.validate_on_submit():
         codigo = formulario.codigo.data
@@ -21,10 +30,15 @@ def add():
         titulacion.save()
         flash('Tiulación añadida correctamente', 'alert alert-success alert-dismissible fade show')
         return redirect(url_for('titulacion_bp.index'))
-    return render_template('titulaciones/form.html', form=formulario)
+    return render_template('titulaciones/form.html', form=formulario, breadcrumbs=breadcrumbs)
 
 
 def update(id_titulacion):
+    breadcrumbs = [
+        ('/', 'Inicio'),
+        (url_for('titulacion_bp.index'), 'Titulaciones'),
+        ('', 'Modificar titulación '+str(id_titulacion)),
+    ]
     titulacion = Titulacion.get_titulacion(id_titulacion)
     if titulacion is None:
         abort(404)
@@ -39,7 +53,7 @@ def update(id_titulacion):
         titulacion.save()
         flash('Titulación modificada correctamente', 'alert alert-success alert-dismissible fade show')
         return redirect(url_for('titulacion_bp.index'))
-    return render_template('titulaciones/form.html', form=formulario)
+    return render_template('titulaciones/form.html', form=formulario, breadcrumbs=breadcrumbs)
 
 
 def delete(id_titulacion):
@@ -57,8 +71,13 @@ def get_titulaciones_ajax():
 
 
 def view(id_titulacion):
+    breadcrumbs = [
+        ('/', 'Inicio'),
+        (url_for('titulacion_bp.index'), 'Titulaciones'),
+        ('', 'Información titulación ' + str(id_titulacion)),
+    ]
     titulacion = Titulacion.get_titulacion(id_titulacion)
     asignaturas = titulacion.get_asignaturas()
     if titulacion is None:
         abort(404)
-    return render_template('titulaciones/view.html', titulacion=titulacion, asignaturas=asignaturas)
+    return render_template('titulaciones/view.html', titulacion=titulacion, asignaturas=asignaturas, breadcrumbs=breadcrumbs)

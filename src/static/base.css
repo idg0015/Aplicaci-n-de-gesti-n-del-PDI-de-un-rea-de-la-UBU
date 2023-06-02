@@ -1,5 +1,6 @@
 :root {
     --ubu-main-color: #aa223c;
+    --ubu-secondary-color: #006DB3;
 }
 
 
@@ -274,3 +275,37 @@ a#icn-info-grupos:hover {
 .login-container .register-link {
     text-align: center;
 }
+
+/* ---------------------- Breadcrumb ---------------------- */
+.breadcrumb{
+    margin-left: 1.25%;
+}
+
+/* Estilo de los elementos individuales */
+.breadcrumb-item {
+  font-size: 0.85rem;
+  padding-top: 0.5rem;
+}
+
+/* Estilo del elemento activo */
+.breadcrumb-item.active {
+  color: var(--ubu-secondary-color);
+  font-weight: bold;
+}
+
+/* Estilo del enlace */
+.breadcrumb-item a {
+  color: #333;
+  text-decoration: none;
+}
+
+/* Estilo del enlace en el elemento activo */
+.breadcrumb-item.active a {
+  color: var(--ubu-secondary-color);
+}
+
+/* Estilo del separador */
+.breadcrumb-item:not(:first-child)::before {
+  content: ">" !important;
+}
+

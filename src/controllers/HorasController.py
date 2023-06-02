@@ -9,16 +9,25 @@ from utils.db import db
 
 
 def index():
-    return render_template('horas/index.html', cursos=Curso.get_all())
+    breadcrumbs = [
+        ('/', 'Inicio'),
+        (url_for('horas_bp.index'), 'Horas'),
+    ]
+    return render_template('horas/index.html', cursos=Curso.get_all(), breadcrumbs=breadcrumbs)
 
 
 # Función para mostrar las plazas de un grupo
 def group_view(group_id):
+    breadcrumbs = [
+        ('/', 'Inicio'),
+        (url_for('horas_bp.index'), 'Horas'),
+        ('', 'Grupo'),
+    ]
     group = Grupo.get_with_id(group_id)
     vacancies = PlazaGrupo.get_vacancies_group_json(group_id)
     form = FormPlazaGrupo()
     form_update = FormPlazaGrupoUpdate()
-    return render_template('horas/view.html', plazas=vacancies, grupo=group, form=form, form_update=form_update)
+    return render_template('horas/view.html', plazas=vacancies, grupo=group, form=form, form_update=form_update, breadcrumbs=breadcrumbs)
 
 
 # Función para vincular una plaza a un grupo con x horas

@@ -5,11 +5,20 @@ from models.Docente import Docente
 
 
 def index():
+    breadcrumbs = [
+        ('/', 'Inicio'),
+        (url_for('docente_bp.index'), 'Docentes')
+    ]
     docentes = Docente.get_all_json()
-    return render_template('docentes/index.html', docentes=docentes)
+    return render_template('docentes/index.html', docentes=docentes, breadcrumbs=breadcrumbs)
 
 
 def add():
+    breadcrumbs = [
+        ('/', 'Inicio'),
+        (url_for('docente_bp.index'), 'Docentes'),
+        ('', 'Añadir docente')
+    ]
     formulario = FormDocente()
     if formulario.validate_on_submit():
         nombre = formulario.nombre.data
@@ -21,7 +30,7 @@ def add():
         flash('Docente añadido correctamente', 'alert alert-success alert-dismissible fade show')
         return redirect(url_for('docente_bp.index'))
 
-    return render_template('docentes/form.html', form=formulario)
+    return render_template('docentes/form.html', form=formulario, breadcrumbs=breadcrumbs)
 
 
 def add_modal():
@@ -42,6 +51,11 @@ def add_modal():
 
 
 def update(id_docente):
+    breadcrumbs = [
+        ('/', 'Inicio'),
+        (url_for('docente_bp.index'), 'Docentes'),
+        ('', 'Modificar docente ' + str(id_docente))
+    ]
     docente = Docente.get_docente(id_docente)
     if docente is None:
         abort(404)
@@ -57,7 +71,7 @@ def update(id_docente):
 
         flash('Docente modificado correctamente', 'alert alert-success alert-dismissible fade show')
         return redirect(url_for('docente_bp.index'))
-    return render_template('docentes/form.html', form=formulario)
+    return render_template('docentes/form.html', form=formulario, breadcrumbs=breadcrumbs)
 
 
 def delete(id_docente):
