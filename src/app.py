@@ -30,7 +30,6 @@ migrate.init_app(app, db)
 with app.app_context():
     db.create_all()
 
-
 app.register_blueprint(centro_bp, url_prefix='/centros')
 app.register_blueprint(titulacion_bp, url_prefix='/titulaciones')
 app.register_blueprint(area_bp, url_prefix='/areas')
@@ -50,12 +49,18 @@ def index():
     n_titulaciones = Titulacion.query.count()
     n_docentes = Docente.query.count()
     n_plazas = Plaza.query.count()
-    return render_template('index.html', n_centros=n_centros, n_titulaciones=n_titulaciones, n_docentes=n_docentes, n_plazas=n_plazas)
+    return render_template('index.html', n_centros=n_centros, n_titulaciones=n_titulaciones, n_docentes=n_docentes,
+                           n_plazas=n_plazas)
 
 
 @app.route('/login')
 def login():
     return render_template('login.html')
+
+
+@app.errorhandler(404)
+def page_not_found(error):
+    return render_template('404.html'), 404
 
 
 if __name__ == '__main__':

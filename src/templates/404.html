@@ -1,0 +1,21 @@
+{% extends "base/base_template.html" %}
+{% set no_menu = True %}
+{% block title %}
+    Página no encontrada
+{% endblock %}
+{% block content %}
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+    <div class="container-error">
+        <h1 class="h1-404">Error 404 - Página no encontrada</h1>
+        <p class="p-404">Lo sentimos, la página que está buscando no existe.</p>
+        <p class="p-404">Por favor, verifique la URL e inténtelo de nuevo.</p>
+        <a href="/" class="btn btn-primary">Volver a la página de inicio</a>
+    </div>
+{% endblock %}

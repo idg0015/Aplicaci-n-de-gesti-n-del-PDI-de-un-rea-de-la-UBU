@@ -277,35 +277,55 @@ a#icn-info-grupos:hover {
 }
 
 /* ---------------------- Breadcrumb ---------------------- */
-.breadcrumb{
+.breadcrumb {
     margin-left: 1.25%;
 }
 
 /* Estilo de los elementos individuales */
 .breadcrumb-item {
-  font-size: 0.85rem;
-  padding-top: 0.5rem;
+    font-size: 0.85rem;
+    padding-top: 0.5rem;
 }
 
 /* Estilo del elemento activo */
 .breadcrumb-item.active {
-  color: var(--ubu-secondary-color);
-  font-weight: bold;
+    color: var(--ubu-secondary-color);
+    font-weight: bold;
 }
 
 /* Estilo del enlace */
 .breadcrumb-item a {
-  color: #333;
-  text-decoration: none;
+    color: #333;
+    text-decoration: none;
 }
 
 /* Estilo del enlace en el elemento activo */
 .breadcrumb-item.active a {
-  color: var(--ubu-secondary-color);
+    color: var(--ubu-secondary-color);
 }
 
 /* Estilo del separador */
 .breadcrumb-item:not(:first-child)::before {
-  content: ">" !important;
+    content: ">" !important;
 }
 
+/*---------------------- 404 ----------------------*/
+.container-error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    flex-direction: column;
+}
+
+.h1-404 {
+    font-size: 48px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.p-404 {
+    font-size: 18px;
+    color: #777;
+    margin-bottom: 20px;
+}
