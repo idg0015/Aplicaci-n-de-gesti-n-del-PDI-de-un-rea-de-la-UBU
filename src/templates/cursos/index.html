@@ -14,6 +14,7 @@
         {% endif %}
     {% endwith %}
 
+    <div id="ajax-response"></div>
     <h1 class="text-center">Cursos Académicos</h1>
     <a href="{{ url_for('curso_bp.add') }}" class="btn btn-primary btn-nuevo">Nuevo</a>
     <div id="tablaCursos" class="text-center"></div>
@@ -23,13 +24,79 @@
     <script>
         let cursos = JSON.parse('{{ cursos | default([])| tojson }}');
 
-        function getId(id){
+        let table = new gridjs.Grid({
+            columns: [
+                {
+                    name: 'Id',
+                    hidden: true
+                },
+                {
+                    id: "ano_inicio",
+                    name: gridjs.html('<span title="Año inicio">Año inicio</span>'),
+                },
+                {
+                    id: "ano_fin",
+                    name: gridjs.html('<span title="Año fin">Año fin</span>'),
+                },
+                {
+                    name: 'Acciones',
+                    sort: false,
+                    formatter: (_, row) => gridjs.html(`<a href="#" class="icono" title="Modificar año" data-bs-toggle="modal" data-bs-target="#year-modal" onclick="getId(${row.cells[0].data})"><i class="bi bi-calendar-date-fill"></i></a>
+                    <a class="icono" href="/cursos/${row.cells[0].data}" title="Modificar curso"><i class="bi bi-pencil-square"></i></a>
+                    <a class="icono" href="#" title="Duplicar curso" onclick="duplicarCurso(${row.cells[0].data})"><i class="bi bi-clipboard-plus-fill"></i></a>
+                    <a href="/cursos/eliminar/${row.cells[0].data}" class="icono" title="Eliminar curso" onclick="return confirm('¿Está seguro de eliminar el curso? No se podrá eliminar si tiene asignaturas vinculadas')"><i class="bi bi-trash3-fill"></i></a>`)
+                },
+            ],
+            className: {
+                td: "text-center",
+                th: "text-center"
+            },
+            language: gridjs.l10n.esES,
+            sort: true,
+            search: true,
+            width: "70%",
+            pagination: {
+                limit: 10
+            },
+            data: cursos
+        }).render(document.getElementById("tablaCursos"));
+
+
+        function getId(id) {
             $("#id_curso").val(id);
         }
 
-        /*function modalYear() {
-            const modalUpdateYear = new bootstrap.Modal(document.getElementById('year-modal'));
-            modalUpdateYear.show();
-        }*/
+        function realizarPeticion(id_curso, opcion) {
+            $.ajax({
+                url: "/cursos/duplicar",
+                method: "POST",
+                dataType: "json",
+                data: {id_curso: id_curso, opcion: opcion},
+                success: function (response) {
+                    if (response.status === 'OK') {
+                        $("#ajax-response").html("<div id='alert-message' class='alert alert-success alert-dismissible fade show'>" + response.message + "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>");
+                        table.updateConfig({data: response.data}).forceRender();
+                    } else {
+                        $("#ajax-response").html("<div id='alert-message' class='alert alert-danger alert-dismissible fade show'>" + response.message + "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>");
+                    }
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+        }
+
+        function duplicarCurso(id_curso) {
+            if (confirm("¿Está seguro de que desea duplicar el curso?")) {
+                let opcion = confirm("¿Desea duplicar el curso con la asignación actual de horas de plazas/docentes a grupos?\nSi pulsa en aceptar se duplicará el curso con la asignación actual de horas de plazas/docentes a grupos.\nSi pulsa en cancelar se duplicará el curso sin la asignación actual de horas de plazas/docentes a grupos.");
+                if (opcion) {
+                    realizarPeticion(id_curso, 1);
+                } else {
+                    realizarPeticion(id_curso, 0);
+                }
+            }
+
+
+        }
     </script>
 {% endblock %}

@@ -21,7 +21,7 @@ curso_bp.route('/sortable-edit', methods=['POST'])(render_sortable_edit)
 curso_bp.route('/eliminar/<int:id_curso>', methods=['GET'])(delete)
 
 # Duplicar
-curso_bp.route('/duplicar/<int:id_curso>', methods=['GET'])(duplicate)
+curso_bp.route('/duplicar', methods=['POST'])(duplicate)
 
 # Actualizar año
 curso_bp.route('/actualizar-a', methods=['GET', 'POST'])(update_year)

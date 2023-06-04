@@ -5,6 +5,8 @@ from models.Asignatura import Asignatura
 from models.Curso import Curso
 from models.CursoAsignatura import CursoAsignatura, Modalidad
 from models.Grupo import Grupo, Tipo
+from models.Plaza import Plaza
+from models.PlazaGrupo import PlazaGrupo
 from utils.db import db
 
 
@@ -184,11 +186,13 @@ def update_year():
     return render_template('cursos/modal.html', form=form)
 
 
-def duplicate(id_curso):
-    try:
-        curso = Curso.get_curso(id_curso)
-        if curso is not None:
-            with db.session.begin_nested():
+def duplicate():
+    if request.method == "POST":
+        try:
+            id_curso = request.form.get('id_curso')
+            opcion = int(request.form.get('opcion'))
+            curso = Curso.get_curso(id_curso)
+            if curso is not None:
                 # Creo el nuevo curso copiando el anteior y le sumo 1 al año de inicio
                 nuevo_curso = Curso(ano_inicio=int(curso.ano_inicio) + 1)
                 db.session.add(nuevo_curso)
@@ -213,12 +217,31 @@ def duplicate(id_curso):
                         nuevo_grupo = Grupo(nombre=grupo.nombre, tipo=grupo.tipo,
                                             id_curso_asignatura=nuevo_curso_asignatura.id)
                         db.session.add(nuevo_grupo)
+                        db.session.flush()
+                        # Asignación de horas a plazas de un grupo
+                        if opcion:
+                            plazas = grupo.plazas
+                            for plaza in plazas:
+                                nueva_plaza = PlazaGrupo(id_grupo=nuevo_grupo.id, id_plaza=plaza.id_plaza,
+                                                         horas=plaza.horas)
+                                db.session.add(nueva_plaza)
                 db.session.commit()
-                flash('Curso duplicado correctamente', 'alert alert-success alert-dismissible fade show')
-        else:
-            flash('Curso no encontrado', 'alert alert-danger alert-dismissible fade show')
-    except Exception as e:
-        db.session.rollback()
-        flash('Error al duplicar el curso: ' + str(e), 'alert alert-danger alert-dismissible fade show')
-
-    return redirect(url_for('curso_bp.index'))
+                data = {
+                    'status': 'OK',
+                    'message': 'Curso duplicado correctamente',
+                    'data': Curso.get_all_json()
+                }
+                return jsonify(data)
+            else:
+                data = {
+                    'status': 'ERROR',
+                    'message': 'Curso no encontrado'
+                }
+                return jsonify(data)
+        except Exception as e:
+            db.session.rollback()
+            data = {
+                'status': 'ERROR',
+                'message': 'Error al duplicar el curso: ' + str(e)
+            }
+            return jsonify(data)
