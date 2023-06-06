@@ -15,7 +15,7 @@
     {% endwith %}
 
     <h1 class="text-center">Tipos de contrato</h1>
-    <a href="{{ url_for('contrato_bp.add') }}" class="btn btn-primary btn-nuevo">Nuevo</a>
+    <a href="{{ url_for('contrato_bp.add_route') }}" class="btn btn-primary btn-nuevo">Nuevo</a>
     <div id="tablaContratos" class="text-center"></div>
     <script>
         let contratos = JSON.parse('{{ tipos_contrato | default([]) | tojson }}');

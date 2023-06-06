@@ -9,7 +9,7 @@ from utils.db import db
 def gestion(id_curso_asignatura):
     breadcrumbs = [
         ('/', 'Inicio'),
-        (url_for('grupo_bp.index'), 'Grupos'),
+        (url_for('grupo_bp.index_route'), 'Grupos'),
         ('', 'Gestión')
     ]
     curso_asignatura = CursoAsignatura.get_with_id(id_curso_asignatura)
@@ -26,13 +26,13 @@ def delete_ca(id_curso_asignatura):
             flash(
                 'No se puede eliminar la asignatura del curso porque tiene grupos asociados. Elimine antes los grupos',
                 'alert alert-danger alert-dismissible fade show')
-            return redirect(url_for('grupo_bp.index'))
+            return redirect(url_for('grupo_bp.index_route'))
         db.session.delete(curso_asignatura)
         db.session.commit()
         flash('Asignatura eliminada del curso correctamente', 'alert alert-success alert-dismissible fade show')
     else:
         flash('Asignatura no encontrada en el curso', 'alert alert-danger alert-dismissible fade show')
-    return redirect(url_for('grupo_bp.index'))
+    return redirect(url_for('grupo_bp.index_route'))
 
 
 def edit_ca(id_curso_asignatura):
@@ -49,4 +49,4 @@ def edit_ca(id_curso_asignatura):
             flash('Asignatura del curso no encontrada', 'alert alert-danger alert-dismissible fade show')
     else:
         flash('Formulario no válido', 'alert alert-danger alert-dismissible fade show')
-    return redirect(url_for('grupo_bp.index'))
+    return redirect(url_for('grupo_bp.index_route'))

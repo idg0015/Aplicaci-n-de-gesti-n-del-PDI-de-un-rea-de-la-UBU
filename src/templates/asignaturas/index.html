@@ -15,9 +15,96 @@
     {% endwith %}
 
     <h1 class="text-center">Asignaturas</h1>
-    <a href="{{ url_for('asignatura_bp.add') }}" class="btn btn-primary btn-nuevo-2">Nuevo</a>
+    <a href="{{ url_for('asignatura_bp.add_route') }}" class="btn btn-primary btn-nuevo-2">Nuevo</a>
     <div id="tablaAsignaturas" class="text-center"></div>
     <script>
         let asignaturas = JSON.parse('{{ asignaturas | default([]) | tojson }}');
+        const hasModificationPermission = {{ has_modification_permission | lower }};
+
+        const center = (data, row, col) => {
+            if (row) {
+                return {class: 'gridjs-td text-center'};
+            } else {
+                return {};
+            }
+        };
+
+        let columns = [
+            {
+                name: 'Id',
+                hidden: true
+            },
+            {
+                id: 'codigo',
+                name: gridjs.html('<span title="Código">Código</span>'),
+                attributes: center
+            },
+            {
+                id: 'nombre',
+                name: gridjs.html('<span title="Nombre">Nombre</span>'),
+            },
+            {
+                id: 'tipo',
+                name: gridjs.html('<span title="Tipo">Tipo</span>'),
+                attributes: center
+            },
+            {
+                id: 'titulacion',
+                name: gridjs.html('<span title="Titulación">Titulación</span>'),
+            },
+            {
+                id: 'creditos_teoria',
+                name: gridjs.html('<span title="Créditos teoría">ECTS<br> Teoría</span>'),
+                attributes: center
+            },
+            {
+                id: 'creditos_practica',
+                name: gridjs.html('<span title="Créditos práctica">ECTS<br> Práctica</span>'),
+                attributes: center
+            },
+            {
+                id: 'curso',
+                name: gridjs.html('<span title="Curso">Curso</span>'),
+                attributes: center
+            },
+            {
+                id: 'semestre',
+                name: gridjs.html('<span title="Semestre">Semestre</span>'),
+                attributes: center
+            },
+            {
+                id: 'abreviaturas',
+                name: gridjs.html('<span title="Abreviaturas">Abreviaturas</span>'),
+            },
+        ]
+
+        if (hasModificationPermission) {
+            columns.push({
+                name: 'Acciones',
+                sort: false,
+                attributes: center,
+                formatter: (_, row) => gridjs.html(`<a class="icono" href="/asignaturas/${row.cells[0].data}"><i class="bi bi-pencil-square"></i></a> <a href="/asignaturas/eliminar/${row.cells[0].data}" class="icono" onclick="return confirm('¿Está seguro de eliminar la asignatura? Se eliminarán sus abreviaturas asociadas y los cursos donde se encuentren.')"><i class="bi bi-trash3-fill"></i></a>`)
+            });
+        }
+
+        if (document.getElementById('tablaAsignaturas') != null) {
+            new gridjs.Grid({
+                columns: columns,
+                className: {
+                    th: "text-center"
+                },
+                width: "95%",
+                language: gridjs.l10n.esES,
+                sort: true,
+                search: true,
+                resizable: true,
+                pagination: {
+                    limit: 10
+                },
+                data: asignaturas
+            }).render(document.getElementById("tablaAsignaturas"));
+        }
+
+
     </script>
 {% endblock %}

@@ -98,7 +98,7 @@
 
 
         <div class="text-center mt-4">
-            <a class="btn btn-secondary" href="{{ url_for('plaza_bp.index') }}">Volver</a>
+            <a class="btn btn-secondary" href="{{ url_for('plaza_bp.index_route') }}">Volver</a>
             {{ form.submit(class_="btn btn-primary") }}
         </div>
     </form>
@@ -112,7 +112,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
                 </div>
                 <div class="modal-body">
-                    <iframe src="{{ url_for('docente_bp.add_modal') }}" style="width: 100%; height: 500px;"></iframe>
+                    <iframe src="{{ url_for('docente_bp.add_modal_route') }}" style="width: 100%; height: 500px;"></iframe>
                 </div>
             </div>
         </div>

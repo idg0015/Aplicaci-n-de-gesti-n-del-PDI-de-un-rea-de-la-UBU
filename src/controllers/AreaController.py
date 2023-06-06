@@ -1,4 +1,4 @@
-from flask import render_template, redirect, url_for, abort, flash, request
+from flask import render_template, redirect, url_for, abort, flash, request, session
 
 from forms import FormArea
 from models.Area import Area
@@ -10,14 +10,15 @@ def index():
         ('/', 'Inicio'),
         ('', 'Áreas'),
     ]
+    has_modification_permission = session['user']['modification_flag']
     areas = Area.get_all_json()
-    return render_template('areas/index.html', areas=areas, breadcrumbs=breadcrumbs)
+    return render_template('areas/index.html', areas=areas, breadcrumbs=breadcrumbs, has_modification_permission=has_modification_permission)
 
 
 def add():
     breadcrumbs = [
         ('/', 'Inicio'),
-        (url_for('area_bp.index'), 'Áreas'),
+        (url_for('area_bp.index_route'), 'Áreas'),
         ('', 'Añadir área'),
     ]
     formulario = FormArea()
@@ -29,14 +30,14 @@ def add():
         area = Area(nombre=nombre, abreviatura=abreviatura, id_departamento=id_departamento)
         area.save()
         flash('Área añadida correctamente', 'alert alert-success alert-dismissible fade show')
-        return redirect(url_for('area_bp.index'))
+        return redirect(url_for('area_bp.index_route'))
     return render_template('areas/form.html', form=formulario, breadcrumbs=breadcrumbs)
 
 
 def update(id_area):
     breadcrumbs = [
         ('/', 'Inicio'),
-        (url_for('area_bp.index'), 'Áreas'),
+        (url_for('area_bp.index_route'), 'Áreas'),
         ('', 'Modificar área ' + str(id_area)),
     ]
     area = Area.get_area(id_area)
@@ -50,7 +51,7 @@ def update(id_area):
         area.id_departamento = formulario.departamento.data
         area.save()
         flash('Área modificada correctamente', 'alert alert-success alert-dismissible fade show')
-        return redirect(url_for('area_bp.index'))
+        return redirect(url_for('area_bp.index_route'))
     formulario.departamento.choices = [(area.departamento.id, area.departamento.nombre)]
     return render_template('areas/form.html', form=formulario, breadcrumbs=breadcrumbs)
 
@@ -61,7 +62,7 @@ def delete(id_area):
         abort(404)
     area.delete()
     flash('Área eliminada correctamente', 'alert alert-success alert-dismissible fade show')
-    return redirect(url_for('area_bp.index'))
+    return redirect(url_for('area_bp.index_route'))
 
 
 def get_areas_ajax():

@@ -6,7 +6,7 @@ from models.Titulacion import Titulacion
 def index():
     breadcrumbs = [
         ('/', 'Inicio'),
-        (url_for('titulacion_bp.index'), 'Titulaciones'),
+        (url_for('titulacion_bp.index_route'), 'Titulaciones'),
     ]
     titulaciones = Titulacion.get_all_json()
     return render_template('titulaciones/index.html', titulaciones=titulaciones, breadcrumbs=breadcrumbs)
@@ -15,7 +15,7 @@ def index():
 def add():
     breadcrumbs = [
         ('/', 'Inicio'),
-        (url_for('titulacion_bp.index'), 'Titulaciones'),
+        (url_for('titulacion_bp.index_route'), 'Titulaciones'),
         ('', 'Añadir titulación'),
     ]
     formulario = FormTitulacion()
@@ -29,14 +29,14 @@ def add():
         titulacion = Titulacion(codigo=codigo, nombre=nombre, abreviatura=abreviatura, url=url, id_centro=id_centro)
         titulacion.save()
         flash('Tiulación añadida correctamente', 'alert alert-success alert-dismissible fade show')
-        return redirect(url_for('titulacion_bp.index'))
+        return redirect(url_for('titulacion_bp.index_route'))
     return render_template('titulaciones/form.html', form=formulario, breadcrumbs=breadcrumbs)
 
 
 def update(id_titulacion):
     breadcrumbs = [
         ('/', 'Inicio'),
-        (url_for('titulacion_bp.index'), 'Titulaciones'),
+        (url_for('titulacion_bp.index_route'), 'Titulaciones'),
         ('', 'Modificar titulación '+str(id_titulacion)),
     ]
     titulacion = Titulacion.get_titulacion(id_titulacion)
@@ -52,7 +52,7 @@ def update(id_titulacion):
         titulacion.id_centro = formulario.centro.data
         titulacion.save()
         flash('Titulación modificada correctamente', 'alert alert-success alert-dismissible fade show')
-        return redirect(url_for('titulacion_bp.index'))
+        return redirect(url_for('titulacion_bp.index_route'))
     return render_template('titulaciones/form.html', form=formulario, breadcrumbs=breadcrumbs)
 
 
@@ -62,7 +62,7 @@ def delete(id_titulacion):
         abort(404)
     titulacion.delete()
     flash('Titulación eliminada correctamente', 'alert alert-success alert-dismissible fade show')
-    return redirect(url_for('titulacion_bp.index'))
+    return redirect(url_for('titulacion_bp.index_route'))
 
 
 def get_titulaciones_ajax():
@@ -73,7 +73,7 @@ def get_titulaciones_ajax():
 def view(id_titulacion):
     breadcrumbs = [
         ('/', 'Inicio'),
-        (url_for('titulacion_bp.index'), 'Titulaciones'),
+        (url_for('titulacion_bp.index_route'), 'Titulaciones'),
         ('', 'Información titulación ' + str(id_titulacion)),
     ]
     titulacion = Titulacion.get_titulacion(id_titulacion)

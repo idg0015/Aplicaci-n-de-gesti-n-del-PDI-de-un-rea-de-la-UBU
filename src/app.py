@@ -1,10 +1,6 @@
 from flask import Flask, render_template
-
-from models.Centro import Centro
-from models.Docente import Docente
-from models.Plaza import Plaza
-from models.Titulacion import Titulacion
 from routes.centro_bp import centro_bp
+from routes.site_bp import site_bp
 from routes.titulacion_bp import titulacion_bp
 from routes.area_bp import area_bp
 from routes.asignatura_bp import asignatura_bp
@@ -30,6 +26,7 @@ migrate.init_app(app, db)
 with app.app_context():
     db.create_all()
 
+app.register_blueprint(site_bp)
 app.register_blueprint(centro_bp, url_prefix='/centros')
 app.register_blueprint(titulacion_bp, url_prefix='/titulaciones')
 app.register_blueprint(area_bp, url_prefix='/areas')
@@ -43,24 +40,14 @@ app.register_blueprint(departamento_bp, url_prefix='/departamentos')
 app.register_blueprint(horas_bp, url_prefix='/horas')
 
 
-@app.route('/')
-def index():
-    n_centros = Centro.query.count()
-    n_titulaciones = Titulacion.query.count()
-    n_docentes = Docente.query.count()
-    n_plazas = Plaza.query.count()
-    return render_template('index.html', n_centros=n_centros, n_titulaciones=n_titulaciones, n_docentes=n_docentes,
-                           n_plazas=n_plazas)
-
-
-@app.route('/login')
-def login():
-    return render_template('login.html')
-
-
 @app.errorhandler(404)
 def page_not_found(error):
     return render_template('404.html'), 404
+
+
+@app.errorhandler(403)
+def page_not_found(error):
+    return render_template('403.html'), 403
 
 
 if __name__ == '__main__':

@@ -12,7 +12,7 @@ from utils.db import db
 def index():
     breadcrumbs = [
         ('/', 'Inicio'),
-        (url_for('grupo_bp.index'), 'Grupos'),
+        (url_for('grupo_bp.index_route'), 'Grupos'),
     ]
     # info = CursoAsignatura.get_all_json()
     form = FormCursoAsignatura()
@@ -37,7 +37,7 @@ def add():
             create_check_grupos(curso_asignatura.id, form.tipo.data)
         else:
             flash('Asignatura no encontrada en el curso', 'alert alert-danger alert-dismissible fade show')
-        return redirect(url_for('curso_bp.gestion', id_curso_asignatura=curso_asignatura.id))
+        return redirect(url_for('curso_bp.gestion_route', id_curso_asignatura=curso_asignatura.id))
     return render_template('cursos/modal.html', form=form)
 
 
@@ -73,7 +73,7 @@ def create_check_grupos(id_curso_asignatura, tipoNuevo):
         else:
             flash('No se puede crear un grupo práctico sin que exista al menos un grupo teórico',
                   'alert alert-danger alert-dismissible fade show')
-            return redirect(url_for('curso_bp.gestion', id_curso_asignatura=curso_asignatura.id))
+            return redirect(url_for('curso_bp.gestion_route', id_curso_asignatura=curso_asignatura.id))
 
     db.session.commit()
 
@@ -159,12 +159,12 @@ def delete(id_grupo):
                 if len(curso_asignatura.grupos) > 0:
                     flash('No se puede eliminar el último grupo teórico si tiene grupos prácticos. Elimínelos antes',
                           'alert alert-danger alert-dismissible fade show')
-                    return redirect(url_for('curso_bp.gestion', id_curso_asignatura=id_curso_asignatura))
+                    return redirect(url_for('curso_bp.gestion_route', id_curso_asignatura=id_curso_asignatura))
         else:
             flash('No se puede eliminar un grupo con plazas asignadas', 'alert alert-danger alert-dismissible fade show')
-            return redirect(url_for('curso_bp.gestion', id_curso_asignatura=id_curso_asignatura))
+            return redirect(url_for('curso_bp.gestion_route', id_curso_asignatura=id_curso_asignatura))
         db.session.commit()
         flash('Grupo eliminado correctamente', 'alert alert-success alert-dismissible fade show')
     else:
         flash('Grupo no encontrado', 'alert alert-danger alert-dismissible fade show')
-    return redirect(url_for('curso_bp.gestion', id_curso_asignatura=id_curso_asignatura))
+    return redirect(url_for('curso_bp.gestion_route', id_curso_asignatura=id_curso_asignatura))

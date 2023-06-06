@@ -15,7 +15,7 @@
     {% endwith %}
 
     <h1 class="text-center">Titulaciones</h1>
-    <a href="{{ url_for('titulacion_bp.add') }}" class="btn btn-primary btn-nuevo-2">Nuevo</a>
+    <a href="{{ url_for('titulacion_bp.add_route') }}" class="btn btn-primary btn-nuevo-2">Nuevo</a>
     <div id="tablaTitulaciones" class="text-center"></div>
     <script>
         let titulaciones = JSON.parse('{{ titulaciones | default([]) | tojson }}');

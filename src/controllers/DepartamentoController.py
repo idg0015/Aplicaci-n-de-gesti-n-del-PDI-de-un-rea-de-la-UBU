@@ -7,7 +7,7 @@ from models.Departamento import Departamento
 def index():
     breadcrumbs = [
         ('/', 'Inicio'),
-        (url_for('departamento_bp.index'), 'Departamentos'),
+        (url_for('departamento_bp.index_route'), 'Departamentos'),
     ]
     departamentos = Departamento.get_all_json()
     return render_template('departamentos/index.html', departamentos=departamentos, breadcrumbs=breadcrumbs)
@@ -15,7 +15,7 @@ def index():
 def add():
     breadcrumbs = [
         ('/', 'Inicio'),
-        (url_for('departamento_bp.index'), 'Departamentos'),
+        (url_for('departamento_bp.index_route'), 'Departamentos'),
         ('', 'Añadir departamento'),
     ]
     formulario = FormDepartamento()
@@ -25,7 +25,7 @@ def add():
         departamento = Departamento(nombre=nombre, abreviatura=abreviatura)
         departamento.save()
         flash('Departamento añadido correctamente', 'alert alert-success alert-dismissible fade show')
-        return redirect(url_for('departamento_bp.index'))
+        return redirect(url_for('departamento_bp.index_route'))
 
     return render_template('departamentos/form.html', form=formulario, breadcrumbs=breadcrumbs)
 
@@ -33,7 +33,7 @@ def add():
 def update(id_departamento):
     breadcrumbs = [
         ('/', 'Inicio'),
-        (url_for('departamento_bp.index'), 'Departamentos'),
+        (url_for('departamento_bp.index_route'), 'Departamentos'),
         ('', 'Modificar departamento ' + str(id_departamento)),
     ]
     departamento = Departamento.get_departamento(id_departamento)
@@ -48,7 +48,7 @@ def update(id_departamento):
         departamento.save()
 
         flash('Departamento modificado correctamente', 'alert alert-success alert-dismissible fade show')
-        return redirect(url_for('departamento_bp.index'))
+        return redirect(url_for('departamento_bp.index_route'))
     return render_template('departamentos/form.html', form=formulario, breadcrumbs=breadcrumbs)
 
 
@@ -58,7 +58,7 @@ def delete(id_departamento):
         abort(404)
     departamento.delete()
     flash('Departamento eliminado correctamente', 'alert alert-success alert-dismissible fade show')
-    return redirect(url_for('departamento_bp.index'))
+    return redirect(url_for('departamento_bp.index_route'))
 
 def get_departamentos_ajax():
     texto = request.args.get('texto')

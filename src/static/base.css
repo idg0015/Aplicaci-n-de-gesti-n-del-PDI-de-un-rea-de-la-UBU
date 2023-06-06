@@ -112,6 +112,11 @@ h1.text-center:after {
     line-height: 60px;
 }
 
+#navbarSupportedContent > div > a {
+    line-height: 60px;
+    color: rgba(0,0,0,.55);
+}
+
 .navbar {
     padding: 0 1rem !important;
 }

@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, SelectField, HiddenField, IntegerField, FieldList, FormField, \
-    SelectMultipleField, DateField, MultipleFileField
+    SelectMultipleField, DateField, MultipleFileField, BooleanField, PasswordField
 from wtforms.validators import DataRequired, Email, URL, InputRequired, ValidationError, Optional, NumberRange
 from wtforms.widgets import HiddenInput
 
@@ -80,7 +80,32 @@ class FormDocente(FlaskForm):
     reducciones = IntegerField('Reducciones', validators=[InputRequired(message='Las reducciones son obligatorias'),
                                                           NumberRange(min=0,
                                                                       message='El número de reducciones debe ser mayor o igual que 0')])
+    read = BooleanField('Consulta', default=False)
+    modification = BooleanField('Modificación', default=False)
     submit = SubmitField('Añadir')
+
+    def validate_email(self, email):
+        docente = Docente.get_docente_email(email.data)
+        if docente:
+            raise ValidationError('Ya existe un docente con ese email')
+
+
+class FormDocenteUpdate(FlaskForm):
+    nombre = StringField('Nombre', validators=[DataRequired(message='El nombre es obligatorio')])
+    apellidos = StringField('Apellidos', validators=[DataRequired(message='Los apellidos son obligatorios')])
+    email = StringField('Email', validators=[DataRequired(message='El email es obligatorio'),
+                                             Email(message='La dirección de email no es válida')])
+    reducciones = IntegerField('Reducciones', validators=[InputRequired(message='Las reducciones son obligatorias'),
+                                                          NumberRange(min=0,
+                                                                      message='El número de reducciones debe ser mayor o igual que 0')])
+    read = BooleanField('Consulta', default=False)
+    modification = BooleanField('Modificación', default=False)
+    submit = SubmitField('Añadir')
+
+    def __init__(self, obj, *args, **kwargs):
+        super().__init__(obj=obj, *args, **kwargs)
+        self.read.data = obj.read_flag
+        self.modification.data = obj.modification_flag
 
 
 class FormDepartamento(FlaskForm):
@@ -271,3 +296,9 @@ class FormPlazaGrupoUpdate(FlaskForm):
                                      NumberRange(min=1,
                                                  message='El número de grupos prácticas previstos debe ser mayor que 0')])
     submit = SubmitField('Modificar')
+
+
+class FormLogin(FlaskForm):
+    username = StringField('Correo electrónico', validators=[DataRequired(message='El usuario es obligatorio')])
+    password = PasswordField('Contraseña', validators=[DataRequired(message='La contraseña es obligatoria')])
+    submit = SubmitField('Iniciar Sesión')

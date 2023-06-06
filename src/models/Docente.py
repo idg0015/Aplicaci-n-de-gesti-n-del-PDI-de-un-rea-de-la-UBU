@@ -7,6 +7,8 @@ class Docente(db.Model):
     apellidos = db.Column(db.String(256), nullable=False)
     email = db.Column(db.String(256), nullable=False)
     reducciones = db.Column(db.Integer, nullable=False)
+    read_flag = db.Column(db.Boolean, nullable=False, default=False)  # Consulta
+    modification_flag = db.Column(db.Boolean, nullable=False, default=False)  # Modificación
 
     # Relación con plaza
     plazas = db.relationship('Plaza', back_populates='docente', cascade='all, delete-orphan')
@@ -23,6 +25,8 @@ class Docente(db.Model):
             'apellidos': self.apellidos,
             'email': self.email,
             'reducciones': self.reducciones,
+            'read_flag': self.read_flag,
+            'modification_flag': self.modification_flag
         }
 
     @staticmethod
@@ -53,3 +57,7 @@ class Docente(db.Model):
             }
             results.append(data)
         return results
+
+    @staticmethod
+    def get_docente_email(email):
+        return Docente.query.filter_by(email=email).first()

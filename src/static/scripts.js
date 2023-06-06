@@ -113,76 +113,6 @@ $(document).ready(function () {
         }).render(document.getElementById("tablaTitulaciones"));
     }
 
-    if (document.getElementById('tablaAsignaturas') != null) {
-        new gridjs.Grid({
-            columns: [
-                {
-                    name: 'Id',
-                    hidden: true
-                },
-                {
-                    id: 'codigo',
-                    name: gridjs.html('<span title="Código">Código</span>'),
-                    attributes: center
-                },
-                {
-                    id: 'nombre',
-                    name: gridjs.html('<span title="Nombre">Nombre</span>'),
-                },
-                {
-                    id: 'tipo',
-                    name: gridjs.html('<span title="Tipo">Tipo</span>'),
-                    attributes: center
-                },
-                {
-                    id: 'titulacion',
-                    name: gridjs.html('<span title="Titulación">Titulación</span>'),
-                },
-                {
-                    id: 'creditos_teoria',
-                    name: gridjs.html('<span title="Créditos teoría">ECTS<br> Teoría</span>'),
-                    attributes: center
-                },
-                {
-                    id: 'creditos_practica',
-                    name: gridjs.html('<span title="Créditos práctica">ECTS<br> Práctica</span>'),
-                    attributes: center
-                },
-                {
-                    id: 'curso',
-                    name: gridjs.html('<span title="Curso">Curso</span>'),
-                    attributes: center
-                },
-                {
-                    id: 'semestre',
-                    name: gridjs.html('<span title="Semestre">Semestre</span>'),
-                    attributes: center
-                },
-                {
-                    id: 'abreviaturas',
-                    name: gridjs.html('<span title="Abreviaturas">Abreviaturas</span>'),
-                },
-                {
-                    name: 'Acciones',
-                    sort: false,
-                    attributes: center,
-                    formatter: (_, row) => gridjs.html(`<a class="icono" href="/asignaturas/${row.cells[0].data}"><i class="bi bi-pencil-square"></i></a> <a href="/asignaturas/eliminar/${row.cells[0].data}" class="icono" onclick="return confirm('¿Está seguro de eliminar la asignatura? Se eliminarán sus abreviaturas asociadas y los cursos donde se encuentren.')"><i class="bi bi-trash3-fill"></i></a>`)
-                },
-            ],
-            className: {
-                th: "text-center"
-            },
-            width: "95%",
-            language: gridjs.l10n.esES,
-            sort: true,
-            search: true,
-            resizable: true,
-            pagination: {
-                limit: 10
-            },
-            data: asignaturas
-        }).render(document.getElementById("tablaAsignaturas"));
-    }
 
 
     if (document.getElementById('tablaDocentes') != null) {
@@ -333,45 +263,7 @@ $(document).ready(function () {
         }).render(document.getElementById("tablaContratos"));
     }
 
-    if (document.getElementById('tablaAreas') != null) {
-        new gridjs.Grid({
-            columns: [
-                {
-                    name: 'Id',
-                    hidden: true
-                },
-                {
-                    id: 'nombre',
-                    name: gridjs.html('<span title="Nombre">Nombre</span>'),
-                },
-                {
-                    id: 'abreviatura',
-                    name: gridjs.html('<span title="Abreviatura">Abreviatura</span>'),
-                },
-                {
-                    id: 'departamento',
-                    name: gridjs.html('<span title="Departamento">Departamento</span>'),
-                },
-                {
-                    name: 'Acciones',
-                    sort: false,
-                    attributes: center,
-                    formatter: (_, row) => gridjs.html(`<a class="icono" href="/areas/${row.cells[0].data}"><i class="bi bi-pencil-square"></i></a> <a href="/areas/eliminar/${row.cells[0].data}" class="icono" onclick="return confirm('¿Está seguro de eliminar el área? Se eliminarán las plazas asociadas y todo lo que dependa de ellas.')"><i class="bi bi-trash3-fill"></i></a>`)
-                },
-            ],
-            language: gridjs.l10n.esES,
-            sort: true,
-            search: true,
-            width: "70%",
-            pagination: {
-                limit: 10
-            },
-            className: {
-                th: "text-center"
-            },
-            data: areas
-        }).render(document.getElementById("tablaAreas"));
-    }
+
 
     if (document.getElementById('tablaDepartamentos') != null) {
         new gridjs.Grid({

@@ -8,7 +8,7 @@ from models.Plaza import Plaza
 def index():
     breadcrumbs = [
         ('/', 'Inicio'),
-        (url_for('plaza_bp.index'), 'Plazas'),
+        (url_for('plaza_bp.index_route'), 'Plazas'),
     ]
     plazas = Plaza.get_all_json()
     return render_template('plazas/index.html', plazas=plazas, breadcrumbs=breadcrumbs)
@@ -17,7 +17,7 @@ def index():
 def add():
     breadcrumbs = [
         ('/', 'Inicio'),
-        (url_for('plaza_bp.index'), 'Plazas'),
+        (url_for('plaza_bp.index_route'), 'Plazas'),
         ('', 'Añadir plaza'),
     ]
     formulario = FormPlaza()
@@ -52,14 +52,14 @@ def add():
                       fecha_incorporacion=fecha_incorporacion, fecha_cese=fecha_cese, id_docente=id_docente,
                       id_area=id_area, id_contrato=id_contrato)
         plaza.save()
-        return redirect(url_for('plaza_bp.index'))
+        return redirect(url_for('plaza_bp.index_route'))
     return render_template('plazas/form.html', form=formulario, breadcrumbs=breadcrumbs)
 
 
 def update(id_plaza):
     breadcrumbs = [
         ('/', 'Inicio'),
-        (url_for('plaza_bp.index'), 'Plazas'),
+        (url_for('plaza_bp.index_route'), 'Plazas'),
         ('', 'Modificar plaza '+str(id_plaza)),
     ]
     plaza = Plaza.get_plaza(id_plaza)
@@ -96,7 +96,7 @@ def update(id_plaza):
             flash(
                 'La información de la plaza se ha modificado correctamente, pero el docente seleccionado ya tiene una plaza sin fecha de cese y no se le ha podido asignar esta plaza.',
                 'alert alert-warning alert-dismissible fade show')
-        return redirect(url_for('plaza_bp.index'))
+        return redirect(url_for('plaza_bp.index_route'))
     formulario.area.choices = [(plaza.area.id, plaza.area.nombre)]  # Carga de la opción seleccionada
     if plaza.docente is not None:
         formulario.docente.choices = [
@@ -112,7 +112,7 @@ def delete(id_plaza):
         abort(404)
     plaza.delete()
     flash('La plaza se ha eliminado correctamente', 'alert alert-success alert-dismissible fade show')
-    return redirect(url_for('plaza_bp.index'))
+    return redirect(url_for('plaza_bp.index_route'))
 
 
 def get_plazas_ajax():

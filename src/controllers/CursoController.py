@@ -13,7 +13,7 @@ from utils.db import db
 def index():
     breadcrumbs = [
         ('/', 'Inicio'),
-        (url_for('curso_bp.index'), 'Cursos'),
+        (url_for('curso_bp.index_route'), 'Cursos'),
     ]
     cursos = Curso.get_all_json()
     form = UpdateYearCursoForm()
@@ -23,7 +23,7 @@ def index():
 def add():
     breadcrumbs = [
         ('/', 'Inicio'),
-        (url_for('curso_bp.index'), 'Cursos'),
+        (url_for('curso_bp.index_route'), 'Cursos'),
         ('', 'Añadir curso'),
     ]
     formulario = FormCurso()
@@ -31,19 +31,19 @@ def add():
         ano_inicio = formulario.ano_inicio.data
         if Curso.get_curso_by_year(ano_inicio) is not None:
             flash('Ya existe un curso con ese año de inicio', 'alert alert-danger alert-dismissible fade show')
-            return redirect(url_for('curso_bp.index'))
+            return redirect(url_for('curso_bp.index_route'))
         curso = Curso(ano_inicio=ano_inicio)
         db.session.add(curso)
         db.session.commit()
         flash('Curso creado correctamente', 'alert alert-success alert-dismissible fade show')
-        return redirect(url_for('curso_bp.update', id_curso=curso.id))
+        return redirect(url_for('curso_bp.update_route', id_curso=curso.id))
     return render_template('cursos/form-create.html', form=formulario, breadcrumbs=breadcrumbs)
 
 
 def update(id_curso):
     breadcrumbs = [
         ('/', 'Inicio'),
-        (url_for('curso_bp.index'), 'Cursos'),
+        (url_for('curso_bp.index_route'), 'Cursos'),
         ('', 'Modificar curso ' + str(id_curso)),
     ]
     curso = Curso.get_curso(id_curso)
@@ -53,7 +53,7 @@ def update(id_curso):
 
     if curso is None:
         flash('Curso no encontrado', 'alert alert-danger alert-dismissible fade show')
-        return redirect(url_for('curso_bp.index'))
+        return redirect(url_for('curso_bp.index_route'))
     if formulario.validate_on_submit():
         alumnos_presencial = formulario.n_a_p.data
         alumnos_ingles = formulario.n_a_i.data
@@ -77,7 +77,7 @@ def update(id_curso):
         db.session.commit()
 
         flash('Asignaturas y grupos añadidos correctamente', 'alert alert-success alert-dismissible fade show')
-        return redirect(url_for('curso_bp.index'))
+        return redirect(url_for('curso_bp.index_route'))
 
     # formulario.id_asignaturas.data = ','.join(
     #     set([str(curso_asignatura.id_asignatura) for curso_asignatura in curso.asignaturas]))
@@ -153,13 +153,13 @@ def delete(id_curso):
         if curso.asignaturas:
             flash('No se puede eliminar el curso porque tiene asignaturas asociadas',
                   'alert alert-danger alert-dismissible fade show')
-            return redirect(url_for('curso_bp.index'))
+            return redirect(url_for('curso_bp.index_route'))
         db.session.delete(curso)
         db.session.commit()
         flash('Curso eliminado correctamente', 'alert alert-success alert-dismissible fade show')
     else:
         flash('Curso no encontrado', 'alert alert-danger alert-dismissible fade show')
-    return redirect(url_for('curso_bp.index'))
+    return redirect(url_for('curso_bp.index_route'))
 
 
 def update_year():
@@ -182,7 +182,7 @@ def update_year():
                       'alert alert-danger alert-dismissible fade show')
         else:
             flash('Curso no encontrado', 'alert alert-danger alert-dismissible fade show')
-        return redirect(url_for('curso_bp.index'))
+        return redirect(url_for('curso_bp.index_route'))
     return render_template('cursos/modal.html', form=form)
 
 

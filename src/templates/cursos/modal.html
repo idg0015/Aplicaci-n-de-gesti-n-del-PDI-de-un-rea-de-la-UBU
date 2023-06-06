@@ -7,7 +7,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
             </div>
             <div class="modal-body">
-                <form method="POST" action="{{ url_for('curso_bp.update_year') }}">
+                <form method="POST" action="{{ url_for('curso_bp.update_year_route') }}">
                     {{ form.hidden_tag() }}
                     <div class="form-group">
                         {{ form.year.label }} {{ form.year(class_="form-control") }}

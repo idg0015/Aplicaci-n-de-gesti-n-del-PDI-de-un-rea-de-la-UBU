@@ -15,7 +15,7 @@
     {% endwith %}
 
     <h1 class="text-center">Centros</h1>
-    <a href="{{ url_for('centro_bp.add') }}" class="btn btn-primary btn-nuevo">Nuevo</a>
+    <a href="{{ url_for('centro_bp.add_route') }}" class="btn btn-primary btn-nuevo">Nuevo</a>
     <div id="tablaCentros" class="text-center"></div>
     <script>
         let centros = JSON.parse('{{ centros | default([])| tojson }}');

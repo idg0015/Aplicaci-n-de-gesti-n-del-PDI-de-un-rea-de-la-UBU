@@ -11,7 +11,7 @@ from utils.db import db
 def index():
     breadcrumbs = [
         ('/', 'Inicio'),
-        (url_for('horas_bp.index'), 'Horas'),
+        (url_for('horas_bp.index_route'), 'Horas'),
     ]
     return render_template('horas/index.html', cursos=Curso.get_all(), breadcrumbs=breadcrumbs)
 
@@ -20,7 +20,7 @@ def index():
 def group_view(group_id):
     breadcrumbs = [
         ('/', 'Inicio'),
-        (url_for('horas_bp.index'), 'Horas'),
+        (url_for('horas_bp.index_route'), 'Horas'),
         ('', 'Grupo'),
     ]
     group = Grupo.get_with_id(group_id)
@@ -42,18 +42,18 @@ def assign_hours():
         group = Grupo.get_with_id(group_id)
         if vacant is None or group is None:
             flash('No se pudo asignar las horas', 'alert alert-danger alert-dismissible fade show')
-            return redirect(url_for('horas_bp.group_view', group_id=group_id))
+            return redirect(url_for('horas_bp.group_view_route', group_id=group_id))
 
         if PlazaGrupo.get_with_vacant_and_group_id(vacant_id, group_id) is not None:
             flash('Ya existe una asignación para la plaza seleccionada',
                   'alert alert-danger alert-dismissible fade show')
-            return redirect(url_for('horas_bp.group_view', group_id=group_id))
+            return redirect(url_for('horas_bp.group_view_route', group_id=group_id))
 
         vacant_group = PlazaGrupo(horas=hours, id_grupo=group_id, id_plaza=vacant_id)
         db.session.add(vacant_group)
         db.session.commit()
         flash('Horas asignadas correctamente', 'alert alert-success alert-dismissible fade show')
-        return redirect(url_for('horas_bp.group_view', group_id=group_id))
+        return redirect(url_for('horas_bp.group_view_route', group_id=group_id))
 
 
 # Función para eliminar una asociación de una plaza a un grupo
@@ -61,11 +61,11 @@ def delete(vacant_group_id):
     vacant_group = PlazaGrupo.get_with_id(vacant_group_id)
     if vacant_group is None:
         flash('No se pudo eliminar la asociación', 'alert alert-danger alert-dismissible fade show')
-        return redirect(url_for('horas_bp.index'))
+        return redirect(url_for('horas_bp.index_route'))
     db.session.delete(vacant_group)
     db.session.commit()
     flash('Asociación eliminada correctamente', 'alert alert-success alert-dismissible fade show')
-    return redirect(url_for('horas_bp.group_view', group_id=vacant_group.id_grupo))
+    return redirect(url_for('horas_bp.group_view_route', group_id=vacant_group.id_grupo))
 
 
 # Función para actualizar las horas de una plaza asignada a un grupo
@@ -77,9 +77,9 @@ def update_hours():
         vacant_group.horas = form.hours.data
         db.session.commit()
         flash('Horas actualizadas correctamente', 'alert alert-success alert-dismissible fade show')
-        return redirect(url_for('horas_bp.group_view', group_id=vacant_group.id_grupo))
+        return redirect(url_for('horas_bp.group_view_route', group_id=vacant_group.id_grupo))
     flash('Se produjo un error al actualizar las horas', 'alert alert-danger alert-dismissible fade show')
-    return redirect(url_for('horas_bp.index'))
+    return redirect(url_for('horas_bp.index_route'))
 
 
 def assign_hours_ajax():

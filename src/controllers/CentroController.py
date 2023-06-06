@@ -16,7 +16,7 @@ def index():
 def add():
     breadcrumbs = [
         ('/', 'Inicio'),
-        (url_for('centro_bp.index'), 'Centros'),
+        (url_for('centro_bp.index_route'), 'Centros'),
         ('', 'Añadir centro')
     ]
     formulario = FormCentro()
@@ -29,14 +29,14 @@ def add():
         centro = Centro(codigo=codigo, nombre=nombre, abreviatura=abreviatura, email=email)
         centro.save()
         flash('Centro añadido correctamente', 'alert alert-success alert-dismissible fade show')
-        return redirect(url_for('centro_bp.index'))
+        return redirect(url_for('centro_bp.index_route'))
     return render_template('centros/form.html', form=formulario, breadcrumbs=breadcrumbs)
 
 
 def update(id_centro):
     breadcrumbs = [
         ('/', 'Inicio'),
-        (url_for('centro_bp.index'), 'Centros'),
+        (url_for('centro_bp.index_route'), 'Centros'),
         ('', 'Modificar centro '+str(id_centro))
     ]
     centro = Centro.get_centro(id_centro)
@@ -51,7 +51,7 @@ def update(id_centro):
         centro.email = formulario.email.data
         centro.save()
         flash('Centro modificado correctamente', 'alert alert-success alert-dismissible fade show')
-        return redirect(url_for('centro_bp.index'))
+        return redirect(url_for('centro_bp.index_route'))
     return render_template('centros/form.html', form=formulario, breadcrumbs=breadcrumbs)
 
 
@@ -62,16 +62,16 @@ def delete(id_centro):
     if centro.titulaciones:
         flash('No se puede eliminar el centro porque tiene titulaciones asociadas',
               'alert alert-danger alert-dismissible fade show')
-        return redirect(url_for('centro_bp.index'))
+        return redirect(url_for('centro_bp.index_route'))
     centro.delete()
     flash('Centro eliminado correctamente', 'alert alert-success alert-dismissible fade show')
-    return redirect(url_for('centro_bp.index'))
+    return redirect(url_for('centro_bp.index_route'))
 
 
 def view(id_centro):
     breadcrumbs = [
         ('/', 'Inicio'),
-        (url_for('centro_bp.index'), 'Centros'),
+        (url_for('centro_bp.index_route'), 'Centros'),
         ('', 'Información centro ' + str(id_centro))
     ]
     centro = Centro.get_centro(id_centro)

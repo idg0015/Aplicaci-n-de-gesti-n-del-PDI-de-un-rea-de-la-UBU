@@ -7,7 +7,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
             </div>
             <div class="modal-body">
-                <form method="POST" action="{{ url_for('grupo_bp.add') }}" novalidate>
+                <form method="POST" action="{{ url_for('grupo_bp.add_route') }}" novalidate>
                     {{ form.csrf_token }}
                     {{ form.id_curso_asignatura(value_=curso_asignatura.id) }}
                     <div class="form-group">
