@@ -1,10 +1,11 @@
 import math
 
-from flask import render_template, request, flash, redirect, url_for
+from flask import render_template, request, flash, redirect, url_for, session
 
 from forms import FormGrupo, FormCursoAsignatura
 from models.Curso import Curso
 from models.CursoAsignatura import CursoAsignatura, Modalidad
+from models.Docente import Docente
 from models.Grupo import Grupo, Tipo
 from utils.db import db
 
@@ -16,7 +17,9 @@ def index():
     ]
     # info = CursoAsignatura.get_all_json()
     form = FormCursoAsignatura()
-    return render_template('grupos/index.html', cursos=Curso.get_all(), form=form, breadcrumbs=breadcrumbs)
+    has_modification_permission = Docente.get_docente(session['user_id']).modification_flag
+    return render_template('grupos/index.html', cursos=Curso.get_all(), form=form, breadcrumbs=breadcrumbs,
+                           has_modification_permission=has_modification_permission)
 
 
 def get_all_json():
@@ -161,7 +164,8 @@ def delete(id_grupo):
                           'alert alert-danger alert-dismissible fade show')
                     return redirect(url_for('curso_bp.gestion_route', id_curso_asignatura=id_curso_asignatura))
         else:
-            flash('No se puede eliminar un grupo con plazas asignadas', 'alert alert-danger alert-dismissible fade show')
+            flash('No se puede eliminar un grupo con plazas asignadas',
+                  'alert alert-danger alert-dismissible fade show')
             return redirect(url_for('curso_bp.gestion_route', id_curso_asignatura=id_curso_asignatura))
         db.session.commit()
         flash('Grupo eliminado correctamente', 'alert alert-success alert-dismissible fade show')

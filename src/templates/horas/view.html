@@ -27,9 +27,11 @@
             </div>
         </div>
 
-        <a href="" class="btn btn-primary btn-nuevo" data-bs-toggle="modal" data-bs-target="#vacant-modal"
-           onclick="editForm()">Añadir
-            plaza</a>
+        {% if has_modification_permission %}
+            <a href="" class="btn btn-primary btn-nuevo" data-bs-toggle="modal" data-bs-target="#vacant-modal"
+               onclick="editForm()">Añadir
+                plaza</a>
+        {% endif %}
         <div class="row">
             <div id="groupVacantTable" class="col-md-12 text-center"></div>
         </div>
@@ -40,6 +42,7 @@
     <script>
         let table = null;
         let plazas = JSON.parse('{{ plazas | default([])| tojson }}');
+        let hasModificationPermission = {{ has_modification_permission | lower }};
 
         function editForm() {
             $('#group_id').attr('value', {{ grupo.id }});
@@ -53,59 +56,58 @@
             $('#vacant-update-modal').find('#hours').val(hours);
         }
 
-        const center = (data, row, col) => {
-            if (row) {
-                return {class: 'gridjs-td text-center'};
-            } else {
-                return {};
-            }
-        };
 
-        table = new gridjs.Grid({
-            columns: [
-                {id: 'group_id', hidden: true},
-                {id: 'vacant_id', hidden: true},
-                {id: 'id', hidden: true},
-                {
-                    id: 'teacher',
-                    name: gridjs.html('<span title="Plaza/Docente">Plaza/Docente</span>'),
-                },
-                {
-                    id: 'hours',
-                    name: gridjs.html('<span title="Horas anuales">Horas anuales</span>'),
-                    attributes: center
-                },
-                {
-                    id: 'in_other_groups',
-                    name: gridjs.html('<span title="En otros grupos">En otros grupos</span>'),
-                    attributes: center
-                },
-                {
-                    id: 'annual_capacity',
-                    name: gridjs.html('<span title="Capacidad anual en horas">Capacidad anual (horas)</span>'),
-                    attributes: center
-                },
-                {
-                    name: 'Acciones', formatter: (cell, row) => gridjs.html(`
+
+        let columns = [
+            {id: 'group_id', hidden: true},
+            {id: 'vacant_id', hidden: true},
+            {id: 'id', hidden: true},
+            {
+                id: 'teacher',
+                name: gridjs.html('<span title="Plaza/Docente">Plaza/Docente</span>'),
+            },
+            {
+                id: 'hours',
+                name: gridjs.html('<span title="Horas anuales">Horas anuales</span>'),
+                attributes: center
+            },
+            {
+                id: 'in_other_groups',
+                name: gridjs.html('<span title="En otros grupos">En otros grupos</span>'),
+                attributes: center
+            },
+            {
+                id: 'annual_capacity',
+                name: gridjs.html('<span title="Capacidad anual en horas">Capacidad anual (horas)</span>'),
+                attributes: center
+            },
+        ];
+
+        if (hasModificationPermission) {
+            columns.push({
+                name: 'Acciones', formatter: (cell, row) => gridjs.html(`
                     <a href="#" class="icono" data-bs-toggle="modal" data-bs-target="#vacant-update-modal" data-id="${row.cells[2].data}" data-hours="${row.cells[4].data}" onclick="editFormUpdate(this)"><i class="bi bi-pencil-square"></i></a>
                     <a href="/horas/eliminar/${row.cells[2].data}" class="icono" onclick="return confirm('¿Está seguro de eliminar la asignación de la plaza al grupo?')"><i class="bi bi-trash3-fill"></i></a>
                 `),
-                    sort: false,
-                    attributes: center,
-                }
-            ],
-            language: gridjs.l10n.esES,
-            sort: true,
-            search: true,
-            pagination: {
-                enabled: true,
-                limit: 10
-            },
-            width: '70%',
-            data: plazas
-        }).render(document.getElementById("groupVacantTable"));
+                sort: false,
+                attributes: center,
+            });
+        }
+
 
         $(document).ready(function () {
+            table = new gridjs.Grid({
+                columns: columns,
+                language: gridjs.l10n.esES,
+                sort: true,
+                search: true,
+                pagination: {
+                    enabled: true,
+                    limit: 10
+                },
+                width: '70%',
+                data: plazas
+            }).render(document.getElementById("groupVacantTable"));
 
             $('#vacant').select2({
                 locale: 'es',

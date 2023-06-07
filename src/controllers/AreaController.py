@@ -3,6 +3,7 @@ from flask import render_template, redirect, url_for, abort, flash, request, ses
 from forms import FormArea
 from models.Area import Area
 from models.Departamento import Departamento
+from models.Docente import Docente
 
 
 def index():
@@ -10,7 +11,7 @@ def index():
         ('/', 'Inicio'),
         ('', 'Áreas'),
     ]
-    has_modification_permission = session['user']['modification_flag']
+    has_modification_permission = Docente.get_docente(session['user_id']).modification_flag
     areas = Area.get_all_json()
     return render_template('areas/index.html', areas=areas, breadcrumbs=breadcrumbs, has_modification_permission=has_modification_permission)
 

@@ -12,7 +12,9 @@
               integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
               crossorigin="anonymous">
         <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.png') }}">
-
+        <title>{% block title %}{% endblock %}</title>
+    {% endblock %}
+    {% block javascript %}
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
                 integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
@@ -21,8 +23,7 @@
         <script src="{{ url_for('static', filename='node_modules/gridjs/l10n/dist/l10n.umd.js') }}"></script>
         <script src="{{ url_for('static', filename='node_modules/select2/dist/js/select2.min.js') }}"></script>
         <script src="{{ url_for('static', filename='node_modules/select2/dist/js/i18n/es.js') }}"></script>
-        <script type="module" src="{{ url_for("static", filename="scripts.js") }}"></script>
-        <title>{% block title %}{% endblock %}</title>
+        <script type="text/javascript" src="{{ url_for("static", filename="scripts.js") }}"></script>
     {% endblock %}
 </head>
 
@@ -31,21 +32,19 @@
 {% if no_menu is not defined %}
     {% include "base/navbar.html" %}
 {% endif %}
-<div class="contenido">
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            {% for url, name in breadcrumbs %}
-                {% if loop.last %}
-                    <li class="breadcrumb-item active" aria-current="page">{{ name }}</li>
-                {% else %}
-                    <li class="breadcrumb-item"><a href="{{ url }}">{{ name }}</a></li>
-                {% endif %}
-            {% endfor %}
-        </ol>
-    </nav>
-    {% block content %}{% endblock %}
-</div>
+    <div class="contenido">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                {% for url, name in breadcrumbs %}
+                    {% if loop.last %}
+                        <li class="breadcrumb-item active" aria-current="page">{{ name }}</li>
+                    {% else %}
+                        <li class="breadcrumb-item"><a href="{{ url }}">{{ name }}</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ol>
+        </nav>
+        {% block content %}{% endblock %}
+    </div>
 </body>
-
-
 </html>

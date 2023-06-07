@@ -1,9 +1,10 @@
 import math
-from flask import render_template, jsonify, request, flash, redirect, url_for
+from flask import render_template, jsonify, request, flash, redirect, url_for, session
 from forms import FormCurso, FormCursoUpdate, UpdateYearCursoForm
 from models.Asignatura import Asignatura
 from models.Curso import Curso
 from models.CursoAsignatura import CursoAsignatura, Modalidad
+from models.Docente import Docente
 from models.Grupo import Grupo, Tipo
 from models.Plaza import Plaza
 from models.PlazaGrupo import PlazaGrupo
@@ -17,7 +18,9 @@ def index():
     ]
     cursos = Curso.get_all_json()
     form = UpdateYearCursoForm()
-    return render_template('cursos/index.html', cursos=cursos, form=form, breadcrumbs=breadcrumbs)
+    has_modification_permission = Docente.get_docente(session['user_id']).modification_flag
+    return render_template('cursos/index.html', cursos=cursos, form=form, breadcrumbs=breadcrumbs,
+                           has_modification_permission=has_modification_permission)
 
 
 def add():

@@ -1,7 +1,8 @@
-from flask import render_template, redirect, url_for, flash, request, jsonify
+from flask import render_template, redirect, url_for, flash, request, jsonify, session
 
 from forms import FormPlazaGrupo, FormPlazaGrupoUpdate
 from models.Curso import Curso
+from models.Docente import Docente
 from models.Grupo import Grupo
 from models.Plaza import Plaza
 from models.PlazaGrupo import PlazaGrupo
@@ -13,7 +14,9 @@ def index():
         ('/', 'Inicio'),
         (url_for('horas_bp.index_route'), 'Horas'),
     ]
-    return render_template('horas/index.html', cursos=Curso.get_all(), breadcrumbs=breadcrumbs)
+    has_modification_permission = Docente.get_docente(session['user_id']).modification_flag
+    return render_template('horas/index.html', cursos=Curso.get_all(), breadcrumbs=breadcrumbs,
+                           has_modification_permission=has_modification_permission)
 
 
 # Función para mostrar las plazas de un grupo
@@ -27,7 +30,9 @@ def group_view(group_id):
     vacancies = PlazaGrupo.get_vacancies_group_json(group_id)
     form = FormPlazaGrupo()
     form_update = FormPlazaGrupoUpdate()
-    return render_template('horas/view.html', plazas=vacancies, grupo=group, form=form, form_update=form_update, breadcrumbs=breadcrumbs)
+    has_modification_permission = Docente.get_docente(session['user_id']).modification_flag
+    return render_template('horas/view.html', plazas=vacancies, grupo=group, form=form, form_update=form_update,
+                           breadcrumbs=breadcrumbs, has_modification_permission=has_modification_permission)
 
 
 # Función para vincular una plaza a un grupo con x horas

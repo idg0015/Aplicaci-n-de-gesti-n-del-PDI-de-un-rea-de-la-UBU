@@ -80,8 +80,8 @@ class FormDocente(FlaskForm):
     reducciones = IntegerField('Reducciones', validators=[InputRequired(message='Las reducciones son obligatorias'),
                                                           NumberRange(min=0,
                                                                       message='El número de reducciones debe ser mayor o igual que 0')])
-    read = BooleanField('Consulta', default=False)
-    modification = BooleanField('Modificación', default=False)
+    read_flag = BooleanField('Consulta', default=False)
+    modification_flag = BooleanField('Modificación', default=False)
     submit = SubmitField('Añadir')
 
     def validate_email(self, email):
@@ -98,14 +98,9 @@ class FormDocenteUpdate(FlaskForm):
     reducciones = IntegerField('Reducciones', validators=[InputRequired(message='Las reducciones son obligatorias'),
                                                           NumberRange(min=0,
                                                                       message='El número de reducciones debe ser mayor o igual que 0')])
-    read = BooleanField('Consulta', default=False)
-    modification = BooleanField('Modificación', default=False)
+    read_flag = BooleanField('Consulta', default=False)
+    modification_flag = BooleanField('Modificación', default=False)
     submit = SubmitField('Añadir')
-
-    def __init__(self, obj, *args, **kwargs):
-        super().__init__(obj=obj, *args, **kwargs)
-        self.read.data = obj.read_flag
-        self.modification.data = obj.modification_flag
 
 
 class FormDepartamento(FlaskForm):

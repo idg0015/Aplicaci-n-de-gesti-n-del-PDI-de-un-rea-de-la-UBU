@@ -22,13 +22,15 @@
                     Curso {{ curso_asignatura.curso.ano_inicio }}/{{ curso_asignatura.curso.ano_inicio|int +1}}</h2>
             </div>
             <div class="col-md-4"><h1
-                    class="text-center">Gestión de grupos - {{ curso_asignatura.asignatura.nombre }} ({{ curso_asignatura.modalidad }})</h1>
+                    class="text-center">Gestión de grupos - {{ curso_asignatura.asignatura.nombre }}
+                ({{ curso_asignatura.modalidad }})</h1>
             </div>
             <div class="col-md-4"><h2 class="h2-view">{{ curso_asignatura.asignatura.titulacion.nombre }}</h2></div>
         </div>
-
-        <a href="" class="btn btn-primary btn-nuevo-grupo" data-bs-toggle="modal" data-bs-target="#create-modal">Añadir
-            grupo</a>
+        {% if has_modification_permission %}
+            <a href="" class="btn btn-primary btn-nuevo-grupo" data-bs-toggle="modal" data-bs-target="#create-modal">Añadir
+                grupo</a>
+        {% endif %}
         <div class="row">
             <div class="col-md-6 offset-md-3 text-center">
                 <div id="tabla_grupos"></div>
@@ -40,50 +42,46 @@
 
     <script>
         let grupos = JSON.parse('{{ grupos | default([])| tojson }}');
+        const hasModificationPermission = {{ has_modification_permission | lower }};
 
-        const center = (data, row, col) => {
-            if (row) {
-                return {class: 'gridjs-td text-center'};
-            } else {
-                return {};
+        let columns = [
+            {
+                name: 'Id',
+                hidden: true
+            },
+            {
+                id: 'tipo',
+                name: gridjs.html('<span title="Tipo">Tipo</span>'),
+            },
+            {
+                id: 'nombre',
+                name: gridjs.html('<span title="Nombre">Nombre</span>'),
             }
-        };
+        ]
+
+        if (hasModificationPermission) {
+            columns.push({
+                name: 'Acciones',
+                attributes: center,
+                formatter: (_, row) => gridjs.html(`<a href="/grupos/eliminar/${row.cells[0].data}" class="icono" onclick="return confirm('¿Está seguro de eliminar el grupo?')"><i class="bi bi-trash3-fill"></i></a>`)
+            })
+        }
 
         $(document).ready(function () {
-            if (document.getElementById('tabla_grupos') != null) {
-                table = new gridjs.Grid({
-                    columns: [
-                        {
-                            name: 'Id',
-                            hidden: true
-                        },
-                        {
-                            id: 'tipo',
-                            name: gridjs.html('<span title="Tipo">Tipo</span>'),
-                        },
-                        {
-                            id: 'nombre',
-                            name: gridjs.html('<span title="Nombre">Nombre</span>'),
-                        },
-                        {
-                            name: 'Acciones',
-                            attributes: center,
-                            formatter: (_, row) => gridjs.html(`<a href="/grupos/eliminar/${row.cells[0].data}" class="icono" onclick="return confirm('¿Está seguro de eliminar el grupo?')"><i class="bi bi-trash3-fill"></i></a>`)
-                        },
-                    ],
-                    className: {
-                        th: "text-center"
-                    },
-                    language: gridjs.l10n.esES,
-                    sort: true,
-                    search: true,
-                    pagination: {
-                        limit: 10
-                    },
-                    resizable: true,
-                    data: grupos,
-                }).render(document.getElementById("tabla_grupos"));
-            }
+            table = new gridjs.Grid({
+                columns: columns,
+                className: {
+                    th: "text-center"
+                },
+                language: gridjs.l10n.esES,
+                sort: true,
+                search: true,
+                pagination: {
+                    limit: 10
+                },
+                resizable: true,
+                data: grupos,
+            }).render(document.getElementById("tabla_grupos"));
 
             function getIdGrupo(id) {
                 $("#id_curso_asignatura").val(id);

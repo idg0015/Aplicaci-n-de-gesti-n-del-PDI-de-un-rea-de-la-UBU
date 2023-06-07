@@ -38,7 +38,7 @@ def login():
             json_data = response.json()
             if not json_data.get('error'):
                 session['token'] = json_data.get('token')
-                session['user'] = docente.to_dict()
+                session['user_id'] = docente.id
                 return redirect(url_for('site_bp.index_route'))
             else:
                 flash('Usuario o contraseña incorrectos', 'alert alert-danger alert-dismissible fade show')

@@ -23,14 +23,6 @@
         let areas = JSON.parse('{{ areas | default([])| tojson }}');
         let hasModificationPermission = {{ has_modification_permission | lower }};
 
-        const center = (data, row, col) => {
-            if (row) {
-                return {class: 'gridjs-td text-center'};
-            } else {
-                return {};
-            }
-        };
-
         const columns = [
             {
                 name: 'Id',
@@ -62,7 +54,7 @@
             });
         }
 
-        if (document.getElementById('tablaAreas') != null) {
+        $(document).ready(function () {
             new gridjs.Grid({
                 columns: columns,
                 language: gridjs.l10n.esES,
@@ -77,6 +69,6 @@
                 },
                 data: areas
             }).render(document.getElementById("tablaAreas"));
-        }
+        });
     </script>
 {% endblock %}

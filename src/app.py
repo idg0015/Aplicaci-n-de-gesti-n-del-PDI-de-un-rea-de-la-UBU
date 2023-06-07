@@ -1,4 +1,6 @@
 from flask import Flask, render_template
+from flask_session import Session
+
 from routes.centro_bp import centro_bp
 from routes.site_bp import site_bp
 from routes.titulacion_bp import titulacion_bp
@@ -21,10 +23,18 @@ if env == 'production':
 else:
     app.config.from_object('config.development.DevelopmentConfig')
 
+# Configuración de Flask-Session
+app.config['SESSION_SQLALCHEMY'] = db
+app.config['SESSION_SQLALCHEMY_TABLE'] = 'sessions'
+app.config['SESSION_TYPE'] = 'sqlalchemy'
+app.config['SESSION_USE_SIGNER'] = True
+
 db.init_app(app)
 migrate.init_app(app, db)
 with app.app_context():
     db.create_all()
+
+server_session = Session(app)
 
 app.register_blueprint(site_bp)
 app.register_blueprint(centro_bp, url_prefix='/centros')

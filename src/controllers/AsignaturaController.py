@@ -3,6 +3,7 @@ from flask import render_template, redirect, url_for, abort, flash, session
 from forms import FormAsignatura
 from models.Asignatura import Asignatura
 from models.Abreviatura import Abreviatura
+from models.Docente import Docente
 
 
 def index():
@@ -10,7 +11,7 @@ def index():
         ('/', 'Inicio'),
         (url_for('asignatura_bp.index_route'), 'Asignaturas'),
     ]
-    has_modification_permission = session['user']['modification_flag']
+    has_modification_permission = Docente.get_docente(session['user_id']).modification_flag
     asignaturas = Asignatura.get_all_json()
     return render_template('asignaturas/index.html', asignaturas=asignaturas, breadcrumbs=breadcrumbs,
                            has_modification_permission=has_modification_permission)

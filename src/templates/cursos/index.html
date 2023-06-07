@@ -16,37 +16,46 @@
 
     <div id="ajax-response"></div>
     <h1 class="text-center">Cursos Académicos</h1>
-    <a href="{{ url_for('curso_bp.add_route') }}" class="btn btn-primary btn-nuevo">Nuevo</a>
+    {% if has_modification_permission %}
+        <a href="{{ url_for('curso_bp.add_route') }}" class="btn btn-primary btn-nuevo">Nuevo</a>
+    {% endif %}
     <div id="tablaCursos" class="text-center"></div>
 
     {% include 'cursos/modal.html' %}
 
     <script>
         let cursos = JSON.parse('{{ cursos | default([])| tojson }}');
+        const hasModificationPermission = {{ has_modification_permission | lower }};
 
-        let table = new gridjs.Grid({
-            columns: [
-                {
-                    name: 'Id',
-                    hidden: true
-                },
-                {
-                    id: "ano_inicio",
-                    name: gridjs.html('<span title="Año inicio">Año inicio</span>'),
-                },
-                {
-                    id: "ano_fin",
-                    name: gridjs.html('<span title="Año fin">Año fin</span>'),
-                },
-                {
-                    name: 'Acciones',
-                    sort: false,
-                    formatter: (_, row) => gridjs.html(`<a href="#" class="icono" title="Modificar año" data-bs-toggle="modal" data-bs-target="#year-modal" onclick="getId(${row.cells[0].data})"><i class="bi bi-calendar-date-fill"></i></a>
+        let columns = [
+            {
+                name: 'Id',
+                hidden: true
+            },
+            {
+                id: "ano_inicio",
+                name: gridjs.html('<span title="Año inicio">Año inicio</span>'),
+            },
+            {
+                id: "ano_fin",
+                name: gridjs.html('<span title="Año fin">Año fin</span>'),
+            },
+
+        ];
+
+        if (hasModificationPermission) {
+            columns.push({
+                name: 'Acciones',
+                sort: false,
+                formatter: (_, row) => gridjs.html(`<a href="#" class="icono" title="Modificar año" data-bs-toggle="modal" data-bs-target="#year-modal" onclick="getId(${row.cells[0].data})"><i class="bi bi-calendar-date-fill"></i></a>
                     <a class="icono" href="/cursos/${row.cells[0].data}" title="Modificar curso"><i class="bi bi-pencil-square"></i></a>
                     <a class="icono" href="#" title="Duplicar curso" onclick="duplicarCurso(${row.cells[0].data})"><i class="bi bi-clipboard-plus-fill"></i></a>
                     <a href="/cursos/eliminar/${row.cells[0].data}" class="icono" title="Eliminar curso" onclick="return confirm('¿Está seguro de eliminar el curso? No se podrá eliminar si tiene asignaturas vinculadas')"><i class="bi bi-trash3-fill"></i></a>`)
-                },
-            ],
+            });
+        }
+
+        let table = new gridjs.Grid({
+            columns: columns,
             className: {
                 td: "text-center",
                 th: "text-center"

@@ -15,9 +15,62 @@
     {% endwith %}
 
     <h1 class="text-center">Docentes</h1>
-    <a href="{{ url_for('docente_bp.add_route') }}" class="btn btn-primary btn-nuevo">Nuevo</a>
+    {% if has_modification_permission %}
+        <a href="{{ url_for('docente_bp.add_route') }}" class="btn btn-primary btn-nuevo">Nuevo</a>
+    {% endif %}
     <div id="tablaDocentes" class="text-center"></div>
     <script>
         let docentes = JSON.parse('{{ docentes | default([])| tojson }}');
+        const hasModificationPermission = {{ has_modification_permission | lower }};
+
+        let columns = [
+            {
+                name: 'Id',
+                hidden: true
+            },
+            {
+                id: 'nombre',
+                name: gridjs.html('<span title="Nombre">Nombre</span>'),
+            },
+            {
+                id: 'apellidos',
+                name: gridjs.html('<span title="Apellidos">Apellidos</span>'),
+            },
+            {
+                id: 'email',
+                name: gridjs.html('<span title="Email">Email</span>'),
+            },
+            {
+                id: 'reducciones',
+                name: gridjs.html('<span title="Reducciones">Reducciones</span>'),
+                attributes: center
+            },
+        ];
+
+        if (hasModificationPermission) {
+            columns.push({
+                name: 'Acciones',
+                sort: false,
+                attributes: center,
+                formatter: (_, row) => gridjs.html(`<a class="icono" href="/docentes/${row.cells[0].data}"><i class="bi bi-pencil-square"></i></a> <a href="/docentes/eliminar/${row.cells[0].data}" class="icono" onclick="return confirm('¿Está seguro de eliminar el docente?')"><i class="bi bi-trash3-fill"></i></a>`)
+            });
+        }
+
+        $(document).ready(function () {
+            new gridjs.Grid({
+                columns: columns,
+                className: {
+                    th: "text-center"
+                },
+                language: gridjs.l10n.esES,
+                sort: true,
+                search: true,
+                pagination: {
+                    limit: 10
+                },
+                width: "70%",
+                data: docentes
+            }).render(document.getElementById("tablaDocentes"));
+        });
     </script>
 {% endblock %}

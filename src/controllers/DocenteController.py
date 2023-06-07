@@ -1,4 +1,4 @@
-from flask import render_template, redirect, url_for, abort, flash, request
+from flask import render_template, redirect, url_for, abort, flash, request, session
 
 from forms import FormDocente, FormDocenteUpdate
 from models.Docente import Docente
@@ -10,7 +10,9 @@ def index():
         (url_for('docente_bp.index_route'), 'Docentes')
     ]
     docentes = Docente.get_all_json()
-    return render_template('docentes/index.html', docentes=docentes, breadcrumbs=breadcrumbs)
+    has_modification_permission = Docente.get_docente(session['user_id']).modification_flag
+    return render_template('docentes/index.html', docentes=docentes, breadcrumbs=breadcrumbs,
+                           has_modification_permission=has_modification_permission)
 
 
 def add():
@@ -49,8 +51,8 @@ def add_modal():
         apellidos = formulario.apellidos.data
         email = formulario.email.data
         reducciones = formulario.reducciones.data
-        modification = formulario.modification.data
-        read = formulario.read.data
+        modification = formulario.modification_flag.data
+        read = formulario.read_flag.data
         if modification:
             read = True
         docente = Docente(nombre=nombre, apellidos=apellidos, email=email, reducciones=reducciones,
@@ -81,8 +83,8 @@ def update(id_docente):
         docente.apellidos = formulario.apellidos.data
         docente.email = formulario.email.data
         docente.reducciones = formulario.reducciones.data
-        docente.modification_flag = formulario.modification.data
-        docente.read_flag = formulario.read.data
+        docente.modification_flag = formulario.modification_flag.data
+        docente.read_flag = formulario.read_flag.data
         if docente.modification_flag and not docente.read_flag:
             docente.read_flag = True
         docente.save()

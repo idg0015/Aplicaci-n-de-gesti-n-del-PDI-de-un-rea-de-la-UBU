@@ -1,7 +1,8 @@
-from flask import render_template, flash, redirect, url_for
+from flask import render_template, flash, redirect, url_for, session
 
 from forms import FormGrupo, FormCursoAsignatura
 from models.CursoAsignatura import CursoAsignatura
+from models.Docente import Docente
 from models.Grupo import Grupo
 from utils.db import db
 
@@ -15,8 +16,10 @@ def gestion(id_curso_asignatura):
     curso_asignatura = CursoAsignatura.get_with_id(id_curso_asignatura)
     grupos = Grupo.get_all_json(curso_asignatura.id)
     form = FormGrupo()
+    has_modification_permission = Docente.get_docente(session['user_id']).modification_flag
 
-    return render_template('cursos/gestion.html', curso_asignatura=curso_asignatura, grupos=grupos, form=form, breadcrumbs=breadcrumbs)
+    return render_template('cursos/gestion.html', curso_asignatura=curso_asignatura, grupos=grupos, form=form,
+                           breadcrumbs=breadcrumbs, has_modification_permission=has_modification_permission)
 
 
 def delete_ca(id_curso_asignatura):

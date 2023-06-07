@@ -2,6 +2,8 @@ from functools import wraps
 
 from flask import session, redirect, url_for, g, abort
 
+from models.Docente import Docente
+
 
 def token_required(f):
     @wraps(f)
@@ -17,7 +19,7 @@ def token_required(f):
 def require_modification_permission(func):
     @wraps(func)
     def decorated_view(*args, **kwargs):
-        if not session['user']['modification_flag']:
+        if not Docente.get_docente(session['user_id']).modification_flag:
             abort(403)
         return func(*args, **kwargs)
 
@@ -27,7 +29,7 @@ def require_modification_permission(func):
 def require_read_permission(func):
     @wraps(func)
     def decorated_view(*args, **kwargs):
-        if not session['user']['read_flag']:
+        if not Docente.get_docente(session['user_id']).read_flag and not Docente.get_docente(session['user_id']).modification_flag:
             abort(403)
         return func(*args, **kwargs)
 

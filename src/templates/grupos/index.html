@@ -37,6 +37,7 @@
     <script>
         let info = [];
         let table = null;
+        let hasModificationPermission = {{ has_modification_permission | lower }};
 
         if ($("#cursos").children().length > 1) {
             $("#cursos").children()[1].selected = true;
@@ -50,70 +51,62 @@
             });
         }
 
-        const center = (data, row, col) => {
-            if (row) {
-                return {class: 'gridjs-td text-center'};
-            } else {
-                return {};
-            }
-        };
 
-        if (document.getElementById('tablaGrupos') != null) {
-            table = new gridjs.Grid({
-                columns: [
-                    {
-                        name: 'Id',
-                        hidden: true
-                    },
-                    {
-                        name: 'num_grupos_teoricos_previstos',
-                        hidden: true
-                    },
-                    {
-                        name: 'num_grupos_practicos_previstos',
-                        hidden: true
-                    },
-                    {
-                        id: 'asignatura',
-                        name: gridjs.html('<span title="Asignatura">Asignatura</span>'),
-                    },
-                    {
-                        id: 'modalidad',
-                        name: gridjs.html('<span title="Modalidad">Modalidad</span>'),
-                    },
-                    {
-                        id: 'num_alumnos_previstos',
-                        name: gridjs.html('<span title="Número de alumnos previstos">Nº Alumnos Previstos</span>'),
-                        attributes: center
-                    },
-                    {
-                        id: 'num_grupos_teoricos',
-                        name: gridjs.html('<span title="Número de grupos teóricos">Nº Grupos Teóricos</span>'),
-                        attributes: center
-                    },
-                    {
-                        id: 'num_grupos_practicos',
-                        name: gridjs.html('<span title="Número de grupos prácticos">Nº Grupos Prácticos</span>'),
-                        attributes: center
-                    },
-                    {
-                        name: 'Acciones',
-                        sort: false,
-                        attributes: center,
-                        formatter: (_, row) => gridjs.html(`<a class="icono" href="/cursos/gestion/${row.cells[0].data}" title="Gestionar grupos"><i class="bi bi-people-fill"></i></a>
+
+        let columns = [
+            {
+                name: 'Id',
+                hidden: true
+            },
+            {
+                name: 'num_grupos_teoricos_previstos',
+                hidden: true
+            },
+            {
+                name: 'num_grupos_practicos_previstos',
+                hidden: true
+            },
+            {
+                id: 'asignatura',
+                name: gridjs.html('<span title="Asignatura">Asignatura</span>'),
+            },
+            {
+                id: 'modalidad',
+                name: gridjs.html('<span title="Modalidad">Modalidad</span>'),
+            },
+            {
+                id: 'num_alumnos_previstos',
+                name: gridjs.html('<span title="Número de alumnos previstos">Nº Alumnos Previstos</span>'),
+                attributes: center
+            },
+            {
+                id: 'num_grupos_teoricos',
+                name: gridjs.html('<span title="Número de grupos teóricos">Nº Grupos Teóricos</span>'),
+                attributes: center
+            },
+            {
+                id: 'num_grupos_practicos',
+                name: gridjs.html('<span title="Número de grupos prácticos">Nº Grupos Prácticos</span>'),
+                attributes: center
+            },
+        ];
+
+        if (hasModificationPermission) {
+            columns.push({
+                name: 'Acciones',
+                sort: false,
+                attributes: center,
+                formatter: (_, row) => gridjs.html(`<a class="icono" href="/cursos/gestion/${row.cells[0].data}" title="Gestionar grupos"><i class="bi bi-people-fill"></i></a>
                                                             <a class="icono" href="#" title="Modificar datos alumnos" data-bs-toggle="modal" data-bs-target="#ca-modal" data-ca="${row.cells[0].data}" data-na="${row.cells[5].data}" data-gt="${row.cells[1].data}" data-gp="${row.cells[2].data}" onclick="editForm(this)"><i class="bi bi-pencil-square"></i></a>
                                                             <a class="icono" href="/cursos/delete-ca/${row.cells[0].data}" title="Eliminar" onclick="return confirm('¿Está seguro de eliminar la asignatura del curso?')"><i class="bi bi-trash3-fill"></i></a>`),
-                    },
-                ],
-                language: gridjs.l10n.esES,
-                sort: true,
-                search: true,
-                pagination: {
-                    limit: 10
-                },
-                resizable: true,
-                data: [],
-            }).render(document.getElementById("tablaGrupos"));
+            });
+        }else{
+            columns.push({
+                name: 'Acciones',
+                sort: false,
+                attributes: center,
+                formatter: (_, row) => gridjs.html(`<a class="icono" href="/cursos/gestion/${row.cells[0].data}" title="Gestionar grupos"><i class="bi bi-people-fill"></i></a>`),
+            });
         }
 
         // Recojo los datos al pulsar el botón y los muestro en la ventana modal
@@ -129,6 +122,18 @@
         }
 
         $(document).ready(function () {
+            table = new gridjs.Grid({
+                columns: columns,
+                language: gridjs.l10n.esES,
+                sort: true,
+                search: true,
+                pagination: {
+                    limit: 10
+                },
+                resizable: true,
+                data: [],
+            }).render(document.getElementById("tablaGrupos"));
+
             $("#cursos").change(function () {
                 let id = $(this).val();
                 $.ajax({

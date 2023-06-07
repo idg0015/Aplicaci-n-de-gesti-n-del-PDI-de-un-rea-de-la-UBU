@@ -8,16 +8,85 @@
             {% for category, message in messages %}
                 <div class="{{ category }}" role="alert">
                     {{ message }}
-                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             {% endfor %}
         {% endif %}
     {% endwith %}
 
     <h1 class="text-center">Plazas</h1>
-    <a href="{{ url_for('plaza_bp.add_route') }}" class="btn btn-primary btn-nuevo-plaza">Nuevo</a>
+    {% if has_modification_permission %}
+        <a href="{{ url_for('plaza_bp.add_route') }}" class="btn btn-primary btn-nuevo-plaza">Nuevo</a>
+    {% endif %}
     <div id="tablaPlazas" class="text-center"></div>
     <script>
         let plazas = JSON.parse('{{ plazas | default([])| tojson }}');
+        const hasModificationPermission = {{ has_modification_permission | lower }};
+
+        let columns = [
+            {
+                name: 'Id',
+                hidden: true
+            },
+            {
+                id: 'nombre',
+                name: gridjs.html('<span title="Nombre">Nombre</span>'),
+            },
+            {
+                id: "rpt",
+                name: gridjs.html('<span title="Relación Puestos de Trabajo (RPT)">RPT</span>'),
+                attributes: center
+            },
+            {
+                id: 'fecha_incorporacion',
+                name: gridjs.html('<span title="Fecha incorporación">Fecha<br> incorporación</span>'),
+                attributes: center
+            },
+            {
+                id: 'fecha_cese',
+                name: gridjs.html('<span title="Fecha cese">Fecha cese</span>'),
+                attributes: center
+            },
+            {
+                id: 'num_concursos_contratacion',
+                name: gridjs.html('<span title="Número concursos contratación">Nº C.C</span>'),
+                attributes: center
+            },
+            {
+                id: 'docente',
+                name: gridjs.html('<span title="Docente">Docente</span>'),
+            },
+            {
+                id: 'tipo_contrato',
+                name: gridjs.html('<span title="Tipo contrato">Tipo contrato</span>'),
+            },
+        ];
+
+        if (hasModificationPermission) {
+            columns.push({
+                name: 'Acciones',
+                sort: false,
+                attributes: center,
+                formatter: (_, row) => gridjs.html(`<a class="icono" href="/plazas/${row.cells[0].data}"><i class="bi bi-pencil-square"></i></a> <a href="/plazas/eliminar/${row.cells[0].data}" class="icono" onclick="return confirm('¿Está seguro de eliminar la plaza? Se eliminarán sus relaciones con grupos.')"><i class="bi bi-trash3-fill"></i></a>`)
+            });
+        }
+
+        $(document).ready(function () {
+            new gridjs.Grid({
+                columns: columns,
+                language: gridjs.l10n.esES,
+                sort: true,
+                search: true,
+                width: "80%",
+                resizable: true,
+                pagination: {
+                    limit: 10
+                },
+                className: {
+                    th: "text-center"
+                },
+                data: plazas
+            }).render(document.getElementById("tablaPlazas"));
+        });
     </script>
 {% endblock %}

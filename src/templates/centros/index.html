@@ -8,17 +8,82 @@
             {% for category, message in messages %}
                 <div class="{{ category }}" role="alert">
                     {{ message }}
-                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             {% endfor %}
         {% endif %}
     {% endwith %}
 
     <h1 class="text-center">Centros</h1>
-    <a href="{{ url_for('centro_bp.add_route') }}" class="btn btn-primary btn-nuevo">Nuevo</a>
+    {% if has_modification_permission %}
+        <a href="{{ url_for('centro_bp.add_route') }}" class="btn btn-primary btn-nuevo">Nuevo</a>
+    {% endif %}
     <div id="tablaCentros" class="text-center"></div>
     <script>
         let centros = JSON.parse('{{ centros | default([])| tojson }}');
+        const hasModificationPermission = {{ has_modification_permission | lower }};
+
+        let columns = [
+            {
+                name: 'Id',
+                hidden: true
+            },
+            {
+                id: 'codigo',
+                name: gridjs.html('<span title="Código">Código</span>'),
+                attributes: center
+            },
+            {
+                id: 'nombre',
+                name: gridjs.html('<span title="Nombre">Nombre</span>'),
+            },
+            {
+                id: "abreviatura",
+                name: gridjs.html('<span title="Abreviatura">Abreviatura</span>'),
+                attributes: center
+            },
+            {
+                id: 'email',
+                name: gridjs.html('<span title="Email administrativo">Email administrativo</span>'),
+            },
+
+        ];
+
+        if (hasModificationPermission) {
+            columns.push({
+                name: 'Acciones',
+                attributes: center,
+                sort: false,
+                formatter: (_, row) => gridjs.html(`<a class="icono" href="/centros/centro/${row.cells[0].data}"><i class="bi bi-eye-fill"></i></a>
+<a class="icono" href="/centros/${row.cells[0].data}"><i class="bi bi-pencil-square"></i></a>
+<a href="/centros/eliminar/${row.cells[0].data}" class="icono" onclick="return confirm('¿Está seguro de eliminar el centro? No se podrá eliminar si tiene alguna titulación vinculada')"><i class="bi bi-trash3-fill"></i></a>`)
+            });
+        } else {
+            columns.push({
+                name: 'Acciones',
+                attributes: center,
+                sort: false,
+                formatter: (_, row) => gridjs.html(`<a class="icono" href="/centros/centro/${row.cells[0].data}"><i class="bi bi-eye-fill"></i></a>`)
+            });
+        }
+
+        $(document).ready(function () {
+            new gridjs.Grid({
+                columns: columns,
+                className: {
+                    th: "text-center"
+                },
+                language: gridjs.l10n.esES,
+                sort: true,
+                search: true,
+                resizable: true,
+                pagination: {
+                    limit: 10
+                },
+                width: "70%",
+                data: centros
+            }).render(document.getElementById("tablaCentros"));
+        });
     </script>
 
 {% endblock %}

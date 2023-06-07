@@ -1,7 +1,8 @@
-from flask import render_template, redirect, url_for, abort, flash
+from flask import render_template, redirect, url_for, abort, flash, session
 
 from forms import FormCentro
 from models.Centro import Centro
+from models.Docente import Docente
 
 
 def index():
@@ -10,7 +11,9 @@ def index():
         ('', 'Centros'),
     ]
     centros = Centro.get_all_json()
-    return render_template('centros/index.html', centros=centros, breadcrumbs=breadcrumbs)
+    has_modification_permission = Docente.get_docente(session['user_id']).modification_flag
+    return render_template('centros/index.html', centros=centros, breadcrumbs=breadcrumbs,
+                           has_modification_permission=has_modification_permission)
 
 
 def add():
@@ -37,7 +40,7 @@ def update(id_centro):
     breadcrumbs = [
         ('/', 'Inicio'),
         (url_for('centro_bp.index_route'), 'Centros'),
-        ('', 'Modificar centro '+str(id_centro))
+        ('', 'Modificar centro ' + str(id_centro))
     ]
     centro = Centro.get_centro(id_centro)
     if centro is None:
@@ -78,4 +81,6 @@ def view(id_centro):
     titulaciones = centro.get_titulaciones()
     if centro is None:
         abort(404)
-    return render_template('centros/view.html', centro=centro, titulaciones=titulaciones, breadcrumbs=breadcrumbs)
+    has_modification_permission = Docente.get_docente(session['user_id']).modification_flag
+    return render_template('centros/view.html', centro=centro, titulaciones=titulaciones, breadcrumbs=breadcrumbs,
+                           has_modification_permission=has_modification_permission)

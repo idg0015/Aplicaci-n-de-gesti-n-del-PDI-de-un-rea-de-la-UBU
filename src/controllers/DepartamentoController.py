@@ -1,7 +1,8 @@
-from flask import render_template, redirect, url_for, abort, flash, request, jsonify
+from flask import render_template, redirect, url_for, abort, flash, request, jsonify, session
 
 from forms import FormDepartamento
 from models.Departamento import Departamento
+from models.Docente import Docente
 
 
 def index():
@@ -10,7 +11,10 @@ def index():
         (url_for('departamento_bp.index_route'), 'Departamentos'),
     ]
     departamentos = Departamento.get_all_json()
-    return render_template('departamentos/index.html', departamentos=departamentos, breadcrumbs=breadcrumbs)
+    has_modification_permission = Docente.get_docente(session['user_id']).modification_flag
+    return render_template('departamentos/index.html', departamentos=departamentos, breadcrumbs=breadcrumbs,
+                           has_modification_permission=has_modification_permission)
+
 
 def add():
     breadcrumbs = [
@@ -60,8 +64,7 @@ def delete(id_departamento):
     flash('Departamento eliminado correctamente', 'alert alert-success alert-dismissible fade show')
     return redirect(url_for('departamento_bp.index_route'))
 
+
 def get_departamentos_ajax():
     texto = request.args.get('texto')
     return Departamento.get_ajax(texto)
-
-

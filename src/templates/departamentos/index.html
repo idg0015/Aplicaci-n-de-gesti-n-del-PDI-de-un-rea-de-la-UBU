@@ -3,21 +3,68 @@
 {% block title %}Departamentos{% endblock %}
 
 {% block content %}
-        {% with messages = get_flashed_messages(with_categories=true) %}
+    {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}
             {% for category, message in messages %}
                 <div class="{{ category }}" role="alert">
                     {{ message }}
-                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             {% endfor %}
         {% endif %}
     {% endwith %}
 
     <h1 class="text-center">Departamentos</h1>
-    <a href="{{ url_for('departamento_bp.add_route') }}" class="btn btn-primary btn-nuevo">Nuevo</a>
+    {% if has_modification_permission %}
+        <a href="{{ url_for('departamento_bp.add_route') }}" class="btn btn-primary btn-nuevo">Nuevo</a>
+    {% endif %}
     <div id="tablaDepartamentos" class="text-center"></div>
     <script>
         let departamentos = JSON.parse('{{ departamentos | default([])| tojson }}');
+        const hasModificationPermission = {{ has_modification_permission | lower }};
+
+
+
+        columns = [
+            {
+                name: 'Id',
+                hidden: true
+            },
+            {
+                id: 'nombre',
+                name: gridjs.html('<span title="Nombre">Nombre</span>'),
+            },
+            {
+                id: 'abreviatura',
+                name: gridjs.html('<span title="Abreviatura">Abreviatura</span>'),
+                attributes: center
+            },
+        ];
+
+        if (hasModificationPermission) {
+            columns.push({
+                name: 'Acciones',
+                sort: false,
+                attributes: center,
+                formatter: (_, row) => gridjs.html(`<a class="icono" href="/departamentos/${row.cells[0].data}"><i class="bi bi-pencil-square"></i></a> <a href="/departamentos/eliminar/${row.cells[0].data}" class="icono" onclick="return confirm('¿Está seguro de eliminar el departamento? Se eliminarán sus áreas y todo lo relacionado con ellas.')"><i class="bi bi-trash3-fill"></i></a>`)
+            });
+        }
+
+        $(document).ready(function () {
+            new gridjs.Grid({
+                columns: columns,
+                language: gridjs.l10n.esES,
+                sort: true,
+                search: true,
+                width: "70%",
+                pagination: {
+                    limit: 10
+                },
+                className: {
+                    th: "text-center"
+                },
+                data: departamentos
+            }).render(document.getElementById("tablaDepartamentos"));
+        });
     </script>
 {% endblock %}

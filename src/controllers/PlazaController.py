@@ -1,4 +1,4 @@
-from flask import render_template, redirect, url_for, flash, abort, request
+from flask import render_template, redirect, url_for, flash, abort, request, session
 
 from forms import FormPlaza
 from models.Docente import Docente
@@ -11,7 +11,9 @@ def index():
         (url_for('plaza_bp.index_route'), 'Plazas'),
     ]
     plazas = Plaza.get_all_json()
-    return render_template('plazas/index.html', plazas=plazas, breadcrumbs=breadcrumbs)
+    has_modification_permission = Docente.get_docente(session['user_id']).modification_flag
+    return render_template('plazas/index.html', plazas=plazas, breadcrumbs=breadcrumbs,
+                           has_modification_permission=has_modification_permission)
 
 
 def add():
@@ -46,7 +48,9 @@ def add():
             flash('La plaza se ha creado correctamente', 'alert alert-success alert-dismissible fade show')
         else:
             id_docente = None
-            flash('La plaza ha sido creada, pero no se ha asignado al docente seleccionado porque tiene una plaza sin fecha de cese', 'alert alert-warning alert-dismissible fade show')
+            flash(
+                'La plaza ha sido creada, pero no se ha asignado al docente seleccionado porque tiene una plaza sin fecha de cese',
+                'alert alert-warning alert-dismissible fade show')
 
         plaza = Plaza(nombre=nombre, rpt=rpt, num_concursos_contratacion=num_concursos_contratacion,
                       fecha_incorporacion=fecha_incorporacion, fecha_cese=fecha_cese, id_docente=id_docente,
@@ -60,7 +64,7 @@ def update(id_plaza):
     breadcrumbs = [
         ('/', 'Inicio'),
         (url_for('plaza_bp.index_route'), 'Plazas'),
-        ('', 'Modificar plaza '+str(id_plaza)),
+        ('', 'Modificar plaza ' + str(id_plaza)),
     ]
     plaza = Plaza.get_plaza(id_plaza)
     if plaza is None:

@@ -1,7 +1,8 @@
-from flask import render_template, redirect, url_for, abort, flash
+from flask import render_template, redirect, url_for, abort, flash, session
 
 from forms import FormContrato
 from models.Contrato import TipoContrato
+from models.Docente import Docente
 
 
 def index():
@@ -10,7 +11,9 @@ def index():
         (url_for('contrato_bp.index_route'), 'Tipos de contrato'),
     ]
     contratos = TipoContrato.get_all_json()
-    return render_template('contratos/index.html', tipos_contrato=contratos, breadcrumbs=breadcrumbs)
+    has_modification_permission = Docente.get_docente(session['user_id']).modification_flag
+    return render_template('contratos/index.html', tipos_contrato=contratos, breadcrumbs=breadcrumbs,
+                           has_modification_permission=has_modification_permission)
 
 
 def add():
@@ -35,7 +38,7 @@ def update(id_contrato):
     breadcrumbs = [
         ('/', 'Inicio'),
         (url_for('contrato_bp.index_route'), 'Tipos de contrato'),
-        ('', 'Modificar tipo de contrato '+str(id_contrato)),
+        ('', 'Modificar tipo de contrato ' + str(id_contrato)),
     ]
     contrato = TipoContrato.get_contrato(id_contrato)
     if contrato is None:

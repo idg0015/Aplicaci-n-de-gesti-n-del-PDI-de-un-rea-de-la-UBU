@@ -2,7 +2,7 @@ from flask import Blueprint
 
 from controllers.CursoController import *
 from controllers.CursoAsignaturaController import gestion, delete_ca, edit_ca
-from decorators import token_required
+from decorators import *
 
 curso_bp = Blueprint('curso_bp', __name__)
 
@@ -10,6 +10,7 @@ curso_bp = Blueprint('curso_bp', __name__)
 # Index
 @curso_bp.route('/', methods=['GET'])
 @token_required
+@require_read_permission
 def index_route():
     return index()
 
@@ -17,6 +18,7 @@ def index_route():
 # Creación
 @curso_bp.route('/nuevo', methods=['GET', 'POST'])
 @token_required
+@require_modification_permission
 def add_route():
     return add()
 
@@ -24,6 +26,7 @@ def add_route():
 # Render sortable
 @curso_bp.route('/sortable', methods=['POST'])
 @token_required
+@require_modification_permission
 def render_sortable_route():
     return render_sortable()
 
@@ -31,6 +34,7 @@ def render_sortable_route():
 # Render sortable edit
 @curso_bp.route('/sortable-edit', methods=['POST'])
 @token_required
+@require_modification_permission
 def render_sortable_edit_route():
     return render_sortable_edit()
 
@@ -38,6 +42,7 @@ def render_sortable_edit_route():
 # Eliminar
 @curso_bp.route('/eliminar/<int:id_curso>', methods=['GET'])
 @token_required
+@require_modification_permission
 def delete_route(id_curso):
     return delete(id_curso)
 
@@ -45,6 +50,7 @@ def delete_route(id_curso):
 # Duplicar
 @curso_bp.route('/duplicar', methods=['POST'])
 @token_required
+@require_modification_permission
 def duplicate_route():
     return duplicate()
 
@@ -52,6 +58,7 @@ def duplicate_route():
 # Actualizar año
 @curso_bp.route('/actualizar-a', methods=['GET', 'POST'])
 @token_required
+@require_modification_permission
 def update_year_route():
     return update_year()
 
@@ -59,6 +66,7 @@ def update_year_route():
 # Edición
 @curso_bp.route('/<int:id_curso>', methods=['GET', 'POST'])
 @token_required
+@require_modification_permission
 def update_route(id_curso):
     return update(id_curso)
 
@@ -66,6 +74,7 @@ def update_route(id_curso):
 # Gestión de asignaturas
 @curso_bp.route('/gestion/<int:id_curso_asignatura>', methods=['GET'])
 @token_required
+@require_read_permission
 def gestion_route(id_curso_asignatura):
     return gestion(id_curso_asignatura)
 
@@ -73,6 +82,7 @@ def gestion_route(id_curso_asignatura):
 # Eliminar curso asignatura
 @curso_bp.route('/delete-ca/<int:id_curso_asignatura>', methods=['GET'])
 @token_required
+@require_modification_permission
 def delete_ca_route(id_curso_asignatura):
     return delete_ca(id_curso_asignatura)
 
@@ -80,5 +90,6 @@ def delete_ca_route(id_curso_asignatura):
 # Editar curso asignatura
 @curso_bp.route('/edit-ca/<int:id_curso_asignatura>', methods=['POST'])
 @token_required
+@require_modification_permission
 def edit_ca_route(id_curso_asignatura):
     return edit_ca(id_curso_asignatura)
