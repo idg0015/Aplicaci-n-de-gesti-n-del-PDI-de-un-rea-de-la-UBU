@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae6b2c56-8d66-4217-a826-17f3975d95c3" name="Changes" comment="Mejora de login y la gestión de permisos. Añadido el uso de sesiones en BD encriptadas" />
+    <list default="true" id="ae6b2c56-8d66-4217-a826-17f3975d95c3" name="Changes" comment="Pequeño arreglo para Heroku" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -179,7 +179,7 @@
       <workItem from="1685868877729" duration="5314000" />
       <workItem from="1685977128719" duration="14677000" />
       <workItem from="1686043254801" duration="13253000" />
-      <workItem from="1686135743471" duration="16950000" />
+      <workItem from="1686135743471" duration="17492000" />
     </task>
     <task id="LOCAL-00001" summary="Pruebas en la creación de curso utilizando la biblioteca Sortable">
       <created>1683754273306</created>
@@ -433,7 +433,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686165195617</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="Pequeño arreglo para Heroku">
+      <created>1686165748964</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1686165748964</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -451,7 +458,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Pequeños cambios en la ventana de gestión de grupos" />
     <MESSAGE value="Añadida modificación de los datos de la relación de curso académico y asignatura" />
     <MESSAGE value="Solucionado pequeño bug con las urls de las titulaciones" />
     <MESSAGE value="Pequeños cambios en las tablas y algún estilo css" />
@@ -476,7 +482,8 @@
     <MESSAGE value="Añadida página de error 404" />
     <MESSAGE value="Cambios en el login y permisos [WIP]" />
     <MESSAGE value="Mejora de login y la gestión de permisos. Añadido el uso de sesiones en BD encriptadas" />
-    <option name="LAST_COMMIT_MESSAGE" value="Mejora de login y la gestión de permisos. Añadido el uso de sesiones en BD encriptadas" />
+    <MESSAGE value="Pequeño arreglo para Heroku" />
+    <option name="LAST_COMMIT_MESSAGE" value="Pequeño arreglo para Heroku" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/src$src.coverage" NAME="src Coverage Results" MODIFIED="1686164498036" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
