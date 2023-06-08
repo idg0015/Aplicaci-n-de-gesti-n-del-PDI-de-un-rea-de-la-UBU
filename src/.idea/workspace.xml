@@ -4,14 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae6b2c56-8d66-4217-a826-17f3975d95c3" name="Changes" comment="Pequeño arreglo para Heroku">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/153503c3-ae84-40dd-a933-8758f0c5d6fb.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/153503c3-ae84-40dd-a933-8758f0c5d6fb.xml" afterDir="false" />
+    <list default="true" id="ae6b2c56-8d66-4217-a826-17f3975d95c3" name="Changes" comment="Cambios en la tabla de horas">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/HorasController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/HorasController.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Grupo.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/Grupo.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/docentes/modal-form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/docentes/modal-form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/horas/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/horas/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/DocenteController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/DocenteController.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/SiteController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/SiteController.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/site_bp.py" beforeDir="false" afterPath="$PROJECT_DIR$/routes/site_bp.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base/navbar.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -188,7 +188,7 @@
       <workItem from="1685977128719" duration="14677000" />
       <workItem from="1686043254801" duration="13253000" />
       <workItem from="1686135743471" duration="21242000" />
-      <workItem from="1686229794488" duration="7844000" />
+      <workItem from="1686229794488" duration="14348000" />
     </task>
     <task id="LOCAL-00001" summary="Pruebas en la creación de curso utilizando la biblioteca Sortable">
       <created>1683754273306</created>
@@ -456,7 +456,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686166226178</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="Cambios en la tabla de horas">
+      <created>1686245335903</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1686245335904</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -474,7 +481,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Añadida modificación de los datos de la relación de curso académico y asignatura" />
     <MESSAGE value="Solucionado pequeño bug con las urls de las titulaciones" />
     <MESSAGE value="Pequeños cambios en las tablas y algún estilo css" />
     <MESSAGE value="Pequeño cambio de css" />
@@ -499,9 +505,10 @@
     <MESSAGE value="Cambios en el login y permisos [WIP]" />
     <MESSAGE value="Mejora de login y la gestión de permisos. Añadido el uso de sesiones en BD encriptadas" />
     <MESSAGE value="Pequeño arreglo para Heroku" />
-    <option name="LAST_COMMIT_MESSAGE" value="Pequeño arreglo para Heroku" />
+    <MESSAGE value="Cambios en la tabla de horas" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cambios en la tabla de horas" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/src$src.coverage" NAME="src Coverage Results" MODIFIED="1686234226093" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/src$src.coverage" NAME="src Coverage Results" MODIFIED="1686254164595" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

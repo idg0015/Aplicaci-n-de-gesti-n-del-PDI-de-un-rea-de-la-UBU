@@ -1,13 +1,14 @@
 from flask import Blueprint
 
 from controllers.SiteController import *
-from decorators import token_required
+from decorators import *
 
 site_bp = Blueprint('site_bp', __name__)
 
 
 @site_bp.route('/')
 @token_required
+@require_read_permission
 def index_route():
     return index()
 

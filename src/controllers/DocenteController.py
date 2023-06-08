@@ -31,10 +31,8 @@ def add():
         apellidos = formulario.apellidos.data
         email = formulario.email.data
         reducciones = formulario.reducciones.data
-        modification = formulario.modification.data
-        read = formulario.read.data
-        if modification:
-            read = True
+        modification = formulario.modification_flag.data
+        read = formulario.read_flag.data
         docente = Docente(nombre=nombre, apellidos=apellidos, email=email, reducciones=reducciones,
                           modification_flag=modification, read_flag=read)
         docente.save()
@@ -53,8 +51,6 @@ def add_modal():
         reducciones = formulario.reducciones.data
         modification = formulario.modification_flag.data
         read = formulario.read_flag.data
-        if modification:
-            read = True
         docente = Docente(nombre=nombre, apellidos=apellidos, email=email, reducciones=reducciones,
                           modification_flag=modification, read_flag=read)
         docente.save()

@@ -1,6 +1,5 @@
 import requests
-from flask import request, session, redirect, url_for, flash, render_template
-
+from flask import session, redirect, url_for, flash, render_template
 from forms import FormLogin
 from models.Centro import Centro
 from models.Docente import Docente
@@ -51,3 +50,6 @@ def login():
 def logout():
     session.pop('token', None)
     return redirect(url_for('site_bp.login_route'))
+
+
+

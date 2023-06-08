@@ -78,6 +78,19 @@
                         </li>
                     </ul>
                 </li>
+                {% if is_admin %}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            Base de datos
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown3">
+                            <li>
+                                <a class="dropdown-item" href="{{ url_for('export_db') }}">Exportar</a>
+                            </li>
+                        </ul>
+                    </li>
+                {% endif %}
             </ul>
             <div class="ms-auto">
                 <a class="nav-link" href="{{ url_for('site_bp.logout_route') }}">Salir</a>
