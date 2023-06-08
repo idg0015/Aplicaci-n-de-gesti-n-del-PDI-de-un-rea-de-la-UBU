@@ -1,8 +1,9 @@
+import io
 import subprocess
 from urllib.parse import urlparse
 
 import pymysql
-from flask import Flask, render_template, send_file, session
+from flask import Flask, render_template, send_file, session, make_response
 from flask_session import Session
 
 from decorators import token_required, require_modification_permission
@@ -93,8 +94,8 @@ def export_db():
         database=database
     )
 
-    export_file = 'database_export.sql'
-    with open(export_file, 'w') as file:
+    export_file = io.BytesIO()  # BytesIO para almacenar el archivo en memoria
+    with export_file:
         cursor = connection.cursor()
 
         # Obtener la lista de tablas
@@ -107,21 +108,26 @@ def export_db():
             # Obtener la estructura de la tabla
             cursor.execute(f"SHOW CREATE TABLE {table_name}")
             create_table = cursor.fetchone()[1]
-            file.write(f"{create_table};\n\n")
+            export_file.write(f"{create_table};\n\n".encode())
 
             # Obtener los datos de la tabla
             cursor.execute(f"SELECT * FROM {table_name}")
             rows = cursor.fetchall()
 
-            file.write(f"INSERT INTO {table_name} VALUES\n")
+            export_file.write(f"INSERT INTO {table_name} VALUES\n".encode())
             for row in rows:
                 values = [str(value) for value in row]
-                file.write(f"({', '.join(values)}),\n")
-            file.write(";\n\n")
+                export_file.write(f"({', '.join(values)}),\n".encode())
+            export_file.write(";\n\n".encode())
 
-    connection.close()
-    print(f"Database exported to {export_file}")
-    return send_file(export_file, as_attachment=True)
+        export_file.seek(0)
+
+        # Crear la respuesta y establecer el encabezado Content-Disposition
+        response = make_response(export_file.getvalue())
+        response.headers.set('Content-Disposition', 'attachment', filename='database_export.sql')
+        response.headers.set('Content-Type', 'application/octet-stream')
+
+        return response
 
 
 if __name__ == '__main__':
