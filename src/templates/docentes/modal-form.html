@@ -66,6 +66,21 @@
                 <span class="msg-error">{{ error }}</span>
             {% endfor %}
         </div>
+        <div class="form-check">
+            {{ form.read_flag.label(class_="form-check-label") }}
+            {{ form.read_flag(class_="form-check-input") }}
+        </div>
+        {% for error in form.read_flag.errors %}
+            <span class="msg-error">{{ error }}</span>
+        {% endfor %}
+
+        <div class="form-check">
+            {{ form.modification_flag.label(class_="form-check-label") }}
+            {{ form.modification_flag(class_="form-check-input") }}
+        </div>
+        {% for error in form.modification_flag.errors %}
+            <span class="msg-error">{{ error }}</span>
+        {% endfor %}
         <div class="text-center mt-4">
             {{ form.submit(class_="btn btn-primary") }}
         </div>

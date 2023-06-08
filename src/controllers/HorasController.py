@@ -111,13 +111,16 @@ def assign_hours_ajax():
     except ValueError:
         return jsonify({'error': 'El ID del grupo vacante debe ser un número entero positivo.'}), 400
 
-    vacat_group = PlazaGrupo.get_with_id(vacant_group_id)
-    if vacat_group is None:
+    vacant_group = PlazaGrupo.get_with_id(vacant_group_id)
+    if vacant_group is None:
         return jsonify({'error': 'No existe la asociación de plaza-grupo con el ID recibido.'}), 400
-    vacat_group.horas = hours
+    vacant_group.horas = hours
     db.session.commit()
 
-    # info = Grupo.get_all_json_hours(vacat_group.grupo.curso_asignatura.curso.id)
+    # info = Grupo.get_all_json_hours(vacant_group.grupo.curso_asignatura.curso.id)
     result = 'Horas asignadas correctamente'
+    relation = str(vacant_group.plaza.hours_in_course(vacant_group.grupo.curso_asignatura.curso.id)) + '/' + str(
+        vacant_group.plaza.tipo_contrato.capacidad_anual - vacant_group.plaza.docente.reducciones)
+    teacher_id = vacant_group.plaza.docente.id
     # return jsonify({'message': result, 'info': info})
-    return jsonify({'message': result})
+    return jsonify({'message': result, 'relation': relation, 'teacher_id': teacher_id})

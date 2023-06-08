@@ -50,6 +50,7 @@ class Grupo(db.Model):
                     'hours': '-',
                     'total_hours': '-',
                     'vacant_group_id': '-',
+                    'teacher_id': '-',
                 }
             else:
                 total_h_course = vacant_group.plaza.hours_in_course(vacant_group.grupo.curso_asignatura.curso.id)
@@ -57,19 +58,19 @@ class Grupo(db.Model):
                     total_data[i] = {
                         'teacher': vacant_group.plaza.docente.nombre + " " + vacant_group.plaza.docente.apellidos,
                         'hours': vacant_group.horas,
-                        'total_hours': str(
-                            round((total_h_course * 100) / vacant_group.plaza.tipo_contrato.capacidad_anual,
-                                  2)) + ' %',
+                        'total_hours': str(total_h_course) + '/' + str(
+                            vacant_group.plaza.tipo_contrato.capacidad_anual - vacant_group.plaza.docente.reducciones),
                         'vacant_group_id': vacant_group.id,
+                        'teacher_id': vacant_group.plaza.docente.id,
                     }
                 else:
                     total_data[i] = {
                         'teacher': vacant_group.plaza.nombre,
                         'hours': vacant_group.horas,
-                        'total_hours': str(
-                            round((total_h_course * 100) / vacant_group.plaza.tipo_contrato.capacidad_anual,
-                                  2)) + ' %',
+                        'total_hours': str(total_h_course) + '/' + str(
+                            vacant_group.plaza.tipo_contrato.capacidad_anual - vacant_group.plaza.docente.reducciones),
                         'vacant_group_id': vacant_group.id,
+                        'teacher_id': '-',
                     }
         return total_data
 
@@ -79,6 +80,7 @@ class Grupo(db.Model):
         teachers = []
         total_hours = []
         vacant_group_ids = []
+        teachers_ids = []
         for i in range(3):
             if i < len(vacancies):
                 if i == 2 and len(vacancies) > 3:
@@ -87,19 +89,24 @@ class Grupo(db.Model):
                         if j >= 2:
                             total_h += vacancies[j]['hours']
                     hours.append(total_h)
-                    teachers.append('...')
+                    # Cuidado si se cambia el contenido, se usa en el index.html de grupos para comparación:
+                    teachers.append('. . .')
                     total_hours.append('-')
-                    vacant_group_ids.append('...')
+                    # Cuidado si se cambia el contenido, se usa en el index.html de grupos para comparación:
+                    vacant_group_ids.append('. . .')
+                    teachers_ids.append('-')
                 else:
                     hours.append(vacancies[i]['hours'])
                     teachers.append(vacancies[i]['teacher'])
                     total_hours.append(vacancies[i]['total_hours'])
                     vacant_group_ids.append(vacancies[i]['vacant_group_id'])
+                    teachers_ids.append(vacancies[i]['teacher_id'])
             else:
                 hours.append('-')
                 teachers.append('-')
                 total_hours.append('-')
                 vacant_group_ids.append('-')
+                teachers_ids.append('-')
 
         return {
             'group_id': self.id,
@@ -119,6 +126,9 @@ class Grupo(db.Model):
             'vacant_group_id_3': vacant_group_ids[2],
             'total_hours_3': total_hours[2],
             'teacher_3': teachers[2],
+            'teacher_id_1': teachers_ids[0],
+            'teacher_id_2': teachers_ids[1],
+            'teacher_id_3': teachers_ids[2],
         }
 
     @staticmethod

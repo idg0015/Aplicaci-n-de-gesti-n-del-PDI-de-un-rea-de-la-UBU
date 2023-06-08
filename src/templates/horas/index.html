@@ -33,32 +33,44 @@
         let table = null;
         let hasModificationPermission = {{ has_modification_permission | lower }};
 
-
-
-        const editableCell1 = (data, row, col) => {
+        const editableCell = (data, row, col) => {
             if (row && data !== '-' && hasModificationPermission) {
-                return {contentEditable: 'true', 'data-vacant-group-id': row.cells[6].data};
-            } else {
-                return {};
-            }
-        };
-
-        const editableCell2 = (data, row, col) => {
-            if (row && data !== '-' && hasModificationPermission) {
-                return {contentEditable: 'true', 'data-vacant-group-id': row.cells[10].data};
-            } else {
-                return {};
-            }
-        };
-
-        const editableCell3 = (data, row, col) => {
-            if (row && data !== '-' && hasModificationPermission) {
-                if (row.cells[14].data !== '...') {
+                if(col.id === 'hours_1'){
+                    return {contentEditable: 'true', 'data-vacant-group-id': row.cells[6].data};
+                }else if(col.id === 'hours_2'){
+                    return {contentEditable: 'true', 'data-vacant-group-id': row.cells[10].data};
+                }else if(col.id === 'hours_3'){
                     return {contentEditable: 'true', 'data-vacant-group-id': row.cells[14].data};
-                } else {
-                    return {};
                 }
+            } else {
+                return {};
+            }
+        };
 
+        /*
+        * Si la cela tiene los 3 puntos, se le aplica un estilo para que se vea en negrita
+         */
+        const styleNotVacant = (data, row, col) => {
+            if (row && data === '. . .') {
+                return {style: 'font-size: 1.1rem; font-weight: bold;'};
+            } else {
+                return {};
+            }
+        };
+
+        /*
+        * Añade la clase teacher_# al td de la columna total_hours_# para poder actualizar la fracción cuando
+        * se modifiquen las horas del docente
+         */
+        const teacherId = (data, row, col) => {
+            if (row && data !== '-') {
+                if(col.id === 'total_hours_1'){
+                    return {class: 'gridjs-td teacher_' + row.cells[17].data+' table-success'};
+                }else if(col.id === 'total_hours_2'){
+                    return {class: 'gridjs-td teacher_' + row.cells[18].data};
+                }else if(col.id === 'total_hours_3'){
+                    return {class: 'gridjs-td teacher_' + row.cells[19].data};
+                }
             } else {
                 return {};
             }
@@ -100,11 +112,12 @@
                     {
                         id: 'hours_1',
                         name: gridjs.html('<span title="Horas">Horas</span>'),
-                        'attributes': editableCell1
+                        'attributes': editableCell
                     },
                     {
                         id: 'total_hours_1',
-                        name: gridjs.html('<span title="Porcentaje de horas impartidas"> % horas<br> impartidas</span>'),
+                        name: gridjs.html('<span title="Horas asignadas"> Horas<br> asignadas</span>'),
+                        'attributes': teacherId
                     },
                     {
                         id: 'teacher_2',
@@ -117,15 +130,17 @@
                     {
                         id: 'hours_2',
                         name: gridjs.html('<span title="Horas">Horas</span>'),
-                        'attributes': editableCell2
+                        'attributes': editableCell
                     },
                     {
                         id: 'total_hours_2',
-                        name: gridjs.html('<span title="Porcentaje de horas impartidas"> % horas<br> impartidas</span>'),
+                        name: gridjs.html('<span title="Horas asignadas"> Horas<br> asignadas</span>'),
+                        'attributes': teacherId
                     },
                     {
                         id: 'teacher_3',
                         name: gridjs.html('<span title="Plaza/Vacante">Plaza/<br>Vacante</span>'),
+                        'attributes': styleNotVacant, teacherId
                     },
                     {
                         id: 'vacant_group_id_3',
@@ -134,11 +149,23 @@
                     {
                         id: 'hours_3',
                         name: gridjs.html('<span title="Horas">Horas</span>'),
-                        'attributes': editableCell3
+                        'attributes': editableCell
                     },
                     {
                         id: 'total_hours_3',
-                        name: gridjs.html('<span title="Porcentaje de horas impartidas"> % horas<br> impartidas</span>'),
+                        name: gridjs.html('<span title="Horas asignadas"> Horas<br> asignadas</span>'),
+                    },
+                    {
+                        id: 'teacher_id_1',
+                        hidden: true,
+                    },
+                    {
+                        id: 'teacher_id_2',
+                        hidden: true,
+                    },
+                    {
+                        id: 'teacher_id_3',
+                        hidden: true,
                     },
                     {
                         name: 'Acciones',
@@ -227,6 +254,7 @@
                                         setTimeout(function () {
                                             $("#alert-message").alert('close');
                                         }, 1000);
+                                        $('.teacher_' + data.teacher_id).html(data.relation);
                                     },
                                     error: function (xhr, status, error) {
                                         var errorMessage = xhr.responseJSON && xhr.responseJSON.error ? xhr.responseJSON.error : "Error en la solicitud";
