@@ -9,6 +9,7 @@ from models.Centro import Centro
 from models.Docente import Docente
 from models.Plaza import Plaza
 from models.Titulacion import Titulacion
+from utils.db import db
 
 
 def index():
@@ -130,6 +131,27 @@ def import_db(host, port, username, password, database):
             )
             cursor = connection.cursor()
             cursor.execute('SET FOREIGN_KEY_CHECKS = 0')
+            cursor.execute('SET SQL_SAFE_UPDATES = 0')
+            cursor.execute('SET AUTOCOMMIT = 0')
+
+            # Cerrar la sesión de SQLAlchemy
+            db.session.close()
+
+            # Eliminar la sesión del usuario
+            session.pop('token', None)
+            session.pop('user_id', None)
+
+            # Eliminar el contenido de todas las tablas para evitar problemas con las claves
+            cursor.execute('SHOW TABLES')
+            tables = cursor.fetchall()
+            for table in tables:
+                table_name = table[0]
+                if table_name == 'sessions':
+                    continue
+                cursor.execute(f'TRUNCATE TABLE `{table_name}`')
+
+            cursor.execute('SET SQL_SAFE_UPDATES = 1')
+            cursor.execute('SET AUTOCOMMIT = 1')
 
             # Separar el contenido SQL en declaraciones individuales
             sql_statements = sql_content.split(';')

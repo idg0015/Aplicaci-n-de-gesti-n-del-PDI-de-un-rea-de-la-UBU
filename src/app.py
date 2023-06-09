@@ -1,15 +1,8 @@
-import io
-import re
-import subprocess
 from urllib.parse import urlparse
-
-import pymysql
-from flask import Flask, render_template, send_file, session, make_response, request, redirect
+from flask import Flask, render_template, session
 from flask_session import Session
-
 from controllers import SiteController
 from decorators import token_required, require_modification_permission
-from forms import FormDataBase
 from models.Docente import Docente
 from routes.centro_bp import centro_bp
 from routes.site_bp import site_bp
@@ -72,8 +65,15 @@ def page_not_found(error):
 
 @app.context_processor
 def inject_global_variables():
-    is_admin = Docente.get_docente(session.get('user_id')).modification_flag
-    return dict(is_admin=is_admin)
+    can_modificate = False
+
+    user_id = session.get('user_id')
+    if user_id is not None:
+        docente = Docente.get_docente(user_id)
+        if docente is not None:
+            can_modificate = docente.modification_flag
+
+    return dict(can_modificate=can_modificate)
 
 
 @app.route('/export_db', methods=['GET'])

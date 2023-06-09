@@ -19,7 +19,10 @@ def token_required(f):
 def require_modification_permission(func):
     @wraps(func)
     def decorated_view(*args, **kwargs):
-        if not Docente.get_docente(session['user_id']).modification_flag:
+        if Docente.get_docente(session['user_id']) is not None:
+            if not Docente.get_docente(session['user_id']).modification_flag:
+                abort(403)
+        else:
             abort(403)
         return func(*args, **kwargs)
 
@@ -29,8 +32,11 @@ def require_modification_permission(func):
 def require_read_permission(func):
     @wraps(func)
     def decorated_view(*args, **kwargs):
-        if not Docente.get_docente(session['user_id']).read_flag and not Docente.get_docente(session['user_id']).modification_flag:
-            abort(403)
+        if Docente.get_docente(session['user_id']) is not None:
+            if not Docente.get_docente(session['user_id']).read_flag and not Docente.get_docente(session['user_id']).modification_flag:
+                abort(403)
+        else:
+            return redirect(url_for('site_bp.logout_route'))
         return func(*args, **kwargs)
 
     return decorated_view

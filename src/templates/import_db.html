@@ -14,7 +14,16 @@
         {% endif %}
     {% endwith %}
 
-    <h1 class="text-center">Importar datos para la base de datos</h1>
+    <h1 class="text-center">Importar datos para la base de datos <a id="icn-info-grupos" href="#info-db"
+                                                                    data-bs-toggle="collapse"><i
+            class="bi bi-info-circle-fill icon-lt"></i></a></h1>
+    <div id="info-db" class="info collapse text-center"><i class="bi bi-info-circle-fill"></i>
+        Tenga en cuenta que se hará una <b>elminación</b> del contenido de la base de datos y se importarán los datos del
+        archivo
+        en la base de datos de la aplicación. <br>Por lo tanto, si desea conservar los datos actuales, haga una copia de seguridad de
+        la base de datos antes de importar los datos.
+    </div>
+
     <form method="POST" enctype="multipart/form-data" class="mt-5 form-centro">
         {{ form.csrf_token }}
         <div class="form-group text-center">
