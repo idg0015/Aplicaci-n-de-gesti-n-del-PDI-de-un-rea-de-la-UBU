@@ -80,13 +80,16 @@
                 </li>
                 {% if is_admin %}
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button"
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown4" role="button"
                            data-bs-toggle="dropdown" aria-expanded="false">
                             Base de datos
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown3">
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown4">
                             <li>
                                 <a class="dropdown-item" href="{{ url_for('export_db') }}">Exportar</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{{ url_for('import_db') }}">Importar</a>
                             </li>
                         </ul>
                     </li>

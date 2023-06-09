@@ -1,12 +1,15 @@
 import io
+import re
 import subprocess
 from urllib.parse import urlparse
 
 import pymysql
-from flask import Flask, render_template, send_file, session, make_response
+from flask import Flask, render_template, send_file, session, make_response, request, redirect
 from flask_session import Session
 
+from controllers import SiteController
 from decorators import token_required, require_modification_permission
+from forms import FormDataBase
 from models.Docente import Docente
 from routes.centro_bp import centro_bp
 from routes.site_bp import site_bp
@@ -66,6 +69,7 @@ def page_not_found(error):
 def page_not_found(error):
     return render_template('403.html'), 403
 
+
 @app.context_processor
 def inject_global_variables():
     is_admin = Docente.get_docente(session.get('user_id')).modification_flag
@@ -85,49 +89,22 @@ def export_db():
     username = parsed_uri.username
     password = parsed_uri.password or ''
     database = parsed_uri.path[1:]
+    return SiteController.export_db(host, port, username, password, database)
 
-    connection = pymysql.connect(
-        host=host,
-        port=port,
-        user=username,
-        password=password,
-        database=database
-    )
 
-    export_file = io.BytesIO()  # BytesIO para almacenar el archivo en memoria
-    with export_file:
-        cursor = connection.cursor()
+@app.route('/import_db', methods=['GET', 'POST'])
+@token_required
+@require_modification_permission
+def import_db():
+    uri = app.config['SQLALCHEMY_DATABASE_URI']
+    parsed_uri = urlparse(uri)
 
-        # Obtener la lista de tablas
-        cursor.execute("SHOW TABLES")
-        tables = cursor.fetchall()
-
-        for table in tables:
-            table_name = table[0]
-
-            # Obtener la estructura de la tabla
-            cursor.execute(f"SHOW CREATE TABLE {table_name}")
-            create_table = cursor.fetchone()[1]
-            export_file.write(f"{create_table};\n\n".encode())
-
-            # Obtener los datos de la tabla
-            cursor.execute(f"SELECT * FROM {table_name}")
-            rows = cursor.fetchall()
-
-            export_file.write(f"INSERT INTO {table_name} VALUES\n".encode())
-            for row in rows:
-                values = [str(value) for value in row]
-                export_file.write(f"({', '.join(values)}),\n".encode())
-            export_file.write(";\n\n".encode())
-
-        export_file.seek(0)
-
-        # Crear la respuesta y establecer el encabezado Content-Disposition
-        response = make_response(export_file.getvalue())
-        response.headers.set('Content-Disposition', 'attachment', filename='database_export.sql')
-        response.headers.set('Content-Type', 'application/octet-stream')
-
-        return response
+    host = parsed_uri.hostname
+    port = parsed_uri.port or 3306
+    username = parsed_uri.username
+    password = parsed_uri.password or ''
+    database = parsed_uri.path[1:]
+    return SiteController.import_db(host, port, username, password, database)
 
 
 if __name__ == '__main__':

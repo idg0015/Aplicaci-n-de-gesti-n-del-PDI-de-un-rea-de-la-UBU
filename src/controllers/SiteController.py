@@ -1,6 +1,10 @@
+import io
+import re
+
+import pymysql
 import requests
-from flask import session, redirect, url_for, flash, render_template
-from forms import FormLogin
+from flask import session, redirect, url_for, flash, render_template, request, make_response
+from forms import FormLogin, FormDataBase
 from models.Centro import Centro
 from models.Docente import Docente
 from models.Plaza import Plaza
@@ -52,4 +56,105 @@ def logout():
     return redirect(url_for('site_bp.login_route'))
 
 
+def export_db(host, port, username, password, database):
+    connection = pymysql.connect(
+        host=host,
+        port=port,
+        user=username,
+        password=password,
+        database=database
+    )
 
+    export_file = io.BytesIO()  # BytesIO para almacenar el archivo en memoria
+    with export_file:
+        cursor = connection.cursor()
+
+        # Obtener la lista de tablas
+        cursor.execute("SHOW TABLES")
+        tables = cursor.fetchall()
+
+        # Generar script de exportación (datos de las tablas)
+        for table in tables:
+            table_name = table[0]
+
+            # Obtener los datos de la tabla
+            cursor.execute(f"SELECT * FROM `{table_name}`")
+            rows = cursor.fetchall()
+
+            if table_name == 'sessions':
+                continue
+
+            if rows:
+                column_names = [desc[0] for desc in cursor.description]
+                export_file.write(f"INSERT INTO `{table_name}` ({', '.join(column_names)}) VALUES\n".encode())
+
+                row_data = []
+                for row in rows:
+                    values = [
+                        f"NULL" if value is None else f"'{str(value)}'" if isinstance(value, str) else str(value)
+                        for value in row]
+                    row_data.append(f"({', '.join(values)})")
+
+                export_file.write(',\n'.join(row_data).encode())
+                export_file.write(";\n\n".encode())
+
+        export_file.seek(0)
+
+        # Crear la respuesta y establecer el encabezado para descargar el archivo
+        response = make_response(export_file.getvalue())
+        response.headers.set('Content-Disposition', 'attachment', filename='database_export.sql')
+        response.headers.set('Content-Type', 'application/octet-stream')
+
+        return response
+
+
+def import_db(host, port, username, password, database):
+    """Importar la base de datos desde un archivo subido por el usuario"""
+    form = FormDataBase()
+
+    if form.validate_on_submit():
+        sql_file = form.sql_file.data
+        if sql_file.filename == '':
+            flash('No se seleccionó ningún archivo.', 'alert alert-danger alert-dismissible fade show')
+            return redirect(url_for('import_db'))
+
+        sql_content = sql_file.read().decode('utf-8')
+
+        try:
+            connection = pymysql.connect(
+                host=host,
+                port=port,
+                user=username,
+                password=password,
+                database=database
+            )
+            cursor = connection.cursor()
+            cursor.execute('SET FOREIGN_KEY_CHECKS = 0')
+
+            # Separar el contenido SQL en declaraciones individuales
+            sql_statements = sql_content.split(';')
+
+            # Ejecutar cada declaración SQL por separado
+            for statement in sql_statements:
+                statement = statement.strip()  # Eliminar espacios en blanco
+                if statement:
+                    if re.match(r"^\s*(?:INSERT|UPDATE)\s+", statement, re.IGNORECASE):  # Permitir solo INSERT y UPDATE
+                        cursor.execute(statement)
+                    else:
+                        raise Exception(
+                            'Se encontró una declaración SQL no permitida (Sólo se permiten INSERT y UPDATE).')
+
+            cursor.execute('SET FOREIGN_KEY_CHECKS = 1')
+            connection.commit()
+            flash('Los datos se importaron correctamente.', 'alert alert-success alert-dismissible fade show')
+            return redirect(url_for('import_db'))
+        except pymysql.Error as e:
+            error_message = f'Error al importar los datos: {str(e)}'
+            flash(error_message, 'alert alert-danger alert-dismissible fade show')
+            return redirect(url_for('import_db'))
+
+        finally:
+            if connection:
+                connection.close()
+
+    return render_template('import_db.html', form=form)

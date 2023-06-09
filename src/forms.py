@@ -1,6 +1,7 @@
 from flask_wtf import FlaskForm
+from flask_wtf.file import FileAllowed
 from wtforms import StringField, SubmitField, SelectField, HiddenField, IntegerField, FieldList, FormField, \
-    SelectMultipleField, DateField, MultipleFileField, BooleanField, PasswordField
+    SelectMultipleField, DateField, MultipleFileField, BooleanField, PasswordField, FileField
 from wtforms.validators import DataRequired, Email, URL, InputRequired, ValidationError, Optional, NumberRange
 from wtforms.widgets import HiddenInput
 
@@ -297,3 +298,10 @@ class FormLogin(FlaskForm):
     username = StringField('Correo electrónico', validators=[DataRequired(message='El usuario es obligatorio')])
     password = PasswordField('Contraseña', validators=[DataRequired(message='La contraseña es obligatoria')])
     submit = SubmitField('Iniciar Sesión')
+
+
+class FormDataBase(FlaskForm):
+    sql_file = FileField('Archivo SQL',
+                         validators=[DataRequired(message='Debe seleccionar un archivo'),
+                                     FileAllowed(['sql'], 'Solo se permiten archivos SQL (.sql)')])
+    submit = SubmitField('Importar')
