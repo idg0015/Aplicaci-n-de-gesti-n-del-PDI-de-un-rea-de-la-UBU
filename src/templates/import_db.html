@@ -1,0 +1,31 @@
+{% extends "base/base_template.html" %}
+{% block title %}
+    Importar datos a la base de datos
+{% endblock %}
+{% block content %}
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="{{ category }}" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <h1 class="text-center">Importar datos para la base de datos</h1>
+    <form method="POST" enctype="multipart/form-data" class="mt-5 form-centro">
+        {{ form.csrf_token }}
+        <div class="form-group text-center">
+            {{ form.sql_file.label }}<br>
+            {{ form.sql_file(class="form-control-file", accept=".sql") }}
+            {% for error in form.sql_file.errors %}
+                <span class="msg-error">{{ error }}</span>
+            {% endfor %}
+        </div>
+        <div class="form-group text-center mt-5">
+            {{ form.submit(class="btn btn-primary") }}
+        </div>
+    </form>
+{% endblock %}
