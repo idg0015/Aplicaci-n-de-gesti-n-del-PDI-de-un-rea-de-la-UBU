@@ -340,3 +340,8 @@ a#icn-info-grupos:hover {
     width: 50%;
    margin: 0 auto;
 }
+
+/* ---------------------- Titulación view ---------------------- */
+#div-cursos-tit{
+    margin-left: 2.5%;
+}

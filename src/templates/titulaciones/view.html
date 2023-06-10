@@ -5,6 +5,16 @@
     <div class="container-fluid">
         <h1 class="text-center">Titulación - {{ titulacion.nombre }}</h1>
         <h2 class="h2-view-table text-center">Asignaturas</h2>
+        <div class="col-md-1" id="div-cursos-tit">
+            <label for="cursos" class="form-label">Curso:</label>
+            <select name="cursos" id="cursos" class="form-select">
+                <option value="0" selected>Todos</option>
+                <option value="1">1º</option>
+                <option value="2">2º</option>
+                <option value="3">3º</option>
+                <option value="4">4º</option>
+            </select>
+        </div>
         <div id="tablaAsignaturasTitulacion" class="text-center"></div>
     </div>
 
@@ -72,7 +82,7 @@
         }
 
         $(document).ready(function () {
-            new gridjs.Grid({
+            let table = new gridjs.Grid({
                 columns: columns,
                 className: {
                     th: "text-center"
@@ -87,6 +97,21 @@
                 },
                 data: asignaturas
             }).render(document.getElementById("tablaAsignaturasTitulacion"));
+
+            $("#cursos").change(function () {
+                let course = $(this).val();
+                $.ajax({
+                    url: "/titulaciones/curso",
+                    method: "POST",
+                    data: {
+                        course: course,
+                        id_titulacion: {{ titulacion.id }}
+                    },
+                    success: function (data) {
+                        table.updateConfig({data: data}).forceRender();
+                    }
+                });
+            });
         });
     </script>
 {% endblock %}

@@ -52,3 +52,11 @@ def get_titulaciones_ajax_route():
 @require_read_permission
 def view_route(id_titulacion):
     return view(id_titulacion)
+
+
+# Get Asignaturas by course
+@titulacion_bp.route('/curso', methods=['POST'])
+@token_required
+@require_read_permission
+def get_asignaturas_curso_route():
+    return get_asignaturas_curso()

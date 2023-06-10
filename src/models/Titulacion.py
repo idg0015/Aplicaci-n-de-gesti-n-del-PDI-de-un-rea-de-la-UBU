@@ -60,3 +60,6 @@ class Titulacion(db.Model):
 
     def get_asignaturas(self):
         return [a.to_dict() for a in self.asignaturas]
+
+    def get_asignaturas_by_course(self, course):
+        return [a.to_dict() for a in self.asignaturas if a.curso == course]

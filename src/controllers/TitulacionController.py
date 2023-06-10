@@ -85,3 +85,19 @@ def view(id_titulacion):
 
     return render_template('titulaciones/view.html', titulacion=titulacion, asignaturas=asignaturas,
                            breadcrumbs=breadcrumbs)
+
+
+def get_asignaturas_curso():
+    """
+    Obtiene las asignaturas de una titulación filtrando por curso
+    """
+    if request.method == "POST":
+        id_titulacion = request.form.get('id_titulacion')
+        course = request.form.get('course')
+        titulacion = Titulacion.get_titulacion(id_titulacion)
+        if titulacion:
+            if course == '0':
+                asignaturas = titulacion.get_asignaturas()
+                return asignaturas
+            asignaturas = titulacion.get_asignaturas_by_course(course)
+            return asignaturas
