@@ -60,7 +60,7 @@ def page_not_found(error):
 
 @app.errorhandler(403)
 def page_not_found(error):
-    return render_template('403.html'), 403
+    return render_template('403.html', email=app.config['ADMINISTRATOR_EMAIL']), 403
 
 
 @app.context_processor

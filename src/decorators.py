@@ -23,7 +23,7 @@ def require_modification_permission(func):
             if not Docente.get_docente(session['user_id']).modification_flag:
                 abort(403)
         else:
-            abort(403)
+            return redirect(url_for('site_bp.login_route'))
         return func(*args, **kwargs)
 
     return decorated_view
@@ -34,9 +34,9 @@ def require_read_permission(func):
     def decorated_view(*args, **kwargs):
         if Docente.get_docente(session['user_id']) is not None:
             if not Docente.get_docente(session['user_id']).read_flag and not Docente.get_docente(session['user_id']).modification_flag:
-                abort(403)
+                return redirect(url_for('site_bp.login_route'))
         else:
-            return redirect(url_for('site_bp.logout_route'))
+            return redirect(url_for('site_bp.login_route'))
         return func(*args, **kwargs)
 
     return decorated_view
