@@ -30,7 +30,7 @@ def login():
         docente = Docente.get_docente_email(username)
         if docente is None:
             flash('Usuario o contraseña incorrectos', 'alert alert-danger alert-dismissible fade show')
-            return render_template('login.html')
+            return render_template('login.html', form=form)
         url_moodle = 'https://ubuvirtual.ubu.es/login/token.php'
         data = {
             'username': username,
@@ -172,7 +172,7 @@ def import_db(host, port, username, password, database):
             for statement in sql_statements:
                 statement = statement.strip()  # Eliminar espacios en blanco
                 if statement:
-                    if re.match(r"^\s*(?:INSERT|UPDATE)\s+", statement, re.IGNORECASE):  # Permitir solo INSERT y UPDATE
+                    if re.match(r"^\s*INSERT\s+", statement, re.IGNORECASE):  # Permitir solo INSERT y UPDATE
                         cursor.execute(statement)
                     else:
                         raise Exception(
