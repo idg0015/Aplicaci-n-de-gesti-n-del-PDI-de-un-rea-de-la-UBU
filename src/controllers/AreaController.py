@@ -11,9 +11,9 @@ def index():
         ('/', 'Inicio'),
         ('', 'Áreas'),
     ]
-    has_modification_permission = Docente.get_docente(session['user_id']).modification_flag
+
     areas = Area.get_all_json()
-    return render_template('areas/index.html', areas=areas, breadcrumbs=breadcrumbs, has_modification_permission=has_modification_permission)
+    return render_template('areas/index.html', areas=areas, breadcrumbs=breadcrumbs)
 
 
 def add():

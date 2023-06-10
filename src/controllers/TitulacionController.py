@@ -10,9 +10,8 @@ def index():
         (url_for('titulacion_bp.index_route'), 'Titulaciones'),
     ]
     titulaciones = Titulacion.get_all_json()
-    has_modification_permission = Docente.get_docente(session['user_id']).modification_flag
-    return render_template('titulaciones/index.html', titulaciones=titulaciones, breadcrumbs=breadcrumbs,
-                           has_modification_permission=has_modification_permission)
+
+    return render_template('titulaciones/index.html', titulaciones=titulaciones, breadcrumbs=breadcrumbs)
 
 
 def add():
@@ -83,6 +82,6 @@ def view(id_titulacion):
     asignaturas = titulacion.get_asignaturas()
     if titulacion is None:
         abort(404)
-    has_modification_permission = Docente.get_docente(session['user_id']).modification_flag
+
     return render_template('titulaciones/view.html', titulacion=titulacion, asignaturas=asignaturas,
-                           breadcrumbs=breadcrumbs, has_modification_permission=has_modification_permission)
+                           breadcrumbs=breadcrumbs)

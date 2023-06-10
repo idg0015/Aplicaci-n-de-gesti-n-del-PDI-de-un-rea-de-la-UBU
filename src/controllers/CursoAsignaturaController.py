@@ -16,10 +16,10 @@ def gestion(id_curso_asignatura):
     curso_asignatura = CursoAsignatura.get_with_id(id_curso_asignatura)
     grupos = Grupo.get_all_json(curso_asignatura.id)
     form = FormGrupo()
-    has_modification_permission = Docente.get_docente(session['user_id']).modification_flag
+
 
     return render_template('cursos/gestion.html', curso_asignatura=curso_asignatura, grupos=grupos, form=form,
-                           breadcrumbs=breadcrumbs, has_modification_permission=has_modification_permission)
+                           breadcrumbs=breadcrumbs)
 
 
 def delete_ca(id_curso_asignatura):

@@ -37,7 +37,7 @@
     <script>
         let info = [];
         let table = null;
-        let hasModificationPermission = {{ has_modification_permission | lower }};
+        let hasModificationPermission = {{ can_modify | lower }};
 
         if ($("#cursos").children().length > 1) {
             $("#cursos").children()[1].selected = true;

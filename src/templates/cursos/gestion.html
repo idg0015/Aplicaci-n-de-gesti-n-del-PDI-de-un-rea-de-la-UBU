@@ -27,7 +27,7 @@
             </div>
             <div class="col-md-4"><h2 class="h2-view">{{ curso_asignatura.asignatura.titulacion.nombre }}</h2></div>
         </div>
-        {% if has_modification_permission %}
+        {% if can_modify %}
             <a href="" class="btn btn-primary btn-nuevo-grupo" data-bs-toggle="modal" data-bs-target="#create-modal">Añadir
                 grupo</a>
         {% endif %}
@@ -42,7 +42,7 @@
 
     <script>
         let grupos = JSON.parse('{{ grupos | default([])| tojson }}');
-        const hasModificationPermission = {{ has_modification_permission | lower }};
+        const hasModificationPermission = {{ can_modify | lower }};
 
         let columns = [
             {

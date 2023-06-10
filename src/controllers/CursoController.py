@@ -18,9 +18,8 @@ def index():
     ]
     cursos = Curso.get_all_json()
     form = UpdateYearCursoForm()
-    has_modification_permission = Docente.get_docente(session['user_id']).modification_flag
-    return render_template('cursos/index.html', cursos=cursos, form=form, breadcrumbs=breadcrumbs,
-                           has_modification_permission=has_modification_permission)
+
+    return render_template('cursos/index.html', cursos=cursos, form=form, breadcrumbs=breadcrumbs)
 
 
 def add():

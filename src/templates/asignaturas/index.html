@@ -15,13 +15,13 @@
     {% endwith %}
 
     <h1 class="text-center">Asignaturas</h1>
-    {% if has_modification_permission %}
+    {% if can_modify %}
         <a href="{{ url_for('asignatura_bp.add_route') }}" class="btn btn-primary btn-nuevo-2">Nuevo</a>
     {% endif %}
     <div id="tablaAsignaturas" class="text-center"></div>
     <script>
         let asignaturas = JSON.parse('{{ asignaturas | default([]) | tojson }}');
-        const hasModificationPermission = {{ has_modification_permission | lower }};
+        const hasModificationPermission = {{ can_modify | lower }};
 
         let columns = [
             {

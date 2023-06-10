@@ -10,9 +10,8 @@ def index():
         (url_for('docente_bp.index_route'), 'Docentes')
     ]
     docentes = Docente.get_all_json()
-    has_modification_permission = Docente.get_docente(session['user_id']).modification_flag
-    return render_template('docentes/index.html', docentes=docentes, breadcrumbs=breadcrumbs,
-                           has_modification_permission=has_modification_permission)
+
+    return render_template('docentes/index.html', docentes=docentes, breadcrumbs=breadcrumbs)
 
 
 def add():

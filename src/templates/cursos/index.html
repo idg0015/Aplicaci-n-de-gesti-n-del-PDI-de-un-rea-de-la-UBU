@@ -16,7 +16,7 @@
 
     <div id="ajax-response"></div>
     <h1 class="text-center">Cursos Académicos</h1>
-    {% if has_modification_permission %}
+    {% if can_modify %}
         <a href="{{ url_for('curso_bp.add_route') }}" class="btn btn-primary btn-nuevo">Nuevo</a>
     {% endif %}
     <div id="tablaCursos" class="text-center"></div>
@@ -25,7 +25,7 @@
 
     <script>
         let cursos = JSON.parse('{{ cursos | default([])| tojson }}');
-        const hasModificationPermission = {{ has_modification_permission | lower }};
+        const hasModificationPermission = {{ can_modify | lower }};
 
         let columns = [
             {

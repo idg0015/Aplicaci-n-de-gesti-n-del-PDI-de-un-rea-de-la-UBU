@@ -31,7 +31,7 @@
 
     <script>
         let table = null;
-        let hasModificationPermission = {{ has_modification_permission | lower }};
+        let hasModificationPermission = {{ can_modify | lower }};
 
         const editableCell = (data, row, col) => {
             if (row && data !== '-' && hasModificationPermission) {

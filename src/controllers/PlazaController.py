@@ -11,9 +11,8 @@ def index():
         (url_for('plaza_bp.index_route'), 'Plazas'),
     ]
     plazas = Plaza.get_all_json()
-    has_modification_permission = Docente.get_docente(session['user_id']).modification_flag
-    return render_template('plazas/index.html', plazas=plazas, breadcrumbs=breadcrumbs,
-                           has_modification_permission=has_modification_permission)
+
+    return render_template('plazas/index.html', plazas=plazas, breadcrumbs=breadcrumbs)
 
 
 def add():

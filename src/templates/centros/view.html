@@ -12,7 +12,7 @@
 
     <script>
         let titulaciones = JSON.parse('{{ titulaciones | default([]) | tojson }}');
-        const hasModificationPermission = {{ has_modification_permission | lower }};
+        const hasModificationPermission = {{ can_modify | lower }};
 
         let columns = [
             {

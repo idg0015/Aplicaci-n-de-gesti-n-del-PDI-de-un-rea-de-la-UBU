@@ -11,9 +11,8 @@ def index():
         (url_for('contrato_bp.index_route'), 'Tipos de contrato'),
     ]
     contratos = TipoContrato.get_all_json()
-    has_modification_permission = Docente.get_docente(session['user_id']).modification_flag
-    return render_template('contratos/index.html', tipos_contrato=contratos, breadcrumbs=breadcrumbs,
-                           has_modification_permission=has_modification_permission)
+
+    return render_template('contratos/index.html', tipos_contrato=contratos, breadcrumbs=breadcrumbs)
 
 
 def add():

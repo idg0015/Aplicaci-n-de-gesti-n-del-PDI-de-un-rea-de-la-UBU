@@ -14,9 +14,8 @@ def index():
         ('/', 'Inicio'),
         (url_for('horas_bp.index_route'), 'Horas'),
     ]
-    has_modification_permission = Docente.get_docente(session['user_id']).modification_flag
-    return render_template('horas/index.html', cursos=Curso.get_all(), breadcrumbs=breadcrumbs,
-                           has_modification_permission=has_modification_permission)
+
+    return render_template('horas/index.html', cursos=Curso.get_all(), breadcrumbs=breadcrumbs)
 
 
 # Función para mostrar las plazas de un grupo
@@ -30,9 +29,9 @@ def group_view(group_id):
     vacancies = PlazaGrupo.get_vacancies_group_json(group_id)
     form = FormPlazaGrupo()
     form_update = FormPlazaGrupoUpdate()
-    has_modification_permission = Docente.get_docente(session['user_id']).modification_flag
+
     return render_template('horas/view.html', plazas=vacancies, grupo=group, form=form, form_update=form_update,
-                           breadcrumbs=breadcrumbs, has_modification_permission=has_modification_permission)
+                           breadcrumbs=breadcrumbs)
 
 
 # Función para vincular una plaza a un grupo con x horas

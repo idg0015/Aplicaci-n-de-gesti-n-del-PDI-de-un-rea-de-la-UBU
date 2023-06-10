@@ -27,7 +27,7 @@
             </div>
         </div>
 
-        {% if has_modification_permission %}
+        {% if can_modify %}
             <a href="" class="btn btn-primary btn-nuevo" data-bs-toggle="modal" data-bs-target="#vacant-modal"
                onclick="editForm()">Añadir
                 plaza</a>
@@ -42,7 +42,7 @@
     <script>
         let table = null;
         let plazas = JSON.parse('{{ plazas | default([])| tojson }}');
-        let hasModificationPermission = {{ has_modification_permission | lower }};
+        let hasModificationPermission = {{ can_modify | lower }};
 
         function editForm() {
             $('#group_id').attr('value', {{ grupo.id }});

@@ -11,9 +11,8 @@ def index():
         ('', 'Centros'),
     ]
     centros = Centro.get_all_json()
-    has_modification_permission = Docente.get_docente(session['user_id']).modification_flag
-    return render_template('centros/index.html', centros=centros, breadcrumbs=breadcrumbs,
-                           has_modification_permission=has_modification_permission)
+
+    return render_template('centros/index.html', centros=centros, breadcrumbs=breadcrumbs)
 
 
 def add():
@@ -81,6 +80,5 @@ def view(id_centro):
     titulaciones = centro.get_titulaciones()
     if centro is None:
         abort(404)
-    has_modification_permission = Docente.get_docente(session['user_id']).modification_flag
-    return render_template('centros/view.html', centro=centro, titulaciones=titulaciones, breadcrumbs=breadcrumbs,
-                           has_modification_permission=has_modification_permission)
+
+    return render_template('centros/view.html', centro=centro, titulaciones=titulaciones, breadcrumbs=breadcrumbs)

@@ -17,9 +17,8 @@ def index():
     ]
     # info = CursoAsignatura.get_all_json()
     form = FormCursoAsignatura()
-    has_modification_permission = Docente.get_docente(session['user_id']).modification_flag
-    return render_template('grupos/index.html', cursos=Curso.get_all(), form=form, breadcrumbs=breadcrumbs,
-                           has_modification_permission=has_modification_permission)
+
+    return render_template('grupos/index.html', cursos=Curso.get_all(), form=form, breadcrumbs=breadcrumbs)
 
 
 def get_all_json():

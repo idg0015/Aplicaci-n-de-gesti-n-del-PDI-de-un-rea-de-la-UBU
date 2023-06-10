@@ -11,7 +11,7 @@
 
     <script>
         let asignaturas = JSON.parse('{{ asignaturas | default([]) | tojson }}');
-        const hasModificationPermission = {{ has_modification_permission | lower }};
+        const hasModificationPermission = {{ can_modify | lower }};
 
         let columns = [
             {

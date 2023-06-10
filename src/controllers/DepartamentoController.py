@@ -11,9 +11,8 @@ def index():
         (url_for('departamento_bp.index_route'), 'Departamentos'),
     ]
     departamentos = Departamento.get_all_json()
-    has_modification_permission = Docente.get_docente(session['user_id']).modification_flag
-    return render_template('departamentos/index.html', departamentos=departamentos, breadcrumbs=breadcrumbs,
-                           has_modification_permission=has_modification_permission)
+
+    return render_template('departamentos/index.html', departamentos=departamentos, breadcrumbs=breadcrumbs)
 
 
 def add():
