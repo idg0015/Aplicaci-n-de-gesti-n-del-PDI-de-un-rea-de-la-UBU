@@ -1,6 +1,6 @@
 import io
 import re
-
+import datetime
 import pymysql
 import requests
 from flask import session, redirect, url_for, flash, render_template, request, make_response
@@ -10,6 +10,7 @@ from models.Docente import Docente
 from models.Plaza import Plaza
 from models.Titulacion import Titulacion
 from utils.db import db
+
 
 
 def index():
@@ -78,12 +79,12 @@ def export_db(host, port, username, password, database):
         for table in tables:
             table_name = table[0]
 
+            if table_name == 'sessions':
+                continue
+
             # Obtener los datos de la tabla
             cursor.execute(f"SELECT * FROM `{table_name}`")
             rows = cursor.fetchall()
-
-            if table_name == 'sessions':
-                continue
 
             if rows:
                 column_names = [desc[0] for desc in cursor.description]
@@ -91,9 +92,20 @@ def export_db(host, port, username, password, database):
 
                 row_data = []
                 for row in rows:
-                    values = [
-                        f"NULL" if value is None else f"'{str(value)}'" if isinstance(value, str) else str(value)
-                        for value in row]
+                    values = []
+                    for value in row:
+                        if value is None:
+                            values.append("NULL")
+                        elif isinstance(value, (str, bytes)):
+                            values.append(f"'{value}'")
+                        elif isinstance(value, (int, float)):
+                            values.append(str(value))
+                        elif isinstance(value, datetime.datetime):
+                            values.append(f"'{value.strftime('%Y-%m-%d %H:%M:%S')}'")
+                        elif isinstance(value, datetime.date):
+                            values.append(f"'{value.strftime('%Y-%m-%d')}'")
+                        else:
+                            values.append(str(value))
                     row_data.append(f"({', '.join(values)})")
 
                 export_file.write(',\n'.join(row_data).encode())

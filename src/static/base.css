@@ -334,3 +334,9 @@ a#icn-info-grupos:hover {
     color: #777;
     margin-bottom: 20px;
 }
+
+/* ---------------------- Import DB ---------------------- */
+#info-db{
+    width: 50%;
+   margin: 0 auto;
+}
