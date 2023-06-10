@@ -37,7 +37,6 @@ migrate.init_app(app, db)
 with app.app_context():
     db.create_all()
 
-server_session = Session(app)
 
 app.register_blueprint(site_bp)
 app.register_blueprint(centro_bp, url_prefix='/centros')

@@ -76,7 +76,6 @@ def create_check_grupos(id_curso_asignatura, tipoNuevo):
             flash('No se puede crear un grupo práctico sin que exista al menos un grupo teórico',
                   'alert alert-danger alert-dismissible fade show')
             return redirect(url_for('curso_bp.gestion_route', id_curso_asignatura=curso_asignatura.id))
-
     db.session.commit()
 
 

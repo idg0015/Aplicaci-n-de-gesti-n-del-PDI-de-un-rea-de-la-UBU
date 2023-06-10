@@ -4,13 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae6b2c56-8d66-4217-a826-17f3975d95c3" name="Changes" comment="Solucionado bug con las fechas y la exportación de la base de datos.">
+    <list default="true" id="ae6b2c56-8d66-4217-a826-17f3975d95c3" name="Changes" comment="Cambios en las vistas de error de permisos">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/153503c3-ae84-40dd-a933-8758f0c5d6fb.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/153503c3-ae84-40dd-a933-8758f0c5d6fb.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8bc95a40-cbe9-40de-b55c-34ed89972485.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/8bc95a40-cbe9-40de-b55c-34ed89972485.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/CursoAsignaturaController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/CursoAsignaturaController.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/GrupoController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/GrupoController.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/SiteController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/SiteController.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/decorators.py" beforeDir="false" afterPath="$PROJECT_DIR$/decorators.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/403.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/403.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/404.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/404.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/db.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/db.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -189,7 +193,7 @@
       <workItem from="1686135743471" duration="21242000" />
       <workItem from="1686229794488" duration="19577000" />
       <workItem from="1686304474375" duration="17180000" />
-      <workItem from="1686387828457" duration="4264000" />
+      <workItem from="1686387828457" duration="12195000" />
     </task>
     <task id="LOCAL-00001" summary="Pruebas en la creación de curso utilizando la biblioteca Sortable">
       <created>1683754273306</created>
@@ -513,7 +517,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686391815538</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="Cambios en las vistas de error de permisos">
+      <created>1686392997190</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1686392997190</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -531,7 +542,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Creación de asignación de horas [WIP]" />
     <MESSAGE value="Arreglo en las tablas" />
     <MESSAGE value="Pequeño arreglo en las tablas" />
     <MESSAGE value="Cambios en los títulos y añadidos botones de volver sin cambios" />
@@ -556,9 +566,10 @@
     <MESSAGE value="Solucionados bugs a la hora de importar la base de datos." />
     <MESSAGE value="Cambios en la forma de gestionar los permisos." />
     <MESSAGE value="Solucionado bug con las fechas y la exportación de la base de datos." />
-    <option name="LAST_COMMIT_MESSAGE" value="Solucionado bug con las fechas y la exportación de la base de datos." />
+    <MESSAGE value="Cambios en las vistas de error de permisos" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cambios en las vistas de error de permisos" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/src$src.coverage" NAME="src Coverage Results" MODIFIED="1686390485295" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/src$src.coverage" NAME="src Coverage Results" MODIFIED="1686404752499" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

@@ -33,7 +33,8 @@ def require_read_permission(func):
     @wraps(func)
     def decorated_view(*args, **kwargs):
         if Docente.get_docente(session['user_id']) is not None:
-            if not Docente.get_docente(session['user_id']).read_flag and not Docente.get_docente(session['user_id']).modification_flag:
+            if not Docente.get_docente(session['user_id']).read_flag and not Docente.get_docente(
+                    session['user_id']).modification_flag:
                 return redirect(url_for('site_bp.login_route'))
         else:
             return redirect(url_for('site_bp.login_route'))

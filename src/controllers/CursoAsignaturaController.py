@@ -17,7 +17,6 @@ def gestion(id_curso_asignatura):
     grupos = Grupo.get_all_json(curso_asignatura.id)
     form = FormGrupo()
 
-
     return render_template('cursos/gestion.html', curso_asignatura=curso_asignatura, grupos=grupos, form=form,
                            breadcrumbs=breadcrumbs)
 
@@ -28,6 +27,11 @@ def delete_ca(id_curso_asignatura):
         if curso_asignatura.grupos:
             flash(
                 'No se puede eliminar la asignatura del curso porque tiene grupos asociados. Elimine antes los grupos',
+                'alert alert-danger alert-dismissible fade show')
+            return redirect(url_for('grupo_bp.index_route'))
+        if curso_asignatura.num_grupos_teoricos_previstos != 0 or curso_asignatura.num_grupos_practicos_previstos != 0:
+            flash(
+                'No se puede eliminar la asignatura del curso porque tiene grupos previstos. Elimine antes los grupos previstos',
                 'alert alert-danger alert-dismissible fade show')
             return redirect(url_for('grupo_bp.index_route'))
         db.session.delete(curso_asignatura)

@@ -12,7 +12,6 @@ from models.Titulacion import Titulacion
 from utils.db import db
 
 
-
 def index():
     n_centros = Centro.query.count()
     n_titulaciones = Titulacion.query.count()
@@ -123,6 +122,7 @@ def export_db(host, port, username, password, database):
 
 def import_db(host, port, username, password, database):
     """Importar la base de datos desde un archivo subido por el usuario"""
+    connection = None
     form = FormDataBase()
 
     if form.validate_on_submit():
@@ -186,7 +186,6 @@ def import_db(host, port, username, password, database):
             error_message = f'Error al importar los datos: {str(e)}'
             flash(error_message, 'alert alert-danger alert-dismissible fade show')
             return redirect(url_for('import_db'))
-
         finally:
             if connection:
                 connection.close()
