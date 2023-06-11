@@ -434,7 +434,7 @@ También se vieron diferentes mejoras que se podrían añadir si daba tiempo com
 \end{itemize}
 
 
-\subsubsection{\textit{Sprint} 11: Pequeños cambios y arreglos}
+\subsubsection{\textit{Sprint} 12: Últimos cambios aplicación}
 Fechas: 5 junio 2023 -- 12 junio 2023.
 \begin{itemize}
 \item\textbf{Planificación del \textit{sprint}}
@@ -451,7 +451,36 @@ En la reunión de planificación del sprint se fijaron las siguientes tareas:
 
 \item\textbf{\textit{Burndown Report}}
 
-La tarea <<Cambios en el login y creación de campos de lectura y escritura en docente>>
+La tarea <<Cambios en el login y creación de campos de lectura y escritura en docente>> tenía una estimación de 3 horas.
+En esta tarea lo que se quería hacer era la forma de hacer el \textit{login} y, además, añadir dos campos en la tabla docente para identificar si se tienen permisos de lectura, modificación o ambos, y así mostrar diferentes elementos o vistas según los permisos.
+Este trabajo llevó finalmente 5 horas, algo más de lo previsto debido a algunos problemas con la forma de implementar los permisos que se vio que no era le mejor forma y se decidió cambiar de nuevo por una forma más eficiente.
+Además, inicialmente se guardaban el \textit{token} y el id del docente en el lado del cliente, cosa que carece en gran medida de seguridad, ya que "robar" una \textit{cookie} es algo relativamente sencillo y esto podría provocar el acceso a la aplicación por usuarios no deseados.
+Para solucionar esto, se hizo un cambio para almacenar los datos de la sesión en la base de datos. 
+Además, los datos se guardan cifrados, lo que añade muchas más seguridad de esta información sensible.
+
+Para la tarea de <<Cambios visuales en el apartado de horas>> se dió una estimación de 1 hora y el trabajo se realizó en ese tiempo.
+
+En cuanto a la tarea <<Creación de opción para importar y exportar la base de datos>> fue una de las más complejas.
+La estimación inicial fue de 3 horas ya que se pensó que iba a ser una tarea relativamente sencilla.
+La tarea pretendía añadir una nueva funcionalidad a la web en la que se permite exportar el contenido de la base de datos e importar el contenido descargado previamente.
+Esta funcionalidad es interesante pensando en la importación sencilla de los datos cuando se cree una nueva implantación de la web. 
+
+En un principió se pensó que sería una tarea sencilla, pero a la hora de la verdad fue una tarea complicada ya que la conexión y lectura de la base de datos no era algo tan sencillo.
+Había que controlar los diferentes tipos de datos y solventar algunos errores con la tabla de sesiones que contaba con información en binario y que se pensó que lo mejor era no exportar esa información ya que no es relevante.
+
+De cara a la importación también llevó mucho tiempo debido a estudiar los diferentes ataques que se podían producir con esta funcionalidad, tanto en la subida del archivo a la web, como en las sentencias incluidas en el SQL.
+Finalmente se decidió permitir únicamente las sentencias \textit{insert}, ya que la idea de la funcionalidad es únicamente añadir datos a la base de datos, y así evitar borrados o modificaciones no deseadas.
+
+El trabajo final fue de unas 8 horas, bastante más de lo estimado.
+
+Para la tarea <<Arreglo de \textit{bug} con los permisos de usuario>> se dio una estimación de 20 minutos ya que lo único que se quería hacer era limitar las capacidades de un usuario sin permisos dentro de la aplicación, prohibiéndoles el acceso incluso a la ventana principal.
+Actualmente, un usuario sin permisos no puede pasar del inicio de sesión, donde se muestra un mensaje indicando la falta de permisos.
+
+La tarea <<Pequeños cambios de funcionamiento general>> tenía una estimación de 1 hora.
+Esta tarea estaba diseñada para realizar algunos cambios visuales o de funcionalidad en la web. Así como carga interna de bibliotecas o datos.
+La duración real de la tarea también fue de 1 hora aproximadamente.
+
+Por último, la tarea de <<Avanzar documentación>> tenía una estimación de 4 horas de trabajo que al final se convirtió en...................
 
 \item\textbf{Revisión del \textit{sprint}}
 

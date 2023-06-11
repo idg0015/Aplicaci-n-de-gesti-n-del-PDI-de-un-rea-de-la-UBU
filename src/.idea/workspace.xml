@@ -4,23 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae6b2c56-8d66-4217-a826-17f3975d95c3" name="Changes" comment="Pequeños cambios a la hora de importar la BD.">
-      <change beforePath="$PROJECT_DIR$/../docs/tex/1_Introduccion.aux" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/tex/2_Objetivos_del_proyecto.aux" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/tex/3_Conceptos_teoricos.aux" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/tex/4_Tecnicas_y_herramientas.aux" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/tex/5_Aspectos_relevantes_del_desarrollo_del_proyecto.aux" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/tex/6_Trabajos_relacionados.aux" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/tex/7_Conclusiones_Lineas_de_trabajo_futuras.aux" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/tex/A_Plan_proyecto.aux" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/tex/A_Plan_proyecto.tex" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/tex/A_Plan_proyecto.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/tex/B_Requisitos.aux" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/tex/C_Diseno.aux" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/tex/D_Manual_programador.aux" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/tex/E_Manual_usuario.aux" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/153503c3-ae84-40dd-a933-8758f0c5d6fb.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/153503c3-ae84-40dd-a933-8758f0c5d6fb.xml" afterDir="false" />
+    <list default="true" id="ae6b2c56-8d66-4217-a826-17f3975d95c3" name="Changes" comment="Añadido mensaje informativo cuando no se tienen permisos y algo de documentación.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/decorators.py" beforeDir="false" afterPath="$PROJECT_DIR$/decorators.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -201,14 +186,7 @@
       <workItem from="1686304474375" duration="17180000" />
       <workItem from="1686387828457" duration="15132000" />
       <workItem from="1686408136030" duration="1000" />
-      <workItem from="1686500265311" duration="107000" />
-    </task>
-    <task id="LOCAL-00002" summary="Añadida la creación de cursos.">
-      <created>1683834372813</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1683834372813</updated>
+      <workItem from="1686500265311" duration="551000" />
     </task>
     <task id="LOCAL-00003" summary="Cambios en las tablas.">
       <created>1683840612283</created>
@@ -546,7 +524,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686407953690</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="Añadido mensaje informativo cuando no se tienen permisos y algo de documentación.">
+      <created>1686500776760</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1686500776760</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -564,7 +549,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Añadida navegación cruzada" />
     <MESSAGE value="Pequeño cambio de estilos" />
     <MESSAGE value="Cambios en el index" />
     <MESSAGE value="Añadido control de curso con mismo año" />
@@ -589,7 +573,8 @@
     <MESSAGE value="Solucionado un bug entre flask-sessions y sqlalchemy" />
     <MESSAGE value="Añadido filtro por curso en la vista de titulación" />
     <MESSAGE value="Pequeños cambios a la hora de importar la BD." />
-    <option name="LAST_COMMIT_MESSAGE" value="Pequeños cambios a la hora de importar la BD." />
+    <MESSAGE value="Añadido mensaje informativo cuando no se tienen permisos y algo de documentación." />
+    <option name="LAST_COMMIT_MESSAGE" value="Añadido mensaje informativo cuando no se tienen permisos y algo de documentación." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/src$src.coverage" NAME="src Coverage Results" MODIFIED="1686500270125" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
