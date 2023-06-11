@@ -1,6 +1,6 @@
 from functools import wraps
 
-from flask import session, redirect, url_for, g, abort
+from flask import session, redirect, url_for, g, abort, flash
 
 from models.Docente import Docente
 
@@ -35,6 +35,8 @@ def require_read_permission(func):
         if Docente.get_docente(session['user_id']) is not None:
             if not Docente.get_docente(session['user_id']).read_flag and not Docente.get_docente(
                     session['user_id']).modification_flag:
+                flash('Su usuario no tiene permiso para manejar la aplicación.',
+                      'alert alert-danger alert-dismissible fade show')
                 return redirect(url_for('site_bp.login_route'))
         else:
             return redirect(url_for('site_bp.login_route'))

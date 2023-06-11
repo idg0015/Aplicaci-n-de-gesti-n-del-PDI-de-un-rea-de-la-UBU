@@ -4,10 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae6b2c56-8d66-4217-a826-17f3975d95c3" name="Changes" comment="Añadido filtro por curso en la vista de titulación">
+    <list default="true" id="ae6b2c56-8d66-4217-a826-17f3975d95c3" name="Changes" comment="Pequeños cambios a la hora de importar la BD.">
+      <change beforePath="$PROJECT_DIR$/../docs/tex/1_Introduccion.aux" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/tex/2_Objetivos_del_proyecto.aux" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/tex/3_Conceptos_teoricos.aux" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/tex/4_Tecnicas_y_herramientas.aux" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/tex/5_Aspectos_relevantes_del_desarrollo_del_proyecto.aux" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/tex/6_Trabajos_relacionados.aux" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/tex/7_Conclusiones_Lineas_de_trabajo_futuras.aux" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/tex/A_Plan_proyecto.aux" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/tex/A_Plan_proyecto.tex" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/tex/A_Plan_proyecto.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/tex/B_Requisitos.aux" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/tex/C_Diseno.aux" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/tex/D_Manual_programador.aux" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/tex/E_Manual_usuario.aux" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/153503c3-ae84-40dd-a933-8758f0c5d6fb.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/153503c3-ae84-40dd-a933-8758f0c5d6fb.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/SiteController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/SiteController.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/import_db.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/import_db.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/decorators.py" beforeDir="false" afterPath="$PROJECT_DIR$/decorators.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -186,14 +199,9 @@
       <workItem from="1686135743471" duration="21242000" />
       <workItem from="1686229794488" duration="19577000" />
       <workItem from="1686304474375" duration="17180000" />
-      <workItem from="1686387828457" duration="15009000" />
-    </task>
-    <task id="LOCAL-00001" summary="Pruebas en la creación de curso utilizando la biblioteca Sortable">
-      <created>1683754273306</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1683754273306</updated>
+      <workItem from="1686387828457" duration="15132000" />
+      <workItem from="1686408136030" duration="1000" />
+      <workItem from="1686500265311" duration="107000" />
     </task>
     <task id="LOCAL-00002" summary="Añadida la creación de cursos.">
       <created>1683834372813</created>
@@ -531,7 +539,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686406632816</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="Pequeños cambios a la hora de importar la BD.">
+      <created>1686407953690</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1686407953690</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -549,7 +564,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Cambios en los títulos y añadidos botones de volver sin cambios" />
     <MESSAGE value="Añadida navegación cruzada" />
     <MESSAGE value="Pequeño cambio de estilos" />
     <MESSAGE value="Cambios en el index" />
@@ -574,9 +588,10 @@
     <MESSAGE value="Cambios en las vistas de error de permisos" />
     <MESSAGE value="Solucionado un bug entre flask-sessions y sqlalchemy" />
     <MESSAGE value="Añadido filtro por curso en la vista de titulación" />
-    <option name="LAST_COMMIT_MESSAGE" value="Añadido filtro por curso en la vista de titulación" />
+    <MESSAGE value="Pequeños cambios a la hora de importar la BD." />
+    <option name="LAST_COMMIT_MESSAGE" value="Pequeños cambios a la hora de importar la BD." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/src$src.coverage" NAME="src Coverage Results" MODIFIED="1686404752499" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/src$src.coverage" NAME="src Coverage Results" MODIFIED="1686500270125" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

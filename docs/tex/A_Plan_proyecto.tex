@@ -372,7 +372,7 @@ Estos pequeños cambios llevaron aproximadamente 15 minutos.
 La tarea <<Mejoras de navegación en la web>> fue otra de las añadidas por los tutores del proyecto.
 Se pretendía mejorar la navegación por la web añadiendo botones de volver atrás sin realizar cambios en los formularios.
 Además, se deseaba añadir una ventana desde donde ver las titulaciones de un centro y las asignaturas de una titulación.
-Estos cambios tuvieron una estimasción y, al final, un trabajo real de poco más de una hora.
+Estos cambios tuvieron una estimación de poco más de una hora y, al final, el trabajo real también fue acorde.
 
 Finalmente, para la tarea de <<Añadir documentación en los anexos>> se realizó una estimación de 3 horas.
 Debido a falta de tiempo apenas se pudo avanzar y el trabajo real se quedó en aproximadamente media hora.
@@ -380,9 +380,83 @@ Debido a falta de tiempo apenas se pudo avanzar y el trabajo real se quedó en a
 
 \item\textbf{Revisión del \textit{sprint}}
 
-En la reunión del \textit{sprint} 10...........
+En la reunión del \textit{sprint} 10 se estuvieron viendo todos los cambios realizados.
+En cuanto a la asignación de horas a plazas se dio el visto bueno, pero se propusieron algunos cambios en la visualización de los datos y se estudió la posibilidad de actualizar alguna información de la tabla mediante \textit{Ajax} al realizar una actualización sobre la misma.
+
+Otro de los aspectos que fueron claves en la reunión fue la creación de grupos de forma avanzada indicando el nombre del grupo. Se llegó a la conclusión de que es una característica que podría ser interesante en un futuro aunque no primordial.
+Además, de la forma que se había hecho el diseño era difícil adaptarlo y se decidió dejarlo como una característica interesante para próximas versiones de la aplicación.
 \end{itemize}
 
+\subsubsection{\textit{Sprint} 11: Pequeños cambios y arreglos}
+Fechas: 29 mayo 2023 -- 5 junio 2023.
+\begin{itemize}
+\item\textbf{Planificación del \textit{sprint}}
+
+En la reunión de planificación del sprint se fijaron las siguientes tareas:
+\begin{enumerate}
+		\item Arreglo de \textit{bug} de curso duplicado.
+		\item Algunos cambios en la visualización de las horas de plazas en grupos.
+		\item Crear el duplicado de la asignación de horas a grupos al duplicar el curso.
+		\item Arreglo de \textit{bug} de dos plazas con el mismo docente.
+		\item Creación de \textit{login}.
+\end{enumerate}
+
+\item\textbf{\textit{Burndown Report}}
+
+Para la tarea <<Arreglo de \textit{bug} de curso duplicado>> se fijaron 30 minutos de trabajo.
+La realidad fue un trabajo de aproximadamente el mismo tiempo.
+Fue un trabajo sencillo ya que principalmente se basa en comprobar si ya existía un curso con ese año y no permitir crear otro con el mismo año.
+
+La tarea <<Algunos cambios en la visualización de las horas de plazas en grupos>> tenía una estimación de 4 horas.
+En esta tarea se pretendía realizar varios cambios en la tabla general de horas sobre como se mostraba la información de los docentes y también cambios dentro de la propia ventana de las plazas asignadas a una asignatura.
+El trabajo real fue de 2 horas ya que llevó menos trabajo del pensado en un inicio.
+
+En cuanto a la tarea de <<Crear el duplicado de la asignación de horas a grupos al duplicar el curso>> se puso una estimación de 2 horas.
+En esta tarea se pretendía implementar en el duplicado de un curso académico la opción de duplicar también las asignaciones de horas de plazas a las asignaturas del curso.
+La tarea llevó aproximadamente las 2 horas estimadas para su realización.
+
+La tarea <<Arreglo de \textit{bug} de dos plazas con el mismo docente>> se estimó en una duración de media hora ya que tan solo era arreglar un pequeño fallo de funcionamiento en el que a un docente se le podía asignar más de una plaza sin que la plaza tuviese fecha de cese.
+La idea del funcionamiento es que un docente pueda tener como máximo una plaza sin fecha de cese, es decir, una plaza activa al mismo tiempo.
+La duración real fue de poco más de la media hora marcada inicialmente.
+
+Por último, para la tarea <<Creación de \textit{login}>> se puso una estimación de 3 horas.
+En esta tarea se implementó el \textit{login} de la aplicación, utilizando para ello el inicio de sesión contra el Moodle de la UBU, el cual devuelve un \textit{token} en caso de inicio de sesión correcto.
+Para el inicio de sesión primero se debe verificar que el usuario exista en esta aplicación, si no, por mucho que exista en Moodle, no dejará entrar a la aplicación web.
+Además de la creación del \textit{login} se tuvo que implementar la gestión de permisos en todas las acciones de la web para verificar si el usuario estaba identificado o no, y de esta forma dejarle manejar la web o redirigir a la ventana de inicio de sesión.
+
+\item\textbf{Revisión del \textit{sprint}}
+
+En la reunión del \textit{sprint} 11 se dio el visto bueno a los cambios realizados, pero se estuvieron viendo algunos cambios que podrían mejorar la visualización de las horas asignadas a plazas.
+
+También se explicó cómo debían funcionar los permisos en la aplicación web diferenciando de usuarios con permisos de modificación o permisos de lectura. Además de la posibilidad de tener usuarios sin ningún tipo de permiso, caso que se dará cuando se de un docente de baja.
+
+También se vieron diferentes mejoras que se podrían añadir si daba tiempo como un botón para exportar e importar la información de la base de datos, la creación de gráficos con los datos de las horas de asignaturas, etc.
+\end{itemize}
+
+
+\subsubsection{\textit{Sprint} 11: Pequeños cambios y arreglos}
+Fechas: 5 junio 2023 -- 12 junio 2023.
+\begin{itemize}
+\item\textbf{Planificación del \textit{sprint}}
+
+En la reunión de planificación del sprint se fijaron las siguientes tareas:
+\begin{enumerate}
+		\item Cambios en el login y creación de campos de lectura y escritura en docente.
+		\item Cambios visuales en el apartado de horas.
+		\item Creación de opción para importar y exportar la base de datos.
+		\item Arreglo de \textit{bug} con los permisos de usuario.
+		\item Pequeños cambios de funcionamiento general.
+		\item Avanzar documentación.
+\end{enumerate}
+
+\item\textbf{\textit{Burndown Report}}
+
+La tarea <<Cambios en el login y creación de campos de lectura y escritura en docente>>
+
+\item\textbf{Revisión del \textit{sprint}}
+
+En la reunión del \textit{sprint} 12
+\end{itemize}
 
 
 \section{Estudio de viabilidad}
