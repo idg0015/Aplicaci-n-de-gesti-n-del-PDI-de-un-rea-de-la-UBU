@@ -78,7 +78,7 @@ class FormDocente(FlaskForm):
     apellidos = StringField('Apellidos', validators=[DataRequired(message='Los apellidos son obligatorios')])
     email = StringField('Email', validators=[DataRequired(message='El email es obligatorio'),
                                              Email(message='La dirección de email no es válida')])
-    reducciones = IntegerField('Reducciones', validators=[InputRequired(message='Las reducciones son obligatorias'),
+    reducciones = IntegerField('Reducciones', default=0, validators=[InputRequired(message='Las reducciones son obligatorias'),
                                                           NumberRange(min=0,
                                                                       message='El número de reducciones debe ser mayor o igual que 0')])
     read_flag = BooleanField('Permisos de consulta', default=False)
