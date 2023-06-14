@@ -5,6 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ae6b2c56-8d66-4217-a826-17f3975d95c3" name="Changes" comment="Añadido mensaje informativo cuando no se tienen permisos y algo de documentación.">
+      <change beforePath="$PROJECT_DIR$/../docs/anexos.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/anexos.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/tex/A_Plan_proyecto.tex" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/tex/A_Plan_proyecto.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/tex/C_Diseno.tex" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/tex/C_Diseno.tex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -187,6 +190,9 @@
       <workItem from="1686387828457" duration="15132000" />
       <workItem from="1686408136030" duration="1000" />
       <workItem from="1686500265311" duration="551000" />
+      <workItem from="1686519581582" duration="153000" />
+      <workItem from="1686589145853" duration="1394000" />
+      <workItem from="1686680588903" duration="683000" />
     </task>
     <task id="LOCAL-00003" summary="Cambios en las tablas.">
       <created>1683840612283</created>
@@ -577,6 +583,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="Añadido mensaje informativo cuando no se tienen permisos y algo de documentación." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/src$src.coverage" NAME="src Coverage Results" MODIFIED="1686500270125" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/src$src.coverage" NAME="src Coverage Results" MODIFIED="1686589157898" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

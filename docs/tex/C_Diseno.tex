@@ -45,10 +45,9 @@ De esta forma se pretende facilitar la comprensión de los datos almacenados en 
 \subsubsection{Tabla Centro}
 La tabla \texttt{centro} almacena los diferentes centros de la universidad. 
 Se puede ver su información en la tabla~\ref{tab:diccionario_centro}.
-\begin{table}[h]
-\scalebox{0.8}{
-  \centering 
-  \begin{tabular}{p{7em} p{6em} p{18em}}
+\begin{table}
+\centering
+  \begin{tabular}{l p{.2\textwidth} p{.5\textwidth}}
     \toprule
     \textbf{Campo} & \textbf{Tipo} & \textbf{Descripción}\\
     \midrule
@@ -58,7 +57,6 @@ Se puede ver su información en la tabla~\ref{tab:diccionario_centro}.
     email & Texto & Email administrativo del centro. \\
     \bottomrule
   \end{tabular}
-  }
   \caption{Diccionario de datos. Tabla Centro}
   \label{tab:diccionario_centro}
 \end{table}
@@ -66,10 +64,9 @@ Se puede ver su información en la tabla~\ref{tab:diccionario_centro}.
 \subsubsection{Tabla Titulación}
 La tabla \texttt{titulación} almacena las titulaciones que son creadas y que pertenecen a un centro.
 Se puede ver su información en la tabla~\ref{tab:diccionario_titulacion}.
-\begin{table}[h]
-\scalebox{0.8}{
+\begin{table}
   \centering 
-  \begin{tabular}{p{7em} p{6em} p{18em}}
+  \begin{tabular}{l p{.2\textwidth} p{.5\textwidth}}
     \toprule
     \textbf{Campo} & \textbf{Tipo} & \textbf{Descripción}\\
     \midrule
@@ -81,7 +78,6 @@ Se puede ver su información en la tabla~\ref{tab:diccionario_titulacion}.
     id\_centro & Entero FK(Centro) & Identificador del centro asociado a la titulación. \\
     \bottomrule
   \end{tabular}
-  }
   \caption{Diccionario de datos. Tabla Titulación}
   \label{tab:diccionario_titulacion}
 \end{table}
@@ -89,10 +85,9 @@ Se puede ver su información en la tabla~\ref{tab:diccionario_titulacion}.
 \subsubsection{Tabla Asignatura}
 La tabla \texttt{asignatura} almacena información sobre las asignaturas, cada asignatura pertenece a una titulación. Se puede ver su información en la Tabla~\ref{tab:diccionario_asignatura}.
 
-\begin{table}[h]
-\scalebox{0.8}{
+\begin{table}
   \centering 
-  \begin{tabular}{p{7em} p{6em} p{18em}}
+  \begin{tabular}{l p{.2\textwidth} p{.5\textwidth}}
     \toprule
     \textbf{Campo} & \textbf{Tipo} & \textbf{Descripción}\\
     \midrule
@@ -107,7 +102,6 @@ La tabla \texttt{asignatura} almacena información sobre las asignaturas, cada a
     id\_titulacion & Entero FK(Titulación) & Identificador de la titulación a la que pertenece la asignatura. \\
     \bottomrule
   \end{tabular}
-  }
   \caption{Diccionario de datos. Tabla Asignatura}
   \label{tab:diccionario_asignatura}
 \end{table}
@@ -117,10 +111,9 @@ La tabla \texttt{abreviatura} almacena las abreviaturas de las asignaturas.
 De esta forma se permite que una asignatura pueda tener varias abreviaturas.
 Se puede ver su información en la tabla~\ref{tab:diccionario_abreviatura}.
 
-\begin{table}[h]
-\scalebox{0.8}{
+\begin{table}
   \centering 
-  \begin{tabular}{p{7em} p{7em} p{18em}}
+  \begin{tabular}{l p{.2\textwidth} p{.5\textwidth}}
     \toprule
     \textbf{Campo} & \textbf{Tipo} & \textbf{Descripción}\\
     \midrule
@@ -129,7 +122,6 @@ Se puede ver su información en la tabla~\ref{tab:diccionario_abreviatura}.
     id\_asignatura & Entero FK(Asignatura) & Identificador de la asignatura asociada a la abreviatura. \\
     \bottomrule
   \end{tabular}
-  }
   \caption{Diccionario de datos. Tabla Abreviatura}
   \label{tab:diccionario_abreviatura}
 \end{table}
@@ -138,10 +130,9 @@ Se puede ver su información en la tabla~\ref{tab:diccionario_abreviatura}.
 \subsubsection{Tabla Curso}
 La tabla \texttt{curso} almacena información sobre los cursos. Se puede ver su información en la Tabla~\ref{tab:diccionario_curso}.
 
-\begin{table}[h]
-\scalebox{0.8}{
+\begin{table}
   \centering 
-  \begin{tabular}{p{6em} p{6em} p{18em}}
+  \begin{tabular}{l p{.2\textwidth} p{.5\textwidth}}
     \toprule
     \textbf{Campo} & \textbf{Tipo} & \textbf{Descripción}\\
     \midrule
@@ -149,7 +140,6 @@ La tabla \texttt{curso} almacena información sobre los cursos. Se puede ver su 
     ano\_inicio & Texto & Año de inicio del curso. \\ \addlinespace
     \bottomrule
   \end{tabular}
-  }
   \caption{Diccionario de datos. Tabla Curso}
   \label{tab:diccionario_curso}
 \end{table}
@@ -158,10 +148,9 @@ La tabla \texttt{curso} almacena información sobre los cursos. Se puede ver su 
 La tabla \texttt{curso\_asignatura} almacena la relación entre cursos y asignaturas. 
 Se puede ver su información en la Tabla~\ref{tab:diccionario_curso_asignatura}.
 
-\begin{table}[h]
-\scalebox{0.8}{
+\begin{table}
   \centering
-  \begin{tabular}{p{14em} p{6em} p{18em}}
+  \begin{tabular}{l p{.2\textwidth} p{.25\textwidth}}
     \toprule
     \textbf{Campo} & \textbf{Tipo} & \textbf{Descripción}\\
     \midrule
@@ -174,7 +163,6 @@ Se puede ver su información en la Tabla~\ref{tab:diccionario_curso_asignatura}.
     num\_grupos\_practicos\_previstos & Entero & Número de grupos prácticos previstos para la relación curso-asignatura. \\
     \bottomrule
   \end{tabular}
-  }
   \caption{Diccionario de datos. Tabla Curso-Asignatura}
   \label{tab:diccionario_curso_asignatura}
 \end{table}
@@ -183,10 +171,9 @@ Se puede ver su información en la Tabla~\ref{tab:diccionario_curso_asignatura}.
 La tabla \texttt{grupo} almacena información sobre los grupos de asignaturas. 
 Se puede ver su información en la Tabla~\ref{tab:diccionario_grupo}.
 
-\begin{table}[h]
-\scalebox{0.8}{
+\begin{table}
   \centering 
-  \begin{tabular}{p{9em} p{6em} p{18em}}
+  \begin{tabular}{l p{.2\textwidth} p{.4\textwidth}}
     \toprule
     \textbf{Campo} & \textbf{Tipo} & \textbf{Descripción}\\
     \midrule
@@ -196,7 +183,6 @@ Se puede ver su información en la Tabla~\ref{tab:diccionario_grupo}.
     id\_curso\_asignatura & Entero FK(Curso-Asignatura) & Identificador de la relación curso-asignatura asociada al grupo. \\
     \bottomrule
   \end{tabular}
-  }
   \caption{Diccionario de datos. Tabla Grupo}
   \label{tab:diccionario_grupo}
 \end{table}
@@ -204,10 +190,9 @@ Se puede ver su información en la Tabla~\ref{tab:diccionario_grupo}.
 \subsubsection{Tabla Docente}
 La tabla \texttt{docente} almacena información sobre los docentes. Se puede ver su información en la Tabla~\ref{tab:diccionario_docente}.
 
-\begin{table}[h]
+\begin{table}
   \centering 
-  \scalebox{0.8}{
-  \begin{tabular}{p{8em} p{6em} p{18em}}
+  \begin{tabular}{l p{.2\textwidth} p{.5\textwidth}}
     \toprule
     \textbf{Campo} & \textbf{Tipo} & \textbf{Descripción}\\
     \midrule
@@ -218,7 +203,6 @@ La tabla \texttt{docente} almacena información sobre los docentes. Se puede ver
     reducciones & Entero & Número de horas de reducciones del docente. \\
     \bottomrule
   \end{tabular}
-  }
   \caption{Diccionario de datos. Tabla Docente}
   \label{tab:diccionario_docente}
 \end{table}
@@ -228,10 +212,9 @@ La tabla \texttt{docente} almacena información sobre los docentes. Se puede ver
 La tabla \texttt{departamento} almacena información sobre los departamentos de la universidad. 
 Se puede ver su información en la Tabla~\ref{tab:diccionario_departamento}.
 
-\begin{table}[h]
-\scalebox{0.8}{
+\begin{table}
   \centering 
-  \begin{tabular}{p{8em} p{6em} p{18em}}
+  \begin{tabular}{l p{.2\textwidth} p{.5\textwidth}}
     \toprule
     \textbf{Campo} & \textbf{Tipo} & \textbf{Descripción}\\
     \midrule
@@ -240,7 +223,6 @@ Se puede ver su información en la Tabla~\ref{tab:diccionario_departamento}.
     abreviatura & Texto & Abreviatura del departamento. \\
     \bottomrule
   \end{tabular}
-  }
   \caption{Diccionario de datos. Tabla Departamento}
   \label{tab:diccionario_departamento}
 \end{table}
@@ -249,10 +231,9 @@ Se puede ver su información en la Tabla~\ref{tab:diccionario_departamento}.
 La tabla \texttt{área} almacena información sobre las áreas de un departamento. 
 Se puede ver su información en la Tabla~\ref{tab:diccionario_area}.
 
-\begin{table}[h]
-\scalebox{0.8}{
+\begin{table}
   \centering 
-  \begin{tabular}{p{7em} p{8em} p{18em}}
+  \begin{tabular}{l p{.2\textwidth} p{.5\textwidth}}
     \toprule
     \textbf{Campo} & \textbf{Tipo} & \textbf{Descripción}\\
     \midrule
@@ -262,7 +243,6 @@ Se puede ver su información en la Tabla~\ref{tab:diccionario_area}.
     id\_departamento & Entero FK(Departamento) & Identificador del departamento al que pertenece el área. \\
     \bottomrule
   \end{tabular}
-  }
   \caption{Diccionario de datos. Tabla Área}
   \label{tab:diccionario_area}
 \end{table}
@@ -270,10 +250,9 @@ Se puede ver su información en la Tabla~\ref{tab:diccionario_area}.
 \subsubsection{Tabla Contrato}
 La tabla \texttt{contrato} almacena información sobre los tipos de contratos. Se puede ver su información en la Tabla~\ref{tab:diccionario_tipo_contrato}.
 
-\begin{table}[h]
+\begin{table}
   \centering 
-  \scalebox{0.8}{
-  \begin{tabular}{p{8em} p{6em} p{18em}}
+  \begin{tabular}{l p{.2\textwidth} p{.5\textwidth}}
     \toprule
     \textbf{Campo} & \textbf{Tipo} & \textbf{Descripción}\\
     \midrule
@@ -283,7 +262,6 @@ La tabla \texttt{contrato} almacena información sobre los tipos de contratos. S
     capacidad\_anual & Entero & Capacidad anual en horas del tipo de contrato. \\
     \bottomrule
   \end{tabular}
-  }
   \caption{Diccionario de datos. Tabla Tipo Contrato}
   \label{tab:diccionario_tipo_contrato}
 \end{table}
@@ -291,10 +269,9 @@ La tabla \texttt{contrato} almacena información sobre los tipos de contratos. S
 \subsubsection{Tabla Plaza}
 La tabla \texttt{plaza} almacena información sobre las plazas de contratación. Se puede ver su información en la Tabla~\ref{tab:diccionario_plaza}.
 
-\begin{table}[h]
+\begin{table}
   \centering 
-  \scalebox{0.8}{
-  \begin{tabular}{p{13em} p{5em} p{18em}}
+  \begin{tabular}{l p{.2\textwidth} p{.35\textwidth}}
     \toprule
     \textbf{Campo} & \textbf{Tipo} & \textbf{Descripción}\\
     \midrule
@@ -309,7 +286,6 @@ La tabla \texttt{plaza} almacena información sobre las plazas de contratación.
     id\_contrato & Entero & Identificador del tipo de contrato asociado a la plaza. \\
     \bottomrule
   \end{tabular}
-  }
   \caption{Diccionario de datos. Tabla Plaza}
   \label{tab:diccionario_plaza}
 \end{table}
@@ -317,10 +293,9 @@ La tabla \texttt{plaza} almacena información sobre las plazas de contratación.
 \subsubsection{Tabla Plaza-Grupo}
 La tabla \texttt{plaza-grupo} almacena información sobre la asignación de horas de plazas a grupos. Se puede ver su información en la Tabla~\ref{tab:diccionario_plaza_grupo}.
 
-\begin{table}[h]
+\begin{table}
   \centering 
-  \scalebox{0.8}{
-  \begin{tabular}{p{8em} p{6em} p{18em}}
+  \begin{tabular}{l p{.2\textwidth} p{.5\textwidth}}
     \toprule
     \textbf{Campo} & \textbf{Tipo} & \textbf{Descripción}\\
     \midrule
@@ -330,7 +305,6 @@ La tabla \texttt{plaza-grupo} almacena información sobre la asignación de hora
     id\_plaza & Entero & Identificador de la plaza. \\
     \bottomrule
   \end{tabular}
-  }
   \caption{Diccionario de datos. Tabla Plaza-Grupo}
   \label{tab:diccionario_plaza_grupo}
 \end{table}

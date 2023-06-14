@@ -489,9 +489,159 @@ En la reunión del \textit{sprint} 12
 
 
 \section{Estudio de viabilidad}
+El estudio de viabilidad es una etapa esencial en el desarrollo de cualquier proyecto, ya que permite evaluar la viabilidad económica, técnica y operativa de la propuesta. 
+
+En este apartado, se abordará el estudio de viabilidad del proyecto realizado.
+Se analizarán los aspectos económicos y legales del proyecto con el objetivo de determinar su viabilidad y establecer las bases para su exitosa implementación.
 
 \subsection{Viabilidad económica}
+Para determinar la viabilidad económica del proyecto es necesario analizar los costes que tiene y los posibles beneficios que puede otorgar.
+
+\subsubsection{Coste de personal}
+Para tener en cuenta los costes del proyecto, lo primero en lo que nos debemos fijar es el coste del personal involucrado en el proyecto realizado.
+
+En este caso, ha habido un único desarrollador \textit{junior} trabajando poco más de 4 meses dedicando aproximadamente 350 horas de trabajo en este periodo.
+
+Se toma como salario medio de un programador \textit{junior} los 19000~€ brutos anuales\footnote{\url{https://www.glassdoor.es/Sueldos/programador-junior-sueldo-SRCH_KO0,18.htm}}.
+Suponiendo un trabajo de 1826 horas anuales\footnote{\url{https://asesorias.com/empresas/normativas/laboral/jornada/horas-trabajo-anuales/}}, se obtiene un precio de 10.40~€ por cada hora de trabajo.
+Teniendo en cuenta las 350 horas trabajadas * 10.40~$\frac{\text{€}}{hora}$ = 3640~€ totales, lo que es lo mismo que 910~€ mensuales brutos.
+
+Una vez calculado el salario es importante tener en cuenta que la empresa debe pagar impuestos adicionales a esta base.
+En primer lugar debe pagar un 23.60\% de la base como contingencias comunes, 5.50\% de desempleo, un 0.6\% como formación, un 0.2\% de cotización al Fondo de Garantía Salarial (FOGASA) y un 1.5\% por accidentes de trabajo y enfermedades profesionales\footnote{\url{https://getquipu.com/blog/cuanto-cuesta-contratar-un-trabajador/}}.
+
+El total de lo que debe pagar la empresa por el salario mensual del trabajador se puede ver en la ecuación~\ref{eq:sueldo}.
+
+\begin{equation}\label{eq:sueldo}
+\frac{910~\frac{\text{€}}{mes}}{1 - (0.236 + 0.055 + 0.006 + 0.002 + 0.0150)} = 1326.53~ \frac{\text{€}}{mes}
+\end{equation}
+
+Finalmente, el salario durante los 4 meses de trabajo asciende al total de 1326.53~ $\frac{\text{€}}{mes}$ * 4 meses = 5306.12~€.
+
+
+\subsubsection{Coste de \textit{hardware}}
+Para el desarrollo del proyecto es necesario contar con cierto \textit{hardware}.
+En este caso, se ha utilizado un ordenador con un procesador Intel Core i5-8600, 16 GB de memoria RAM, tarjeta gráfica NVIDIA GeForce GTX 1060 y 1.5TB de almacenamiento.
+Es un ordenador tiene un valor de aproximado de 900€. En cuanto a periféricos y pantalla se estima un precio de 190~€.
+
+Este conjunto de \textit{hardware} se amortizará en 4 años. El coste anual de amortización se puede ver en la ecuación~\ref{eq:hardware}.
+
+\begin{equation}\label{eq:hardware}
+\frac{1090~\text{€}}{4~\text{años}} = 272.5~\frac{\text{€}}{año}
+\end{equation}
+
+Teniendo en cuenta que la duración del proyecto ha sido de 4 meses, el coste durante estos meses del \textit{hardware} es de 90.83~€.
+
+Por último, sobre el servidor donde desplegar la aplicación, pondremos un precio estimado de unos 80~€ mensuales para un servidor dedicado\footnote{\url{https://www.ovhcloud.com/es-es/bare-metal/prices/}}. Por lo tanto, el coste durante estos 4 meses es de 320~€.
+
+\subsubsection{Coste de \textit{software}}
+En este apartado vamos a exponer el coste del \textit{software} utilizado para el desarrollo del proyecto.
+
+Para la realización de este proyecto se han utilizado bibliotecas gratuitas. 
+El único coste adicional que puede tener es el del uso del IDE PyCharm, el cual tiene un coste mensual de 24.90~€ en su versión profesional, por lo que el coste durante los 4 meses de utilización es de 99.60~€.
+
+\subsubsection{Recuento}
+El recuento de estos costes durante los 4 meses de desarrollo del proyecto se puede ver en la tabla~\ref{table-A:economía}
+
+\begin{table}
+  \centering 
+  \begin{tabular}{l r}
+    \toprule
+    \textbf{Concepto} & \textbf{Coste (€)} \\
+    \midrule
+    Personal & 5306.12 \\
+	\textit{Hardware} & 410.83 \\
+	\textit{Software} & 99.60\\
+	\midrule
+	\textbf{Total} & 5816.55 \\
+	\bottomrule
+  \end{tabular}
+\caption{Total de costes durante el desarrollo del proyecto.}\label{table-A:economía}
+\end{table}
+
+
+\subsubsection{Beneficios}
+Este proyecto ha sido desarrollado para ser implementado en un departamento de la Universidad de Burgos sin obtener de ello ningún tipo de beneficio, ya que se trata de una aplicación interna de la propia universidad realizada con carácter educativo.
 
 \subsection{Viabilidad legal}
+La viabilidad legal de un proyecto permite evaluar y garantizar el cumplimiento de las leyes y regulaciones vigentes, tanto en el desarrollo como en el uso de la aplicación.
 
+\subsubsection{Licencias del software utilizado}
+
+En la tabla~\ref{table-A:licencias} se puede ver el listado de bibliotecas y herramientas utilizadas junto a su licencia.
+
+\begin{table}
+\centering 
+\begin{tabular}{|l|p{.15\textwidth}|p{.38\textwidth}|}
+\hline
+\textbf{Biblioteca/herramientas} & \textbf{Versión} & \textbf{Licencia} \\
+\hline
+\texttt{alembic} & 1.11.1 & MIT License \\
+\texttt{asgiref} & 3.6.0 & BSD-2 License \\
+\texttt{cachelib} & 0.10.2 & MIT License \\
+\texttt{click} & 8.1.3 & BSD-3 License \\
+\texttt{colorama} & 0.4.6 & BSD-3 License \\
+\texttt{Django} & 4.2.1 & BSD-3 License \\
+\texttt{djangoApiDec} & 1.7 & MIT License \\
+\texttt{dnspython} & 2.3.0 & ISC License \\
+\texttt{email-validator} & 2.0.0.post2 & MIT License \\
+\texttt{Flask} & 2.2.3 & BSD-3 License \\
+\texttt{Flask-Menu} & 0.7.2 & BSD License \\
+\texttt{Flask-Migrate} & 4.0.4 & BSD License \\
+\texttt{Flask-Session} & 0.5.0 & BSD License \\
+\texttt{Flask-SQLAlchemy} & 3.0.3 & BSD-3 License \\
+\texttt{Flask-WTF} & 1.1.1 & BSD-3 License \\
+\texttt{greenlet} & 2.0.2 & MIT License \\
+\texttt{gunicorn} & 20.1.0 & MIT License \\
+\texttt{idna} & 3.4 & BSD License \\
+\texttt{importlib-metadata} & 6.1.0 & Apache License 2.0 \\
+\texttt{itsdangerous} & 2.1.2 & BSD License \\
+\texttt{jieba} & 0.38 & MIT License \\
+\texttt{Jinja2} & 3.1.2 & BSD-3 License \\
+\texttt{Mako} & 1.2.4 & MIT License \\
+\texttt{MarkupSafe} & 2.1.2 & BSD License \\
+\texttt{mysqlclient} & 2.1.1 & GNU Library General Public License \\
+\texttt{ngram} & 4.0.3 & Apache License 2.0 \\
+\texttt{pymongo} & 3.4.0 & Apache License 2.0 \\
+\texttt{PyMySQL} & 1.0.3 & MIT License \\
+\texttt{PyPrind} & 2.9.9 & MIT License \\
+\texttt{requests} & 2.12.3 & Apache License 2.0 \\
+\texttt{simplejson} & 3.10.0 & MIT License \\
+\texttt{six} & 1.16.0 & MIT License \\
+\texttt{SQLAlchemy} & 2.0.9 & MIT License \\
+\texttt{sqlparse} & 0.4.4 & BSD License \\
+\texttt{typing\_extensions} & 4.5.0 & MIT License \\
+\texttt{tzdata} & 2023.3 & MIT License \\
+\texttt{Werkzeug} & 2.2.3 & BSD License \\
+\texttt{WTForms} & 3.0.1 & BSD License \\
+\texttt{zipp} & 3.15.0 & MIT License \\
+\texttt{grid.js} & 6.0.6 & MIT License \\
+\texttt{select2} & 4.1.0-rc.0 & MIT License \\
+\texttt{sortablejs} & 1.15.0 & MIT License \\
+\hline
+\end{tabular}
+\caption{Licencias de las bibliotecas utilizadas.}\label{table-A:licencias}
+\end{table}
+
+La explicación de las licencias que utilizan las bibliotecas se encuentran expuestas a continuación:
+\begin{itemize}
+\item \textbf{MIT License}
+
+Licencia de \textit{software} de código abierto que permite a los usuarios utilizar, copiar, modificar, fusionar, publicar, distribuir y sublicenciar el software bajo ciertas condiciones. Es una licencia flexible y no impone muchas restricciones~\cite{wiki:mit-license}.
+
+\item \textbf{BSD License}
+
+Son varias licencias de \textit{software} de código abierto con diferentes variantes, como la Licencia BSD de 3 cláusulas y la Licencia BSD de 2 cláusulas. Estas licencias permiten el uso, la redistribución y la modificación del software bajo ciertas condiciones. Se suelen considerar licencias permisivas~\cite{wiki:bsd-license}.
+
+\item \textbf{Apache License 2.0}
+
+Licencia de \textit{software} de código abierto permisiva. Permite a los usuarios utilizar, copiar, modificar, distribuir y sublicenciar el software bajo ciertas condiciones. Además, esta licencia incluye disposiciones específicas para las contribuciones de patentes~\cite{apache-license}.
+
+\item \textbf{GNU Library General Public License (LGPL)}
+
+Licencia de \textit{software} de código abierto. Esta licencia permite que el software se utilice y modifique, incluso en proyectos propietarios, siempre y cuando se respeten ciertas condiciones. Sin embargo, cualquier modificación realizada en el software LGPL debe estar disponible públicamente bajo la misma licencia LGPL~\cite{gnu-license}.
+
+\item \textbf{ISC License}
+
+Licencia de \textit{software} de código abierto permisiva funcionalmente equivalente a las licencias BSD y MIT~\cite{wiki:isc-license}.
+\end{itemize}
 
