@@ -3,7 +3,7 @@
 \section{Introducción}
 En este anexo se va a exponer la planificación temporal y el estudio de viabilidad del proyecto.
 
-La planificación temporal está dividida en los \textit{sprints} seguidos para la realización del proyecto.
+Siguiendo la metodología Scrum, la planificación temporal está dividida en los \textit{sprints} seguidos para la realización del proyecto.
 Cada apartado dentro de la planificación cuenta con información sobre la reunión de planificación del \textit{sprint}, de la que se obtienen conjunto de tareas a realizar, y la reunión de revisión, donde se muestra y valora el trabajo realizado.
 
 \section{Planificación temporal}
@@ -39,7 +39,7 @@ Se llegó a la conclusión de que podía ser buena idea dividir el diagrama E/R 
 \end{itemize}
 
 
-\subsubsection{\textit{Sprint} 2: Casos de uso y diagrama E/R de cada caso}
+\subsubsection{\textit{Sprint} 2: Casos de uso y diagrama E/R de cada uno}
 Fechas: 7 marzo 2023 -- 14 marzo 2023.
 \begin{itemize}
 \item\textbf{Planificación del \textit{sprint}}
@@ -218,7 +218,7 @@ Fechas: 24 abril 2023 -- 2 mayo 2023.
 En la reunión de planificación del sprint se fijaron las siguientes tareas:
 \begin{enumerate}
 		\item Comentarios sobre memoria y anexos.
-		\item Crear el CRUD de Docentes, Plazas, Contratos, Áreas y Departamentos.
+		\item Crear el CRUD\footnote{CRUD son las siglas de \textit{Create} (crear), \textit{Read} (leer), \textit{Update} (actualizar) y \textit{Delete} (modificar).} de Docentes, Plazas, Contratos, Áreas y Departamentos.
 		\item Solucionar bug con las abreviaturas al modificar una asignatura.
 		\item Algunos cambios en campos de la base de datos.
 		\item Buscar cómo cargar un CSV desde un script de SQL en phpMyAdmin.
@@ -234,7 +234,7 @@ Tenía una planificación de 30 minutos y se realizó dentro del tiempo estimado
 La tarea <<Crear el CRUD de Docentes, Plazas, Contratos, Áreas y Departamentos>> era la que tenía más carga de trabajo en este \textit{sprint} con una estimación de 8 horas que se convirtió en 11 horas de trabajo real.
 Este incremento de horas se debió principalmente a problemas para configurar correctamente la biblioteca Select2 utilizando Ajax y para mantener las opciones marcadas en el campo en las modificaciones.
 
-La tarea <<Solucionar bug con las abreviaturas al modificar una asignatura>> era debida a errores en el campo Select2 al hacer una modificación de una asignatura. 
+La tarea <<Solucionar bug con las abreviaturas al modificar una asignatura>> era debida a errores en el campo \texttt{Select2} al hacer una modificación de una asignatura. 
 Las abreviaturas de la asignatura aparecían bien, pero no se recuperaban de forma correcta en el servidor para saber cuales habían sido añadidas o eliminadas.
 Esta tarea tenía una estimación de 1 hora y no se pretendía superar ese tiempo de trabajo, ya que en la reunión de planificación no se consideró que fuese un problema crucial debido a que en este momento no era necesario que una asignatura tuviera varias abreviaturas y podía ser cambiado por un campo de texto normal que no diese ese problema y permitiese a una asignatura tener una única abreviatura.
 Al realizar la tarea anterior se tuvo un problema parecido que dio la pista para resolver este problema dejándolo totalmente subsanado.
@@ -329,7 +329,7 @@ La tarea llevó un trabajo real de aproximadamente las 3 horas. Se hicieron avan
 
 \item\textbf{Revisión del \textit{sprint}}
 
-En la reunión del \textit{sprint} 9 se estuvieron viendo los avances realizados. Se comentó que podría ser buena idea realizar algunos cambios en la creación de grupos y añadir una vista donde visualizar las titulaciones de un centro y las asignaturas de una titulación. Además, se descubrió un error en la eliminación de grupos y se estuvo hablando sobre como realizar el inicio de sesión de la aplicación a través de un \textit{token} devuelto por la UBU.
+En la reunión del \textit{sprint} 9 se estuvieron viendo los avances realizados. Se comentó que podría ser buena idea realizar algunos cambios en la creación de grupos y añadir una vista donde visualizar las titulaciones de un centro y las asignaturas de una titulación. Además, se descubrió un error en la eliminación de grupos y se estuvo hablando sobre como realizar el inicio de sesión de la aplicación a través de un \textit{token} devuelto por Moodle.
 \end{itemize}
 
 \subsubsection{\textit{Sprint} 10: Asignación de horas}
@@ -342,7 +342,7 @@ En la reunión de planificación del sprint se fijaron las siguientes tareas:
 		\item Crear la asignación de horas de plazas a grupos.
 		\item Añadir forma avanzada de creación de grupos.
 		\item Arreglar la eliminación de grupos.
-		\item Cambios de campos obligatorios en "Añadir Plaza".
+		\item Cambios de campos obligatorios en <<Añadir Plaza>>.
 		\item Arreglo \textit{bug} de números negativos.
 		\item Mejoras de navegación en la web.
 		\item Añadir documentación en los anexos.

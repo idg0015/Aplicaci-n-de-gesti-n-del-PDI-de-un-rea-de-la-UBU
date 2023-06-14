@@ -38,23 +38,28 @@ A continuación se van a exponer los requisitos de la aplicación web.
 \clearpage
 \section{Especificación de requisitos}
 \subsection{Casos de uso}
+
+A continuación se van a exponer los casos de uso de la aplicación separándolos en tres casos de uso principales para una mejor visualización y mayor organización. Estos casos de uso generales se pueden ver en la figura~\ref{fig:CU-general}.
+
 \begin{figure}[!h]
 	\centering
 	\includegraphics[scale=0.85]{../img/Anexos/Casos uso/Diagrama casos de uso 1.pdf}
-	\caption{Diagrama de casos de uso general}
+	\caption{Diagrama de casos de uso general}\label{fig:CU-general}
 \end{figure}
 \FloatBarrier
 
 \subsubsection{1. Mantenimiento académico}
+
+En este apartado se va a exponer el diagrama de casos de uso 2, el cual se encuentra definido en la ilustración~\ref{fig:CU-1} y en las tablas \ref{table:CU-1_1}, \ref{table:CU-1_1_1}, \ref{table:CU-1_2}, \ref{table:CU-1_2_1}, \ref{table:CU-1_3} y \ref{table:CU-1_3_1}.
+
 \begin{figure}[!h]
 	\centering
 	\includegraphics[scale=0.85]{../img/Anexos/Casos uso/Diagrama casos de uso 2.pdf}
-	\caption{Diagrama de caso de uso - 1. Mantenimiento académico}
+	\caption{Diagrama de caso de uso - 1. Mantenimiento académico}\label{fig:CU-1}
 \end{figure}
 \FloatBarrier
 
 \begin{table}[p]
-\label{table:CU-1}
 	\centering
 	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
 		\toprule
@@ -73,16 +78,15 @@ A continuación se van a exponer los requisitos de la aplicación web.
 			\item Se abre la ventana de mantenimiento de las asignaturas.
 		\end{enumerate}\\
 		\textbf{Postcondición}        & Ninguna \\
-		\textbf{Excepciones}          & También es posible acceder la ventana de mantenimiento de centros y titulaciones seleccionando las opciones <<Centros>> (\hyperref[table:CU-1.1]{CU-1.1}) o <<Titulaciones>> (\hyperref[table:CU-1.2]{CU-1.2}) respectivamente. Si no se pulsa ninguna, se permanece en la ventana actual. \\
+		\textbf{Excepciones}          & También es posible acceder la ventana de mantenimiento de centros y titulaciones seleccionando las opciones <<Centros>> (\hyperref[table:CU-1_1]{CU-1.1}) o <<Titulaciones>> (\hyperref[table:CU-1_2]{CU-1.2}) respectivamente. Si no se pulsa ninguna, se permanece en la ventana actual. \\
 		\textbf{Importancia}          & Alta \\
 		\bottomrule
 	\end{tabularx}
-	\caption{CU-1 Mantenimiento académico.}
+	\caption{CU-1 Mantenimiento académico.}\label{table:CU-1}
 \end{table}
 \FloatBarrier
 
 \begin{table}[p]
-\label{table:CU-1.1}
 	\centering
 	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
 		\toprule
@@ -100,16 +104,15 @@ A continuación se van a exponer los requisitos de la aplicación web.
 			\item Se abre una ventana donde aparece una tabla con los centros creados desde donde se podrá realizar el mantenimiento.
 		\end{enumerate}\\
 		\textbf{Postcondición}        & Ninguna \\
-		\textbf{Excepciones}          & Si se pulsa sobre el botón <<Nuevo>>, se accede a la creación de centros (\hyperref[table:CU-1.1.1]{CU-1.1.1}). Si se pulsa sobre el botón <<Modificar>> de un centro del listado, se accede a la ventana de modificación del centro. Por último, si se pulsa sobre el botón <<Eliminar>> de un centro el sistema pregunta si está seguro, y al pulsar en <<Sí>>, este se elimina produciendo un borrado en cascada de las titulaciones vinculadas. \\
+		\textbf{Excepciones}          & Si se pulsa sobre el botón <<Nuevo>>, se accede a la creación de centros (\hyperref[table:CU-1_1_1]{CU-1.1.1}). Si se pulsa sobre el botón <<Modificar>> de un centro del listado, se accede a la ventana de modificación del centro. Por último, si se pulsa sobre el botón <<Eliminar>> de un centro el sistema pregunta si está seguro, y al pulsar en <<Sí>>, este se elimina produciendo un borrado en cascada de las titulaciones vinculadas. \\
 		\textbf{Importancia}          & Alta \\
 		\bottomrule
 	\end{tabularx}
-	\caption{CU-1.1 Mantenimiento de centros.}
+	\caption{CU-1.1 Mantenimiento de centros.}\label{table:CU-1_1}
 \end{table}
 \FloatBarrier
 
 \begin{table}[p]
-\label{table:CU-1.1.1}
 	\centering
 	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
 		\toprule
@@ -119,7 +122,7 @@ A continuación se van a exponer los requisitos de la aplicación web.
 		\textbf{Autor}                & Ignacio Dávila García \\
 		\textbf{Requisitos asociados} & \hyperref[itm:RF5]{RF-05} \\
 		\textbf{Descripción}          & Un administrativo añade o modifica un nuevo centro \\
-		\textbf{Precondición}         & Realizar el~\hyperref[table:CU-1.1]{CU-1.1} \\
+		\textbf{Precondición}         & Realizar el~\hyperref[table:CU-1_1]{CU-1.1} \\
 		\textbf{Acciones}             &
 		\begin{enumerate}
 			\def\labelenumi{\arabic{enumi}.}
@@ -133,12 +136,11 @@ A continuación se van a exponer los requisitos de la aplicación web.
 		\textbf{Importancia}          & Alta \\
 		\bottomrule
 	\end{tabularx}
-	\caption{CU-1.1.1 Añadir/Modificar centros.}
+	\caption{CU-1.1.1 Añadir/Modificar centros.}\label{table:CU-1_1_1}
 \end{table}
 \FloatBarrier
 
 \begin{table}[p]
-\label{table:CU-1.2}
 	\centering
 	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
 		\toprule
@@ -156,16 +158,15 @@ A continuación se van a exponer los requisitos de la aplicación web.
 			\item Se abre una ventana donde aparece una tabla con las titulaciones creadas desde donde se podrá realizar el mantenimiento.
 		\end{enumerate}\\
 		\textbf{Postcondición}        & Ninguna \\
-		\textbf{Excepciones}          & Si se pulsa sobre el botón <<Nuevo>>, se accede a la creación de titulaciones (\hyperref[table:CU-1.2.1]{CU-1.2.1}). Si se pulsa sobre el botón <<Modificar>> de una titulación de la lista se accede a la ventana de modificación. Por último, si se pulsa sobre el botón <<Eliminar>> de una titulación el sistema pregunta si está seguro, y al pulsar en <<Sí>>, esta se elimina produciendo un borrado en cascada de las asignaturas vinculadas. \\
+		\textbf{Excepciones}          & Si se pulsa sobre el botón <<Nuevo>>, se accede a la creación de titulaciones (\hyperref[table:CU-1_2_1]{CU-1.2.1}). Si se pulsa sobre el botón <<Modificar>> de una titulación de la lista se accede a la ventana de modificación. Por último, si se pulsa sobre el botón <<Eliminar>> de una titulación el sistema pregunta si está seguro, y al pulsar en <<Sí>>, esta se elimina produciendo un borrado en cascada de las asignaturas vinculadas. \\
 		\textbf{Importancia}          & Alta \\
 		\bottomrule
 	\end{tabularx}
-	\caption{CU-1.2 Mantenimiento de titulaciones.}
+	\caption{CU-1.2 Mantenimiento de titulaciones.}\label{table:CU-1_2}
 \end{table}
 \FloatBarrier
 
 \begin{table}[p]
-\label{table:CU-1.2.1}
 	\centering
 	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
 		\toprule
@@ -175,7 +176,7 @@ A continuación se van a exponer los requisitos de la aplicación web.
 		\textbf{Autor}                & Ignacio Dávila García \\
 		\textbf{Requisitos asociados} & \hyperref[itm:RF1]{RF-01} \\
 		\textbf{Descripción}          & Un administrativo añade o modifica una titulación \\
-		\textbf{Precondición}         & Realizar el~\hyperref[table:CU-1.2]{CU-1.2} y tener algún centro creado \\
+		\textbf{Precondición}         & Realizar el~\hyperref[table:CU-1_2]{CU-1.2} y tener algún centro creado \\
 		\textbf{Acciones}             &
 		\begin{enumerate}
 			\def\labelenumi{\arabic{enumi}.}
@@ -189,12 +190,11 @@ A continuación se van a exponer los requisitos de la aplicación web.
 		\textbf{Importancia}          & Alta \\
 		\bottomrule
 	\end{tabularx}
-	\caption{CU-1.2.1 Añadir/Modificar centros.}
+	\caption{CU-1.2.1 Añadir/Modificar centros.}\label{table:CU-1_2_1}
 \end{table}
 \FloatBarrier
 
 \begin{table}[p]
-\label{table:CU-1.3}
 	\centering
 	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
 		\toprule
@@ -212,16 +212,15 @@ A continuación se van a exponer los requisitos de la aplicación web.
 			\item Se abre una ventana donde aparece una tabla con las asignaturas creadas desde donde se podrá realizar el mantenimiento.
 		\end{enumerate}\\
 		\textbf{Postcondición}        & Ninguna \\
-		\textbf{Excepciones}          & Si se pulsa sobre el botón <<Nuevo>>, se accede a la creación de asignaturas (\hyperref[table:CU-1.3.1]{CU-1.3.1}). Si se pulsa sobre el botón <<Modificar>> de una asignaturas de la lista se accede a la ventana de modificación. Por último, si se pulsa sobre el botón <<Eliminar>> de una asignatura el sistema pregunta si está seguro, y al pulsar en <<Sí>> esta se elimina. \\
+		\textbf{Excepciones}          & Si se pulsa sobre el botón <<Nuevo>>, se accede a la creación de asignaturas (\hyperref[table:CU-1_3_1]{CU-1.3.1}). Si se pulsa sobre el botón <<Modificar>> de una asignaturas de la lista se accede a la ventana de modificación. Por último, si se pulsa sobre el botón <<Eliminar>> de una asignatura el sistema pregunta si está seguro, y al pulsar en <<Sí>> esta se elimina. \\
 		\textbf{Importancia}          & Alta \\
 		\bottomrule
 	\end{tabularx}
-	\caption{CU-1.3 Mantenimiento de asignaturas.}
+	\caption{CU-1.3 Mantenimiento de asignaturas.}\label{table:CU-1_3}
 \end{table}
 \FloatBarrier
 
 \begin{table}[p]
-\label{table:CU-1.3.1}
 	\centering
 	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
 		\toprule
@@ -231,7 +230,7 @@ A continuación se van a exponer los requisitos de la aplicación web.
 		\textbf{Autor}                & Ignacio Dávila García \\
 		\textbf{Requisitos asociados} & \hyperref[itm:RF2]{RF-02} \\
 		\textbf{Descripción}          & Un administrativo añade o modifica una asignatura \\
-		\textbf{Precondición}         & Realizar el~\hyperref[table:CU-1.3]{CU-1.3} y tener alguna titulación creada \\
+		\textbf{Precondición}         & Realizar el~\hyperref[table:CU-1_3]{CU-1.3} y tener alguna titulación creada \\
 		\textbf{Acciones}             &
 		\begin{enumerate}
 			\def\labelenumi{\arabic{enumi}.}
@@ -245,7 +244,7 @@ A continuación se van a exponer los requisitos de la aplicación web.
 		\textbf{Importancia}          & Alta \\
 		\bottomrule
 	\end{tabularx}
-	\caption{CU-1.3.1 Añadir/Modificar asignaturas.}
+	\caption{CU-1.3.1 Añadir/Modificar asignaturas.}\label{table:CU-1_3_1}
 \end{table}
 \FloatBarrier
 
@@ -259,15 +258,17 @@ A continuación se van a exponer los requisitos de la aplicación web.
 
 \newpage
 \subsubsection{2. Mantenimiento de profesorado}
+
+En este apartado se va a exponer el diagrama de casos de uso 2, el cual se encuentra definido en la ilustración~\ref{fig:CU-2} y en las tablas \ref{table:CU-2}, \ref{table:CU-2_1_1}, \ref{table:CU-2_2}, \ref{table:CU-2_2_1}, \ref{table:CU-2_3}, \ref{table:CU-2_3_1}, \ref{table:CU-2_4}, \ref{table:CU-2_4_1}, \ref{table:CU-2_5}, \ref{table:CU-2_5_1} y \ref{table:CU-2_6}.
+
 \begin{figure}[!h]
 	\centering
 	\includegraphics[scale=0.75]{../img/Anexos/Casos uso/Diagrama casos de uso 3.pdf}
-	\caption{Diagrama de caso de uso - 2. Mantenimiento de profesorado}
+	\caption{Diagrama de caso de uso - 2. Mantenimiento de profesorado}\label{fig:CU-2}
 \end{figure}
 \FloatBarrier
 
 \begin{table}[p]
-\label{table:CU-2}
 	\centering
 	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
 		\toprule
@@ -286,16 +287,15 @@ A continuación se van a exponer los requisitos de la aplicación web.
 			\item Se abre la ventana de mantenimiento de plazas.
 		\end{enumerate}\\
 		\textbf{Postcondición}        & El sistema lleva al usuario a la ventana de la opción pulsada. \\
-		\textbf{Excepciones}          & Otras opciones que se pueden seleccionar son <<Docentes>> (\hyperref[table:CU-2.3]{CU-2.3}), <<Contratos>> (\hyperref[table:CU-2.4]{CU-2.4}), <<Departamentos>> (\hyperref[table:CU-2.1]{CU-2.1}) o <<Áreas>> (\hyperref[table:CU-2.2]{CU-2.2}). Al seleccionar alguna de estas opciones el sistema lleva al usuario a la ventana de mantenimiento de la opción elegida.  \\
+		\textbf{Excepciones}          & Otras opciones que se pueden seleccionar son <<Docentes>> (\hyperref[table:CU-2_3]{CU-2.3}), <<Contratos>> (\hyperref[table:CU-2_4]{CU-2.4}), <<Departamentos>> (\hyperref[table:CU-2_1]{CU-2.1}) o <<Áreas>> (\hyperref[table:CU-2_2]{CU-2.2}). Al seleccionar alguna de estas opciones el sistema lleva al usuario a la ventana de mantenimiento de la opción elegida.  \\
 		\textbf{Importancia}          & Alta \\
 		\bottomrule
 	\end{tabularx}
-	\caption{CU-2 Mantenimiento de profesorado.}
+	\caption{CU-2 Mantenimiento de profesorado.}\label{table:CU-2}
 \end{table}
 \FloatBarrier
 
 \begin{table}[p]
-\label{table:CU-2.1}
 	\centering
 	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
 		\toprule
@@ -313,16 +313,15 @@ A continuación se van a exponer los requisitos de la aplicación web.
 			\item Se abre una ventana donde aparece una tabla con los departamentos creados desde donde se podrá realizar el mantenimiento.
 		\end{enumerate}\\
 		\textbf{Postcondición}        & Ninguna \\
-		\textbf{Excepciones}          & Si se pulsa sobre el botón <<Nuevo>>, se accede a la creación de departamentos (\hyperref[table:CU-2.1.1]{CU-2.1.1}). Si se pulsa sobre el botón <<Modificar>> de un departamento de la lista, se accede a la ventana de modificación. Por último, si se pulsa sobre el botón <<Eliminar>> de un departamento el sistema pregunta si está seguro, y al pulsar en <<Sí>>, este se elimina produciendo un borrado en cascada de las áreas asociadas. \\
+		\textbf{Excepciones}          & Si se pulsa sobre el botón <<Nuevo>>, se accede a la creación de departamentos (\hyperref[table:CU-2_1_1]{CU-2.1.1}). Si se pulsa sobre el botón <<Modificar>> de un departamento de la lista, se accede a la ventana de modificación. Por último, si se pulsa sobre el botón <<Eliminar>> de un departamento el sistema pregunta si está seguro, y al pulsar en <<Sí>>, este se elimina produciendo un borrado en cascada de las áreas asociadas. \\
 		\textbf{Importancia}          & Alta \\
 		\bottomrule
 	\end{tabularx}
-	\caption{CU-2.1 Mantenimiento de departamentos.}
+	\caption{CU-2.1 Mantenimiento de departamentos.}\label{table:CU-2_1}
 \end{table}
 \FloatBarrier
 
 \begin{table}[p]
-\label{table:CU-2.1.1}
 	\centering
 	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
 		\toprule
@@ -332,7 +331,7 @@ A continuación se van a exponer los requisitos de la aplicación web.
 		\textbf{Autor}                & Ignacio Dávila García \\
 		\textbf{Requisitos asociados} & \hyperref[itm:RF10]{RF-10} \\
 		\textbf{Descripción}          & Un administrativo añade o modifica un departamento \\
-		\textbf{Precondición}         & Realizar el~\hyperref[table:CU-2.1]{CU-2.1} \\
+		\textbf{Precondición}         & Realizar el~\hyperref[table:CU-2_1]{CU-2.1} \\
 		\textbf{Acciones}             &
 		\begin{enumerate}
 			\def\labelenumi{\arabic{enumi}.}
@@ -346,12 +345,11 @@ A continuación se van a exponer los requisitos de la aplicación web.
 		\textbf{Importancia}          & Alta \\
 		\bottomrule
 	\end{tabularx}
-	\caption{CU-2.1.1 Añadir/Modificar departamentos.}
+	\caption{CU-2.1.1 Añadir/Modificar departamentos.}\label{table:CU-2_1_1}
 \end{table}
 \FloatBarrier
 
 \begin{table}[p]
-\label{table:CU-2.2}
 	\centering
 	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
 		\toprule
@@ -369,16 +367,15 @@ A continuación se van a exponer los requisitos de la aplicación web.
 			\item Se abre una ventana donde aparece una tabla con las áreas creadas desde donde se podrá realizar el mantenimiento.
 		\end{enumerate}\\
 		\textbf{Postcondición}        & Ninguna \\
-		\textbf{Excepciones}          & Si se pulsa sobre el botón <<Nuevo>>, se accede a la creación de áreas (\hyperref[table:CU-2.2.1]{CU-2.2.1}). Si se pulsa sobre el botón <<Modificar>> de un área de la lista, se accede a la ventana de modificación. Por último, si se pulsa sobre el botón <<Eliminar>> de un área el sistema pregunta si está seguro, y al pulsar en <<Sí>>, esta se elimina produciendo un borrado en cascada de las plazas asociadas. \\
+		\textbf{Excepciones}          & Si se pulsa sobre el botón <<Nuevo>>, se accede a la creación de áreas (\hyperref[table:CU-2_2_1]{CU-2.2.1}). Si se pulsa sobre el botón <<Modificar>> de un área de la lista, se accede a la ventana de modificación. Por último, si se pulsa sobre el botón <<Eliminar>> de un área el sistema pregunta si está seguro, y al pulsar en <<Sí>>, esta se elimina produciendo un borrado en cascada de las plazas asociadas. \\
 		\textbf{Importancia}          & Alta \\
 		\bottomrule
 	\end{tabularx}
-	\caption{CU-2.2 Mantenimiento de áreas.}
+	\caption{CU-2.2 Mantenimiento de áreas.}\label{table:CU-2_2}
 \end{table}
 \FloatBarrier
 
 \begin{table}[p]
-\label{table:CU-2.2.1}
 	\centering
 	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
 		\toprule
@@ -402,12 +399,11 @@ A continuación se van a exponer los requisitos de la aplicación web.
 		\textbf{Importancia}          & Alta \\
 		\bottomrule
 	\end{tabularx}
-	\caption{CU-2.2.1 Añadir/Modificar áreas.}
+	\caption{CU-2.2.1 Añadir/Modificar áreas.}\label{table:CU-2_2_1}
 \end{table}
 \FloatBarrier
 
 \begin{table}[p]
-\label{table:CU-2.3}
 	\centering
 	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
 		\toprule
@@ -426,16 +422,15 @@ A continuación se van a exponer los requisitos de la aplicación web.
 			\item Se abre una ventana donde aparece una tabla con los docentes creados desde donde se podrá realizar el mantenimiento.
 		\end{enumerate}\\
 		\textbf{Postcondición}        & Ninguna \\
-		\textbf{Excepciones}          & Si se pulsa sobre el botón <<Nuevo>>, se accede a la creación de docentes (\hyperref[table:CU-2.3.1]{CU-2.3.1}). Si se pulsa sobre el botón <<Modificar>> de un docente de la lista, se accede a la ventana de modificación. Por último, si se pulsa sobre el botón <<Eliminar>> de un docente el sistema pregunta si está seguro, y al pulsar en <<Sí>>, este se elimina. \\
+		\textbf{Excepciones}          & Si se pulsa sobre el botón <<Nuevo>>, se accede a la creación de docentes (\hyperref[table:CU-2_3_1]{CU-2.3.1}). Si se pulsa sobre el botón <<Modificar>> de un docente de la lista, se accede a la ventana de modificación. Por último, si se pulsa sobre el botón <<Eliminar>> de un docente el sistema pregunta si está seguro, y al pulsar en <<Sí>>, este se elimina. \\
 		\textbf{Importancia}          & Alta \\
 		\bottomrule
 	\end{tabularx}
-	\caption{CU-2.3 Mantenimiento de docentes.}
+	\caption{CU-2.3 Mantenimiento de docentes.}\label{table:CU-2_3}
 \end{table}
 \FloatBarrier
 
 \begin{table}[p]
-\label{table:CU-2.3.1}
 	\centering
 	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
 		\toprule
@@ -445,7 +440,7 @@ A continuación se van a exponer los requisitos de la aplicación web.
 		\textbf{Autor}                & Ignacio Dávila García \\
 		\textbf{Requisitos asociados} & \hyperref[itm:RF4]{RF-04} \\
 		\textbf{Descripción}          & Un administrativo añade o modifica un docente \\
-		\textbf{Precondición}         & Realizar el~\hyperref[table:CU-2.3]{CU-2.3} \\
+		\textbf{Precondición}         & Realizar el~\hyperref[table:CU-2_3]{CU-2.3} \\
 		\textbf{Acciones}             &
 		\begin{enumerate}
 			\def\labelenumi{\arabic{enumi}.}
@@ -459,12 +454,11 @@ A continuación se van a exponer los requisitos de la aplicación web.
 		\textbf{Importancia}          & Alta \\
 		\bottomrule
 	\end{tabularx}
-	\caption{CU-2.3.1 Añadir/Modificar docentes.}
+	\caption{CU-2.3.1 Añadir/Modificar docentes.}\label{table:CU-2_3_1}
 \end{table}
 \FloatBarrier
 
 \begin{table}[p]
-\label{table:CU-2.4}
 	\centering
 	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
 		\toprule
@@ -483,16 +477,15 @@ A continuación se van a exponer los requisitos de la aplicación web.
 			\item Se abre una ventana donde aparece una tabla con los tipos de contrato creados desde donde se podrá realizar el mantenimiento.
 		\end{enumerate}\\
 		\textbf{Postcondición}        & Ninguna \\
-		\textbf{Excepciones}          & Si se pulsa sobre el botón <<Nuevo>>, se accede a la creación de un nuevo tipo de contrato (\hyperref[table:CU-2.4.1]{CU-2.4.1}). Si se pulsa sobre el botón <<Modificar>> de un tipo de contrato de la lista, se accede a la ventana de modificación. Por último, si se pulsa sobre el botón <<Eliminar>> de un tipo de contrato el sistema pregunta si está seguro, y al pulsar en <<Sí>>, este se elimina. \\
+		\textbf{Excepciones}          & Si se pulsa sobre el botón <<Nuevo>>, se accede a la creación de un nuevo tipo de contrato (\hyperref[table:CU-2_4_1]{CU-2.4.1}). Si se pulsa sobre el botón <<Modificar>> de un tipo de contrato de la lista, se accede a la ventana de modificación. Por último, si se pulsa sobre el botón <<Eliminar>> de un tipo de contrato el sistema pregunta si está seguro, y al pulsar en <<Sí>>, este se elimina. \\
 		\textbf{Importancia}          & Alta \\
 		\bottomrule
 	\end{tabularx}
-	\caption{CU-2.4 Mantenimiento de tipos de contrato.}
+	\caption{CU-2.4 Mantenimiento de tipos de contrato.}\label{table:CU-2_4}
 \end{table}
 \FloatBarrier
 
 \begin{table}[p]
-\label{table:CU-2.4.1}
 	\centering
 	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
 		\toprule
@@ -502,7 +495,7 @@ A continuación se van a exponer los requisitos de la aplicación web.
 		\textbf{Autor}                & Ignacio Dávila García \\
 		\textbf{Requisitos asociados} & \hyperref[itm:RF8]{RF-08} \\
 		\textbf{Descripción}          & Un administrativo añade o modifica un docente \\
-		\textbf{Precondición}         & Realizar el~\hyperref[table:CU-2.4]{CU-2.4} \\
+		\textbf{Precondición}         & Realizar el~\hyperref[table:CU-2_4]{CU-2.4} \\
 		\textbf{Acciones}             &
 		\begin{enumerate}
 			\def\labelenumi{\arabic{enumi}.}
@@ -516,12 +509,11 @@ A continuación se van a exponer los requisitos de la aplicación web.
 		\textbf{Importancia}          & Alta \\
 		\bottomrule
 	\end{tabularx}
-	\caption{CU-2.4.1 Añadir/Modificar tipos de contrato.}
+	\caption{CU-2.4.1 Añadir/Modificar tipos de contrato.}\label{table:CU-2_4_1}
 \end{table}
 \FloatBarrier
 
 \begin{table}[p]
-\label{table:CU-2.5}
 	\centering
 	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
 		\toprule
@@ -539,16 +531,15 @@ A continuación se van a exponer los requisitos de la aplicación web.
 			\item Se abre una ventana donde aparece una tabla con las plazas creadas desde donde se podrá realizar el mantenimiento.
 		\end{enumerate}\\
 		\textbf{Postcondición}        & Ninguna \\
-		\textbf{Excepciones}          & Si se pulsa sobre el botón <<Nuevo>>, se accede a la creación de una plaza (\hyperref[table:CU-2.5.1]{CU-2.5.1}). Si se pulsa sobre el botón <<Modificar>> de una plaza de la lista, se accede a la ventana de modificación. Desde la ventana de modificación también se puede acceder al~\hyperref[table:CU-2.6]{CU-2.6} de asignar una plaza a un docente. Por último, si se pulsa sobre el botón <<Eliminar>> de una plaza el sistema pregunta si está seguro, y al pulsar en <<Sí>>, esta se elimina. \\
+		\textbf{Excepciones}          & Si se pulsa sobre el botón <<Nuevo>>, se accede a la creación de una plaza (\hyperref[table:CU-2_5_1]{CU-2.5.1}). Si se pulsa sobre el botón <<Modificar>> de una plaza de la lista, se accede a la ventana de modificación. Desde la ventana de modificación también se puede acceder al~\hyperref[table:CU-2_6]{CU-2.6} de asignar una plaza a un docente. Por último, si se pulsa sobre el botón <<Eliminar>> de una plaza el sistema pregunta si está seguro, y al pulsar en <<Sí>>, esta se elimina. \\
 		\textbf{Importancia}          & Alta \\
 		\bottomrule
 	\end{tabularx}
-	\caption{CU-2.5 Mantenimiento de plazas.}
+	\caption{CU-2.5 Mantenimiento de plazas.}\label{table:CU-2_5}
 \end{table}
 \FloatBarrier
 
 \begin{table}[p]
-	\label{table:CU-2.5.1}
 	\centering
 	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
 		\toprule
@@ -558,12 +549,12 @@ A continuación se van a exponer los requisitos de la aplicación web.
 		\textbf{Autor}                & Ignacio Dávila García \\
 		\textbf{Requisitos asociados} & \hyperref[itm:RF7]{RF-07} \\
 		\textbf{Descripción}          & Un administrativo añade o modifica una plaza \\
-		\textbf{Precondición}         & Realizar el~\hyperref[table:CU-2.5]{CU-2.5} y tener algún área y tipo de contrato creados \\
+		\textbf{Precondición}         & Realizar el~\hyperref[table:CU-2_5]{CU-2.5} y tener algún área y tipo de contrato creados \\
 		\textbf{Acciones}             &
 		\begin{enumerate}
 			\def\labelenumi{\arabic{enumi}.}
 			\tightlist
-			\item Se abre una ventana con un formulario vacío donde aparecen los campos de la tabla <<Plaza>> de la figura~\ref{er_cu2}, necesarios para crear una plaza. También se debe indicar el tipo de contrato y se puede asignar la plaza a un docente (\hyperref[table:CU-2.6]{CU-2.6}).
+			\item Se abre una ventana con un formulario vacío donde aparecen los campos de la tabla <<Plaza>> de la figura~\ref{er_cu2}, necesarios para crear una plaza. También se debe indicar el tipo de contrato y se puede asignar la plaza a un docente (\hyperref[table:CU-2_6]{CU-2.6}).
 			\item Rellenar el formulario con los datos de la plaza que se desea añadir.
 			\item Pulsar sobre el botón <<Añadir>>.
 		\end{enumerate}\\
@@ -572,12 +563,11 @@ A continuación se van a exponer los requisitos de la aplicación web.
 		\textbf{Importancia}          & Alta \\
 		\bottomrule
 	\end{tabularx}
-	\caption{CU-2.5.1 Añadir/Modificar plazas.}
+	\caption{CU-2.5.1 Añadir/Modificar plazas.}\label{table:CU-2_5_1}
 \end{table}
 \FloatBarrier
 
 \begin{table}[p]
-\label{table:CU-2.6}
 	\centering
 	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
 		\toprule
@@ -586,8 +576,8 @@ A continuación se van a exponer los requisitos de la aplicación web.
 		\textbf{Versión}              & 1.0    \\
 		\textbf{Autor}                & Ignacio Dávila García \\
 		\textbf{Requisitos asociados} & \hyperref[itm:RF7]{RF-07}, \hyperref[itm:RF12]{RF-12} \\
-		\textbf{Descripción}          & Un administrativo puede asignar una plaza a un docente. Este caso de uso es una extensión del \hyperref[table:CU-2.5.1]{CU-2.5.1}, ya que la asignación de la plaza a un docente se realiza en la creación o modificación de la misma \\
-		\textbf{Precondición}         & Realizar el~\hyperref[table:CU-2.5]{CU-2.5} y tener creado un docente \\
+		\textbf{Descripción}          & Un administrativo puede asignar una plaza a un docente. Este caso de uso es una extensión del \hyperref[table:CU-2_5_1]{CU-2.5.1}, ya que la asignación de la plaza a un docente se realiza en la creación o modificación de la misma \\
+		\textbf{Precondición}         & Realizar el~\hyperref[table:CU-2_5]{CU-2.5} y tener creado un docente \\
 		\textbf{Acciones}             &
 		\begin{enumerate}
 			\def\labelenumi{\arabic{enumi}.}
@@ -597,11 +587,11 @@ A continuación se van a exponer los requisitos de la aplicación web.
 		\end{enumerate}\\
 		\textbf{Postcondición}        & La plaza queda asignada al docente seleccionado y el sistema lleva al usuario a la vista del mantenimiento de plazas. \\
 		\textbf{Excepciones}          & La asignación se puede realizar a la hora de crear una plaza. Para ello, se debe pulsar en el botón <<Nuevo>> desde la ventana de mantenimiento de plazas y se abrirá una ventana con el mismo formulario, pero vacío. Después de rellenar los datos, se pulsa en el botón <<Añadir>> y la plaza queda creada y asignada.
-		Si el docente al que se desea vincular la plaza todavía no está creado, este se puede crear pulsando sobre el botón <<Nuevo docente>> que se encuentra dentro del formulario. Pulsar el botón hará que se abra una ventana flotante que cubre el \hyperref[table:CU-2.3.1]{CU-2.3.1} para añadir un nuevo docente.\\
+		Si el docente al que se desea vincular la plaza todavía no está creado, este se puede crear pulsando sobre el botón <<Nuevo docente>> que se encuentra dentro del formulario. Pulsar el botón hará que se abra una ventana flotante que cubre el \hyperref[table:CU-2_3_1]{CU-2.3.1} para añadir un nuevo docente.\\
 		\textbf{Importancia}          & Alta \\
 		\bottomrule
 	\end{tabularx}
-	\caption{CU-2.6 Asignar plaza a docente.}
+	\caption{CU-2.6 Asignar plaza a docente.}\label{table:CU-2_6}
 \end{table}
 \FloatBarrier
 
@@ -614,15 +604,17 @@ A continuación se van a exponer los requisitos de la aplicación web.
 
 \newpage
 \subsubsection{3. Asignación docente}
+
+En este apartado se va a exponer el diagrama de casos de uso 3, el cual se encuentra definido en la ilustración~\ref{fig:CU-3} y en las tablas \ref{table:CU-3}, \ref{table:CU-3_1}, \ref{table:CU-3_1_1}, \ref{table:CU-3_1_2}, \ref{table:CU-3_1_3}, \ref{table:CU-3_2}, \ref{table:CU-3_2_1} y \ref{table:CU-3_3}
+
 \begin{figure}[!h]
 	\centering
 	\includegraphics[scale=0.9]{../img/Anexos/Casos uso/Diagrama casos de uso 4.pdf}
-	\caption{Diagrama de caso de uso - 3. Asignación docente}
+	\caption{Diagrama de caso de uso - 3. Asignación docente}\label{fig:CU-3}
 \end{figure}
 \FloatBarrier
 
 \begin{table}[p]
-\label{table:CU-3}
 	\centering
 	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
 		\toprule
@@ -641,16 +633,15 @@ A continuación se van a exponer los requisitos de la aplicación web.
 			\item Se abre la ventana de mantenimiento de cursos.
 		\end{enumerate}\\
 		\textbf{Postcondición}        & El sistema lleva al usuario a la ventana de la opción pulsada. \\
-		\textbf{Excepciones}          & Otras posibilidades del caso de uso son el mantenimiento de cursos académicos, que se puede realizar seleccionando la opción del menú <<Cursos>> (\hyperref[table:CU-3.1]{CU-3.1}) y la asignación de horas de una plaza a un grupo, que se puede realizar seleccionando la opción <<Horas>> (\hyperref[table:CU-3.3]{CU-3.3}). \\
+		\textbf{Excepciones}          & Otras posibilidades del caso de uso son el mantenimiento de cursos académicos, que se puede realizar seleccionando la opción del menú <<Cursos>> (\hyperref[table:CU-3_1]{CU-3.1}) y la asignación de horas de una plaza a un grupo, que se puede realizar seleccionando la opción <<Horas>> (\hyperref[table:CU-3_3]{CU-3.3}). \\
 		\textbf{Importancia}          & Alta \\
 		\bottomrule
 	\end{tabularx}
-	\caption{CU-3 Asignación docente.}
+	\caption{CU-3 Asignación docente.}\label{table:CU-3}
 \end{table}
 \FloatBarrier
 
 \begin{table}[p]
-\label{table:CU-3.1}
 	\centering
 	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
 		\toprule
@@ -669,16 +660,15 @@ A continuación se van a exponer los requisitos de la aplicación web.
 			\item Se abre una ventana donde aparece una tabla con los cursos creados desde donde se podrá realizar el mantenimiento.
 		\end{enumerate}\\
 		\textbf{Postcondición}        & Ninguna \\
-		\textbf{Excepciones}          & Si se pulsa sobre el botón <<Nuevo>>, se accede a la creación de un curso (\hyperref[table:CU-3.1.1]{CU-3.1.1}), si se pulsa sobre el botón <<Modificar>> de un curso de la lista, se accede a la ventana de modificación (\hyperref[table:CU-3.1.2]{CU-3.1.2}), si se pulsa sobre el botón <<Modificar Año>> de un curso de la lista, se accede a la ventana de modificación del campo año de inicio, si se pulsa sobre el botón <<Eliminar>> de un curso el sistema pregunta si está seguro, y al pulsar en <<Sí>>, este se elimina produciendo un borrado en cascada de sus relaciones con asignaturas y grupos. Por último, si se pulsa sobre <<Duplicar>>, se duplica el curso junto a todas sus vinculaciones  (\hyperref[table:CU-3.1.3]{CU-3.1.3})\\
+		\textbf{Excepciones}          & Si se pulsa sobre el botón <<Nuevo>>, se accede a la creación de un curso (\hyperref[table:CU-3_1_1]{CU-3.1.1}), si se pulsa sobre el botón <<Modificar>> de un curso de la lista, se accede a la ventana de modificación (\hyperref[table:CU-3_1_2]{CU-3.1.2}), si se pulsa sobre el botón <<Modificar Año>> de un curso de la lista, se accede a la ventana de modificación del campo año de inicio, si se pulsa sobre el botón <<Eliminar>> de un curso el sistema pregunta si está seguro, y al pulsar en <<Sí>>, este se elimina produciendo un borrado en cascada de sus relaciones con asignaturas y grupos. Por último, si se pulsa sobre <<Duplicar>>, se duplica el curso junto a todas sus vinculaciones  (\hyperref[table:CU-3_1_3]{CU-3.1.3})\\
 		\textbf{Importancia}          & Alta \\
 		\bottomrule
 	\end{tabularx}
-	\caption{CU-3.1 Mantenimiento cursos académicos.}
+	\caption{CU-3.1 Mantenimiento cursos académicos.}\label{table:CU-3_1}
 \end{table}
 \FloatBarrier
 
 \begin{table}[p]
-\label{table:CU-3.1.1}
 	\centering
 	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
 		\toprule
@@ -688,7 +678,7 @@ A continuación se van a exponer los requisitos de la aplicación web.
 		\textbf{Autor}                & Ignacio Dávila García \\
 		\textbf{Requisitos asociados} & \hyperref[itm:RF3]{RF-03}, \hyperref[itm:RF6]{RF-06} \\
 		\textbf{Descripción}          & Un administrativo añade un curso académico \\
-		\textbf{Precondición}         & Realizar el~\hyperref[table:CU-3.1]{CU-3.1} \\
+		\textbf{Precondición}         & Realizar el~\hyperref[table:CU-3_1]{CU-3.1} \\
 		\textbf{Acciones}             &
 		\begin{enumerate}
 			\def\labelenumi{\arabic{enumi}.}
@@ -704,12 +694,11 @@ A continuación se van a exponer los requisitos de la aplicación web.
 		\textbf{Importancia}          & Alta \\
 		\bottomrule
 	\end{tabularx}
-	\caption{CU-3.1.1 Añadir curso académico.}
+	\caption{CU-3.1.1 Añadir curso académico.}\label{table:CU-3_1_1}
 \end{table}
 \FloatBarrier
 
 \begin{table}[p]
-\label{table:CU-3.1.2}
 	\centering
 	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
 		\toprule
@@ -719,7 +708,7 @@ A continuación se van a exponer los requisitos de la aplicación web.
 		\textbf{Autor}                & Ignacio Dávila García \\
 		\textbf{Requisitos asociados} & \hyperref[itm:RF3]{RF-03}, \hyperref[itm:RF6]{RF-06} \\
 		\textbf{Descripción}          & Un administrativo modifica un curso académico \\
-		\textbf{Precondición}         & Realizar el~\hyperref[table:CU-3.1]{CU-3.1} \\
+		\textbf{Precondición}         & Realizar el~\hyperref[table:CU-3_1]{CU-3.1} \\
 		\textbf{Acciones}             &
 		\begin{enumerate}
 			\def\labelenumi{\arabic{enumi}.}
@@ -730,16 +719,15 @@ A continuación se van a exponer los requisitos de la aplicación web.
 			\item La ventana se cierra y se puede ver en la tabla como las nuevas asignaturas aparecen vinculadas al curso.
 		\end{enumerate}\\
 		\textbf{Postcondición}        & El curso se modifica y el sistema permanece en la ventana de modificación del curso desde donde se pueden ver los cambios realizados. \\
-		\textbf{Excepciones}          & Si se pulsa sobre el botón <<Quitar del curso>> de una de las asignaturas, el sistema pregunta si está seguro de la eliminación, y al pulsar en la opción <<Sí>>, la asignatura desaparece del listado y se produce un borrado en cascada de sus grupos. Si se pulsa sobre el botón <<Editar grupos>> de una de las asignaturas se abre una ventana desde donde realizar la modificación de los grupos de la asignatura para ese curso. (\hyperref[table:CU-3.2.1]{CU-3.2.1}) \\
+		\textbf{Excepciones}          & Si se pulsa sobre el botón <<Quitar del curso>> de una de las asignaturas, el sistema pregunta si está seguro de la eliminación, y al pulsar en la opción <<Sí>>, la asignatura desaparece del listado y se produce un borrado en cascada de sus grupos. Si se pulsa sobre el botón <<Editar grupos>> de una de las asignaturas se abre una ventana desde donde realizar la modificación de los grupos de la asignatura para ese curso. (\hyperref[table:CU-3_2_1]{CU-3.2.1}) \\
 		\textbf{Importancia}          & Alta \\
 		\bottomrule
 	\end{tabularx}
-	\caption{CU-3.1.2 Modificar curso académico.}
+	\caption{CU-3.1.2 Modificar curso académico.}\label{table:CU-3_1_2}
 \end{table}
 \FloatBarrier
 
 \begin{table}[p]
-\label{table:CU-3.1.3}
 	\centering
 	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
 		\toprule
@@ -749,7 +737,7 @@ A continuación se van a exponer los requisitos de la aplicación web.
 		\textbf{Autor}                & Ignacio Dávila García \\
 		\textbf{Requisitos asociados} & \hyperref[itm:RF6]{RF-06} \\
 		\textbf{Descripción}          & Un administrativo duplica un curso académico con toda la información asociada \\
-		\textbf{Precondición}         & Realizar el~\hyperref[table:CU-3.1]{CU-3.1} \\
+		\textbf{Precondición}         & Realizar el~\hyperref[table:CU-3_1]{CU-3.1} \\
 		\textbf{Acciones}             &
 		\begin{enumerate}
 			\def\labelenumi{\arabic{enumi}.}
@@ -762,12 +750,11 @@ A continuación se van a exponer los requisitos de la aplicación web.
 		\textbf{Importancia}          & Alta \\
 		\bottomrule
 	\end{tabularx}
-	\caption{CU-3.1.3 Duplicar curso académico.}
+	\caption{CU-3.1.3 Duplicar curso académico.}\label{table:CU-3_1_3}
 \end{table}
 \FloatBarrier
 
 \begin{table}[p]
-\label{table:CU-3.2}
 	\centering
 	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
 		\toprule
@@ -785,16 +772,15 @@ A continuación se van a exponer los requisitos de la aplicación web.
 			\item Se abre una ventana donde aparece un seleccionador de curso, con el último curso seleccionado por defecto. También aparece una tabla con todas las asignaturas del curso seleccionado junto al número de grupos de cada tipo que tienen vinculados.
 		\end{enumerate}\\
 		\textbf{Postcondición}        & Ninguna \\
-		\textbf{Excepciones}          & Si se pulsa sobre el botón <<Gestionar grupos>> de uno de los registros de la tabla se accede a una ventana con la información de la asignatura y sus grupos. Desde esta ventana se pueden crear, modificar o eliminar grupos para esa asignatura. (\hyperref[table:CU-3.2.1]{CU-3.2.1}) \\
+		\textbf{Excepciones}          & Si se pulsa sobre el botón <<Gestionar grupos>> de uno de los registros de la tabla se accede a una ventana con la información de la asignatura y sus grupos. Desde esta ventana se pueden crear, modificar o eliminar grupos para esa asignatura. (\hyperref[table:CU-3_2_1]{CU-3.2.1}) \\
 		\textbf{Importancia}          & Alta \\
 		\bottomrule
 	\end{tabularx}
-	\caption{CU-3.2 Mantenimiento de grupos.}
+	\caption{CU-3.2 Mantenimiento de grupos.}\label{table:CU-3_2}
 \end{table}
 \FloatBarrier
 
 \begin{table}[p]
-\label{table:CU-3.2.1}
 	\centering
 	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
 		\toprule
@@ -804,7 +790,7 @@ A continuación se van a exponer los requisitos de la aplicación web.
 		\textbf{Autor}                & Ignacio Dávila García \\
 		\textbf{Requisitos asociados} & \hyperref[itm:RF3]{RF-03}, \hyperref[itm:RF13]{RF-13} \\
 		\textbf{Descripción}          & Un administrativo añade o modifica los grupos de una asignatura \\
-		\textbf{Precondición}         & Realizar el~\hyperref[table:CU-3.2]{CU-3.2} \\
+		\textbf{Precondición}         & Realizar el~\hyperref[table:CU-3_2]{CU-3.2} \\
 		\textbf{Acciones}             &
 		\begin{enumerate}
 			\def\labelenumi{\arabic{enumi}.}
@@ -820,12 +806,11 @@ A continuación se van a exponer los requisitos de la aplicación web.
 		\textbf{Importancia}          & Alta \\
 		\bottomrule
 	\end{tabularx}
-	\caption{CU-3.2.1 Añadir/Modificar grupo.}
+	\caption{CU-3.2.1 Añadir/Modificar grupo.}\label{table:CU-3_2_1}
 \end{table}
 \FloatBarrier
 
 \begin{table}[p]
-\label{table:CU-3.3}
 	\centering
 	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
 		\toprule
@@ -854,7 +839,7 @@ A continuación se van a exponer los requisitos de la aplicación web.
 		\textbf{Importancia}          & Alta \\
 		\bottomrule
 	\end{tabularx}
-	\caption{CU-3.3 Asignación de horas de plazas a grupos.}
+	\caption{CU-3.3 Asignación de horas de plazas a grupos.}\label{table:CU-3_3}
 \end{table}
 \FloatBarrier
 
@@ -866,52 +851,52 @@ A continuación se van a exponer los requisitos de la aplicación web.
 \FloatBarrier
 
 \newpage
-\subsection{Prototipos de vistas de los casos de uso}
+\subsection{Prototipos de vistas/pantallas de los casos de uso}
 \begin{itemize}
 	\item \textbf{CU-1.} Mantenimiento académico.
 	\begin{itemize}
-		\item \textbf{CU-1.1} Mantenimiento de centros. Ver figura~\ref{F-CU1.1}.
+		\item \textbf{CU-1.1} Mantenimiento de centros. Ver figura~\ref{F-CU1_1}.
 		\begin{figure}[!h]
 		\centering
 		\includegraphics[width=\textwidth]{../img/Anexos/Vistas/centros.png}
-		\caption{Mantenimiento de centros}\label{F-CU1.1}
+		\caption{Mantenimiento de centros}\label{F-CU1_1}
 		\end{figure}
 		\FloatBarrier
-		\item \textbf{CU-1.1.1} Añadir/Modificar centros. Ver figura~\ref{F-CU1.1.1}.
+		\item \textbf{CU-1.1.1} Añadir/Modificar centros. Ver figura~\ref{F-CU1_1_1}.
 		\begin{figure}[!h]
 		\centering
 		\includegraphics[width=\textwidth]{../img/Anexos/Vistas/add_centro.png}
-		\caption{Añadir/Modificar centros}\label{F-CU1.1.1}
+		\caption{Añadir/Modificar centros}\label{F-CU1_1_1}
 		\end{figure}
 		\FloatBarrier
 \newpage
-		\item \textbf{CU-1.2} Mantenimiento de titulaciones. Ver figura~\ref{F-CU1.2}.
+		\item \textbf{CU-1.2} Mantenimiento de titulaciones. Ver figura~\ref{F-CU1_2}.
 		\begin{figure}[!h]
 		\centering
 		\includegraphics[width=\textwidth]{../img/Anexos/Vistas/titulaciones.png}
-		\caption{Mantenimiento de titulaciones}\label{F-CU1.2}
+		\caption{Mantenimiento de titulaciones}\label{F-CU1_2}
 		\end{figure}
 		\FloatBarrier
-		\item \textbf{CU-1.2.1} Añadir/Modificar titulaciones. Ver figura~\ref{F-CU1.2.1}.
+		\item \textbf{CU-1.2.1} Añadir/Modificar titulaciones. Ver figura~\ref{F-CU1_2_1}.
 		\begin{figure}[!h]
 		\centering
 		\includegraphics[width=\textwidth]{../img/Anexos/Vistas/add_titulacion.png}
-		\caption{Añadir/Modificar titulaciones}\label{F-CU1.2.1}
+		\caption{Añadir/Modificar titulaciones}\label{F-CU1_2_1}
 		\end{figure}
 		\FloatBarrier
 \newpage
-		\item \textbf{CU-1.3} Mantenimiento de asignaturas. Ver figura~\ref{F-CU1.3}.
+		\item \textbf{CU-1.3} Mantenimiento de asignaturas. Ver figura~\ref{F-CU1_3}.
 		\begin{figure}[!h]
 		\centering
 		\includegraphics[width=\textwidth]{../img/Anexos/Vistas/asignaturas.png}
-		\caption{Mantenimiento de asignaturas}\label{F-CU1.3}
+		\caption{Mantenimiento de asignaturas}\label{F-CU1_3}
 		\end{figure}
 		\FloatBarrier
-		\item \textbf{CU-1.3.1} Añadir/Modificar asignaturas. Ver figura~\ref{F-CU1.3.1}.
+		\item \textbf{CU-1.3.1} Añadir/Modificar asignaturas. Ver figura~\ref{F-CU1_3_1}.
 		\begin{figure}[!h]
 		\centering
 		\includegraphics[width=\textwidth]{../img/Anexos/Vistas/add_asignatura.png}
-		\caption{Añadir/Modificar asignaturas}\label{F-CU1.3.1}
+		\caption{Añadir/Modificar asignaturas}\label{F-CU1_3_1}
 		\end{figure}
 		\FloatBarrier
 	\end{itemize}
@@ -919,172 +904,173 @@ A continuación se van a exponer los requisitos de la aplicación web.
 \newpage	
 	\item \textbf{CU-2.} Mantenimiento de profesorado.
 	\begin{itemize}
-		\item \textbf{CU-2.1} Mantenimiento de departamentos. Ver figura~\ref{F-CU2.1}.
+		\item \textbf{CU-2.1} Mantenimiento de departamentos. Ver figura~\ref{F-CU2_1}.
 		\begin{figure}[!h]
 		\centering
 		\includegraphics[width=\textwidth]{../img/Anexos/Vistas/departamentos.png}
-		\caption{Mantenimiento de departamentos}\label{F-CU2.1}
+		\caption{Mantenimiento de departamentos}\label{F-CU2_1}
 		\end{figure}
 		\FloatBarrier
-		\item \textbf{CU-2.1.1} Añadir/Modificar departamentos. Ver figura~\ref{F-CU2.1.1}.
+		\item \textbf{CU-2.1.1} Añadir/Modificar departamentos. Ver figura~\ref{F-CU2_1_1}.
 		\begin{figure}[!h]
 		\centering
 		\includegraphics[width=\textwidth]{../img/Anexos/Vistas/add_departamento.png}
-		\caption{Añadir/Modificar departamentos}\label{F-CU2.1.1}
+		\caption{Añadir/Modificar departamentos}\label{F-CU2_1_1}
 		\end{figure}
 		\FloatBarrier
 \newpage
-		\item \textbf{CU-2.2} Mantenimiento de áreas. Ver figura~\ref{F-CU2.2}.
+		\item \textbf{CU-2.2} Mantenimiento de áreas. Ver figura~\ref{F-CU2_2}.
 		\begin{figure}[!h]
 		\centering
 		\includegraphics[width=\textwidth]{../img/Anexos/Vistas/areas.png}
-		\caption{Mantenimiento de áreas}\label{F-CU2.2}
+		\caption{Mantenimiento de áreas}\label{F-CU2_2}
 		\end{figure}
 		\FloatBarrier
-		\item \textbf{CU-2.2.1} Añadir/Modificar áreas. Ver figura~\ref{F-CU2.2.1}.
+		\item \textbf{CU-2.2.1} Añadir/Modificar áreas. Ver figura~\ref{F-CU2_2_1}.
 		\begin{figure}[!h]
 		\centering
 		\includegraphics[width=\textwidth]{../img/Anexos/Vistas/add_area.png}
-		\caption{Añadir/Modificar áreas}\label{F-CU2.2.1}
+		\caption{Añadir/Modificar áreas}\label{F-CU2_2_1}
 		\end{figure}
 		\FloatBarrier
-		\item \textbf{CU-2.3} Mantenimiento de docentes. Ver figura~\ref{F-CU2.3}.
+		\item \textbf{CU-2.3} Mantenimiento de docentes. Ver figura~\ref{F-CU2_3}.
 		\begin{figure}[!h]
 		\centering
 		\includegraphics[width=\textwidth]{../img/Anexos/Vistas/docentes.png}
-		\caption{Mantenimiento de docentes}\label{F-CU2.3}
+		\caption{Mantenimiento de docentes}\label{F-CU2_3}
 		\end{figure}
 		\FloatBarrier
 \newpage
-		\item \textbf{CU-2.3.1} Añadir/Modificar docentes. Ver figura~\ref{F-CU2.3.1}.
+		\item \textbf{CU-2.3.1} Añadir/Modificar docentes. Ver figura~\ref{F-CU2_3_1}.
 		\begin{figure}[!h]
 		\centering
 		\includegraphics[width=\textwidth]{../img/Anexos/Vistas/add_docente.png}
-		\caption{Añadir/Modificar docentes}\label{F-CU2.3.1}
+		\caption{Añadir/Modificar docentes}\label{F-CU2_3_1}
 		\end{figure}
 		\FloatBarrier
-		\item \textbf{CU-2.4} Mantenimiento de tipos de contrato. Ver figura~\ref{F-CU2.4}.
+		\item \textbf{CU-2.4} Mantenimiento de tipos de contrato. Ver figura~\ref{F-CU2_4}.
 		\begin{figure}[!h]
 		\centering
 		\includegraphics[width=\textwidth]{../img/Anexos/Vistas/contratos.png}
-		\caption{Mantenimiento de tipos de contrato}\label{F-CU2.4}
+		\caption{Mantenimiento de tipos de contrato}\label{F-CU2_4}
 		\end{figure}
 		\FloatBarrier
 \newpage
-		\item \textbf{CU-2.4.1} Añadir/Modificar tipos de contrato. Ver figura~\ref{F-CU2.4.1}.
+		\item \textbf{CU-2.4.1} Añadir/Modificar tipos de contrato. Ver figura~\ref{F-CU2_4_1}.
 		\begin{figure}[!h]
 		\centering
 		\includegraphics[width=\textwidth]{../img/Anexos/Vistas/add_contrato.png}
-		\caption{Añadir/Modificar tipos de contrato}\label{F-CU2.4.1}
+		\caption{Añadir/Modificar tipos de contrato}\label{F-CU2_4_1}
 		\end{figure}
 		\FloatBarrier
-		\item \textbf{CU-2.5} Mantenimiento de plazas. Ver figura~\ref{F-CU2.5}.
+		\item \textbf{CU-2.5} Mantenimiento de plazas. Ver figura~\ref{F-CU2_5}.
 		\begin{figure}[!h]
 		\centering
 		\includegraphics[width=\textwidth]{../img/Anexos/Vistas/plazas.png}
-		\caption{Mantenimiento de plazas}\label{F-CU2.5}
+		\caption{Mantenimiento de plazas}\label{F-CU2_5}
 		\end{figure}
 		\FloatBarrier
 \newpage
-		\item \textbf{CU-2.5.1} Añadir/Modificar plazas. Ver figura~\ref{F-CU2.5.1}.
+		\item \textbf{CU-2.5.1} Añadir/Modificar plazas. Ver figura~\ref{F-CU2_5_1}.
 		\begin{figure}[!h]
 		\centering
 		\includegraphics[width=\textwidth]{../img/Anexos/Vistas/add_plaza.png}
-		\caption{Añadir/Modificar plazas}\label{F-CU2.5.1}
+		\caption{Añadir/Modificar plazas}\label{F-CU2_5_1}
 		\end{figure}
 		\FloatBarrier
-		\item \textbf{CU-2.6} Asignar plaza a docente. Ver figura~\ref{F-CU2.6}.
+		\item \textbf{CU-2.6} Asignar plaza a docente. Ver figura~\ref{F-CU2_6}.
 		\begin{figure}[!h]
 		\centering
 		\includegraphics[width=\textwidth]{../img/Anexos/Vistas/add_plaza.png}
-		\caption{Asignar plaza a docente}\label{F-CU2.6}
+		\caption{Asignar plaza a docente}\label{F-CU2_6}
 		\end{figure}
 		\FloatBarrier
 	\end{itemize}
 	
 \newpage
 	\item \textbf{CU-3.} Asignación docente.
+	
 	\begin{itemize}
-		\item \textbf{CU-3.1} Mantenimiento cursos académicos. Ver figuras~\ref{F-CU3.1} y~\ref{F-CU3.1(1)}.
+		\item \textbf{CU-3.1} Mantenimiento cursos académicos. Ver figuras~\ref{F-CU3_1} y~\ref{F-CU3_1(1)}.
 		\begin{figure}[!h]
 		\centering
 		\includegraphics[width=\textwidth]{../img/Anexos/Vistas/cursos.png}
-		\caption{Mantenimiento cursos académicos}\label{F-CU3.1}
+		\caption{Mantenimiento cursos académicos}\label{F-CU3_1}
 		\end{figure}
 		\FloatBarrier
 		\begin{figure}[!h]
 		\centering
 		\includegraphics[width=0.5\textwidth]{../img/Anexos/Vistas/mod_ano_curso.png}
-		\caption{Modificar año curso académico}\label{F-CU3.1(1)}
+		\caption{Modificar año curso académico}\label{F-CU3_1(1)}
 		\end{figure}
 		\FloatBarrier
 \newpage
-		\item \textbf{CU-3.1.1} Añadir curso académico. Ver figuras~\ref{F-CU3.1.1} y~\ref{F-CU3.1.1(1)}.
+		\item \textbf{CU-3.1.1} Añadir curso académico. Ver figuras~\ref{F-CU3_1_1} y~\ref{F-CU3_1_1(1)}.
 		\begin{figure}[!h]
 		\centering
 		\includegraphics[width=\textwidth]{../img/Anexos/Vistas/add_curso.png}
-		\caption{Añadir curso académico}\label{F-CU3.1.1}
+		\caption{Añadir curso académico}\label{F-CU3_1_1}
 		\end{figure}
 		\FloatBarrier
 		\begin{figure}[!h]
 		\centering
 		\includegraphics[width=\textwidth]{../img/Anexos/Vistas/add_curso_1.png}
-		\caption{Añadir curso académico 2}\label{F-CU3.1.1(1)}
+		\caption{Añadir curso académico 2}\label{F-CU3_1_1(1)}
 		\end{figure}
 		\FloatBarrier
 \newpage
-		\item \textbf{CU-3.1.2} Modificar curso académico. Ver figuras~\ref{F-CU3.1.2} y~\ref{F-CU3.1.2(1)}.
+		\item \textbf{CU-3.1.2} Modificar curso académico. Ver figuras~\ref{F-CU3_1_2} y~\ref{F-CU3_1_2(1)}.
 		\begin{figure}[!h]
 		\centering
 		\includegraphics[width=\textwidth]{../img/Anexos/Vistas/mod_curso.png}
-		\caption{Modificar curso académico}\label{F-CU3.1.2}
+		\caption{Modificar curso académico}\label{F-CU3_1_2}
 		\end{figure}
 		\FloatBarrier
 		\begin{figure}[!h]
 		\centering
 		\includegraphics[width=\textwidth]{../img/Anexos/Vistas/add_asig.png}
-		\caption{Añadir asignaturas al curso}\label{F-CU3.1.2(1)}
+		\caption{Añadir asignaturas al curso}\label{F-CU3_1_2(1)}
 		\end{figure}
 		\FloatBarrier
 \newpage
-		\item \textbf{CU-3.2} Mantenimiento de grupos. Ver figura~\ref{F-CU3.2}.
+		\item \textbf{CU-3.2} Mantenimiento de grupos. Ver figura~\ref{F-CU3_2}.
 		\begin{figure}[!h]
 		\centering
 		\includegraphics[width=\textwidth]{../img/Anexos/Vistas/grupos.png}
-		\caption{Mantenimiento de grupos}\label{F-CU3.2}
+		\caption{Mantenimiento de grupos}\label{F-CU3_2}
 		\end{figure}
 		\FloatBarrier
-		\item \textbf{CU-3.2.1} Añadir/Modificar grupo. Ver figuras~\ref{F-CU3.2.1} y~\ref{F-CU3.2.1(1)}.
+		\item \textbf{CU-3.2.1} Añadir/Modificar grupo. Ver figuras~\ref{F-CU3_2_1} y~\ref{F-CU3_2_1(1)}.
 		\begin{figure}[!h]
 		\centering
 		\includegraphics[width=\textwidth]{../img/Anexos/Vistas/addmod_grupo.png}
-		\caption{Añadir/Modificar grupo}\label{F-CU3.2.1}
+		\caption{Añadir/Modificar grupo}\label{F-CU3_2_1}
 		\end{figure}
 		\FloatBarrier
 		\begin{figure}[!h]
 		\centering
 		\includegraphics[width=0.5\textwidth]{../img/Anexos/Vistas/add_grupo.png}
-		\caption{Añadir/Modificar grupo 2}\label{F-CU3.2.1(1)}
+		\caption{Añadir/Modificar grupo 2}\label{F-CU3_2_1(1)}
 		\end{figure}
 		\FloatBarrier
 		\newpage
-		\item \textbf{CU-3.3} Asignación de horas de plazas a grupos. Ver figuras~\ref{F-CU3.3},~\ref{F-CU3.3(1)} y~\ref{F-CU3.3(2)}. 
+		\item \textbf{CU-3.3} Asignación de horas de plazas a grupos. Ver figuras~\ref{F-CU3_3},~\ref{F-CU3_3(1)} y~\ref{F-CU3_3(2)}. 
 		\begin{figure}[!h]
 		\centering
 		\includegraphics[width=\textwidth]{../img/Anexos/Vistas/horas.png}
-		\caption{Asignación de horas de plazas a grupos}\label{F-CU3.3}
+		\caption{Asignación de horas de plazas a grupos}\label{F-CU3_3}
 		\end{figure}
 		\FloatBarrier
 		\begin{figure}[!h]
 		\centering
 		\includegraphics[width=\textwidth]{../img/Anexos/Vistas/asig_horas_plaza_grupo.png}
-		\caption{Asignación de horas de plazas a grupos 2}\label{F-CU3.3(1)}
+		\caption{Asignación de horas de plazas a grupos 2}\label{F-CU3_3(1)}
 		\end{figure}
 		\FloatBarrier
 		\begin{figure}[!h]
 		\centering
 		\includegraphics[width=0.5\textwidth]{../img/Anexos/Vistas/asig_horas_plaza_grupo_modal.png}
-		\caption{Asignación de horas de plazas a grupos 3}\label{F-CU3.3(2)}
+		\caption{Asignación de horas de plazas a grupos 3}\label{F-CU3_3(2)}
 		\end{figure}
 		\FloatBarrier
 	\end{itemize}

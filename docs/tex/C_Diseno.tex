@@ -1,23 +1,19 @@
 \apendice{Especificación de diseño}
 
 \section{Introducción}
-Una vez realizado el estudio y especificación de los requisitos de la aplicación web, se debe realizar el diseño de la misma.\\
-En este anexo se pretende aportar información sobre el diseño de los datos que utiliza la aplicación junto al diseño procedimental y arquitectónico del proyecto.
+Una vez realizado el estudio y especificación de los requisitos de la aplicación web, se debe realizar el diseño de la misma. En este anexo se pretende aportar información sobre el diseño de los datos que utiliza la aplicación junto al diseño procedimental y arquitectónico del proyecto.
 
 \section{Diseño de datos}
-Gracias a la especificación de requisitos y casos de uso, se puede obtener una visión global de la aplicación que permite deducir las entidades, acompañadas de sus datos, necesarias para poder cumplir con lo requerido.\\
-En primer lugar, podemos obtener la visión global de las entidades relacionadas mediante el diagrama general de Entidad-Relación de la figura~\ref{DiagramaGeneralE-R}.\\
-El diagrama obtenido tiene un gran tamaño y, para mejorar la visualización y comprensión del mismo, se ha decidido dividir en vistas donde se incluyan los datos de cada una de las entidades.\\
+Gracias a la especificación de requisitos y casos de uso, se puede obtener una visión global de la aplicación que permite deducir las entidades, acompañadas de sus datos, necesarias para poder cumplir con lo requerido.
+
+En primer lugar, podemos obtener la visión global de las entidades relacionadas mediante el diagrama general de Entidad-Relación de la figura~\ref{DiagramaGeneralE-R}.
+
+El diagrama obtenido tiene un gran tamaño y, para mejorar la visualización y comprensión del mismo, se ha decidido dividir en vistas donde se incluyan los datos de cada una de las entidades.
+
 La primera vista hace referencia al apartado de mantenimiento académico y se puede ver en la figura~\ref{er_cu1}, la segunda al mantenimiento de profesorado~\ref{er_cu2} y la última a la asignación docente~\ref{er_cu3}.
 
-\begin{landscape}
-	\begin{figure}[h]
-		\caption{Diagrama general entidad-relación}
-		\centering
-		\includegraphics[scale=0.65]{../img/Anexos/Diagrama E-R.pdf}
-		\label{DiagramaGeneralE-R}
-	\end{figure}
-\end{landscape}
+
+\figuraApaisadaSinMarco{}{../img/Anexos/Diagrama E-R.pdf}{Diagrama general entidad-relación}{DiagramaGeneralE-R}{}
 
 Del diagrama entidad-relación se puede obtener el diagrama relacional de la figura~\ref{DiagramaRelacional} en el que se pueden ver la tablas que contendrá la base de datos de la aplicación web.
 
@@ -30,19 +26,12 @@ Aunque la teoría diga que las claves de las tablas que se relacionan pasan a se
 De esta manera, las búsquedas en la base de datos estarán más optimizadas al buscar como clave primaria un único campo y no la composición de varios.
 Además, se evita cualquier tipo de error de clave primaria al ser la propia base de datos la que asigna esta y no el código creado.
 
-\begin{landscape}
-	\begin{figure}[h]
-		\caption[DiagramaRelacional]{Diagrama relacional}
-		\centering
-		\includegraphics[scale=0.7]{../img/Anexos/Diagrama relacional.pdf}
-		\label{DiagramaRelacional}
-	\end{figure}
-\end{landscape}
+\figuraApaisadaSinMarco{}{../img/Anexos/Diagrama relacional.pdf}{Diagrama relacional}{DiagramaRelacional}{}
 
 \subsection{Diccionario de datos}
 A continuación se va a especificar, para cada tabla de la base de datos, el diccionario de datos correspondiente.
 De esta forma se pretende facilitar la comprensión de los datos almacenados en la base de datos.
-\subsubsection{Tabla Centro}
+
 La tabla \texttt{centro} almacena los diferentes centros de la universidad. 
 Se puede ver su información en la tabla~\ref{tab:diccionario_centro}.
 \begin{table}
@@ -61,7 +50,6 @@ Se puede ver su información en la tabla~\ref{tab:diccionario_centro}.
   \label{tab:diccionario_centro}
 \end{table}
 
-\subsubsection{Tabla Titulación}
 La tabla \texttt{titulación} almacena las titulaciones que son creadas y que pertenecen a un centro.
 Se puede ver su información en la tabla~\ref{tab:diccionario_titulacion}.
 \begin{table}
@@ -82,8 +70,7 @@ Se puede ver su información en la tabla~\ref{tab:diccionario_titulacion}.
   \label{tab:diccionario_titulacion}
 \end{table}
 
-\subsubsection{Tabla Asignatura}
-La tabla \texttt{asignatura} almacena información sobre las asignaturas, cada asignatura pertenece a una titulación. Se puede ver su información en la Tabla~\ref{tab:diccionario_asignatura}.
+La tabla \texttt{asignatura} almacena información sobre las asignaturas, cada asignatura pertenece a una titulación. Se puede ver su información en la tabla~\ref{tab:diccionario_asignatura}.
 
 \begin{table}
   \centering 
@@ -106,7 +93,6 @@ La tabla \texttt{asignatura} almacena información sobre las asignaturas, cada a
   \label{tab:diccionario_asignatura}
 \end{table}
 
-\subsubsection{Tabla Abreviatura}
 La tabla \texttt{abreviatura} almacena las abreviaturas de las asignaturas. 
 De esta forma se permite que una asignatura pueda tener varias abreviaturas.
 Se puede ver su información en la tabla~\ref{tab:diccionario_abreviatura}.
@@ -126,9 +112,7 @@ Se puede ver su información en la tabla~\ref{tab:diccionario_abreviatura}.
   \label{tab:diccionario_abreviatura}
 \end{table}
 
-
-\subsubsection{Tabla Curso}
-La tabla \texttt{curso} almacena información sobre los cursos. Se puede ver su información en la Tabla~\ref{tab:diccionario_curso}.
+La tabla \texttt{curso} almacena información sobre los cursos. Se puede ver su información en la tabla~\ref{tab:diccionario_curso}.
 
 \begin{table}
   \centering 
@@ -144,9 +128,8 @@ La tabla \texttt{curso} almacena información sobre los cursos. Se puede ver su 
   \label{tab:diccionario_curso}
 \end{table}
 
-\subsubsection{Tabla Curso-Asignatura}
 La tabla \texttt{curso\_asignatura} almacena la relación entre cursos y asignaturas. 
-Se puede ver su información en la Tabla~\ref{tab:diccionario_curso_asignatura}.
+Se puede ver su información en la tabla~\ref{tab:diccionario_curso_asignatura}.
 
 \begin{table}
   \centering
@@ -167,9 +150,8 @@ Se puede ver su información en la Tabla~\ref{tab:diccionario_curso_asignatura}.
   \label{tab:diccionario_curso_asignatura}
 \end{table}
 
-\subsubsection{Tabla Grupo}
 La tabla \texttt{grupo} almacena información sobre los grupos de asignaturas. 
-Se puede ver su información en la Tabla~\ref{tab:diccionario_grupo}.
+Se puede ver su información en la tabla~\ref{tab:diccionario_grupo}.
 
 \begin{table}
   \centering 
@@ -187,8 +169,7 @@ Se puede ver su información en la Tabla~\ref{tab:diccionario_grupo}.
   \label{tab:diccionario_grupo}
 \end{table}
 
-\subsubsection{Tabla Docente}
-La tabla \texttt{docente} almacena información sobre los docentes. Se puede ver su información en la Tabla~\ref{tab:diccionario_docente}.
+La tabla \texttt{docente} almacena información sobre los docentes. Se puede ver su información en la tabla~\ref{tab:diccionario_docente}.
 
 \begin{table}
   \centering 
@@ -207,10 +188,8 @@ La tabla \texttt{docente} almacena información sobre los docentes. Se puede ver
   \label{tab:diccionario_docente}
 \end{table}
 
-
-\subsubsection{Tabla Departamento}
 La tabla \texttt{departamento} almacena información sobre los departamentos de la universidad. 
-Se puede ver su información en la Tabla~\ref{tab:diccionario_departamento}.
+Se puede ver su información en la tabla~\ref{tab:diccionario_departamento}.
 
 \begin{table}
   \centering 
@@ -227,13 +206,12 @@ Se puede ver su información en la Tabla~\ref{tab:diccionario_departamento}.
   \label{tab:diccionario_departamento}
 \end{table}
 
-\subsubsection{Tabla Área}
 La tabla \texttt{área} almacena información sobre las áreas de un departamento. 
-Se puede ver su información en la Tabla~\ref{tab:diccionario_area}.
+Se puede ver su información en la tabla~\ref{tab:diccionario_area}.
 
 \begin{table}
   \centering 
-  \begin{tabular}{l p{.2\textwidth} p{.5\textwidth}}
+  \begin{tabular}{l p{.3\textwidth} p{.4\textwidth}}
     \toprule
     \textbf{Campo} & \textbf{Tipo} & \textbf{Descripción}\\
     \midrule
@@ -247,8 +225,8 @@ Se puede ver su información en la Tabla~\ref{tab:diccionario_area}.
   \label{tab:diccionario_area}
 \end{table}
 
-\subsubsection{Tabla Contrato}
-La tabla \texttt{contrato} almacena información sobre los tipos de contratos. Se puede ver su información en la Tabla~\ref{tab:diccionario_tipo_contrato}.
+La tabla \texttt{contrato} almacena información sobre los tipos de contratos. 
+Se puede ver su información en la tabla~\ref{tab:diccionario_tipo_contrato}.
 
 \begin{table}
   \centering 
@@ -266,8 +244,8 @@ La tabla \texttt{contrato} almacena información sobre los tipos de contratos. S
   \label{tab:diccionario_tipo_contrato}
 \end{table}
 
-\subsubsection{Tabla Plaza}
-La tabla \texttt{plaza} almacena información sobre las plazas de contratación. Se puede ver su información en la Tabla~\ref{tab:diccionario_plaza}.
+La tabla \texttt{plaza} almacena información sobre las plazas de contratación. 
+Se puede ver su información en la tabla~\ref{tab:diccionario_plaza}.
 
 \begin{table}
   \centering 
@@ -290,8 +268,8 @@ La tabla \texttt{plaza} almacena información sobre las plazas de contratación.
   \label{tab:diccionario_plaza}
 \end{table}
 
-\subsubsection{Tabla Plaza-Grupo}
-La tabla \texttt{plaza-grupo} almacena información sobre la asignación de horas de plazas a grupos. Se puede ver su información en la Tabla~\ref{tab:diccionario_plaza_grupo}.
+La tabla \texttt{plaza-grupo} almacena información sobre la asignación de horas de plazas a grupos. 
+Se puede ver su información en la tabla~\ref{tab:diccionario_plaza_grupo}.
 
 \begin{table}
   \centering 
@@ -309,6 +287,8 @@ La tabla \texttt{plaza-grupo} almacena información sobre la asignación de hora
   \label{tab:diccionario_plaza_grupo}
 \end{table}
 
+Existen otras dos tablas llamadas \texttt{alemic\_version} y \texttt{sessions} que son creadas por algunas de las bibliotecas que se utilizan en la aplicación. 
+La primera guarda un registro de las migraciones de la base de datos y la segunda almacena en la base de datos la sesión de los usuarios.
 
 \section{Diseño procedimental}
 El diseño procedimental es una fase fundamental en el desarrollo de proyectos informáticos, donde se establecen los pasos necesarios para realizar una actividad dentro de la aplicación.
