@@ -70,6 +70,32 @@ La web (\textit{World Wide Web}) es un sistema que permite la transmisión y acc
 
 La tecnología web es una de las que más desarrollo ha sufrido en los últimos años. Esto ha provocado un cambio completo en nuestra forma de vida, afectando a aspectos como la búsqueda de información por Internet, realizar compras online, hacer trámites sin necesidad de acudir a una oficina, etc.,
 
+\subsection[Plataformas de aprendizaje (LMSs)]{Plataformas de aprendizaje (LMSs)\footnote{LMS: Learning Management Systems}}
+Un LMS es un sistema de gestión de aprendizaje \textit{online} diseñado para administrar formación en línea.
+Este tipo de plataformas permiten que las instituciones educativas creen, gestionen y distribuyan distintas herramientas y contenidos a los estudiantes mediante internet.
+
+Normalmente, un LMS proporciona un entorno virtual en el cual los estudiantes pueden acceder a diferentes materiales de estudio, como presentaciones, vídeos, documentos, tareas o incluso exámenes.
+Además, permite a los docentes llevar un seguimiento el progreso de los estudiantes, aportar retroalimentación de las tareas, administrar calificaciones y fomentar la participación mediante el uso de, por ejemplo, foros en la asignatura.
+
+Un LMS estándar cuenta con las siguientes características:
+\begin{enumerate}
+\item \textbf{Gestión de cursos académicos:} Un usuario con permisos superiores, normalmente un docente, puede crear y administrar cursos académicos.
+Se entiende por esto establecer las asignaturas o contenidos del curso, la duración del mismo, los alumnos matriculados, etc.
+
+\item \textbf{Distribución de contenido:} Los docentes tienen la posibilidad de subir diferentes contenidos a la plataforma como puede ser el temario de la asignatura impartida, vídeos de apoyo o cualquier otro tipo de material necesario o útil para el aprendizaje.
+
+\item \textbf{Seguimiento y evaluación:} Los LMSs proporcionan herramientas para poder llevar un seguimiento del progreso de los estudiantes. 
+Además, permiten evaluar las tareas pedidas a través de la plataforma y los exámenes realizados, tanto de forma presencial como \textit{online}.
+Gracias a estas herramientas se puede dar una retroalimentación personalizada para cada estudiante en caso de ser necesario.
+
+\item \textbf{Interacción en línea:} Gracias a estas plataformas los estudiantes pueden participar e interactuar ente ellos mediante, por ejemplo, foros de discusión dentro del espacio de cada asignatura.
+
+\item \textbf{Notificaciones y comunicación:} Estos sistemas cuentan con servicios de mensajería integrados que permiten a los docentes mandar un mensaje en forma de notificación a los estudiantes con información importante que deben ver.
+De esta forma se consigue dar una mayor importancia y visibilidad a los mensajes que los docentes o servicios administrativos consideren necesarios.
+
+\item \textbf{Personalización de la plataforma:} Generalmente, los LMSs permiten un alto grado de personalización. Esto permite que diferentes entidades educativas utilicen el mismo sistema adaptándolo a sus necesidades.
+
+\end{enumerate}
  
 \section{Herramientas}
 \subsection{GitHub}
@@ -166,9 +192,20 @@ Además, la herramienta proporciona una interfaz fácil de usar.
 Gracias a esta herramienta se pueden realizar distintas peticiones a una web y ver si los resultados son los esperados.
 Esto permite ver de forma más sencilla la información devuelta por la aplicación, lo que aumenta la facilidad para detectar errores o ver la estructura de la información.
 
-\item\textbf{Texmaker}
+\item\textbf{\TeX{}maker}
 
-Editor de documentos de código abierto diseñado para la creación y edición de documentos en formato LaTeX.
+Editor de documentos de código abierto diseñado para la creación y edición de documentos en formato \LaTeX.
+
+\item\textbf{Moodle}
+
+Moodle es una plataforma de aprendizaje en línea utilizada por la Universidad de Burgos para la gestión académica y la interacción entre docentes y alumnos. Permite realizar cuestionarios, exámenes, entregas y valoración de tareas, comunicar calificaciones y participar en foros, entre otras funciones.
+
+En este proyecto, se ha utilizado Moodle para validar el inicio de sesión en la aplicación. 
+Se ha hecho uso de un \textit{endpoint}\footnote{URL que permite enviar una solicitud para obtener un recurso concreto} al cual se envía el correo electrónico y la contraseña. 
+Si el inicio de sesión es correcto, se devuelve un token de acceso; en caso contrario, se muestra un mensaje de error. 
+De esta manera, se puede proporcionar acceso sin tener que almacenar contraseñas en la base de datos de la aplicación desarrollada.
+
+Además, durante el inicio de sesión, se verifica primero si la dirección de correo electrónico se encuentra en la base de datos de la aplicación web desarrollada. Si se encuentra, se realiza la validación contra Moodle; de lo contrario, se muestra directamente un mensaje de error sin llegar a realizar la petición.
 
 \end{itemize}
 \subsection{}
