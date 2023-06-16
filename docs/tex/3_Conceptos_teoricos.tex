@@ -20,3 +20,25 @@ También es importante escapar caracteres especiales.
 En este caso, Flask y las plantillas Jinja2 realizan automáticamente el escape de variables al renderizar las páginas, aun así hay que tener cuidado con las vistas no renderizadas de esta forma.
 
 \section{Organización de la Universidad de Burgos}
+La Universidad de Burgos, institución a la que está enfocada la aplicación desarrollada, cuenta con una organización  que es importante conocer debido a que la aplicación se basa en esta.
+ 
+Podemos diferenciar la organización en los siguientes apartados:
+
+\subsection{Gestión académica}
+La universidad cuenta con diferentes facultades donde se imparten las titulaciones asignadas a estas, las cuales pueden ser grados o másteres.
+A su vez, estas titulaciones cuentan con un conjunto de asignaturas repartidas entre los diferentes cursos de la titulación y los diferentes semestres del curso académico. 
+Estas asignaturas son escogidas en cada curso académico, donde se indica cuáles van a ser impartidas.
+Además, las asignaturas se dividen en grupos, de teoría o práctica, donde se hace un reparto de los alumnos para tener una organización de qué profesores van a impartir los diferentes contenidos de la asignatura, consiguiendo de esta manera mantener número de alumnos adecuado para poder ofrecer una buena docencia.
+
+\subsection{Gestión de profesorado}
+La gestión de profesorado incluye todo lo relacionado con los docentes, desde sus contratos hasta el reparto de sus horas en los diferentes grupos de las asignaturas.
+
+La organización básica está compuesta por los docentes, los cuales tienen asignada una plaza, la cual depende de un tipo de contrato. Existen diferentes tipos de contrato entre los que se encuentran doctor, ayudante doctor, catedrático, titular...
+
+Las plazas de los docentes pertenecen a una de las distintas áreas de la universidad, que a su vez se encuentran integradas en los departamentos.
+
+Es importante conocer que cuando se crea la planificación de un nuevo curso académico, se escogen las titulaciones, y dentro de estas, las asignaturas que se van a impartir. 
+Según el número previsto de alumnos se hace un reparto de grupos por cada asignatura y se indica que plazas van a impartir esos grupos y cuantas horas o créditos van a dedicar, ya que puede haber grupos que sean impartidos por varios profesores.
+
+Por último, también es importante saber que, como he dicho anteriormente, los grupos son asignados a las plazas para ser impartidos.
+Esto es debido a que lo normal es que una plaza pertenezca a un docente, pero puede darse el caso de que la plaza se encuentre libre y se esté en búsqueda de un docente que la cubra y se encargue de impartir los créditos indicados en los grupos que tenga asignados dicha plaza.
