@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae6b2c56-8d66-4217-a826-17f3975d95c3" name="Changes" comment="Añadido campo de reducciones por defecto a 0 en la creación de docentes.">
+    <list default="true" id="ae6b2c56-8d66-4217-a826-17f3975d95c3" name="Changes" comment="Pequeño cambio en el mensaje de login para usuarios sin permisos.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/SiteController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/SiteController.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/decorators.py" beforeDir="false" afterPath="$PROJECT_DIR$/decorators.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/import_db.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/import_db.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -195,14 +194,7 @@
       <workItem from="1686770886484" duration="2315000" />
       <workItem from="1686830104177" duration="620000" />
       <workItem from="1686905765331" duration="148000" />
-      <workItem from="1686906122483" duration="937000" />
-    </task>
-    <task id="LOCAL-00004" summary="Implementadas las opciones de duplicar curso y modificar año de curso.">
-      <created>1683978206420</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1683978206420</updated>
+      <workItem from="1686906122483" duration="2210000" />
     </task>
     <task id="LOCAL-00005" summary="Añadida la modificación de cursos y solucionados algunos problemas.">
       <created>1683999674292</created>
@@ -540,7 +532,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686772833082</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="Pequeño cambio en el mensaje de login para usuarios sin permisos.">
+      <created>1686918725744</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1686918725745</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -558,7 +557,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Cambios en el index" />
     <MESSAGE value="Añadido control de curso con mismo año" />
     <MESSAGE value="Solucionado bug plazas" />
     <MESSAGE value="Arreglado bug en la modificación del año del curso" />
@@ -583,7 +581,8 @@
     <MESSAGE value="Pequeños cambios a la hora de importar la BD." />
     <MESSAGE value="Añadido mensaje informativo cuando no se tienen permisos y algo de documentación." />
     <MESSAGE value="Añadido campo de reducciones por defecto a 0 en la creación de docentes." />
-    <option name="LAST_COMMIT_MESSAGE" value="Añadido campo de reducciones por defecto a 0 en la creación de docentes." />
+    <MESSAGE value="Pequeño cambio en el mensaje de login para usuarios sin permisos." />
+    <option name="LAST_COMMIT_MESSAGE" value="Pequeño cambio en el mensaje de login para usuarios sin permisos." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/src$src.coverage" NAME="src Coverage Results" MODIFIED="1686906217201" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />

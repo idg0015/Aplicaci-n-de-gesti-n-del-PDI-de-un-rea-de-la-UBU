@@ -35,7 +35,107 @@
             {% endfor %}
         </div>
         <div class="form-group text-center mt-5">
-            {{ form.submit(class="btn btn-primary") }}
+            {{ form.submit(class="btn btn-primary", onclick="return confirm('¿Está seguro de importar nueva información a la base de datos? Se eliminará todo el contenido actual')") }}
         </div>
     </form>
+    <div id="resultado" class="resultado-scroll"></div>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+            padding: 5px;
+        }
+
+        th {
+            background-color: #f1f1f1;
+        }
+
+        .resultado-scroll {
+            font-family: "Consolas", monospace;
+            font-size: 12px;
+            height: 300px;
+            overflow-y: auto;
+            padding: 10px;
+            width: 80%;
+            margin: 0 auto;
+        }
+
+
+    </style>
+    <script>
+        $(document).ready(function () {
+            $("#sql_file").on('change', function () {
+                importarArchivo();
+            });
+        });
+
+        function importarArchivo() {
+            const input = document.getElementById('sql_file');
+            const archivo = input.files[0];
+
+            const lector = new FileReader();
+            lector.onload = function (evento) {
+                const contenido = evento.target.result;
+                const sentencias = contenido.split(';');
+
+                let resultado = '<table>';
+                for (let i = 0; i < sentencias.length; i++) {
+                    const sentencia = sentencias[i].trim();
+                    if (sentencia !== '') {
+                        const {tabla, columnas} = obtenerNombreTablaColumnas(sentencia);
+                        resultado += `<tr><th colspan="${columnas.length}">Tabla ${i + 1}: ${tabla}</th></tr>`;
+                        resultado += `<tr>${columnas.map(columna => `<th>${columna}</th>`).join('')}</tr>`;
+
+                        const filas = sentencia.split('\n');
+                        for (let j = 1; j < filas.length; j++) {
+                            const datos = filas[j].trim().split(',');
+                            const celdas = datos.map(dato => `<td>${dato.trim().replace(/'/g, '')}</td>`).join('');
+                            resultado += `<tr>${celdas}</tr>`;
+                        }
+                    }
+                }
+                resultado += '</table>';
+
+                document.getElementById('resultado').innerHTML = resultado;
+            };
+
+            lector.readAsText(archivo);
+        }
+
+        function obtenerNombreTablaColumnas(sentencia) {
+            const regex = /INSERT INTO `([^`]+)` \(([^)]+)\)/;
+            const matches = regex.exec(sentencia);
+            if (matches && matches.length > 2) {
+                const tabla = matches[1];
+                const columnas = matches[2].split(',').map(columna => columna.trim());
+                return {tabla, columnas};
+            }
+            return {tabla: 'N/A', columnas: []};
+        }
+
+
+        function obtenerNombreTabla(sentencia) {
+            const regex = /INSERT INTO `(.+?)`/;
+            const matches = regex.exec(sentencia);
+            if (matches && matches.length > 1) {
+                return matches[1];
+            }
+            return 'N/A';
+        }
+
+
+        function obtenerNombreTabla(sentencia) {
+            const regex = /INSERT INTO `(.+?)`/;
+            const matches = regex.exec(sentencia);
+            if (matches && matches.length > 1) {
+                return matches[1];
+            }
+            return 'N/A';
+        }
+
+
+    </script>
 {% endblock %}
