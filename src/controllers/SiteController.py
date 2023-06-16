@@ -31,6 +31,9 @@ def login():
         if docente is None:
             flash('Usuario o contraseña incorrectos', 'alert alert-danger alert-dismissible fade show')
             return render_template('login.html', form=form)
+        if docente.read_flag == 0 and docente.modification_flag == 0:
+            flash('Usuario o contraseña incorrectos', 'alert alert-danger alert-dismissible fade show')
+            return render_template('login.html', form=form)
         url_moodle = 'https://ubuvirtual.ubu.es/login/token.php'
         data = {
             'username': username,

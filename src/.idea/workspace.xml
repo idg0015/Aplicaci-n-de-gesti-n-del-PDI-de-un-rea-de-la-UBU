@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ae6b2c56-8d66-4217-a826-17f3975d95c3" name="Changes" comment="Añadido campo de reducciones por defecto a 0 en la creación de docentes.">
-      <change beforePath="$PROJECT_DIR$/../docs/memoria.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/memoria.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/tex/3_Conceptos_teoricos.tex" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/tex/3_Conceptos_teoricos.tex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/SiteController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/SiteController.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/decorators.py" beforeDir="false" afterPath="$PROJECT_DIR$/decorators.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -195,7 +195,7 @@
       <workItem from="1686770886484" duration="2315000" />
       <workItem from="1686830104177" duration="620000" />
       <workItem from="1686905765331" duration="148000" />
-      <workItem from="1686906122483" duration="696000" />
+      <workItem from="1686906122483" duration="937000" />
     </task>
     <task id="LOCAL-00004" summary="Implementadas las opciones de duplicar curso y modificar año de curso.">
       <created>1683978206420</created>
