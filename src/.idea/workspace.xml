@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae6b2c56-8d66-4217-a826-17f3975d95c3" name="Changes" comment="Pequeño cambio en el mensaje de login para usuarios sin permisos.">
+    <list default="true" id="ae6b2c56-8d66-4217-a826-17f3975d95c3" name="Changes" comment="Cambios en la importación [WIP]">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/import_db.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/import_db.html" afterDir="false" />
     </list>
@@ -194,14 +194,9 @@
       <workItem from="1686770886484" duration="2315000" />
       <workItem from="1686830104177" duration="620000" />
       <workItem from="1686905765331" duration="148000" />
-      <workItem from="1686906122483" duration="2210000" />
-    </task>
-    <task id="LOCAL-00005" summary="Añadida la modificación de cursos y solucionados algunos problemas.">
-      <created>1683999674292</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1683999674292</updated>
+      <workItem from="1686906122483" duration="2235000" />
+      <workItem from="1686924026088" duration="2692000" />
+      <workItem from="1687102424609" duration="3545000" />
     </task>
     <task id="LOCAL-00006" summary="Cambios en tablas y tratamiento de eliminaciones.">
       <created>1684008249098</created>
@@ -539,7 +534,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686918725745</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="Cambios en la importación [WIP]">
+      <created>1686919945898</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1686919945898</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -557,7 +559,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Añadido control de curso con mismo año" />
     <MESSAGE value="Solucionado bug plazas" />
     <MESSAGE value="Arreglado bug en la modificación del año del curso" />
     <MESSAGE value="Cambios en la visualización de las horas y creación del html del login" />
@@ -582,9 +583,10 @@
     <MESSAGE value="Añadido mensaje informativo cuando no se tienen permisos y algo de documentación." />
     <MESSAGE value="Añadido campo de reducciones por defecto a 0 en la creación de docentes." />
     <MESSAGE value="Pequeño cambio en el mensaje de login para usuarios sin permisos." />
-    <option name="LAST_COMMIT_MESSAGE" value="Pequeño cambio en el mensaje de login para usuarios sin permisos." />
+    <MESSAGE value="Cambios en la importación [WIP]" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cambios en la importación [WIP]" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/src$src.coverage" NAME="src Coverage Results" MODIFIED="1686906217201" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/src$src.coverage" NAME="src Coverage Results" MODIFIED="1687105293797" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
