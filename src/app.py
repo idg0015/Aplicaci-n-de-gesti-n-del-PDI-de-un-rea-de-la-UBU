@@ -20,7 +20,6 @@ from utils.db import db, migrate, sess
 import os
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'test'
 env = os.environ.get('FLASK_ENV', 'development')
 if env == 'production':
     app.config.from_object('config.production.ProductionConfig')
@@ -28,8 +27,8 @@ else:
     app.config.from_object('config.development.DevelopmentConfig')
 
 # Configuración de Flask-Session
-app.config['SESSION_TYPE'] = 'filesystem'
-app.config['SESSION_USE_SIGNER'] = True
+# app.config['SESSION_TYPE'] = 'filesystem'
+# app.config['SESSION_USE_SIGNER'] = True
 
 db.init_app(app)
 migrate.init_app(app, db)

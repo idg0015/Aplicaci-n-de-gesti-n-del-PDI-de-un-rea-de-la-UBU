@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae6b2c56-8d66-4217-a826-17f3975d95c3" name="Changes" comment="Cambios en la importación [WIP]">
+    <list default="true" id="ae6b2c56-8d66-4217-a826-17f3975d95c3" name="Changes" comment="Cambios en la forma de gestionar las sesiones">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/8bc95a40-cbe9-40de-b55c-34ed89972485.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/8bc95a40-cbe9-40de-b55c-34ed89972485.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/SiteController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/SiteController.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/db.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/db.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -201,14 +199,7 @@
       <workItem from="1686906122483" duration="2235000" />
       <workItem from="1686924026088" duration="2692000" />
       <workItem from="1687102424609" duration="4921000" />
-      <workItem from="1687163267109" duration="3341000" />
-    </task>
-    <task id="LOCAL-00007" summary="Cambios en la tabla de grupos.">
-      <created>1684245238023</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1684245238023</updated>
+      <workItem from="1687163267109" duration="5804000" />
     </task>
     <task id="LOCAL-00008" summary="Añadida creación de grupos y cambios en los cursos">
       <created>1684594418634</created>
@@ -546,7 +537,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687110738473</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="Cambios en la forma de gestionar las sesiones">
+      <created>1687174098103</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1687174098104</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -564,7 +562,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Solucionado bug plazas" />
     <MESSAGE value="Arreglado bug en la modificación del año del curso" />
     <MESSAGE value="Cambios en la visualización de las horas y creación del html del login" />
     <MESSAGE value="Añadidas breadcrumbs" />
@@ -589,9 +586,10 @@
     <MESSAGE value="Añadido campo de reducciones por defecto a 0 en la creación de docentes." />
     <MESSAGE value="Pequeño cambio en el mensaje de login para usuarios sin permisos." />
     <MESSAGE value="Cambios en la importación [WIP]" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cambios en la importación [WIP]" />
+    <MESSAGE value="Cambios en la forma de gestionar las sesiones" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cambios en la forma de gestionar las sesiones" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/src$src.coverage" NAME="src Coverage Results" MODIFIED="1687173869554" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/src$src.coverage" NAME="src Coverage Results" MODIFIED="1687175859930" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
