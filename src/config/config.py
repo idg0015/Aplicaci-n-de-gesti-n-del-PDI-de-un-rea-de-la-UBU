@@ -1,5 +1,8 @@
+import os
+
+
 class Config(object):
-    SECRET_KEY = '\xa2\xff\xc0\x97\xeb %\x81\xa6L\xe3\x9aK\x19y\xa6(\xcf\xa2 ^ c\xe1?\x8bG'
+    SECRET_KEY = os.urandom(12)
     DEBUG = False
     TESTING = False
     CSRF_ENABLED = True

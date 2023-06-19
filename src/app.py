@@ -16,10 +16,11 @@ from routes.plaza_bp import plaza_bp
 from routes.contrato_bp import contrato_bp
 from routes.departamento_bp import departamento_bp
 from routes.horas_bp import horas_bp
-from utils.db import db, migrate
+from utils.db import db, migrate, sess
 import os
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'test'
 env = os.environ.get('FLASK_ENV', 'development')
 if env == 'production':
     app.config.from_object('config.production.ProductionConfig')
@@ -27,16 +28,15 @@ else:
     app.config.from_object('config.development.DevelopmentConfig')
 
 # Configuración de Flask-Session
-app.config['SESSION_SQLALCHEMY'] = db
-app.config['SESSION_SQLALCHEMY_TABLE'] = 'sessions'
-app.config['SESSION_TYPE'] = 'sqlalchemy'
+app.config['SESSION_TYPE'] = 'filesystem'
 app.config['SESSION_USE_SIGNER'] = True
 
 db.init_app(app)
 migrate.init_app(app, db)
+sess.init_app(app)
+
 with app.app_context():
     db.create_all()
-
 
 app.register_blueprint(site_bp)
 app.register_blueprint(centro_bp, url_prefix='/centros')
