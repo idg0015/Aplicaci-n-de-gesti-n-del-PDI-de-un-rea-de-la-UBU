@@ -40,18 +40,17 @@
         let hasModificationPermission = {{ can_modify | lower }};
 
         if ($("#cursos").children().length > 1) {
-            $("#cursos").children()[1].selected = true;
+            let last = $('#cursos option').length - 1;
+            $("#cursos").children()[last].selected = true;
             $.ajax({
                 url: "/grupos/cursos-asignaturas",
                 method: "POST",
-                data: {id: $("#cursos").children()[1].value},
+                data: {id: $('#cursos option:last-child').val()},
                 success: function (data) {
                     table.updateConfig({data: data}).forceRender();
                 }
             });
         }
-
-
 
         let columns = [
             {
@@ -100,7 +99,7 @@
                                                             <a class="icono" href="#" title="Modificar datos alumnos" data-bs-toggle="modal" data-bs-target="#ca-modal" data-ca="${row.cells[0].data}" data-na="${row.cells[5].data}" data-gt="${row.cells[1].data}" data-gp="${row.cells[2].data}" onclick="editForm(this)"><i class="bi bi-pencil-square"></i></a>
                                                             <a class="icono" href="/cursos/delete-ca/${row.cells[0].data}" title="Eliminar" onclick="return confirm('¿Está seguro de eliminar la asignatura del curso?')"><i class="bi bi-trash3-fill"></i></a>`),
             });
-        }else{
+        } else {
             columns.push({
                 name: 'Acciones',
                 sort: false,
@@ -115,7 +114,7 @@
             let n_a = btn.dataset.na;
             let gt = btn.dataset.gt;
             let gp = btn.dataset.gp;
-            $('#ca-modal').find('form').attr('action', '/cursos/edit-ca/' + id);
+            $('#ca-modal').find('#id_curso_asignatura').val('/cursos/edit-ca/' + id);
             $('#ca-modal').find('#n_a_p').val(n_a);
             $('#ca-modal').find('#n_g_t').val(gt);
             $('#ca-modal').find('#n_g_p').val(gp);
@@ -145,6 +144,11 @@
                     }
                 });
             });
+
+
+
+
+
         });
     </script>
 {% endblock %}

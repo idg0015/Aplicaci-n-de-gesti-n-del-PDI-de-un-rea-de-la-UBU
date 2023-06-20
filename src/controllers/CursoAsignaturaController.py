@@ -1,4 +1,4 @@
-from flask import render_template, flash, redirect, url_for, session
+from flask import render_template, flash, redirect, url_for, session, jsonify
 
 from forms import FormGrupo, FormCursoAsignatura
 from models.CursoAsignatura import CursoAsignatura
@@ -42,7 +42,7 @@ def delete_ca(id_curso_asignatura):
     return redirect(url_for('grupo_bp.index_route'))
 
 
-def edit_ca(id_curso_asignatura):
+"""def edit_ca(id_curso_asignatura):
     form = FormCursoAsignatura()
     if form.validate_on_submit():
         curso_asignatura = CursoAsignatura.get_with_id(id_curso_asignatura)
@@ -56,4 +56,20 @@ def edit_ca(id_curso_asignatura):
             flash('Asignatura del curso no encontrada', 'alert alert-danger alert-dismissible fade show')
     else:
         flash('Formulario no válido', 'alert alert-danger alert-dismissible fade show')
-    return redirect(url_for('grupo_bp.index_route'))
+    return redirect(url_for('grupo_bp.index_route'))"""
+
+
+def edit_ca(id_curso_asignatura):
+    form = FormCursoAsignatura()
+    if form.validate_on_submit():
+        curso_asignatura = CursoAsignatura.get_with_id(id_curso_asignatura)
+        if curso_asignatura is not None:
+            curso_asignatura.num_alumnos_previstos = form.n_a_p.data
+            curso_asignatura.num_grupos_teoricos_previstos = form.n_g_t.data
+            curso_asignatura.num_grupos_practicos_previstos = form.n_g_p.data
+            db.session.commit()
+            return jsonify({'success': True, 'message': 'Asignatura del curso actualizada correctamente'})
+        else:
+            return jsonify({'success': False, 'message': 'Asignatura del curso no encontrada'})
+    else:
+        return jsonify({'success': False, 'message': 'Datos no válidos'})

@@ -7,8 +7,9 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
             </div>
             <div class="modal-body">
-                <form method="POST" action="{{ url_for('curso_bp.edit_ca_route', id_curso_asignatura=0) }}" novalidate>
+                <form id="form-mod-ca" method="POST" novalidate>
                     {{ form.hidden_tag() }}
+                <input type="hidden" id="id_curso_asignatura" value="{{ id_curso_asignatura }}"/>
                     <div class="form-group">
                         <div class="mt-3 mb-3">
                             {{ form.n_a_p.label }} {{ form.n_a_p(class_="form-control") }}
@@ -37,3 +38,25 @@
         </div>
     </div>
 </div>
+
+<script>
+    $(document).ready(function () {
+        $("#form-mod-ca").submit(function (e) {
+            e.preventDefault();
+            let formData = $(this).serialize();
+            $.ajax({
+                type: 'POST',
+                url: $("#id_curso_asignatura").val(),
+                data: formData,
+                success: function (response) {
+                    $('#ca-modal').modal('hide');
+                    console.log(table);
+                },
+                error: function (xhr, status, error) {
+                    console.error(xhr.responseText);
+                }
+            });
+
+        });
+    });
+</script>
