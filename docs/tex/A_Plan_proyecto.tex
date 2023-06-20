@@ -480,13 +480,75 @@ La tarea <<Pequeños cambios de funcionamiento general>> tenía una estimación 
 Esta tarea estaba diseñada para realizar algunos cambios visuales o de funcionalidad en la web. Así como carga interna de bibliotecas o datos.
 La duración real de la tarea también fue de 1 hora aproximadamente.
 
-Por último, la tarea de <<Avanzar documentación>> tenía una estimación de 4 horas de trabajo que al final se convirtió en...................
+Por último, la tarea de <<Avanzar documentación>> tenía una estimación de 4 horas de trabajo que quedó en unas 3 horas de trabajo real donde se añadió documentación en los anexos.
 
 \item\textbf{Revisión del \textit{sprint}}
 
-En la reunión del \textit{sprint} 12
+En la reunión del \textit{sprint} 12 se estuvieron viendo los cambios realizados y se decidió realizar algunos cambios a la hora de importar los datos a la base de datos añadiendo una confirmación antes de importar y la visualización de los datos a importar.
+También se encontró un error en el funcionamiento de las sesiones que debía ser subsanado y por último, se estuvieron viendo los cambios y posibles adiciones que se podían realizar en la documentación.
 \end{itemize}
 
+
+\subsubsection{\textit{Sprint} 13: Avances en la documentación y arreglos}
+Fechas: 12 junio 2023 -- 19 junio 2023.
+\begin{itemize}
+\item\textbf{Planificación del \textit{sprint}}
+
+En la reunión de planificación del sprint se fijaron las siguientes tareas:
+\begin{enumerate}
+		\item Campo de reducciones por defecto a 0.
+		\item Solucionar bug con las sesiones en la base de datos.
+		\item Crear carga masiva de datos.
+		\item Cambios en la función de importar datos.
+		\item Añadir documentación y solucionar errores vistos.
+\end{enumerate}
+
+\item\textbf{\textit{Burndown Report}}
+
+Para la tarea <<Campo de reducciones por defecto a 0>> se dio una estimación de 10 minutos y se hizo en ese mismo tiempo. 
+Esta tarea consistía un pequeño cambio en poner un valor mínimo de 0 ya marcado en el campo reducciones de el formulario de docentes para hacer más cómoda la introducción de datos.
+
+La tarea <<Solucionar bug con las sesiones en la base de datos>> tenía una previsión de 3 horas de trabajo que se convirtieron en 8 horas reales.
+Con esta tarea se buscaba arreglar un bug que hacía que las sesiones no se almacenasen en la base de datos.
+Al poco de mirarlo se vio que era un problema por el orden de carga de la biblioteca, pero al hacer pruebas se detectó un error entre las sesiones y la sesión de SQLAlchemy que hacía que en las eliminaciones no se esperase al commit y las hiciese de forma directa.
+Tras darle muchas vueltas y buscar mucha información sin ningún resultado y revisar que todo estaba correcto, se decidió descartar la idea de utilizar SQLAlchemy para guardar las sesiones porque todo parecía indicar ser un bug de la biblioteca.
+Para poder seguir almacenando las sesiones en el servidor, se optó por guardarlas en el sistema de ficheros, cosa que en un principio dio problemas en Heroku, pero que se consiguió solucionar.
+
+La tarea <<Crear carga masiva de datos>> fue propuesta por el tutor de proyecto Álvar Arnaiz Gonzalez para tener datos reales de los centros, titulaciones, asignaturas, etc. 
+En un principio se pensó que con 2 horas de trabajo sería suficiente, pero la realidad fueron unas 6 horas debido a que el formato en el que podíamos obtener los datos no era el mismo que necesitábamos y esto implicaba tener que hacer varias modificaciones.
+
+Para la tarea de <<Cambios en la función de importar datos>> se dio una estimación de 3 horas que se convirtieron en unas 7 horas de trabajo. Esto es debido a que se tuvo que crear una función de JavaScript que fuese capaz de leer un archivo SQL y extraer de él la información que se iba a introducir en la base de datos mostrándolo en forma de tabla en el HTML. También se creó un mensaje de confirmación antes de importar para evitar fallos y, por último, se modifico la función de Python encargada de la importación para mejorar la validación del fichero subido.
+
+Finalmente, la tarea de <<Añadir documentación y solucionar errores vistos>> estaba creada para, como su nombre indica, avanzar con la documentación del trabajo y para corregir las cosas vistas en la reunión del \textit{sprint}. 
+Tenía una estimación de 8 horas que se quedó en unas 5 o 6 de trabajo real. No se pudo avanzar más debido a la falta de tiempo ya que otras tareas habían consumido más de lo esperado. 
+La tarea de dejó abierta para continuar con ella en el siguiente \textit{sprint}. 
+
+\item\textbf{Revisión del \textit{sprint}}
+
+En la reunión del \textit{sprint} 13 estuvimos viendo algunos errores pequeños vistos por los tutores.
+También se vieron los cambios realizados y se comentó alguna cosa que podía añadir a la documentación.
+\end{itemize}
+
+
+\subsubsection{\textit{Sprint} 14: X}
+Fechas: 19 junio 2023 -- 26 junio 2023.
+\begin{itemize}
+\item\textbf{Planificación del \textit{sprint}}
+
+En la reunión de planificación del sprint se fijaron las siguientes tareas:
+\begin{enumerate}
+		\item X
+
+\end{enumerate}
+
+\item\textbf{\textit{Burndown Report}}
+
+Para la tarea <<X>> se dio una estimación de 
+
+\item\textbf{Revisión del \textit{sprint}}
+
+En la reunión del \textit{sprint} 14.............
+\end{itemize}
 
 \section{Estudio de viabilidad}
 El estudio de viabilidad es una etapa esencial en el desarrollo de cualquier proyecto, ya que permite evaluar la viabilidad económica, técnica y operativa de la propuesta. 
@@ -503,11 +565,11 @@ Para tener en cuenta los costes del proyecto, lo primero en lo que nos debemos f
 En este caso, ha habido un único desarrollador \textit{junior} trabajando poco más de 4 meses dedicando aproximadamente 350 horas de trabajo en este periodo.
 
 Se toma como salario medio de un programador \textit{junior} los 19000~€ brutos anuales\footnote{\url{https://www.glassdoor.es/Sueldos/programador-junior-sueldo-SRCH_KO0,18.htm}}.
-Suponiendo un trabajo de 1826 horas anuales\footnote{\url{https://asesorias.com/empresas/normativas/laboral/jornada/horas-trabajo-anuales/}}, se obtiene un precio de 10.40~€ por cada hora de trabajo.
-Teniendo en cuenta las 350 horas trabajadas * 10.40~$\frac{\text{€}}{hora}$ = 3640~€ totales, lo que es lo mismo que 910~€ mensuales brutos.
+Suponiendo un trabajo de 1826 horas anuales\footnote{\url{https://asesorias.com/empresas/normativas/laboral/jornada/horas-trabajo-anuales/}}, se obtiene un precio de 10,40~€ por cada hora de trabajo.
+Teniendo en cuenta las 350 horas trabajadas * 10,40~$\frac{\text{€}}{hora}$ = 3640~€ totales, lo que es lo mismo que 910~€ mensuales brutos.
 
 Una vez calculado el salario es importante tener en cuenta que la empresa debe pagar impuestos adicionales a esta base.
-En primer lugar debe pagar un 23.60\% de la base como contingencias comunes, 5.50\% de desempleo, un 0.6\% como formación, un 0.2\% de cotización al Fondo de Garantía Salarial (FOGASA) y un 1.5\% por accidentes de trabajo y enfermedades profesionales\footnote{\url{https://getquipu.com/blog/cuanto-cuesta-contratar-un-trabajador/}}.
+En primer lugar debe pagar un 23.60\% de la base como contingencias comunes, 5,50\% de desempleo, un 0,6\% como formación, un 0,2\% de cotización al Fondo de Garantía Salarial (FOGASA) y un 1,5\% por accidentes de trabajo y enfermedades profesionales\footnote{\url{https://getquipu.com/blog/cuanto-cuesta-contratar-un-trabajador/}}.
 
 El total de lo que debe pagar la empresa por el salario mensual del trabajador se puede ver en la ecuación~\ref{eq:sueldo}.
 
@@ -515,12 +577,12 @@ El total de lo que debe pagar la empresa por el salario mensual del trabajador s
 \frac{910~\frac{\text{€}}{mes}}{1 - (0.236 + 0.055 + 0.006 + 0.002 + 0.0150)} = 1326.53~ \frac{\text{€}}{mes}
 \end{equation}
 
-Finalmente, el salario durante los 4 meses de trabajo asciende al total de 1326.53~ $\frac{\text{€}}{mes}$ * 4 meses = 5306.12~€.
+Finalmente, el salario durante los 4 meses de trabajo asciende al total de 1326,53~ $\frac{\text{€}}{mes}$ * 4 meses = 5306,12~€.
 
 
 \subsubsection{Coste de \textit{hardware}}
 Para el desarrollo del proyecto es necesario contar con cierto \textit{hardware}.
-En este caso, se ha utilizado un ordenador con un procesador Intel Core i5-8600, 16 GB de memoria RAM, tarjeta gráfica NVIDIA GeForce GTX 1060 y 1.5TB de almacenamiento.
+En este caso, se ha utilizado un ordenador con un procesador Intel Core i5-8600, 16 GB de memoria RAM, tarjeta gráfica NVIDIA GeForce GTX 1060 y 1,5TB de almacenamiento.
 Es un ordenador tiene un valor de aproximado de 900€. En cuanto a periféricos y pantalla se estima un precio de 190~€.
 
 Este conjunto de \textit{hardware} se amortizará en 4 años. El coste anual de amortización se puede ver en la ecuación~\ref{eq:hardware}.
@@ -529,7 +591,7 @@ Este conjunto de \textit{hardware} se amortizará en 4 años. El coste anual de 
 \frac{1090~\text{€}}{4~\text{años}} = 272.5~\frac{\text{€}}{año}
 \end{equation}
 
-Teniendo en cuenta que la duración del proyecto ha sido de 4 meses, el coste durante estos meses del \textit{hardware} es de 90.83~€.
+Teniendo en cuenta que la duración del proyecto ha sido de 4 meses, el coste durante estos meses del \textit{hardware} es de 90,83~€.
 
 Por último, sobre el servidor donde desplegar la aplicación, pondremos un precio estimado de unos 80~€ mensuales para un servidor dedicado\footnote{\url{https://www.ovhcloud.com/es-es/bare-metal/prices/}}. Por lo tanto, el coste durante estos 4 meses es de 320~€.
 
@@ -537,7 +599,7 @@ Por último, sobre el servidor donde desplegar la aplicación, pondremos un prec
 En este apartado vamos a exponer el coste del \textit{software} utilizado para el desarrollo del proyecto.
 
 Para la realización de este proyecto se han utilizado bibliotecas gratuitas. 
-El único coste adicional que puede tener es el del uso del IDE PyCharm, el cual tiene un coste mensual de 24.90~€ en su versión profesional, por lo que el coste durante los 4 meses de utilización es de 99.60~€.
+El único coste adicional que puede tener es el del uso del IDE PyCharm, el cual tiene un coste mensual de 24,90~€ en su versión profesional, por lo que el coste durante los 4 meses de utilización es de 99,60~€.
 
 \subsubsection{Recuento}
 El recuento de estos costes durante los 4 meses de desarrollo del proyecto se puede ver en la tabla~\ref{table-A:economía}
@@ -548,11 +610,11 @@ El recuento de estos costes durante los 4 meses de desarrollo del proyecto se pu
     \toprule
     \textbf{Concepto} & \textbf{Coste (€)} \\
     \midrule
-    Personal & 5306.12 \\
-	\textit{Hardware} & 410.83 \\
-	\textit{Software} & 99.60\\
+    Personal & 5306,12 \\
+	\textit{Hardware} & 410,83 \\
+	\textit{Software} & 99,60\\
 	\midrule
-	\textbf{Total} & 5816.55 \\
+	\textbf{Total} & 5816,55 \\
 	\bottomrule
   \end{tabular}
 \caption{Total de costes durante el desarrollo del proyecto.}\label{table-A:economía}
