@@ -72,24 +72,38 @@ def update(id_docente):
         abort(404)
     formulario = FormDocenteUpdate(obj=docente)
     formulario.submit.label.text = 'Modificar'
+    flag = False
 
     if formulario.validate_on_submit():
         docente.nombre = formulario.nombre.data
         docente.apellidos = formulario.apellidos.data
         docente.email = formulario.email.data
         docente.reducciones = formulario.reducciones.data
-        docente.modification_flag = formulario.modification_flag.data
-        docente.read_flag = formulario.read_flag.data
+        if id_docente != session['user_id']:
+            docente.modification_flag = formulario.modification_flag.data
+            docente.read_flag = formulario.read_flag.data
+        else:
+            if docente.modification_flag != formulario.modification_flag.data or docente.read_flag != formulario.read_flag.data:
+                flash('¡No puedes modificar tus propios permisos!', 'alert alert-danger alert-dismissible fade show')
+                flag = True
         if docente.modification_flag and not docente.read_flag:
             docente.read_flag = True
         docente.save()
 
-        flash('Docente modificado correctamente', 'alert alert-success alert-dismissible fade show')
+        if flag:
+            flash('El resto de datos se han modificado correctamente',
+                  'alert alert-success alert-dismissible fade show')
+        else:
+            flash('Docente modificado correctamente', 'alert alert-success alert-dismissible fade show')
         return redirect(url_for('docente_bp.index_route'))
     return render_template('docentes/form.html', form=formulario, breadcrumbs=breadcrumbs, update=True)
 
 
 def delete(id_docente):
+    if id_docente == session['user_id']:
+        flash('¡No puedes eliminarte a ti mismo!', 'alert alert-danger alert-dismissible fade show')
+        return redirect(url_for('docente_bp.index_route'))
+
     docente = Docente.get_docente(id_docente)
     if docente is None:
         abort(404)
