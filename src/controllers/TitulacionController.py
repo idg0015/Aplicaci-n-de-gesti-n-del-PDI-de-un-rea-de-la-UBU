@@ -62,6 +62,10 @@ def delete(id_titulacion):
     titulacion = Titulacion.get_titulacion(id_titulacion)
     if titulacion is None:
         abort(404)
+    if titulacion.asignaturas:
+        flash('No se puede eliminar la titulación porque tiene asignaturas asociadas',
+              'alert alert-danger alert-dismissible fade show')
+        return redirect(url_for('titulacion_bp.index_route'))
     titulacion.delete()
     flash('Titulación eliminada correctamente', 'alert alert-success alert-dismissible fade show')
     return redirect(url_for('titulacion_bp.index_route'))
