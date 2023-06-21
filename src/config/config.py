@@ -1,4 +1,5 @@
 import os
+from datetime import timedelta
 
 
 class Config(object):
@@ -10,4 +11,5 @@ class Config(object):
     ADMINISTRATOR_EMAIL = 'idg0015@alu.ubu.es'
     SESSION_TYPE = 'filesystem'
     SESSION_USE_SIGNER = True
+    PERMANENT_SESSION_LIFETIME = timedelta(days=30)
     # La configuración de las sesiones está en el archivo app.py. Necersario por el orden de carga de los módulos
