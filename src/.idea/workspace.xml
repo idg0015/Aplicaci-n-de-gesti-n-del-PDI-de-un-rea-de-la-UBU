@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae6b2c56-8d66-4217-a826-17f3975d95c3" name="Changes" comment="Test sesiones">
-      <change beforePath="$PROJECT_DIR$/../docs/anexos.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/anexos.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/tex/A_Plan_proyecto.tex" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/tex/A_Plan_proyecto.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8bc95a40-cbe9-40de-b55c-34ed89972485.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/8bc95a40-cbe9-40de-b55c-34ed89972485.xml" afterDir="false" />
+    <list default="true" id="ae6b2c56-8d66-4217-a826-17f3975d95c3" name="Changes" comment="Pequeño arreglo en la duración de la sesión.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/CursoAsignaturaController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/CursoAsignaturaController.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cursos/form-ca.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cursos/form-ca.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/grupos/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/grupos/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -205,42 +204,8 @@
       <workItem from="1687102424609" duration="4921000" />
       <workItem from="1687163267109" duration="12544000" />
       <workItem from="1687186238435" duration="2045000" />
-      <workItem from="1687271787266" duration="842000" />
-    </task>
-    <task id="LOCAL-00009" summary="Añadida la eliminación de grupos y de asignaturas de un curso, y arreglos en la creación de grupos,">
-      <created>1684604465529</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1684604465529</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Pequeños cambios en la ventana de gestión de grupos">
-      <created>1684605256302</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1684605256302</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Añadida modificación de los datos de la relación de curso académico y asignatura">
-      <created>1684681714601</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1684681714601</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Solucionado pequeño bug con las urls de las titulaciones">
-      <created>1684682086901</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1684682086901</updated>
-    </task>
-    <task id="LOCAL-00013" summary="Pequeños cambios en las tablas y algún estilo css">
-      <created>1684782160788</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1684782160788</updated>
+      <workItem from="1687271787266" duration="9239000" />
+      <workItem from="1687349383531" duration="3913000" />
     </task>
     <task id="LOCAL-00014" summary="Pequeño cambio de css">
       <created>1684783371473</created>
@@ -550,7 +515,42 @@
       <option name="project" value="LOCAL" />
       <updated>1687176921943</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="Arreglado fallo en la url de plazas del index y añadida planificación temporal del sprint 13.">
+      <created>1687272950667</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1687272950667</updated>
+    </task>
+    <task id="LOCAL-00059" summary="No permitir al docente eliminarse a si mismo o modificar sus propios permisos">
+      <created>1687273393363</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1687273393363</updated>
+    </task>
+    <task id="LOCAL-00060" summary="Controlado el borrado en cascada de asignaturas al eliminar una titulación. No se permite eliminar una titulación con asignaturas.">
+      <created>1687273568635</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1687273568635</updated>
+    </task>
+    <task id="LOCAL-00061" summary="Cambios en la modificación de grupos [WIP].">
+      <created>1687297120137</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1687297120137</updated>
+    </task>
+    <task id="LOCAL-00062" summary="Pequeño arreglo en la duración de la sesión.">
+      <created>1687360193988</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1687360193988</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -568,11 +568,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Cambios en la visualización de las horas y creación del html del login" />
-    <MESSAGE value="Añadidas breadcrumbs" />
-    <MESSAGE value="Permitir duplicar horas de plazas a grupos al duplicar cuso" />
-    <MESSAGE value="Añadida página de error 404" />
-    <MESSAGE value="Cambios en el login y permisos [WIP]" />
     <MESSAGE value="Mejora de login y la gestión de permisos. Añadido el uso de sesiones en BD encriptadas" />
     <MESSAGE value="Pequeño arreglo para Heroku" />
     <MESSAGE value="Cambios en la tabla de horas" />
@@ -593,9 +588,14 @@
     <MESSAGE value="Cambios en la importación [WIP]" />
     <MESSAGE value="Cambios en la forma de gestionar las sesiones" />
     <MESSAGE value="Test sesiones" />
-    <option name="LAST_COMMIT_MESSAGE" value="Test sesiones" />
+    <MESSAGE value="Arreglado fallo en la url de plazas del index y añadida planificación temporal del sprint 13." />
+    <MESSAGE value="No permitir al docente eliminarse a si mismo o modificar sus propios permisos" />
+    <MESSAGE value="Controlado el borrado en cascada de asignaturas al eliminar una titulación. No se permite eliminar una titulación con asignaturas." />
+    <MESSAGE value="Cambios en la modificación de grupos [WIP]." />
+    <MESSAGE value="Pequeño arreglo en la duración de la sesión." />
+    <option name="LAST_COMMIT_MESSAGE" value="Pequeño arreglo en la duración de la sesión." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/src$src.coverage" NAME="src Coverage Results" MODIFIED="1687271844790" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/src$src.coverage" NAME="src Coverage Results" MODIFIED="1687359620992" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

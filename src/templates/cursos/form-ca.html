@@ -50,7 +50,13 @@
                 data: formData,
                 success: function (response) {
                     $('#ca-modal').modal('hide');
-                    console.log(table);
+                    if(response.success){
+                        $("#ajax-response").html("<div id='alert-message' class='alert alert-success alert-dismissible fade show'>" + response.message + "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>");
+                        table.updateConfig({data: response.data}).forceRender();
+                    }else{
+                        $("#ajax-response").html("<div id='alert-message' class='alert alert-danger alert-dismissible fade show'>" + response.message + "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>");
+                    }
+
                 },
                 error: function (xhr, status, error) {
                     console.error(xhr.responseText);

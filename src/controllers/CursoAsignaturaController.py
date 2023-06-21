@@ -68,7 +68,8 @@ def edit_ca(id_curso_asignatura):
             curso_asignatura.num_grupos_teoricos_previstos = form.n_g_t.data
             curso_asignatura.num_grupos_practicos_previstos = form.n_g_p.data
             db.session.commit()
-            return jsonify({'success': True, 'message': 'Asignatura del curso actualizada correctamente'})
+            data = CursoAsignatura.get_all_json(curso_asignatura.curso.id)
+            return jsonify({'success': True, 'message': 'Asignatura del curso actualizada correctamente', 'data': data})
         else:
             return jsonify({'success': False, 'message': 'Asignatura del curso no encontrada'})
     else:
