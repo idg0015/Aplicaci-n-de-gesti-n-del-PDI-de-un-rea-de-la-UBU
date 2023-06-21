@@ -62,14 +62,16 @@ def add_modal():
 
 
 def update(id_docente):
+    docente = Docente.get_docente(id_docente)
+
+    if docente is None:
+        abort(404)
+
     breadcrumbs = [
         ('/', 'Inicio'),
         (url_for('docente_bp.index_route'), 'Docentes'),
-        ('', 'Modificar docente ' + str(id_docente))
+        ('', 'Modificar docente: ' + docente.nombre + ' ' + docente.apellidos)
     ]
-    docente = Docente.get_docente(id_docente)
-    if docente is None:
-        abort(404)
     formulario = FormDocenteUpdate(obj=docente)
     formulario.submit.label.text = 'Modificar'
     flag = False

@@ -36,14 +36,16 @@ def add():
 
 
 def update(id_titulacion):
-    breadcrumbs = [
-        ('/', 'Inicio'),
-        (url_for('titulacion_bp.index_route'), 'Titulaciones'),
-        ('', 'Modificar titulación ' + str(id_titulacion)),
-    ]
     titulacion = Titulacion.get_titulacion(id_titulacion)
     if titulacion is None:
         abort(404)
+
+    breadcrumbs = [
+        ('/', 'Inicio'),
+        (url_for('titulacion_bp.index_route'), 'Titulaciones'),
+        ('', 'Modificar titulación: ' + titulacion.nombre),
+    ]
+
     formulario = FormTitulacion(obj=titulacion)
     formulario.submit.label.text = 'Modificar'
     if formulario.validate_on_submit():
@@ -77,16 +79,16 @@ def get_titulaciones_ajax():
 
 
 def view(id_titulacion):
-    breadcrumbs = [
-        ('/', 'Inicio'),
-        (url_for('titulacion_bp.index_route'), 'Titulaciones'),
-        ('', 'Información titulación ' + str(id_titulacion)),
-    ]
     titulacion = Titulacion.get_titulacion(id_titulacion)
-    asignaturas = titulacion.get_asignaturas()
     if titulacion is None:
         abort(404)
 
+    breadcrumbs = [
+        ('/', 'Inicio'),
+        (url_for('titulacion_bp.index_route'), 'Titulaciones'),
+        ('', 'Información titulación: ' + titulacion.nombre),
+    ]
+    asignaturas = titulacion.get_asignaturas()
     return render_template('titulaciones/view.html', titulacion=titulacion, asignaturas=asignaturas,
                            breadcrumbs=breadcrumbs)
 

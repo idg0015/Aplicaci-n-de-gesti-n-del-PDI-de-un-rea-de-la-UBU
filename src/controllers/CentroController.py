@@ -36,14 +36,17 @@ def add():
 
 
 def update(id_centro):
+    centro = Centro.get_centro(id_centro)
+
+    if centro is None:
+        abort(404)
+
     breadcrumbs = [
         ('/', 'Inicio'),
         (url_for('centro_bp.index_route'), 'Centros'),
-        ('', 'Modificar centro ' + str(id_centro))
+        ('', 'Modificar centro: ' + centro.nombre)
     ]
-    centro = Centro.get_centro(id_centro)
-    if centro is None:
-        abort(404)
+
     formulario = FormCentro(obj=centro)
     formulario.submit.label.text = 'Modificar'
     if formulario.validate_on_submit():
@@ -71,14 +74,17 @@ def delete(id_centro):
 
 
 def view(id_centro):
+    centro = Centro.get_centro(id_centro)
+
+    if centro is None:
+        abort(404)
+
     breadcrumbs = [
         ('/', 'Inicio'),
         (url_for('centro_bp.index_route'), 'Centros'),
-        ('', 'Información centro ' + str(id_centro))
+        ('', 'Información centro: ' + centro.nombre)
     ]
-    centro = Centro.get_centro(id_centro)
     titulaciones = centro.get_titulaciones()
-    if centro is None:
-        abort(404)
+
 
     return render_template('centros/view.html', centro=centro, titulaciones=titulaciones, breadcrumbs=breadcrumbs)

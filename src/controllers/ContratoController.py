@@ -34,14 +34,17 @@ def add():
 
 
 def update(id_contrato):
+    contrato = TipoContrato.get_contrato(id_contrato)
+
+    if contrato is None:
+        abort(404)
+
     breadcrumbs = [
         ('/', 'Inicio'),
         (url_for('contrato_bp.index_route'), 'Tipos de contrato'),
-        ('', 'Modificar tipo de contrato ' + str(id_contrato)),
+        ('', 'Modificar tipo de contrato: ' + contrato.nombre),
     ]
-    contrato = TipoContrato.get_contrato(id_contrato)
-    if contrato is None:
-        abort(404)
+
     formulario = FormContrato(obj=contrato)
     formulario.submit.label.text = 'Modificar'
     if formulario.validate_on_submit():

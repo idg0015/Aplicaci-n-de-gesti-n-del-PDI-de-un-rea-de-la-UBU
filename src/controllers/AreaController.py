@@ -23,7 +23,6 @@ def add():
         ('', 'Añadir área'),
     ]
     formulario = FormArea()
-    # formulario.departamento.choices = [(m.id, m.nombre) for m in Departamento.get_all()]
     if formulario.validate_on_submit():
         nombre = formulario.nombre.data
         abreviatura = formulario.abreviatura.data
@@ -36,14 +35,17 @@ def add():
 
 
 def update(id_area):
+    area = Area.get_area(id_area)
+
+    if area is None:
+        abort(404)
+
     breadcrumbs = [
         ('/', 'Inicio'),
         (url_for('area_bp.index_route'), 'Áreas'),
-        ('', 'Modificar área ' + str(id_area)),
+        ('', 'Modificar área: ' + area.nombre),
     ]
-    area = Area.get_area(id_area)
-    if area is None:
-        abort(404)
+
     formulario = FormArea(obj=area)
     formulario.submit.label.text = 'Modificar'
     if formulario.validate_on_submit():

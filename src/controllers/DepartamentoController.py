@@ -34,14 +34,16 @@ def add():
 
 
 def update(id_departamento):
-    breadcrumbs = [
-        ('/', 'Inicio'),
-        (url_for('departamento_bp.index_route'), 'Departamentos'),
-        ('', 'Modificar departamento ' + str(id_departamento)),
-    ]
     departamento = Departamento.get_departamento(id_departamento)
     if departamento is None:
         abort(404)
+
+    breadcrumbs = [
+        ('/', 'Inicio'),
+        (url_for('departamento_bp.index_route'), 'Departamentos'),
+        ('', 'Modificar departamento: ' + departamento.nombre),
+    ]
+
     formulario = FormDepartamento(obj=departamento)
     formulario.submit.label.text = 'Modificar'
 

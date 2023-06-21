@@ -43,26 +43,26 @@ def add():
 
 
 def update(id_curso):
-    breadcrumbs = [
-        ('/', 'Inicio'),
-        (url_for('curso_bp.index_route'), 'Cursos'),
-        ('', 'Modificar curso ' + str(id_curso)),
-    ]
     curso = Curso.get_curso(id_curso)
     formulario = FormCursoUpdate(obj=curso)
     list_asignaturas = list(set([str(curso_asignatura.id_asignatura) for curso_asignatura in curso.asignaturas]))
-    # asignaturas_actuales = list(set([curso_asignatura.asignatura for curso_asignatura in curso.asignaturas]))
 
     if curso is None:
         flash('Curso no encontrado', 'alert alert-danger alert-dismissible fade show')
         return redirect(url_for('curso_bp.index_route'))
+
+    breadcrumbs = [
+        ('/', 'Inicio'),
+        (url_for('curso_bp.index_route'), 'Cursos'),
+        ('', 'Modificar curso: ' + str(curso.ano_inicio) + '/' + str(int(curso.ano_inicio) + 1)),
+    ]
+
     if formulario.validate_on_submit():
         alumnos_presencial = formulario.n_a_p.data
         alumnos_ingles = formulario.n_a_i.data
         alumnos_online = formulario.n_a_o.data
 
         asignaturas_nuevas = formulario.id_asignaturas.data.split(',')
-        # asignaturas_to_add = list(set(asignaturas_nuevas) - set(list_asignaturas))
 
         if len(asignaturas_nuevas) > 0:
             for id_asignatura in asignaturas_nuevas:
@@ -81,8 +81,6 @@ def update(id_curso):
         flash('Asignaturas y grupos añadidos correctamente', 'alert alert-success alert-dismissible fade show')
         return redirect(url_for('curso_bp.index_route'))
 
-    # formulario.id_asignaturas.data = ','.join(
-    #     set([str(curso_asignatura.id_asignatura) for curso_asignatura in curso.asignaturas]))
     return render_template('cursos/form-update.html', form=formulario, asig_actuales=[],
                            id_curso=id_curso, breadcrumbs=breadcrumbs)
 

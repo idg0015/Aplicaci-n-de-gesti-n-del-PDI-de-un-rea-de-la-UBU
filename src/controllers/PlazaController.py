@@ -60,14 +60,16 @@ def add():
 
 
 def update(id_plaza):
-    breadcrumbs = [
-        ('/', 'Inicio'),
-        (url_for('plaza_bp.index_route'), 'Plazas'),
-        ('', 'Modificar plaza ' + str(id_plaza)),
-    ]
     plaza = Plaza.get_plaza(id_plaza)
     if plaza is None:
         abort(404)
+
+    breadcrumbs = [
+        ('/', 'Inicio'),
+        (url_for('plaza_bp.index_route'), 'Plazas'),
+        ('', 'Modificar plaza: ' + plaza.nombre),
+    ]
+
     formulario = FormPlaza(obj=plaza)
     formulario.submit.label.text = 'Modificar'
     if formulario.validate_on_submit():

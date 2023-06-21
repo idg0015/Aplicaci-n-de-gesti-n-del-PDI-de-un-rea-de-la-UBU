@@ -48,14 +48,17 @@ def add():
 
 
 def update(id_asignatura):
+    asignatura = Asignatura.get_asignatura(id_asignatura)
+
+    if asignatura is None:
+        abort(404)
+
     breadcrumbs = [
         ('/', 'Inicio'),
         (url_for('asignatura_bp.index_route'), 'Asignaturas'),
-        ('', 'Modificar asignatura ' + str(id_asignatura)),
+        ('', 'Modificar asignatura: ' + asignatura.nombre),
     ]
-    asignatura = Asignatura.get_asignatura(id_asignatura)
-    if asignatura is None:
-        abort(404)
+
     formulario = FormAsignatura(obj=asignatura)
     formulario.submit.label.text = 'Modificar'
 
