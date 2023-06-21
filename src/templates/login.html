@@ -21,18 +21,19 @@
         {% endif %}
     {% endwith %}
     <div class="container">
+        <img id="img-login" src="{{ url_for("static", filename="images/logo-login.png") }}" class="img-fluid mx-auto d-block" alt="Logo">
         <div class="login-container">
             <h1 class="text-center">Iniciar sesión</h1>
             <form method="POST" action="/login">
                 {{ form.hidden_tag() }}
-                <div class="mb-3">
+                <div class="mb-4">
                     {{ form.username.label(class="form-label") }}
                     {{ form.username(class="form-control", placeholder="Correo electrónico") }}
                     {% for error in form.username.errors %}
                         <span class="msg-error">{{ error }}</span>
                     {% endfor %}
                 </div>
-                <div class="mb-3">
+                <div class="mb-5">
                     {{ form.password.label(class="form-label") }}
                     {{ form.password(class="form-control", placeholder="Contraseña") }}
                     {% for error in form.password.errors %}
@@ -45,4 +46,17 @@
             </form>
         </div>
     </div>
+    <footer class="text-center footer fixed-bottom bg-light">
+        <div class="container">
+            <hr>
+            <section class="mb-2">
+                <a class="btn btn-lg text-dark m-1" href="https://github.com/idg0015">
+                    <i class="bi bi-github"></i>
+                </a>
+            </section>
+        </div>
+        <div id="copyright" class="text-center p-4">
+            © 2023 Copyright Ignacio Dávila García
+        </div>
+    </footer>
 {% endblock %}

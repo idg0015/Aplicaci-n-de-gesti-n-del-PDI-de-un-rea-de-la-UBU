@@ -259,7 +259,7 @@ a#icn-info-grupos:hover {
 .login-container {
     max-width: 400px;
     padding: 40px;
-    margin: 100px auto 0;
+    margin: 5em auto 0;
     background-color: #fff;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -279,6 +279,15 @@ a#icn-info-grupos:hover {
 
 .login-container .register-link {
     text-align: center;
+}
+
+#img-login{
+    width: 25%;
+    height: 100%;
+}
+
+#copyright{
+    background-color: rgba(0, 0, 0, 0.24);
 }
 
 /* ---------------------- Breadcrumb ---------------------- */
