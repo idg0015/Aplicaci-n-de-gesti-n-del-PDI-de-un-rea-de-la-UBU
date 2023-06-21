@@ -35,11 +35,11 @@
 
         const editableCell = (data, row, col) => {
             if (row && data !== '-' && hasModificationPermission) {
-                if(col.id === 'hours_1'){
+                if (col.id === 'hours_1') {
                     return {contentEditable: 'true', 'data-vacant-group-id': row.cells[6].data};
-                }else if(col.id === 'hours_2'){
+                } else if (col.id === 'hours_2') {
                     return {contentEditable: 'true', 'data-vacant-group-id': row.cells[10].data};
-                }else if(col.id === 'hours_3'){
+                } else if (col.id === 'hours_3') {
                     return {contentEditable: 'true', 'data-vacant-group-id': row.cells[14].data};
                 }
             } else {
@@ -64,11 +64,11 @@
          */
         const teacherId = (data, row, col) => {
             if (row && data !== '-') {
-                if(col.id === 'total_hours_1'){
-                    return {class: 'gridjs-td teacher_' + row.cells[17].data+' table-success'};
-                }else if(col.id === 'total_hours_2'){
+                if (col.id === 'total_hours_1') {
+                    return {class: 'gridjs-td teacher_' + row.cells[17].data + ' table-success'};
+                } else if (col.id === 'total_hours_2') {
                     return {class: 'gridjs-td teacher_' + row.cells[18].data};
-                }else if(col.id === 'total_hours_3'){
+                } else if (col.id === 'total_hours_3') {
                     return {class: 'gridjs-td teacher_' + row.cells[19].data};
                 }
             } else {
@@ -185,11 +185,12 @@
             }).render(document.getElementById("tablaHoras"));
 
             if ($("#cursos").children().length > 1) {
-                $("#cursos").children()[1].selected = true;
+                let last = $('#cursos option').length - 1;
+                $("#cursos").children()[last].selected = true;
                 $.ajax({
                     url: "/grupos/horas",
                     method: "POST",
-                    data: {id: $("#cursos").children()[1].value},
+                    data: {id: $('#cursos option:last-child').val()},
                     success: function (data) {
                         table.updateConfig({data: data}).forceRender();
                     }
