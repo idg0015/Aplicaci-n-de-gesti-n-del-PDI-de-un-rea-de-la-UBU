@@ -134,60 +134,70 @@ def import_db(host, port, username, password, database):
             flash('No se seleccionó ningún archivo.', 'alert alert-danger alert-dismissible fade show')
             return redirect(url_for('import_db'))
 
-        sql_content = sql_file.read().decode('utf-8')
-
         try:
+            sql_content = sql_file.read().decode('utf-8')
             connection = pymysql.connect(
                 host=host,
                 port=port,
                 user=username,
                 password=password,
-                database=database
+                database=database,
+                autocommit=False
             )
-            cursor = connection.cursor()
-            cursor.execute('SET FOREIGN_KEY_CHECKS = 0')
-            cursor.execute('SET SQL_SAFE_UPDATES = 0')
-            cursor.execute('SET AUTOCOMMIT = 0')
+            connection.begin()  # Iniciar la transacción
 
-            # Cerrar la sesión de SQLAlchemy
-            db.session.close()
+            with connection.cursor() as cursor:
+                cursor.execute('SET FOREIGN_KEY_CHECKS = 0')
+                cursor.execute('SET SQL_SAFE_UPDATES = 0')
+                cursor.execute('SET AUTOCOMMIT = 0')
 
-            # Eliminar la sesión del usuario
-            session.pop('token', None)
-            session.pop('user_id', None)
+                # Cerrar la sesión de SQLAlchemy
+                db.session.close()
 
-            # Eliminar el contenido de todas las tablas para evitar problemas con las claves
-            cursor.execute('SHOW TABLES')
-            tables = cursor.fetchall()
-            for table in tables:
-                table_name = table[0]
-                if table_name == 'sessions':
-                    continue
-                cursor.execute(f'TRUNCATE TABLE `{table_name}`')
+                # Eliminar el contenido de todas las tablas para evitar problemas con las claves
+                cursor.execute('SHOW TABLES')
+                tables = cursor.fetchall()
+                for table in tables:
+                    table_name = table[0]
+                    if table_name == 'sessions':
+                        continue
+                    cursor.execute(f'TRUNCATE TABLE `{table_name}`')
 
-            cursor.execute('SET SQL_SAFE_UPDATES = 1')
-            cursor.execute('SET AUTOCOMMIT = 1')
+                cursor.execute('SET SQL_SAFE_UPDATES = 1')
+                cursor.execute('SET AUTOCOMMIT = 1')
 
-            # Separar el contenido SQL en declaraciones individuales
-            sql_statements = sql_content.split(';')
+                # Separar el contenido SQL en declaraciones individuales
+                sql_statements = sql_content.split(';')
 
-            # Ejecutar cada declaración SQL por separado
-            for statement in sql_statements:
-                statement = statement.strip()  # Eliminar espacios en blanco
-                if statement:
-                    if re.match(r"^\s*INSERT\s+", statement, re.IGNORECASE):  # Permitir solo INSERT y UPDATE
-                        cursor.execute(statement)
-                    else:
-                        raise Exception(
-                            'Se encontró una declaración SQL no permitida (Sólo se permiten INSERT y UPDATE).')
+                # Ejecutar cada declaración SQL por separado
+                for statement in sql_statements:
+                    statement = statement.strip()  # Eliminar espacios en blanco
+                    if statement:
+                        if re.match(r"^\s*INSERT\s+", statement, re.IGNORECASE):  # Permitir solo INSERT y UPDATE
+                            cursor.execute(statement)
+                        else:
+                            error_message = 'Se encontró una declaración SQL no permitida (Sólo se permiten INSERT y UPDATE).'
+                            flash(error_message, 'alert alert-danger alert-dismissible fade show')
+                            connection.rollback()
+                            return redirect(url_for('import_db'))
 
-            cursor.execute('SET FOREIGN_KEY_CHECKS = 1')
-            connection.commit()
-            flash('Los datos se importaron correctamente.', 'alert alert-success alert-dismissible fade show')
-            return redirect(url_for('import_db'))
+                cursor.execute('SET FOREIGN_KEY_CHECKS = 1')
+                # Eliminar la sesión del usuario
+                session.pop('token', None)
+                session.pop('user_id', None)
+
+                connection.commit()
+                flash('Los datos se importaron correctamente.', 'alert alert-success alert-dismissible fade show')
+                return redirect(url_for('import_db'))
         except pymysql.Error as e:
             error_message = f'Error al importar los datos: {str(e)}'
             flash(error_message, 'alert alert-danger alert-dismissible fade show')
+            connection.rollback()
+            return redirect(url_for('import_db'))
+        except UnicodeDecodeError:
+            error_message = 'Error al decodificar el archivo. Asegúrese de que el archivo sea un archivo SQL válido.'
+            flash(error_message, 'alert alert-danger alert-dismissible fade show')
+            connection.rollback()
             return redirect(url_for('import_db'))
         finally:
             if connection:

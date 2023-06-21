@@ -30,12 +30,14 @@
         <div class="form-group text-center">
             {{ form.sql_file.label }}<br>
             {{ form.sql_file(class="form-control-file", accept=".sql") }}
+            <div id="div-error" class="msg-error"></div>
             {% for error in form.sql_file.errors %}
                 <span class="msg-error">{{ error }}</span>
             {% endfor %}
         </div>
         <div class="form-group text-center mt-5">
-            {{ form.submit(class="btn btn-primary", onclick="return confirm('¿Está seguro de importar nueva información a la base de datos? Se eliminará todo el contenido actual')") }}
+            {{ form.submit(class="btn btn-primary", onclick="return confirm('¿Está seguro de importar nueva información a la base de datos? Se eliminará todo el contenido actual')", disabled=true) }}
+            <a id="btn-no-file" class="btn btn-secondary" onclick="cleanFile()">Quitar archivo</a>
         </div>
     </form>
     <h2 id="import-title" class="h2-view text-center" hidden="hidden">Resultado importar:</h2>
@@ -68,18 +70,48 @@
 
     </style>
     <script>
+        let isSQL = false;
+        let isCorrect = true;
         $(document).ready(function () {
             $("#sql_file").on('change', function () {
-                $("#import-title").removeAttr("hidden");
+                $("#div-error").html("");
                 $("#resultado").addClass("resultado-scroll");
-                importFile();
+                const input = document.getElementById('sql_file');
+                const archivo = input.files[0];
+                if (archivo) {
+                    let extension = archivo.name.split('.');
+                    extension = extension[extension.length - 1].toLowerCase();
+                    if (extension === 'sql') {
+                        isSQL = false;
+                        isCorrect = true;
+                        importFile(archivo);
+                        $("#import-title").removeAttr("hidden");
+                    }else{
+                        $("#div-error").html("El archivo debe tener la extensión .sql");
+                        cleanDiv();
+                        $("#submit").attr("disabled", true);
+                    }
+                }else{
+                    cleanDiv();
+                }
             });
         });
 
-        function importFile() {
-            const input = document.getElementById('sql_file');
-            const archivo = input.files[0];
+        function cleanDiv(){
+            $("#resultado").removeClass("resultado-scroll");
+            $("#resultado").html("");
+            $("#import-title").attr("hidden", "hidden");
+        }
 
+        function cleanFile(){
+            isCorrect = true;
+            isSQL = false;
+            $("#sql_file").val("");
+            cleanDiv();
+            $("#div-error").html("");
+        }
+
+        function importFile(archivo) {
             const lector = new FileReader();
             lector.onload = function (evento) {
                 const contenido = evento.target.result;
@@ -130,7 +162,20 @@
                 }
                 resultado += '</table>';
 
-                document.getElementById('resultado').innerHTML = resultado;
+                if (isSQL) {
+                    if(!isCorrect){
+                        $("#div-error").html("El archivo contiene sentencias SQL no válidas");
+                        $("#submit").attr("disabled", true);
+                        cleanDiv();
+                    }else{
+                       document.getElementById('resultado').innerHTML = resultado;
+                        $("#submit").attr("disabled", false);
+                    }
+                } else {
+                    $("#submit").attr("disabled", true);
+                    $("#div-error").html("El archivo no contiene sentencias SQL válidas");
+                    cleanDiv();
+                }
             };
 
             lector.readAsText(archivo);
@@ -140,9 +185,13 @@
             const regex = /INSERT INTO `([^`]+)` \(([^)]+)\)/;
             const matches = regex.exec(sentencia);
             if (matches && matches.length > 2) {
+                isSQL = true;
                 const tabla = matches[1];
                 const columnas = matches[2].split(',').map(columna => columna.trim());
                 return {tabla, columnas};
+            }
+            if(!matches){
+                isCorrect = false;
             }
             return {tabla: '', columnas: []};
         }
