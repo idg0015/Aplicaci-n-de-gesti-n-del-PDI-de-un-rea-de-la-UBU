@@ -89,7 +89,8 @@
                                 <a class="dropdown-item" href="{{ url_for('export_db') }}">Exportar</a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="{{ url_for('import_db') }}">Importar</a>
+                                <a class="dropdown-item {{ 'active' if active_page == 'importar' else '' }}"
+                                   href="{{ url_for('import_db') }}">Importar</a>
                             </li>
                         </ul>
                     </li>
