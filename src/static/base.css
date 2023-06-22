@@ -11,6 +11,9 @@
 body {
     font-family: Helvetica Neue, sans-serif;
     font-size: 1rem;
+    margin: 0;
+    min-height: 100vh;
+    position: relative;
 }
 
 /* ---------------------- Títulos ---------------------- */
@@ -114,7 +117,7 @@ h1.text-center:after {
 
 #navbarSupportedContent > div > a {
     line-height: 60px;
-    color: rgba(0,0,0,.55);
+    color: rgba(0, 0, 0, .55);
 }
 
 .navbar {
@@ -257,8 +260,8 @@ a#icn-info-grupos:hover {
 
 /* ---------------------- Login ---------------------- */
 .login-container {
-    max-width: 400px;
-    padding: 40px;
+    max-width: 35%;
+    padding: 4%;
     margin: 5em auto 0;
     background-color: #fff;
     border-radius: 5px;
@@ -266,27 +269,27 @@ a#icn-info-grupos:hover {
 }
 
 .login-container h1 {
-    margin-bottom: 30px;
+    margin-bottom: 15%;
 }
 
 .login-container .form-control {
-    margin-bottom: 20px;
+    margin-bottom: 10%;
 }
 
 .login-container .btn {
-    padding: 10px 20px;
+    padding: 3% 7%;
 }
 
 .login-container .register-link {
     text-align: center;
 }
 
-#img-login{
+#img-login {
     width: 25%;
-    height: 100%;
+
 }
 
-#copyright{
+#copyright {
     background-color: rgba(0, 0, 0, 0.24);
 }
 
@@ -345,12 +348,19 @@ a#icn-info-grupos:hover {
 }
 
 /* ---------------------- Import DB ---------------------- */
-#info-db{
+#info-db {
     width: 50%;
-   margin: 0 auto;
+    margin: 0 auto;
 }
 
 /* ---------------------- Titulación view ---------------------- */
-#div-cursos-tit{
+#div-cursos-tit {
     margin-left: 2.5%;
+}
+
+/* ---------------------- Footer ---------------------- */
+footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }

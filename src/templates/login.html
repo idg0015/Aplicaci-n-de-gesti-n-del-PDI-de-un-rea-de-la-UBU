@@ -21,7 +21,8 @@
         {% endif %}
     {% endwith %}
     <div class="container">
-        <img id="img-login" src="{{ url_for("static", filename="images/logo-login.png") }}" class="img-fluid mx-auto d-block" alt="Logo">
+        <img id="img-login" src="{{ url_for("static", filename="images/logo-login.svg") }}"
+             class="img-fluid mx-auto d-block" alt="Logo">
         <div class="login-container">
             <h1 class="text-center">Iniciar sesión</h1>
             <form method="POST" action="/login">
@@ -46,7 +47,9 @@
             </form>
         </div>
     </div>
-    <footer class="text-center footer fixed-bottom bg-light">
+{% endblock %}
+{% block footer %}
+    <footer class="text-center bg-light">
         <div class="container">
             <hr>
             <section class="mb-2">
@@ -60,3 +63,4 @@
         </div>
     </footer>
 {% endblock %}
+```
