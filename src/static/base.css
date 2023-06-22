@@ -260,38 +260,24 @@ a#icn-info-grupos:hover {
 }
 
 /* ---------------------- Login ---------------------- */
-.login-container {
-    max-width: 35%;
-    padding: 4%;
+#login-form {
     margin: 5em auto 0;
     background-color: #fff;
+    padding: 4%;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.login-container h1 {
+#login-form h1 {
     margin-bottom: 15%;
 }
 
-.login-container .form-control {
-    margin-bottom: 10%;
-}
-
-.login-container .btn {
-    padding: 3% 7%;
-}
-
-.login-container .register-link {
-    text-align: center;
+#login-form .btn {
+    padding: 2.5% 5%;
 }
 
 #img-login {
-    width: 25%;
-
-}
-
-#copyright {
-    background-color: rgba(0, 0, 0, 0.24);
+    max-width: 25%;
 }
 
 /* ---------------------- Breadcrumb ---------------------- */
@@ -360,7 +346,11 @@ a#icn-info-grupos:hover {
 }
 
 /* ---------------------- Footer ---------------------- */
-footer{
+footer {
     width: 100%;
     margin-top: auto;
+}
+
+#copyright {
+    background-color: rgba(0, 0, 0, 0.24);
 }
