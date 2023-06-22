@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae6b2c56-8d66-4217-a826-17f3975d95c3" name="Changes" comment="Pequeño arreglo en la duración de la sesión.">
+    <list default="true" id="ae6b2c56-8d66-4217-a826-17f3975d95c3" name="Changes" comment="Mejorada la visualización del login en móviles.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/CursoAsignaturaController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/CursoAsignaturaController.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/cursos/form-ca.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cursos/form-ca.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/grupos/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/grupos/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,45 +48,45 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;database.data.extractors.current.export.id&quot;: &quot;SQL Inserts&quot;,
-    &quot;database.data.extractors.current.id&quot;: &quot;SQL Inserts&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Nacho/Desktop/UBU/TFG/Aplicacion-de-gestion-del-PDI-de-un-area-de-la-UBU/src/templates/titulaciones&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;E:\\Programas\\PyCharm 2022.3.2\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "database.data.extractors.current.export.id": "SQL Inserts",
+    "database.data.extractors.current.id": "SQL Inserts",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/Nacho/Desktop/UBU/TFG/Aplicacion-de-gestion-del-PDI-de-un-area-de-la-UBU/src/static/images",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "ts.external.directory.path": "E:\\Programas\\PyCharm 2022.3.2\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;,
-      &quot;mariadb&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql",
+      "mariadb"
     ],
-    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
-      &quot;SQL&quot;,
-      &quot;HTML&quot;
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "SQL",
+      "HTML"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Nacho\Desktop\UBU\TFG\Aplicacion-de-gestion-del-PDI-de-un-area-de-la-UBU\src\static\images" />
       <recent name="C:\Users\Nacho\Desktop\UBU\TFG\Aplicacion-de-gestion-del-PDI-de-un-area-de-la-UBU\src\templates\titulaciones" />
       <recent name="C:\Users\Nacho\Desktop\UBU\TFG\Aplicacion-de-gestion-del-PDI-de-un-area-de-la-UBU\src\templates\horas" />
       <recent name="C:\Users\Nacho\Desktop\UBU\TFG\Aplicacion-de-gestion-del-PDI-de-un-area-de-la-UBU\src\templates\cursos" />
       <recent name="C:\Users\Nacho\Desktop\UBU\TFG\Aplicacion-de-gestion-del-PDI-de-un-area-de-la-UBU\src\templates\docentes" />
-      <recent name="C:\Users\Nacho\Desktop\UBU\TFG\Aplicacion-de-gestion-del-PDI-de-un-area-de-la-UBU\src\templates\plazas" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Nacho\Desktop\UBU\TFG\Aplicacion-de-gestion-del-PDI-de-un-area-de-la-UBU\src\templates\cursos" />
@@ -205,70 +202,9 @@
       <workItem from="1687163267109" duration="12544000" />
       <workItem from="1687186238435" duration="2045000" />
       <workItem from="1687271787266" duration="9239000" />
-      <workItem from="1687349383531" duration="3913000" />
-    </task>
-    <task id="LOCAL-00014" summary="Pequeño cambio de css">
-      <created>1684783371473</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1684783371473</updated>
-    </task>
-    <task id="LOCAL-00015" summary="Arreglos en el formulario de las plazas y añadidas las migraciones de base de datos">
-      <created>1684942665420</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1684942665420</updated>
-    </task>
-    <task id="LOCAL-00016" summary="Añadida información en el campo docente del formulario de plazas.">
-      <created>1684943031876</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1684943031876</updated>
-    </task>
-    <task id="LOCAL-00017" summary="Arreglado bug de números negativos">
-      <created>1684944424268</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1684944424268</updated>
-    </task>
-    <task id="LOCAL-00018" summary="Solucionado bug al eliminar grupos.">
-      <created>1684957848196</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1684957848196</updated>
-    </task>
-    <task id="LOCAL-00019" summary="Creación de asignación de horas [WIP]">
-      <created>1685141988622</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1685141988622</updated>
-    </task>
-    <task id="LOCAL-00020" summary="Creación de asignación de horas [WIP]">
-      <created>1685214303111</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1685214303111</updated>
-    </task>
-    <task id="LOCAL-00021" summary="Creación de asignación de horas [WIP]">
-      <created>1685276984057</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1685276984057</updated>
-    </task>
-    <task id="LOCAL-00022" summary="Arreglo en las tablas">
-      <created>1685287468752</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1685287468752</updated>
+      <workItem from="1687349383531" duration="15801000" />
+      <workItem from="1687451445841" duration="6880000" />
+      <workItem from="1687461163137" duration="181000" />
     </task>
     <task id="LOCAL-00023" summary="Pequeño arreglo en las tablas">
       <created>1685287742897</created>
@@ -550,7 +486,70 @@
       <option name="project" value="LOCAL" />
       <updated>1687360193988</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="Actualización del CursoAsignatura sin recargar la página.">
+      <created>1687362776846</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1687362776846</updated>
+    </task>
+    <task id="LOCAL-00064" summary="En la vista de grupos y horas ahora aparece el último curso seleccionado por defecto.">
+      <created>1687362975982</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1687362975982</updated>
+    </task>
+    <task id="LOCAL-00065" summary="Cambios en las breadcrumbs">
+      <created>1687363978874</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1687363978874</updated>
+    </task>
+    <task id="LOCAL-00066" summary="Mejoras en la importación de datos">
+      <created>1687374767835</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1687374767835</updated>
+    </task>
+    <task id="LOCAL-00067" summary="Cambios en la vista de login.">
+      <created>1687377200762</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1687377200762</updated>
+    </task>
+    <task id="LOCAL-00068" summary="Pequeña mejora para al visualización en móvil y añadida marca en la opción importar del menú.">
+      <created>1687377644172</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1687377644172</updated>
+    </task>
+    <task id="LOCAL-00069" summary="Solucionado bug en la visualización del footer de la vista de login.">
+      <created>1687456843551</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1687456843551</updated>
+    </task>
+    <task id="LOCAL-00070" summary="Solucionado bug en la visualización del footer de la vista de login.">
+      <created>1687457467751</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1687457467751</updated>
+    </task>
+    <task id="LOCAL-00071" summary="Mejorada la visualización del login en móviles.">
+      <created>1687460600437</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1687460600437</updated>
+    </task>
+    <option name="localTasksCounter" value="72" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -568,14 +567,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Mejora de login y la gestión de permisos. Añadido el uso de sesiones en BD encriptadas" />
-    <MESSAGE value="Pequeño arreglo para Heroku" />
-    <MESSAGE value="Cambios en la tabla de horas" />
-    <MESSAGE value="Añadida exportación de la base de datos" />
-    <MESSAGE value="Solucionado bug en la exportación de la base de datos" />
-    <MESSAGE value="Arreglos y mejoras de seguridad en la exportación e importación de los datos de la BD." />
-    <MESSAGE value="Añadida vista para la importación de la BD." />
-    <MESSAGE value="Solucionados bugs a la hora de importar la base de datos." />
     <MESSAGE value="Cambios en la forma de gestionar los permisos." />
     <MESSAGE value="Solucionado bug con las fechas y la exportación de la base de datos." />
     <MESSAGE value="Cambios en las vistas de error de permisos" />
@@ -593,9 +584,17 @@
     <MESSAGE value="Controlado el borrado en cascada de asignaturas al eliminar una titulación. No se permite eliminar una titulación con asignaturas." />
     <MESSAGE value="Cambios en la modificación de grupos [WIP]." />
     <MESSAGE value="Pequeño arreglo en la duración de la sesión." />
-    <option name="LAST_COMMIT_MESSAGE" value="Pequeño arreglo en la duración de la sesión." />
+    <MESSAGE value="Actualización del CursoAsignatura sin recargar la página." />
+    <MESSAGE value="En la vista de grupos y horas ahora aparece el último curso seleccionado por defecto." />
+    <MESSAGE value="Cambios en las breadcrumbs" />
+    <MESSAGE value="Mejoras en la importación de datos" />
+    <MESSAGE value="Cambios en la vista de login." />
+    <MESSAGE value="Pequeña mejora para al visualización en móvil y añadida marca en la opción importar del menú." />
+    <MESSAGE value="Solucionado bug en la visualización del footer de la vista de login." />
+    <MESSAGE value="Mejorada la visualización del login en móviles." />
+    <option name="LAST_COMMIT_MESSAGE" value="Mejorada la visualización del login en móviles." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/src$src.coverage" NAME="src Coverage Results" MODIFIED="1687359620992" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/src$src.coverage" NAME="src Coverage Results" MODIFIED="1687451454854" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

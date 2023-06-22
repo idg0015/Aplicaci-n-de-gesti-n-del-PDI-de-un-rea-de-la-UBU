@@ -1,0 +1,16 @@
+# Ignorar directorios específicos
+venv/
+__pycache__/
+flask_session/
+
+# Ignorar archivos generados por PyCharm
+.idea/
+*.pyc
+*.pyo
+*.pyd
+*.swp
+*~
+*.bak
+*.cache
+*.log
+*.vscode

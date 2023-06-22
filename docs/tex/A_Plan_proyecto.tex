@@ -525,25 +525,62 @@ La tarea de dejó abierta para continuar con ella en el siguiente \textit{sprint
 
 \item\textbf{Revisión del \textit{sprint}}
 
-En la reunión del \textit{sprint} 13 estuvimos viendo algunos errores pequeños vistos por los tutores.
+En la reunión del \textit{sprint} 13 estuvimos viendo algunos pequeños errores vistos por los tutores.
 También se vieron los cambios realizados y se comentó alguna cosa que podía añadir a la documentación.
 \end{itemize}
 
 
-\subsubsection{\textit{Sprint} 14: X}
+\subsubsection{\textit{Sprint} 14: Arreglo de errores y documentación de anexos}
 Fechas: 19 junio 2023 -- 26 junio 2023.
 \begin{itemize}
 \item\textbf{Planificación del \textit{sprint}}
 
 En la reunión de planificación del sprint se fijaron las siguientes tareas:
 \begin{enumerate}
-		\item X
+		\item \textit{Bug}: El campo plazas lleva a horas.
+		\item No permitir eliminar al docente que está en la sesión.
+		\item No permitir eliminar titulaciones con asignaturas.
+		\item Recarga de página tras cambio de grupos.
+		\item Cambiar el id por el nombre en las \textit{breadcrumbs}.
+		\item Mejorar interfaz de \textit{login}.
+		\item \textit{Bug}: En la importación de datos permite cualquier fichero.
+		\item Añadir documentación en los anexos.
 
 \end{enumerate}
 
 \item\textbf{\textit{Burndown Report}}
 
-Para la tarea <<X>> se dio una estimación de 
+Para la tarea <<\textit{Bug}: El campo plazas lleva a horas>> se dio una estimación de aproximadamente 5 minutos y se realizó dentro del plazo estimado.
+En esta tarea simplemente había que cambiar el enlace de la opción <<plazas>> de la página inicial que estaba llevando a la vista de horas y no a la de plazas.
+
+La siguiente tarea, <<No permitir eliminar al docente que está en la sesión>> tenía como finalidad no permitir que el docente con la cuenta activa pudiese eliminar o cambiar los permisos de su propia cuenta.
+Para realizar esta tarea se dio una estimación de media hora y se realizó en unos 20 minutos, algo menos de lo previsto.
+
+La tarea de <<No permitir eliminar titulaciones con asignaturas>> estaba creada para quitar la posibilidad del borrado en cascada de asignaturas dependientes de una titulación al eliminar esta.
+Para esta tarea se hizo una estimación de 30 minutos que se quedó en la mitad de trabajo real, unos 15 minutos.
+
+Para la tarea <<Recarga de página tras cambio de grupos>> se puso una estimación de 1 hora, pero finalmente el trabajo real fue de unas 3 horas.
+Se quería quitar la recarga al modificar los campos de una asignatura de un curso desde la vista principal de <<grupos>>.
+Se preveía que iba a ser un trabajo menor, pero al tener que cambiar la forma de funcionar a hacer una petición mediante Ajax para evitar la recarga hubo que modificar la función del controlador prácticamente al completo y hubo que crear la función de JavaScript encargada de gestionar esta tarea.
+
+Otra tarea que se realizó fue la de <<Cambiar el id por el nombre en las \textit{breadcrumbs}>>.
+Se dio una estimación de media hora y se realizó dentro del plazo.
+Era una tarea sencilla ya que sólo se debía cambiar el identificador por el nombre, pero al ser un cambio en tantas acciones de distintos controladores se tardó un poco en completar la tarea.
+
+La tarea de <<Mejorar interfaz de \textit{login}>> pretendía mejorar un poco el diseño de la ventana del \textit{login} haciéndola menos minimalista al añadirle algún contenido como el logo o un pie de página.
+Esta tarea tenía una estimación de media hora de trabajo, pero el trabajo real se fue hasta aproximadamente las 3 horas.
+Esto es debido a que surgió un problema con el pie de página que no se mostraba al final de la página y hubo que estudiar como hacer que se mostrase abajo del todo aunque no hubiese contenido suficiente en la página para rellenar hasta ahí. 
+Además, al probar en un dispositivo móvil se detecto que no se mostraba del todo bien así que se cambió el formato completo del \textit{login} para que se mostrase bien en dispositivos con pantallas más pequeñas.
+
+Para la tarea <<\textit{Bug}: En la importación de datos permite cualquier fichero>> se fue muy optimista ya que se estimó en 1 hora y finalmente fueron unas 4 horas de trabajo.
+En esta tarea se quería controlar mejor los archivos que se subían para hacer una importación en la base de datos ya que se detectó que era posible seleccionar cualquier fichero, aunque en el servidor si se comprobaba si era SQL y se permitía o no.
+La idea era que mediante JavaScript se hiciese una primera validación para directamente no dejar enviar el archivo y no mostrar la visualización.
+
+Otro de los errores detectados era que si se cambiaba el formato a otro archivo, por ejemplo convertir un PDF en un archivo SQL, se permitía subir pero saltaba una excepción al intentar ejecutar la importación.
+Tras investigar se consiguió hacer una primera validación desde JavaScript para detectar estos archivos SQL mal formados y no permitir subirlos.
+Además, en Python también se controló el posible error que podía saltar.
+
+Finalmente para la tarea <<Añadir documentación en los anexos>> se propuso trabajar 6 horas y al final se hicieron.............
 
 \item\textbf{Revisión del \textit{sprint}}
 
