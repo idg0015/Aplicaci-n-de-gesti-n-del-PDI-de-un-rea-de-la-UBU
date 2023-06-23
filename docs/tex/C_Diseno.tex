@@ -293,6 +293,96 @@ La primera guarda un registro de las migraciones de la base de datos y la segund
 \section{Diseño procedimental}
 El diseño procedimental es una fase fundamental en el desarrollo de proyectos informáticos, donde se establecen los pasos necesarios para realizar una actividad dentro de la aplicación.
 
+\begin{itemize}
+\item \textbf{Creación de centro}
+
+El diagrama~\ref{DS-crearCentro} muestra los pasos necesarios para crear un nuevo centro en la aplicación web.
+
+Se parte de que el usuario está en la ventana de centros.
+Desde ahí el usuario debe pulsar en <<Nuevo>>, lo que provocará la redirección a la ventana que contiene el formulario de creación.
+El usuario debe rellenar el formulario y pulsar sobre <<Añadir>>.
+
+Al hacer esto los datos se mandan al servidor.
+Si todo está correcto el nuevo centro se almacena en la base de datos, mientras que si hay algún error en los datos introducidos, se recarga la página del formulario indicando los errores de cada campo.
+
+El método \texttt{save} se encarga de comprobar si el objeto centro tiene identificador, ya que si no tiene, se trata de un objeto no almacenado en la base de datos y debe llamar al método \texttt{add} para guardarlo, mientras que si ya tiene id, quiere decir que se trata de una modificación y tan sólo debe hacer el \textit{commit} para guardar los datos modificados.
+
+Una vez se ha guardado el nuevo centro, la aplicación redirecciona al usuario a la página de centros.
+
+El diagrama~\ref{DS-crearCentro} se va a utilizar como ejemplo de creación para las tablas de <<Titulación>>, <<Asignatura>>, <<Docente>>, <<Plaza>>, <<Contrato>>, <<Área>> y <<Departamento>>.
+Esto es debido a que la creación en estas tablas es igual y sólo cambia el nombre de los modelos, controladores y rutas, pero el funcionamiento es el mismo.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{../img/Anexos/Diagramas secuencia/DS - crear centro.pdf}
+	\caption{\textit{Diagrama de secuencia referente a la creación de centros.}}\label{DS-crearCentro}
+\end{figure}
+
+\item \textbf{Modificación de centro}
+
+En el diagrama~\ref{DS-modificarCentro} se muestra el proceso seguido para modificar un centro.
+Se parte de la base de que el centro ya se encuentra creado.
+Al igual que en el caso anterior, este diagrama sirve de ejemplo para la modificación de <<Titulación>>, <<Asignatura>>, <<Docente>>, <<Plaza>>, <<Contrato>>, <<Área>> y <<Departamento>>.
+
+Suponiendo que el usuario se encuentra en la ventana de centros y que ahí por lo menos un centro creado, pulsa en el icono de lápiz de uno de los centros de la lista.
+
+Al realizar esta acción se abre un formulario con los datos del centro seleccionado.
+Desde aquí el usuario puede cambiar los campos que quiera.
+Una vez realizados los cambios debe pulsar sobre <<Modificar>>.
+
+Una vez modificados los campos y pulsada la opción indicada anteriormente, el servidor recogerá los datos. 
+Si todo está bien, las modificaciones se almacenarán en la base de datos y el usuario será redirigido a la ventana principal de los centros.
+En caso contrario, se recargará la página del formulario indicando los campos que tienen errores y qué errores son.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{../img/Anexos/Diagramas secuencia/DS - modificar centro.pdf}
+	\caption{\textit{Diagrama de secuencia referente a la modificación de centros.}}\label{DS-modificarCentro}
+\end{figure}
+
+\item \textbf{Eliminación de centro}
+
+El diagrama~\ref{DS-eliminarCentro} muestra al secuencia de pasos que se siguen para eliminar un centro de la aplicación.
+
+Partiendo de la base de que existe al menos un centro creado y que el usuario se encuentra en la ventana de centros, el usuario pulsar sobre el icono de una papelera de un centro de la tabla.
+Al realizar esta acción aparece una ventana de confirmación para afirmar que se quiere eliminar el centro. 
+Al pulsar en aceptar se manda al servidor la petición de eliminación.
+
+En el servidor se comprobará si el centro existe. 
+Si no existe se devolverá un error 404 mientras que si existe se comprobará si el centro tiene titulaciones que dependan de él.
+En caso afirmativo se redireccionará al usuario a la ventana principal de centros indicando que no se puede eliminar el centro porque tiene titulaciones asociadas.
+En caso de que el centro no tenga titulaciones asociadas, se eliminará de la base de datos y se redireccionará al usuario a la vista principal de centros indicando en un mensaje que el centro se ha eliminado correctamente.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{../img/Anexos/Diagramas secuencia/DS - eliminar centro.pdf}
+	\caption{\textit{Diagrama de secuencia de la eliminación de centros.}}\label{DS-eliminarCentro}
+\end{figure}
+
+\item Asignar plaza a docente
+
+En el diagrama~\ref{DS-asignarPlaza} se puede ver el conjunto de pasos seguidos para asignar una plaza a un docente.
+Para este caso se supone que se tiene una plaza y un docente creados previamente.
+
+El cliente pulsa en el icono del lápiz de una de las plazas.
+Esto abre el formulario de edición de la plaza desde donde puede seleccionar el docente a través del campo de búsqueda de docentes escribiendo el nombre del mismo.
+Con el docente seleccionado se pulsa en <<Modificar>>.
+
+Si todos los campos del formulario son correctos, se comprueba si el docente tiene alguna plaza sin fecha de cese, en ese caso no se puede vincular con esta plaza y se mostrará un mensaje informando del error. 
+En caso contrario, la plaza se asigna.
+
+Finalmente, los cambios se guardan en la base de datos y se redirecciona al usuario a la vista de plazas donde se muestran los mensajes correspondientes a la correcta modificación de la plaza y, si no ha sido posible asignar la plaza por culpa de poseer alguna plaza sin fecha de cese, también se muestra en un mensaje de error.
+En caso de no haber pasado la validación del formulario, se redirecciona a la ventana del formulario mostrando los errores detectados.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{../img/Anexos/Diagramas secuencia/DS - asignar plaza.pdf}
+	\caption{\textit{Diagrama de secuencia de la asignación de una plaza a un docente.}}\label{DS-asignarPlaza}
+\end{figure}
+
+\end{itemize}
+
+
 
 \section{Diseño arquitectónico}
 
