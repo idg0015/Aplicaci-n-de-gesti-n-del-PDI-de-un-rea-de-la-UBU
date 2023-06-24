@@ -53,7 +53,8 @@ def add():
         else:
             flash('Asignatura no encontrada en el curso', 'alert alert-danger alert-dismissible fade show')
         return redirect(url_for('curso_bp.gestion_route', id_curso_asignatura=curso_asignatura.id))
-    return render_template('cursos/modal.html', form=form)
+    flash('Error al añadir el grupo', 'alert alert-danger alert-dismissible fade show')
+    return redirect(url_for('grupo_bp.index_route'))
 
 
 def create_check_grupos(id_curso_asignatura, tipo_nuevo):

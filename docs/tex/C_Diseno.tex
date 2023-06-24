@@ -359,7 +359,7 @@ En caso de que el centro no tenga titulaciones asociadas, se eliminará de la ba
 	\caption{\textit{Diagrama de secuencia de la eliminación de centros.}}\label{DS-eliminarCentro}
 \end{figure}
 
-\item Asignar plaza a docente
+\item \textbf{Asignar plaza a docente}
 
 En el diagrama~\ref{DS-asignarPlaza} se puede ver el conjunto de pasos seguidos para asignar una plaza a un docente.
 Para este caso se supone que se tiene una plaza y un docente creados previamente.
@@ -379,6 +379,40 @@ En caso de no haber pasado la validación del formulario, se redirecciona a la v
 	\includegraphics[width=\textwidth]{../img/Anexos/Diagramas secuencia/DS - asignar plaza.pdf}
 	\caption{\textit{Diagrama de secuencia de la asignación de una plaza a un docente.}}\label{DS-asignarPlaza}
 \end{figure}
+
+\item \textbf{Creación de curso académico}
+
+El diagrama~\ref{DS-crearCurso} contiene los pasos necesarios para crear un nuevo curso académico.
+
+El usuario parte de la ventana de cursos donde debe pulsar sobre <<Nuevo>>. Esto abre una ventana donde se indica el año de inicio del nuevo curso a crear y se pulsa sobre <<Añadir>>.
+
+Con el paso anterior realizado, el usuario se encuentra en la ventana donde puede seleccionar el número de alumnos de cada modalidad y las asignaturas que quiere incluir al curso. Después de realizar la selección deseada pulsa sobre <<Añadir>>. Esto hará que se cree la vinculación entre el curso y aquellas asignaturas que no están ya vinculadas. Además, se crea un grupo de tipo presencial y otro de tipo práctico por cada asignatura.
+
+En caso de producirse algún error con el formulario de introducción de año, como por ejemplo añadir un año de un curso existente, se devolverá al usuario a la ventana del formulario indicando el error. Lo mismo ocurre en el formulario de selección de asignaturas, si el formulario no se valida correctamente, se le mostrará el error al usuario en el propio formulario.
+
+Si al final todo ha ido bien, el usuario será redirigido a la ventana principal de cursos donde podrá ver el curso creado y un mensaje indicando la correcta creación y asignación de asignaturas realizada.
+
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{../img/Anexos/Diagramas secuencia/DS - crear curso.pdf}
+	\caption{\textit{Diagrama de secuencia de la creación de un curso académico.}}\label{DS-crearCurso}
+\end{figure}
+
+
+\item \textbf{Creación de grupo}
+
+En el diagrama~\ref{DS-crearGrupo} se muestra el proceso seguido para crear un nuevo grupo en una asignatura vinculada a un curso académica. Se parte de la base de que existe un curso con al menos una asignatura y que el usuario se encuentra en la ventana de grupos donde aparece un listado de las asignaturas del curso académico.
+
+El usuario comienza el proceso pulsando sobre el icono de dos personas de una asignatura del listado. De esta manera será redirigido a la vista de los grupos de la asignatura. Acto seguido pulsa sobre el botón <<Añadir grupo>>, lo que abre una ventana modal donde podrá seleccionar entre las modalidades teórico o presencial para el nuevo grupo a crear. Una vez seleccionada esta opción, pulsa sobre el botón <<Añadir>> y la ventana modal se cerrará. Además, aparecerá un mensaje informando de la creación y se podrá ver el grupo en la lista.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{../img/Anexos/Diagramas secuencia/DS - crear grupo.pdf}
+	\caption{\textit{Diagrama de secuencia de creación de grupos.}}\label{DS-crearGrupo}
+\end{figure}
+
+
 
 \end{itemize}
 
