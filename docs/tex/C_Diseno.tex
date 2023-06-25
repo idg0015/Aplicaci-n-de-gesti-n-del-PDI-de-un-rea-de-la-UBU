@@ -412,6 +412,22 @@ El usuario comienza el proceso pulsando sobre el icono de dos personas de una as
 	\caption{\textit{Diagrama de secuencia de creación de grupos.}}\label{DS-crearGrupo}
 \end{figure}
 
+\item \textbf{Asignación de horas de una plaza a un grupo}
+
+El diagrama~\ref{DS-asignarHoras} representa la secuencia seguida para vincular una plaza a un grupo indicando el número de horas de docencia que va a impartir.
+
+Se parte de que el usuario se encuentra en la ventana llamada <<Horas>> y que existe al menos un grupo y una plaza en la aplicación. 
+
+El usuario pulsa sobre el icono del reloj de uno de los grupos de la lista que aparece en la pantalla. Esto abre una nueva ventana donde se pueden ver todos las plazas que cuentan con horas en ese grupo. El usuario pulsa en <<Añadir Plaza>>, lo que abre una ventana modal con un buscador mediante Ajax de la plaza y un campo para indicar las horas. El usuario selecciona una plaza e indica las horas y pulsa en <<Añadir>>.
+
+De forma interna, el controlador de la plaza realiza una búsqueda de la plaza y grupo para asegurarse de que existen, con esta comprobación hecha se recogen las plazas del grupo. 
+Si la plaza que se quiere asignar ya se encuentra en ese grupo no se permite, en caso contrario la plaza se vincula con las horas indicadas.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{../img/Anexos/Diagramas secuencia/DS - asignar horas.pdf}
+	\caption{\textit{Diagrama de secuencia de la asignación de horas de una plaza a un grupo.}}\label{DS-asignarHoras}
+\end{figure}
 
 
 \end{itemize}
