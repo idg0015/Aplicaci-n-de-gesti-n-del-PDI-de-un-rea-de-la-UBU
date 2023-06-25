@@ -1,7 +1,72 @@
 \capitulo{5}{Aspectos relevantes del desarrollo del proyecto}
 
-Este apartado pretende recoger los aspectos más interesantes del desarrollo del proyecto, comentados por los autores del mismo.
-Debe incluir desde la exposición del ciclo de vida utilizado, hasta los detalles de mayor relevancia de las fases de análisis, diseño e implementación.
-Se busca que no sea una mera operación de copiar y pegar diagramas y extractos del código fuente, sino que realmente se justifiquen los caminos de solución que se han tomado, especialmente aquellos que no sean triviales.
-Puede ser el lugar más adecuado para documentar los aspectos más interesantes del diseño y de la implementación, con un mayor hincapié en aspectos tales como el tipo de arquitectura elegido, los índices de las tablas de la base de datos, normalización y desnormalización, distribución en ficheros3, reglas de negocio dentro de las bases de datos (EDVHV GH GDWRV DFWLYDV), aspectos de desarrollo relacionados con el WWW...
-Este apartado, debe convertirse en el resumen de la experiencia práctica del proyecto, y por sí mismo justifica que la memoria se convierta en un documento útil, fuente de referencia para los autores, los tutores y futuros alumnos.
+Este apartado pretende mostrar aquellos aspectos más relevantes del proyecto realizado.
+
+\section{Diseño}
+\subsection{Requisitos y casos de uso}
+El proyecto realizado podría ser un buen ejemplo de un proyecto real en el que un jefe de proyecto debe comunicarse con el cliente para obtener los requisitos necesarios de la aplicación y trasladar la información requerida a desarrollar a los programadores (en este caso ambos roles los cumplía la misma persona).
+
+La idea descrita anteriormente es debida a que este proyecto se basa en una aplicación web que se pretende utilizar en la Universidad de Burgos. 
+Por ello, los tutores del proyecto han actuado de una forma similar a clientes y durante las primera reuniones del proyecto daban la idea de como debía funcionar la aplicación a desarrollar.
+
+El proceso de obtención de requisitos y diseño de casos de uso fue uno de los apartados de mayor duración del proyecto.
+Esto es debido a que las primeras reuniones fueron dedicadas íntegramente a explicar la idea se tenía de cómo debía ser la aplicación web y qué requisitos era necesario cumplir.
+
+En un principio se comenzó por ir diseñando el diagrama de entidad-relación.
+De esta manera se veía de una forma más clara que entidades iba a tener la aplicación y cómo estas debían interaccionar entre ellas.
+Este proceso duró varias semanas hasta dar con un diagrama que cumpliese de forma correcta con la idea de los tutores del proyecto y la idea que tenían de la aplicación web.
+
+Con el diagrama de entidad-relación finalizado, se comenzaron a crear los diferentes casos de uso.
+Este apartado del proyecto también tuvo una duración de varias semanas.
+Durante este proceso se fueron creando todos los casos de uso de la aplicación, los cuales se pueden ver en los anexos.
+Además, con la creación de estos se vieron algunos detalles que no estaban todavía bien especificados y debían determinar los tutores del proyecto.
+
+Al cabo de varias semanas de diseño, cuando se tuvo una base correcta de trabajo, se comenzó con el prototipado de las vistas y, con el visto bueno de estas, el desarrollo del \textit{software}.
+
+Cabe destacar que a pesar de haber hecho un largo proceso de diseño cuidando cada detalle, a lo largo del desarrollo hubo que retocar algún caso de uso o requisito para adaptarlo a nuevas necesidades surgidas que no se habían contemplado anteriormente o no se había profundizado lo suficiente en ellas.
+
+\subsection{Interfaz}
+Otro aspecto que se ha tenido muy en cuenta a la hora de desarrollar la aplicación es el diseño de la interfaz.
+
+El diseño de las vistas ha intentado cuidarse para que fuese minimalista sin dejar que esto hiciese que se tuviese una \textit{web} poco atractiva.
+La idea de hacer un diseño minimalista parte de principalmente de la idea de hacer más sencillo el uso de la aplicación al evitar elementos que desvíen la atención del usuario.
+Además, el uso de un diseño minimalista ayuda a que la velocidad de carga de las páginas sea más rápida.
+Estos dos elementos hacen que la experiencia del usuario al utilizar la aplicación \textit{web} sea mayor.
+
+Otro aspecto que se ha cuidado al realizar la aplicación es que la web se adaptase lo máximo posible a cualquier tipo de resolución de pantalla, aspecto importante, ya que en esto es una mejora respecto a la aplicación SIGMA utilizada por la universidad.
+
+Es necesario destacar que la aplicación \textit{web} desarrollada es funcional a través de cualquier dispositivo móvil, pero no se recomienda su uso de esta manera ya que la aplicación cuenta con grandes tablas que a pesar de adaptase a la pantalla, no son cómodas de manipular a través de este tipo de dispositivos.
+
+\section{Desarrollo}
+\subsection{Inicio de sesión y las sesiones}
+El inicio de sesión de la aplicación funciona mediante un formulario de correo electrónico y contraseña.
+En un primer lugar se valida que el correo electrónico se encuentre en la base de datos propia y después se manda al Moodle de la Universidad de Burgos la petición mediante un \textit{endpoint} de su API. 
+Si los datos son correctos se devuelve un \textit{token} que sirve para acceder a los recursos de Moodle.
+En el caso de esta aplicación, el \textit{token} se guarda en la sesión para poder dar acceso al contenido de la misma.
+Si en la sesión está el \textit{token} se permite el acceso, en caso contrario se redirige a la ventana de inicio de sesión.
+
+La aplicación cuenta con un sistema de permisos que sólo permite acceder a aquellos usuarios con permisos de lectura y sólo permite modificar y ver cierta información a aquellos usuarios con permisos de modificación.
+
+Para almacenar tanto el \textit{token} como el identificador del usuario, y así poder comprobar sus permisos, se hace uso de las sesiones.
+
+Por defecto, la sesión se almacena en el cliente mediante una \textit{cookie}. 
+El problema que tiene esta forma de trabajar es que la \textit{cookie} podría ser robada y con ello, el ladrón podría tener acceso a la aplicación. 
+En caso de guardar información sensible en la \textit{cookie} lo mejor es hacer el almacenamiento en el lado del servidor, y eso es lo que se ha hecho en esta aplicación para mejorar la seguridad.
+
+\subsection{Creación de cursos académicos}
+La creación de cursos académicos en la aplicación es una de las partes que más se ha intentado cuidar debido a su importancia, ya que mientras algunos elementos, como por ejemplo los centros, lo normal es que se creen y no se vuelvan a tocar, la creación de cursos se realiza todos los años.
+Además, crear un curso académico supone una carga de trabajo importante por parte del usuario ya que debe seleccionar todas aquellas asignaturas deseadas para el curso, lo que puede ser un número elevado de elementos que se deben seleccionar de una forma cómoda.
+
+Para resolver este problema en un principio se pensó en poner una tabla con todas las asignaturas existentes y un campo de selección, pero tras hacer una primera implementación de prueba se vio que no iba a ser algo cómodo para un uso real.
+Tras investigar diferentes opciones se pensó en utilizar la biblioteca de JavaScript llamada <<Sortable.js>> que permite, entre muchas otras cosas, arrastrar elementos de la pantalla entre contenedores.
+De esta manera se pueden tener las asignaturas que se desean seleccionar en un contenedor y las asignaturas seleccionadas en otro.
+
+Finalmente, se decidió añadir un filtro por titulación y curso para que el usuario tenga un mayor control de las asignaturas a buscar y utilizar la biblioteca Sortable.js para permitir arrastrar las asignaturas requeridas de forma simultanea.
+Al arrastrar, estas son seleccionadas para añadir al curso.
+
+Esta forma de trabajar hace que la aplicación se maneje de una forma más cómoda y dinámica que si se hubiesen usado otras opciones.
+Además, se añadió la opción de duplicar un curso académico completo para que de un año a otro no haya que crear todas las vinculaciones si no que se pueda partir de las asignaciones realizadas en cursos previos.
+
+
+
+
