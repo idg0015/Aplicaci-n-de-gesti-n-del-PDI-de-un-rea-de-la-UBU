@@ -429,11 +429,42 @@ Si la plaza que se quiere asignar ya se encuentra en ese grupo no se permite, en
 	\caption{\textit{Diagrama de secuencia de la asignación de horas de una plaza a un grupo.}}\label{DS-asignarHoras}
 \end{figure}
 
-
 \end{itemize}
 
 
-
 \section{Diseño arquitectónico}
+El diseño arquitectónico define la estructura del \textit{software} creado respecto a la distribución de las clases y el patrón de diseño utilizado.
+
+En este proyecto se ha seguido la arquitectura cliente-servidor bajo el patrón de diseño Modelo-vista-controlador (MVC).
+Flask, que ha sido el \textit{framework} elegido para realizar el código de la aplicación, no obliga al uso de este patrón; sin embargo, se decidió utilizarlo se decidió utilizarlo debido a la organización que proporciona. 
+Esto permite que el código quede separado de una forma fácil de entender, de modo que cualquier programador pueda identificar claramente la ubicación de cada elemento.
+
+\begin{itemize}
+\item \textbf{Modelo:}
+Es el encargado del manejo de los datos de la aplicación.
+
+\item \textbf{Vista:} 
+Es la representación de los datos que ve el cliente de la web.
+En este caso mediante código HTML bajo el uso del motor de plantillas Jinja2.
+
+\item \textbf{Controlador:} 
+Es la parte de la aplicación donde se encuentra la parte importante de la lógica.
+Actúa de intermediario entre el cliente y los datos, recogiendo las peticiones de los clientes y haciendo las peticiones necesarias a los modelos para procesar la información requerida y devolver la respuesta al cliente a través de la vista.
+\end{itemize}
+
+En el diagrama~\ref{MVC} se representa el funcionamiento del MVC donde el usuario de la web interacciona, a través de la vista, con el controlador que se encarga de hacer peticiones y respuestas de datos con el modelo.
+De esta forma el controlador es capaz de recuperar, modificar o eliminar los datos de un modelo.
+Además, el controlador es el encargado de formar el código necesario para mostrar la vista que visualizará el usuario de la web.
+
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{../img/Anexos/MVC.pdf}
+	\caption{\textit{Modelo-Vista-Controlador}}\label{MVC}
+\end{figure}
+
+
+
+
 
 
