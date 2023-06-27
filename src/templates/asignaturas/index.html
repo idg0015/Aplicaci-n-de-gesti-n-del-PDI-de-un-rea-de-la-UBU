@@ -14,11 +14,21 @@
         {% endif %}
     {% endwith %}
 
-    <h1 class="text-center">Asignaturas</h1>
-    {% if can_modify %}
-        <a href="{{ url_for('asignatura_bp.add_route') }}" class="btn btn-primary btn-nuevo-2">Nuevo</a>
-    {% endif %}
-    <div id="tablaAsignaturas" class="text-center"></div>
+    <div class="container-fluid">
+        <h1 class="text-center">Asignaturas</h1>
+        {% if can_modify %}
+            <div class="row">
+                <div class="col-md-11 offset-md-1">
+                    <a href="{{ url_for('asignatura_bp.add_route') }}" class="btn btn-primary">Nuevo</a>
+                </div>
+            </div>
+        {% endif %}
+        <div class="row text-center">
+            <div id="tablaAsignaturas" class="text-center col-md-10 offset-md-1"></div>
+        </div>
+    </div>
+
+
     <script>
         let asignaturas = JSON.parse('{{ asignaturas | default([]) | tojson }}');
         const hasModificationPermission = {{ can_modify | lower }};
@@ -87,7 +97,6 @@
                 className: {
                     th: "text-center"
                 },
-                width: "95%",
                 language: gridjs.l10n.esES,
                 sort: true,
                 search: true,

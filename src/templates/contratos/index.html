@@ -14,11 +14,19 @@
         {% endif %}
     {% endwith %}
 
-    <h1 class="text-center">Tipos de contrato</h1>
-    {% if can_modify %}
-        <a href="{{ url_for('contrato_bp.add_route') }}" class="btn btn-primary btn-nuevo">Nuevo</a>
-    {% endif %}
-    <div id="tablaContratos" class="text-center"></div>
+    <div class="container-fluid">
+        <h1 class="text-center mb-5">Tipos de contrato</h1>
+        {% if can_modify %}
+            <div class="row">
+                <div class="col-lg-9 offset-lg-3">
+                    <a href="{{ url_for('contrato_bp.add_route') }}" class="btn btn-primary">Nuevo</a>
+                </div>
+            </div>
+        {% endif %}
+        <div class="row">
+            <div id="tablaContratos" class="text-center col-lg-6 offset-lg-3"></div>
+        </div>
+    </div>
     <script>
         let contratos = JSON.parse('{{ tipos_contrato | default([]) | tojson }}');
         const hasModificationPermission = {{ can_modify | lower }};
@@ -61,7 +69,7 @@
                 language: gridjs.l10n.esES,
                 sort: true,
                 search: true,
-                width: "70%",
+                resizable: true,
                 pagination: {
                     limit: 10
                 },

@@ -14,11 +14,19 @@
         {% endif %}
     {% endwith %}
 
-    <h1 class="text-center">Áreas</h1>
-    {% if can_modify %}
-        <a href="{{ url_for('area_bp.add_route') }}" class="btn btn-primary btn-nuevo">Nuevo</a>
-    {% endif %}
-    <div id="tablaAreas" class="text-center"></div>
+    <div class="container-fluid">
+        <h1 class="text-center">Áreas</h1>
+        {% if can_modify %}
+            <div class="row">
+                <div class="col-lg-10 offset-lg-2">
+                    <a href="{{ url_for('area_bp.add_route') }}" class="btn btn-primary">Nuevo</a>
+                </div>
+            </div>
+        {% endif %}
+        <div class="row">
+            <div id="tablaAreas" class="text-center col-lg-8 offset-lg-2"></div>
+        </div>
+    </div>
     <script>
         let areas = JSON.parse('{{ areas | default([])| tojson }}');
         let hasModificationPermission = {{ can_modify | lower }};
@@ -60,7 +68,7 @@
                 language: gridjs.l10n.esES,
                 sort: true,
                 search: true,
-                width: "70%",
+                resizable: true,
                 pagination: {
                     limit: 10
                 },

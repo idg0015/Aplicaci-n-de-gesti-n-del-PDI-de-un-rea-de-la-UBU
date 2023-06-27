@@ -1,7 +1,6 @@
 {% extends "base/base_template.html" %}
 {% set active_page = "centros" %}
 {% block title %}Centros{% endblock %}
-
 {% block content %}
     {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}
@@ -13,12 +12,19 @@
             {% endfor %}
         {% endif %}
     {% endwith %}
-
-    <h1 class="text-center">Centros</h1>
-    {% if can_modify %}
-        <a href="{{ url_for('centro_bp.add_route') }}" class="btn btn-primary btn-nuevo">Nuevo</a>
-    {% endif %}
-    <div id="tablaCentros" class="text-center"></div>
+    <div class="container-fluid">
+        <h1 class="text-center">Centros</h1>
+        {% if can_modify %}
+            <div class="row">
+                <div class="col-md-11 offset-md-1">
+                    <a href="{{ url_for('centro_bp.add_route') }}" class="btn btn-primary">Nuevo</a>
+                </div>
+            </div>
+        {% endif %}
+        <div class="row">
+            <div id="tablaCentros" class="text-center col-md-10 offset-md-1"></div>
+        </div>
+    </div>
     <script>
         let centros = JSON.parse('{{ centros | default([])| tojson }}');
         const hasModificationPermission = {{ can_modify | lower }};
@@ -80,7 +86,6 @@
                 pagination: {
                     limit: 10
                 },
-                width: "70%",
                 data: centros
             }).render(document.getElementById("tablaCentros"));
         });

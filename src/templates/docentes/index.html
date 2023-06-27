@@ -14,11 +14,19 @@
         {% endif %}
     {% endwith %}
 
-    <h1 class="text-center">Docentes</h1>
-    {% if can_modify %}
-        <a href="{{ url_for('docente_bp.add_route') }}" class="btn btn-primary btn-nuevo">Nuevo</a>
-    {% endif %}
-    <div id="tablaDocentes" class="text-center"></div>
+    <div class="container-fluid">
+        <h1 class="text-center">Docentes</h1>
+        {% if can_modify %}
+            <div class="row">
+                <div class="col-xl-10 offset-xl-2">
+                    <a href="{{ url_for('docente_bp.add_route') }}" class="btn btn-primary ">Nuevo</a>
+                </div>
+            </div>
+        {% endif %}
+        <div class="row">
+            <div id="tablaDocentes" class="text-center col-xl-8 offset-xl-2"></div>
+        </div>
+    </div>
     <script>
         let docentes = JSON.parse('{{ docentes | default([])| tojson }}');
         const hasModificationPermission = {{ can_modify | lower }};
@@ -65,10 +73,10 @@
                 language: gridjs.l10n.esES,
                 sort: true,
                 search: true,
+                resizable: true,
                 pagination: {
                     limit: 10
                 },
-                width: "70%",
                 data: docentes
             }).render(document.getElementById("tablaDocentes"));
         });

@@ -14,11 +14,19 @@
         {% endif %}
     {% endwith %}
 
-    <h1 class="text-center">Plazas</h1>
-    {% if can_modify %}
-        <a href="{{ url_for('plaza_bp.add_route') }}" class="btn btn-primary btn-nuevo-plaza">Nuevo</a>
-    {% endif %}
-    <div id="tablaPlazas" class="text-center"></div>
+    <div class="container-fluid">
+        <h1 class="text-center">Plazas</h1>
+        {% if can_modify %}
+            <div class="row">
+                <div class="col-md-10 offset-md-1">
+                    <a href="{{ url_for('plaza_bp.add_route') }}" class="btn btn-primary">Nuevo</a>
+                </div>
+            </div>
+        {% endif %}
+        <div class="row">
+            <div id="tablaPlazas" class="text-center col-md-10 offset-md-1"></div>
+        </div>
+    </div>
     <script>
         let plazas = JSON.parse('{{ plazas | default([])| tojson }}');
         const hasModificationPermission = {{ can_modify | lower }};
@@ -77,7 +85,6 @@
                 language: gridjs.l10n.esES,
                 sort: true,
                 search: true,
-                width: "80%",
                 resizable: true,
                 pagination: {
                     limit: 10

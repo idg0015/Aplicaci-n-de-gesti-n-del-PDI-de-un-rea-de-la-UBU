@@ -15,12 +15,19 @@
     {% endwith %}
 
     <div id="ajax-response"></div>
-    <h1 class="text-center">Cursos Académicos</h1>
-    {% if can_modify %}
-        <a href="{{ url_for('curso_bp.add_route') }}" class="btn btn-primary btn-nuevo">Nuevo</a>
-    {% endif %}
-    <div id="tablaCursos" class="text-center"></div>
-
+    <div class="container-fluid">
+        <h1 class="text-center">Cursos Académicos</h1>
+        {% if can_modify %}
+            <div class="row">
+                <div class="col-lg-10 offset-lg-2">
+                    <a href="{{ url_for('curso_bp.add_route') }}" class="btn btn-primary">Nuevo</a>
+                </div>
+            </div>
+        {% endif %}
+        <div class="row">
+            <div id="tablaCursos" class="text-center col-lg-8 offset-lg-2"></div>
+        </div>
+    </div>
     {% include 'cursos/modal.html' %}
 
     <script>
@@ -63,7 +70,7 @@
             language: gridjs.l10n.esES,
             sort: true,
             search: true,
-            width: "70%",
+            resizable: true,
             pagination: {
                 limit: 10
             },
