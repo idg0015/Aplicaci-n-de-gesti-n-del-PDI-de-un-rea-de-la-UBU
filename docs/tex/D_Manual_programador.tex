@@ -425,7 +425,7 @@ Crear titulación
 \cellcolor{gray!25}
 ID   & CP8 & \cellcolor{gray!25} Prioridad   & Alta \\ \hline
 \cellcolor{gray!25} Fecha	&	\multicolumn{4}{l}{26/06/2023} \\ \hline
-\cellcolor{gray!25} Descripción		&	\multicolumn{4}{l}{Eliminación de una titulación sin asignaturas vinculadas} \\ \hline                                            
+\cellcolor{gray!25} Descripción		&	\multicolumn{4}{p{.66\textwidth}}{Eliminación de una titulación sin asignaturas vinculadas} \\ \hline                                            
 \cellcolor{gray!25}
 Precondición  & \multicolumn{4}{p{.66\textwidth}}{Tener sesión iniciada con permisos de modificación y tener una titulación creada} \\ \hline
 \cellcolor{gray!25} Postcondición & \multicolumn{4}{l}{No hay sesión iniciada}                                                    \\ \hline
@@ -459,7 +459,7 @@ Aceptar alerta
 \cellcolor{gray!25}
 ID   & CP9 & \cellcolor{gray!25} Prioridad   & Alta \\ \hline
 \cellcolor{gray!25} Fecha	&	\multicolumn{4}{l}{26/06/2023} \\ \hline
-\cellcolor{gray!25} Descripción		&	\multicolumn{4}{l}{Eliminación de una titulación con asignaturas vinculadas} \\ \hline                                            
+\cellcolor{gray!25} Descripción		&	\multicolumn{4}{p{.66\textwidth}}{Eliminación de una titulación con asignaturas vinculadas} \\ \hline                                            
 \cellcolor{gray!25}
 Precondición  & \multicolumn{4}{p{.66\textwidth}}{Tener sesión iniciada con permisos de modificación y tener una titulación creada con asignaturas vinculadas} \\ \hline
 \cellcolor{gray!25} Postcondición & \multicolumn{4}{l}{No hay sesión iniciada}                                                    \\ \hline
@@ -1162,8 +1162,8 @@ Acceder a la página de horas
 \\ \hline
 Seleccionar el curso
 & 
-& Listado de las grupos del curso
-& Listado de las grupos del curso
+& Listado de los grupos del curso
+& Listado de los grupos del curso
 & Correcto
 \\ \hline
 Editar plazas
@@ -1197,5 +1197,147 @@ Crear asignación
 & Correcto
 \\ \hline       
 \end{tabular}
-\caption{Caso de prueba 27: Asignación de horas de una plaza a un grupo.}
+\caption{Caso de prueba 27: Asignación de horas de una plaza a un grupo.}\label{CP-27}
+\end{table}
+
+\begin{table}[H]
+\begin{tabular}{p{.17\textwidth} p{.13\textwidth} p{.2\textwidth} p{.2\textwidth} p{.14\textwidth}}
+\cellcolor{gray!25}
+ID   & CP28 & \cellcolor{gray!25} Prioridad   & Media \\ \hline
+\cellcolor{gray!25} Fecha	&	\multicolumn{4}{l}{27/06/2023} \\ \hline
+\cellcolor{gray!25} Descripción		&	\multicolumn{4}{l}{Editar horas de una plaza desde la tabla} \\ \hline                                            
+\cellcolor{gray!25}
+Precondición  & \multicolumn{4}{p{.66\textwidth}}{Tener sesión iniciada con permisos de modificación y una plaza vinculada a un grupo. Es decir, haber realizado el~\hyperref[CP-27]{CP27}} \\ \hline
+\cellcolor{gray!25} Postcondición & \multicolumn{4}{l}{No hay sesión iniciada}                                                    \\ \hline
+\rowcolor{gray!25}
+\textbf{Paso}   & \textbf{Entrada} & \textbf{Salida esperada} & \textbf{Salida real} & \textbf{Resultado} \\ \hline
+Acceder a la página de horas
+& /horas                                                                          
+& Redirección a la página de horas                                
+& Redirección a la página de horas                                
+& Correcto                            
+\\ \hline
+Seleccionar el curso
+& 
+& Listado de las grupos del curso
+& Listado de las grupos del curso
+& Correcto
+\\ \hline
+Editar horas
+& Escribir en la columna <<Horas>> de la plaza el valor 10 y pulsar <<Enter>>
+& Mensaje: ``Horas asignadas correctamente''
+& Mensaje: ``Horas asignadas correctamente''
+& Correcto
+\\ \hline    
+\end{tabular}
+\caption{Caso de prueba 28: Editar horas de una plaza desde la tabla.}
+\end{table}
+
+\begin{table}[H]
+\begin{tabular}{p{.17\textwidth} p{.13\textwidth} p{.2\textwidth} p{.2\textwidth} p{.14\textwidth}}
+\cellcolor{gray!25}
+ID   & CP29 & \cellcolor{gray!25} Prioridad   & Baja \\ \hline
+\cellcolor{gray!25} Fecha	&	\multicolumn{4}{l}{27/06/2023} \\ \hline
+\cellcolor{gray!25} Descripción		&	\multicolumn{4}{l}{Exportar el contenido de la base de datos} \\ \hline                                            
+\cellcolor{gray!25}
+Precondición  & \multicolumn{4}{p{.66\textwidth}}{Tener sesión iniciada con permisos de modificación} \\ \hline
+\cellcolor{gray!25} Postcondición & \multicolumn{4}{l}{No hay sesión iniciada}                                                    \\ \hline
+\rowcolor{gray!25}
+\textbf{Paso}   & \textbf{Entrada} & \textbf{Salida esperada} & \textbf{Salida real} & \textbf{Resultado} \\ \hline
+Acceder a la exportación de base de datos
+& /export\_db                                                                          
+& Descarga de un fichero .sql                               
+& Descarga de un fichero .sql                            
+& Correcto                            
+\\ \hline
+\end{tabular}
+\caption{Caso de prueba 29: Exportar el contenido de la base de datos.}
+\end{table}
+
+\begin{table}[H]
+\begin{tabular}{p{.17\textwidth} p{.13\textwidth} p{.2\textwidth} p{.2\textwidth} p{.14\textwidth}}
+\cellcolor{gray!25}
+ID   & CP30 & \cellcolor{gray!25} Prioridad   & Media \\ \hline
+\cellcolor{gray!25} Fecha	&	\multicolumn{4}{l}{27/06/2023} \\ \hline
+\cellcolor{gray!25} Descripción		&	\multicolumn{4}{p{.66\textwidth}}{Importa contenido a la base de datos con un fichero con sentencias no válidas} \\ \hline                                            
+\cellcolor{gray!25}
+Precondición  & \multicolumn{4}{p{.66\textwidth}}{Tener sesión iniciada con permisos de modificación} \\ \hline
+\cellcolor{gray!25} Postcondición & \multicolumn{4}{l}{No hay sesión iniciada}                                                    \\ \hline
+\rowcolor{gray!25}
+\textbf{Paso}   & \textbf{Entrada} & \textbf{Salida esperada} & \textbf{Salida real} & \textbf{Resultado} \\ \hline
+Acceder a la importación de base de datos
+& /import\_db                                                                          
+& Redirección a la página de importación                              
+& Redirección a la página de importación                               
+& Correcto                            
+\\ \hline
+Selección de archivo
+& Surbir archivo \texttt{datos.sql}                                                                       
+& Mensaje: ``El archivo contiene sentencias SQL no válidas''                             
+& Mensaje: ``El archivo contiene sentencias SQL no válidas''                                
+& Correcto                            
+\\ \hline
+\end{tabular}
+\caption{Caso de prueba 30: Importa contenido a la base de datos con un fichero con sentencias no válidas.}
+\end{table}
+
+\begin{table}[H]
+\begin{tabular}{p{.17\textwidth} p{.13\textwidth} p{.2\textwidth} p{.2\textwidth} p{.14\textwidth}}
+\cellcolor{gray!25}
+ID   & CP31 & \cellcolor{gray!25} Prioridad   & Media \\ \hline
+\cellcolor{gray!25} Fecha	&	\multicolumn{4}{l}{27/06/2023} \\ \hline
+\cellcolor{gray!25} Descripción		&	\multicolumn{4}{p{.66\textwidth}}{Importa contenido a la base de datos con un fichero no válido} \\ \hline                                            
+\cellcolor{gray!25}
+Precondición  & \multicolumn{4}{p{.66\textwidth}}{Tener sesión iniciada con permisos de modificación} \\ \hline
+\cellcolor{gray!25} Postcondición & \multicolumn{4}{l}{No hay sesión iniciada}                                                    \\ \hline
+\rowcolor{gray!25}
+\textbf{Paso}   & \textbf{Entrada} & \textbf{Salida esperada} & \textbf{Salida real} & \textbf{Resultado} \\ \hline
+Acceder a la importación de base de datos
+& /import\_db                                                                          
+& Redirección a la página de importación                              
+& Redirección a la página de importación                               
+& Correcto                            
+\\ \hline
+Selección de archivo
+& Surbir archivo \texttt{datos.pdf}                                                                       
+& Mensaje: ``El archivo no contiene sentencias SQL válidas''                             
+& Mensaje: ``El archivo no contiene sentencias SQL válidas''                                
+& Correcto                            
+\\ \hline
+\end{tabular}
+\caption{Caso de prueba 31: Importa contenido a la base de datos con un fichero no válido.}
+\end{table}
+
+\begin{table}[H]
+\begin{tabular}{p{.17\textwidth} p{.13\textwidth} p{.2\textwidth} p{.2\textwidth} p{.14\textwidth}}
+\cellcolor{gray!25}
+ID   & CP32 & \cellcolor{gray!25} Prioridad   & Media \\ \hline
+\cellcolor{gray!25} Fecha	&	\multicolumn{4}{l}{27/06/2023} \\ \hline
+\cellcolor{gray!25} Descripción		&	\multicolumn{4}{p{.66\textwidth}}{Importa contenido a la base de datos con un fichero válido} \\ \hline                                            
+\cellcolor{gray!25}
+Precondición  & \multicolumn{4}{p{.66\textwidth}}{Tener sesión iniciada con permisos de modificación} \\ \hline
+\cellcolor{gray!25} Postcondición & \multicolumn{4}{l}{No hay sesión iniciada}                                                    \\ \hline
+\rowcolor{gray!25}
+\textbf{Paso}   & \textbf{Entrada} & \textbf{Salida esperada} & \textbf{Salida real} & \textbf{Resultado} \\ \hline
+Acceder a la importación de base de datos
+& /import\_db                                                                          
+& Redirección a la página de importación                              
+& Redirección a la página de importación                               
+& Correcto                            
+\\ \hline
+Selección de archivo
+& Surbir archivo \texttt{datos-
+\_bien.sql}                                                                       
+& Se muestra el resultado de hacer la importación                          
+& Se muestra el resultado de hacer la importación                                 
+& Correcto                            
+\\ \hline
+Realizar importación
+& Clic en <<Importar>>                                                                       
+& Redirección al \textit{login} y mensaje: ``Los datos se importaron correctamente.''                          
+& Redirección al \textit{login} y mensaje: ``Los datos se importaron correctamente.''                               
+& Correcto                            
+\\ \hline
+\end{tabular}
+\caption{Caso de prueba 32: Importa contenido a la base de datos con un fichero válido.}
 \end{table}
