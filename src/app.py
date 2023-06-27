@@ -64,14 +64,16 @@ def page_not_found(error):
 @app.context_processor
 def inject_global_variables():
     can_modify = False
+    docente_nombre = 'Desconocido'
 
     user_id = session.get('user_id')
     if user_id is not None:
         docente = Docente.get_docente(user_id)
         if docente is not None:
             can_modify = docente.modification_flag
+            docente_nombre = docente.nombre
 
-    return dict(can_modify=can_modify)
+    return dict(can_modify=can_modify, docente_nombre=docente_nombre)
 
 
 @app.route('/export_db', methods=['GET'])
