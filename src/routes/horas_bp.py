@@ -6,7 +6,7 @@ from decorators import *
 horas_bp = Blueprint('horas_bp', __name__)
 
 
-@horas_bp.route('/horas', methods=['GET'])
+@horas_bp.route('/', methods=['GET'])
 @token_required
 @require_read_permission
 def index_route():
