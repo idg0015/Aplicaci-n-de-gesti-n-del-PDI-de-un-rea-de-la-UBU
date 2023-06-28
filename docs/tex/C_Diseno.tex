@@ -26,7 +26,7 @@ Aunque la teoría diga que las claves de las tablas que se relacionan pasan a se
 De esta manera, las búsquedas en la base de datos estarán más optimizadas al buscar como clave primaria un único campo y no la composición de varios.
 Además, se evita cualquier tipo de error de clave primaria al ser la propia base de datos la que asigna esta y no el código creado.
 
-\figuraApaisadaSinMarco{}{../img/Anexos/Diagrama relacional.pdf}{Diagrama relacional}{DiagramaRelacional}{}
+\figuraApaisadaSinMarco{.93}{../img/Anexos/Diagrama relacional.pdf}{Diagrama relacional}{DiagramaRelacional}{}
 
 \subsection{Diccionario de datos}
 A continuación se va a especificar, para cada tabla de la base de datos, el diccionario de datos correspondiente.
@@ -181,7 +181,9 @@ La tabla \texttt{docente} almacena información sobre los docentes. Se puede ver
     nombre & Texto & Nombre del docente. \\ \addlinespace
     apellidos & Texto & Apellidos del docente. \\ \addlinespace
     email & Texto & Email del docente \\ \addlinespace
-    reducciones & Entero & Número de horas de reducciones del docente. \\
+    reducciones & Entero & Número de horas de reducciones del docente. \\ \addlinespace
+    read\_flag & \textit{Boolean} & Permisos de lectura. \\ \addlinespace
+    modification\_flag & \textit{Boolean} & Permisos de modificación. \\
     \bottomrule
   \end{tabular}
   \caption{Diccionario de datos. Tabla Docente}
@@ -261,7 +263,8 @@ Se puede ver su información en la tabla~\ref{tab:diccionario_plaza}.
     fecha\_cese & Fecha & Fecha de cese de la plaza. \\ \addlinespace
     id\_docente & Entero & Identificador del docente asignado a la plaza. \\ \addlinespace
     id\_area & Entero & Identificador del área asociada a la plaza. \\ \addlinespace
-    id\_contrato & Entero & Identificador del tipo de contrato asociado a la plaza. \\
+    id\_contrato & Entero & Identificador del tipo de contrato asociado a la plaza. \\ \addlinespace
+    observaciones & Texto & Observaciones de la plaza. \\ \addlinespace
     \bottomrule
   \end{tabular}
   \caption{Diccionario de datos. Tabla Plaza}
@@ -280,7 +283,7 @@ Se puede ver su información en la tabla~\ref{tab:diccionario_plaza_grupo}.
     \textbf{\underline{id}} & Entero \underline{PK} & Identificador de la asignación. Clave primaria generada de forma autoincremental. \\ \addlinespace
     horas & Entero & Horas de la plaza asignadas al grupo. \\ \addlinespace
     id\_grupo & Entero & Identificador del grupo. \\ \addlinespace
-    id\_plaza & Entero & Identificador de la plaza. \\
+    id\_plaza & Entero & Identificador de la plaza. \\ 
     \bottomrule
   \end{tabular}
   \caption{Diccionario de datos. Tabla Plaza-Grupo}
