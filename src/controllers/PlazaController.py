@@ -29,6 +29,7 @@ def add():
         fecha_incorporacion = formulario.fecha_incorporacion.data
         fecha_cese = formulario.fecha_cese.data
         id_docente = formulario.docente.data
+        observaciones = formulario.observaciones.data
         if id_docente == -1:
             id_docente = None
         id_area = formulario.area.data
@@ -53,7 +54,7 @@ def add():
 
         plaza = Plaza(nombre=nombre, rpt=rpt, num_concursos_contratacion=num_concursos_contratacion,
                       fecha_incorporacion=fecha_incorporacion, fecha_cese=fecha_cese, id_docente=id_docente,
-                      id_area=id_area, id_contrato=id_contrato)
+                      id_area=id_area, id_contrato=id_contrato, observaciones=observaciones)
         plaza.save()
         return redirect(url_for('plaza_bp.index_route'))
     return render_template('plazas/form.html', form=formulario, breadcrumbs=breadcrumbs)
@@ -79,6 +80,7 @@ def update(id_plaza):
         plaza.fecha_incorporacion = formulario.fecha_incorporacion.data
         plaza.fecha_cese = formulario.fecha_cese.data
         id_docente = formulario.docente.data
+        plaza.observaciones = formulario.observaciones.data
         if id_docente == -1:
             id_docente = None
         # Compruebo si el docente tiene alguna plaza sin fecha de fin

@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileAllowed
 from wtforms import StringField, SubmitField, SelectField, HiddenField, IntegerField, FieldList, FormField, \
-    SelectMultipleField, DateField, MultipleFileField, BooleanField, PasswordField, FileField
+    SelectMultipleField, DateField, MultipleFileField, BooleanField, PasswordField, FileField, TextAreaField
 from wtforms.validators import DataRequired, Email, URL, InputRequired, ValidationError, Optional, NumberRange
 from wtforms.widgets import HiddenInput
 
@@ -155,6 +155,7 @@ class FormPlaza(FlaskForm):
     contrato = SelectField('Tipo de contrato', coerce=int, choices=[],
                            validators=[DataRequired(message='El tipo de contrato es obligatorio')],
                            validate_choice=False)
+    observaciones = TextAreaField('Observaciones', validators=[Optional()])
     submit = SubmitField('Añadir')
 
     def __init__(self, *args, **kwargs):

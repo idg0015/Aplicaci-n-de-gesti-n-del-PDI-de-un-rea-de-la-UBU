@@ -11,6 +11,7 @@ class Plaza(db.Model):
     num_concursos_contratacion = db.Column(db.Integer, nullable=True)
     fecha_incorporacion = db.Column(db.Date, nullable=False)
     fecha_cese = db.Column(db.Date, nullable=True)
+    observaciones = db.Column(db.String(256), nullable=True)
 
     # Relación con docente
     id_docente = db.Column(db.Integer, db.ForeignKey('docente.id', ondelete='CASCADE'), nullable=True)

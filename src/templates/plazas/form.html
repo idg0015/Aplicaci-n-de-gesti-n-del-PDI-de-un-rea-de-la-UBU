@@ -96,6 +96,16 @@
             </div>
         </div>
 
+        <div class="row mt-3 mb-3">
+            <div class="col-12">
+                {{ form.observaciones.label }}
+                <div>{{ form.observaciones(class_="form-control", maxlength=256) }}</div>
+                {% for error in form.observaciones.errors %}
+                    <span class="msg-error">{{ error }}</span>
+                {% endfor %}
+            </div>
+        </div>
+
 
         <div class="text-center mt-4">
             <a class="btn btn-secondary" href="{{ url_for('plaza_bp.index_route') }}">Volver</a>
