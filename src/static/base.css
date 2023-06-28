@@ -86,22 +86,6 @@ h1.text-center:after {
     color: #490f1b;
 }
 
-.btn-nuevo {
-    margin-left: 15%;
-}
-
-.btn-nuevo-grupo {
-    margin-left: 25%;
-}
-
-.btn-nuevo-plaza {
-    margin-left: 10%;
-}
-
-.btn-nuevo-2 {
-    margin-left: 2.6%;
-}
-
 .icon-lt {
     font-size: 1rem;
 }
@@ -146,6 +130,15 @@ a#icn-info-grupos {
 
 a#icn-info-grupos:hover {
     color: #490f1b !important;
+}
+
+.footer-mail{
+    text-decoration: none;
+    color: #333333;
+}
+
+.footer-mail:hover{
+    color: var(--ubu-main-color);
 }
 
 /* ---------------------- Formularios ---------------------- */

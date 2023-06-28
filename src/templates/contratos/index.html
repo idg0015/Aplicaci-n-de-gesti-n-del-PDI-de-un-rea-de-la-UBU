@@ -15,16 +15,16 @@
     {% endwith %}
 
     <div class="container-fluid">
-        <h1 class="text-center mb-5">Tipos de contrato</h1>
+        <h1 class="text-center">Tipos de contrato</h1>
         {% if can_modify %}
             <div class="row">
-                <div class="col-lg-9 offset-lg-3">
+                <div class="col-lg-10 offset-lg-2">
                     <a href="{{ url_for('contrato_bp.add_route') }}" class="btn btn-primary">Nuevo</a>
                 </div>
             </div>
         {% endif %}
         <div class="row">
-            <div id="tablaContratos" class="text-center col-lg-6 offset-lg-3"></div>
+            <div id="tablaContratos" class="text-center col-lg-8 offset-lg-2"></div>
         </div>
     </div>
     <script>

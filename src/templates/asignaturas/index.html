@@ -18,13 +18,13 @@
         <h1 class="text-center">Asignaturas</h1>
         {% if can_modify %}
             <div class="row">
-                <div class="col-md-11 offset-md-1">
+                <div class="col-lg-11 offset-lg-1">
                     <a href="{{ url_for('asignatura_bp.add_route') }}" class="btn btn-primary">Nuevo</a>
                 </div>
             </div>
         {% endif %}
         <div class="row text-center">
-            <div id="tablaAsignaturas" class="text-center col-md-10 offset-md-1"></div>
+            <div id="tablaAsignaturas" class="text-center col-lg-10 offset-lg-1"></div>
         </div>
     </div>
 

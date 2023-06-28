@@ -3,7 +3,7 @@
 {% block title %}Horas{% endblock %}
 
 {% block content %}
-    <h1 class="text-center">Horas</h1>
+    <h1 class="text-center">Horas de grupos</h1>
     <div class="mb-3">
         <div class="col-md-2">
             <label for="cursos" class="form-label">Curso:</label>
@@ -111,12 +111,12 @@
                     },
                     {
                         id: 'hours_1',
-                        name: gridjs.html('<span title="Horas">Horas</span>'),
+                        name: gridjs.html('<span title="Horas en el grupo">Horas<br> en grupo</span>'),
                         'attributes': editableCell
                     },
                     {
                         id: 'total_hours_1',
-                        name: gridjs.html('<span title="Horas asignadas"> Horas<br> asignadas</span>'),
+                        name: gridjs.html('<span title="Horas totales asignadas"> Horas<br> totales asignadas</span>'),
                         'attributes': teacherId
                     },
                     {
@@ -129,12 +129,12 @@
                     },
                     {
                         id: 'hours_2',
-                        name: gridjs.html('<span title="Horas">Horas</span>'),
+                        name: gridjs.html('<span title="Horas en el grupo">Horas<br> en grupo</span>'),
                         'attributes': editableCell
                     },
                     {
                         id: 'total_hours_2',
-                        name: gridjs.html('<span title="Horas asignadas"> Horas<br> asignadas</span>'),
+                        name: gridjs.html('<span title="Horas totales asignadas"> Horas<br> totales asignadas</span>'),
                         'attributes': teacherId
                     },
                     {
@@ -148,12 +148,12 @@
                     },
                     {
                         id: 'hours_3',
-                        name: gridjs.html('<span title="Horas">Horas</span>'),
+                        name: gridjs.html('<span title="Horas en el grupo">Horas<br> en grupo</span>'),
                         'attributes': editableCell
                     },
                     {
                         id: 'total_hours_3',
-                        name: gridjs.html('<span title="Horas asignadas"> Horas<br> asignadas</span>'),
+                        name: gridjs.html('<span title="Horas totales asignadas"> Horas<br> totales asignadas</span>'),
                     },
                     {
                         id: 'teacher_id_1',
@@ -222,7 +222,19 @@
 
                 hoursTable.addEventListener('input', ev => {
                     if (ev.target.tagName === 'TD') {
-                        ev.target.textContent = ev.target.textContent.replace(/\D/g, '');
+                        const target = ev.target;
+                        // Guardar la posición actual del cursor
+                        const selectionStart = window.getSelection().getRangeAt(0).startOffset;
+                        // Reemplazar texto
+                        target.innerHTML = target.textContent.replace(/\D/g, '');
+                        // Restaurar la posición del cursor
+                        const textNode = target.childNodes[0];
+                        const range = document.createRange();
+                        const sel = window.getSelection();
+                        range.setStart(textNode, selectionStart);
+                        range.collapse(true);
+                        sel.removeAllRanges();
+                        sel.addRange(range);
                     }
                 });
 
