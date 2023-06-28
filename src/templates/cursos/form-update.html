@@ -7,8 +7,15 @@
 
     <form action="" method="post" novalidate class="form-curso">
         {{ form.hidden_tag() }}
+        <siv class="row mb-5 mt-5">
+            <div class="col-md-6 offset-md-3">
+                <label for="select-titulaciones">Seleccionar titulación:</label>
+                <select id="select-titulaciones" class="js-titulaciones-ajax" onchange="getAsignaturas()"></select>
+            </div>
+        </siv>
         <div class="row mb-4 mt-4">
-            <h2 class="text-center">Grupos <a id="icn-info-grupos" href="#info-grupos" data-bs-toggle="collapse"><i class="bi bi-info-circle-fill icon-lt"></i></a></h2>
+            <h2 class="text-center">Grupos <a id="icn-info-grupos" href="#info-grupos" data-bs-toggle="collapse"><i
+                    class="bi bi-info-circle-fill icon-lt"></i></a></h2>
             <div id="info-grupos" class="info collapse"><i class="bi bi-info-circle-fill"></i> Si introduce un número de
                 alumnos mayor que 0, se creará un grupo de teoría y un grupo de práctica por cada asignatura
                 seleccionada. Desde la opción del menú "Grupos" podrá modificar o añadir nuevos grupos por cada
@@ -75,14 +82,9 @@
             </div>
         </div>
 
-
         <div id="container-asignaturas">
             <div class="row">
-                <div class="col-md-4 offset-md-2">
-                    <label for="select-titulaciones">Buscar por titulación nuevas asignaturas:</label>
-                    <select id="select-titulaciones" class="js-titulaciones-ajax" onchange="getAsignaturas()"></select>
-                </div>
-                <div class="col-md-4">
+                <div class="col-md-4 offset-md-4">
                     <label for="select-curso">Curso:</label>
                     <select disabled id="select-curso" class="form-select form-select-sm" aria-label=".form-select-sm">
                         <option selected value="0">Todos</option>
