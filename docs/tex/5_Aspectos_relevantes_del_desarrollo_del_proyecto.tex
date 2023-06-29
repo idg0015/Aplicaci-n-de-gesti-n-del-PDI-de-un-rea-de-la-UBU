@@ -38,6 +38,17 @@ Otro aspecto que se ha cuidado al realizar la aplicación es que la web se adapt
 Es necesario destacar que la aplicación \textit{web} desarrollada es funcional a través de cualquier dispositivo móvil, pero no se recomienda su uso de esta manera ya que la aplicación cuenta con grandes tablas que a pesar de adaptase a la pantalla, no son cómodas de manipular a través de este tipo de dispositivos.
 
 \section{Desarrollo}
+\subsection{Desarrollo web}
+Como se ha comentado en la introducción, la aplicación desarrollada como proyecto ha sido una aplicación web.
+
+Durante los cuatro años de estudio del grado apenas se han impartido lecciones sobre programación web, por ello, realizar una aplicación de este estilo supone invertir tiempo de aprendizaje previo a cualquier tipo de desarrollo.
+
+En este caso, además se ha utilizado el \textit{framework} Flask que proporciona herramientas para facilitar la codificación, pero aun así, tiene una curva de aprendizaje necesaria antes de poder desarrollar código si se quieren seguir unas buenas pautas.
+
+Creo necesario destacar este punto, ya que ha supuesto un trabajo adicional al tener que adquirir conocimientos acerca del desarrollo web.
+Además, se ha intentado realizar una buena base para que alumnos en próximos cursos puedan tomar este proyecto y ampliarlo con más funcionalidades.
+Para ello se han intentado plasmar las buenas prácticas aprendidas a lo largo de la carrera y durante el desarrollo.
+
 \subsection{Inicio de sesión y las sesiones}
 El inicio de sesión de la aplicación funciona mediante un formulario de correo electrónico y contraseña.
 En un primer lugar se valida que el correo electrónico se encuentre en la base de datos propia y después se manda al Moodle de la Universidad de Burgos la petición mediante un \textit{endpoint} de su API. 
@@ -67,6 +78,26 @@ Al arrastrar, estas son seleccionadas para añadir al curso.
 Esta forma de trabajar hace que la aplicación se maneje de una forma más cómoda y dinámica que si se hubiesen usado otras opciones.
 Además, se añadió la opción de duplicar un curso académico completo para que de un año a otro no haya que crear todas las vinculaciones si no que se pueda partir de las asignaciones realizadas en cursos previos.
 
+\subsection{Importaciones seguras de datos}
+La aplicación web desarrollada permite importar datos a la base de datos.
+Esta funcionalidad está diseñada para facilitar la instalación de la aplicación en diferentes ubicaciones, ya que permite introducir datos directamente, de forma masiva, evitando la necesidad de crearlos manualmente.
 
+La forma de trabajar de esta funcionalidad es permitir únicamente ficheros \texttt{SQL} con sentencias \texttt{INSERT}. 
+Si incluye cualquier otro tipo de sentencias, estas serán rechazadas.
+Esto se debe a que el propósito de este sistema es permitir la inserción de datos en la base de datos, pero nada más.
+De esta forma, se garantiza que la importación se realice de una forma segura, evitando cualquier tipo de sentencia que pueda dañar el contenido de la base de datos.
 
+A pesar de todo, se trata de una operación compleja, por lo que se recomienda realizar una exportación de los datos o una copia de seguridad previamente.
+
+\subsection{Modificación de horas desde la tabla}
+La asignación de horas de una plaza a un grupo de una asignatura durante un curso académico es una de las tareas más habituales y tediosas a la hora de trabajar gestionando el PDI. 
+Por ello, se ha intentado hacer que esta labor sea lo más cómoda posible.
+
+Se ha implementado la funcionalidad de poder realizar la asignación de horas directamente desde la tabla donde se muestra esta información permitiendo la navegación entre campos mediante el tabulador.
+
+El funcionamiento se basa en modificar los campos de <<Horas en el grupo>> desde la tabla general donde se muestran todos los grupos de un curso junto a las plazas vinculadas. 
+La asignación de horas se realiza al momento de perder el foco del campo sin necesidad de recargar la página gracias al uso de peticiones asíncronas mediante AJAX.
+Además, se realiza la actualización de la columna <<Horas totales asignadas>> también de forma automática.
+
+Esto facilita mucho la modificación de horas y hace que la forma de trabajar sea similar, salvando las distancias, a un Excel.
 
