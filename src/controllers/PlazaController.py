@@ -25,7 +25,7 @@ def add():
     if formulario.validate_on_submit():
         nombre = formulario.nombre.data
         rpt = formulario.rpt.data
-        num_concursos_contratacion = formulario.num_concursos_contratacion.data
+        num_concurso_contratacion = formulario.num_concurso_contratacion.data
         fecha_incorporacion = formulario.fecha_incorporacion.data
         fecha_cese = formulario.fecha_cese.data
         id_docente = formulario.docente.data
@@ -52,7 +52,7 @@ def add():
                 'La plaza ha sido creada, pero no se ha asignado al docente seleccionado porque tiene una plaza sin fecha de cese',
                 'alert alert-warning alert-dismissible fade show')
 
-        plaza = Plaza(nombre=nombre, rpt=rpt, num_concursos_contratacion=num_concursos_contratacion,
+        plaza = Plaza(nombre=nombre, rpt=rpt, num_concurso_contratacion=num_concurso_contratacion,
                       fecha_incorporacion=fecha_incorporacion, fecha_cese=fecha_cese, id_docente=id_docente,
                       id_area=id_area, id_contrato=id_contrato, observaciones=observaciones)
         plaza.save()
@@ -76,7 +76,7 @@ def update(id_plaza):
     if formulario.validate_on_submit():
         plaza.nombre = formulario.nombre.data
         plaza.rpt = formulario.rpt.data
-        plaza.num_concursos_contratacion = formulario.num_concursos_contratacion.data
+        plaza.num_concurso_contratacion = formulario.num_concurso_contratacion.data
         plaza.fecha_incorporacion = formulario.fecha_incorporacion.data
         plaza.fecha_cese = formulario.fecha_cese.data
         id_docente = formulario.docente.data

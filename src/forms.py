@@ -142,10 +142,8 @@ class FormContrato(FlaskForm):
 class FormPlaza(FlaskForm):
     nombre = StringField('Nombre', validators=[DataRequired(message='El nombre es obligatorio')])
     rpt = StringField('RPT', validators=[DataRequired(message='La RPT es obligatoria')])
-    num_concursos_contratacion = IntegerField('Número de concursos de contratación',
-                                              validators=[Optional(), InputRequired(
-                                                  message='El número de concursos de contratación es obligatorio'),
-                                                          NumberRange(min=0, message='El número debe ser mayor que 0')])
+    num_concurso_contratacion = StringField('Número de concurso de contratación',
+                                              validators=[Optional()])
     fecha_incorporacion = DateField('Fecha de incorporación',
                                     validators=[DataRequired(message='La fecha de incorporación es obligatoria')])
     fecha_cese = DateField('Fecha de cese', validators=[Optional()])
