@@ -28,11 +28,17 @@
             <div class="col-md-4"><h2 class="h2-view">{{ curso_asignatura.asignatura.titulacion.nombre }}</h2></div>
         </div>
         {% if can_modify %}
-            <a href="" class="btn btn-primary btn-nuevo-grupo" data-bs-toggle="modal" data-bs-target="#create-modal">Añadir
-                grupo</a>
+            <div class="row">
+                <div class="col-lg-10 offset-lg-2">
+                    <a href="" class="btn btn-primary" data-bs-toggle="modal"
+                       data-bs-target="#create-modal">Añadir
+                        grupo</a>
+                </div>
+            </div>
+
         {% endif %}
         <div class="row">
-            <div class="col-md-6 offset-md-3 text-center">
+            <div class="col-lg-8 offset-lg-2 text-center">
                 <div id="tabla_grupos"></div>
             </div>
         </div>
