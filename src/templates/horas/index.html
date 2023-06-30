@@ -3,7 +3,20 @@
 {% block title %}Horas{% endblock %}
 
 {% block content %}
-    <h1 class="text-center">Horas de grupos</h1>
+    <h1 class="text-center">
+        Horas de grupos
+        <a id="icn-info-grupos" href="#info-horas" data-bs-toggle="collapse"><i
+                class="bi bi-info-circle-fill icon-lt"></i></a>
+    </h1>
+    <div id="info-horas" class="info collapse"><i class="bi bi-info-circle-fill"></i>
+        Las horas de los grupos se pueden modificar directamente desde la tabla. Si el grupo tiene una plaza vinculada
+        se podrá modificar la columna llamada "Horas en el grupo" introduciendo el número de horas deseado.
+        Una vez se salga de la celda, el valor quedará modificado.<br>
+        Se puede navegar a través de las distintas celdas mediante la tecla "Tabulador" o pulsando sobre cada celda.
+        Además, se puede salir de una celda mediante la tecla "Enter" o pulsado fuera de dicha celda.
+        De esta forma los cambios se harán efectivos.<br>
+        Si se quiere salir sin realizar los cambios se debe pulsar sobre la tecla "Esc" del teclado.
+    </div>
     <div class="mb-3">
         <div class="col-md-2">
             <label for="cursos" class="form-label">Curso:</label>
@@ -111,7 +124,7 @@
                     },
                     {
                         id: 'hours_1',
-                        name: gridjs.html('<span title="Horas en el grupo">Horas<br> en grupo</span>'),
+                        name: gridjs.html('<span title="Horas en el grupo">Horas<br> en el grupo</span>'),
                         'attributes': editableCell
                     },
                     {
@@ -129,7 +142,7 @@
                     },
                     {
                         id: 'hours_2',
-                        name: gridjs.html('<span title="Horas en el grupo">Horas<br> en grupo</span>'),
+                        name: gridjs.html('<span title="Horas en el grupo">Horas<br> en el grupo</span>'),
                         'attributes': editableCell
                     },
                     {
@@ -148,7 +161,7 @@
                     },
                     {
                         id: 'hours_3',
-                        name: gridjs.html('<span title="Horas en el grupo">Horas<br> en grupo</span>'),
+                        name: gridjs.html('<span title="Horas en el grupo">Horas<br> en el grupo</span>'),
                         'attributes': editableCell
                     },
                     {

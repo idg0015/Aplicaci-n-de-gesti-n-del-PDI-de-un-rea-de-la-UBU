@@ -7,12 +7,12 @@
 
     <form action="" method="post" novalidate class="form-curso">
         {{ form.hidden_tag() }}
-        <siv class="row mb-5 mt-5">
+        <div class="row mb-5 mt-5">
             <div class="col-md-6 offset-md-3">
                 <label for="select-titulaciones">Seleccionar titulación:</label>
                 <select id="select-titulaciones" class="js-titulaciones-ajax" onchange="getAsignaturas()"></select>
             </div>
-        </siv>
+        </div>
         <div class="row mb-4 mt-4">
             <h2 class="text-center">Grupos <a id="icn-info-grupos" href="#info-grupos" data-bs-toggle="collapse"><i
                     class="bi bi-info-circle-fill icon-lt"></i></a></h2>
