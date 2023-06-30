@@ -58,7 +58,7 @@ cuenta a utilizar. La cuenta de correo y la contraseña debe ser la misma
 que la utilizada en el Moodle de la universidad.
 
 ![Página de inicio de
-sesión](../img/Anexos/Manual usuario/login.png){#pag:login
+sesión](./img/Anexos/Manual usuario/login.png){#pag:login
 width="\\textwidth"}
 
 Si los datos de acceso son correctos, se tendrá acceso a la aplicación y
@@ -68,7 +68,7 @@ reference="pag:inicio"}). Una vez se tiene acceso a esta página, se
 puede acceder al resto de recursos de la web a través del menú superior
 de navegación.
 
-![Página principal](../img/Anexos/Manual usuario/inicio.png){#pag:inicio
+![Página principal](./img/Anexos/Manual usuario/inicio.png){#pag:inicio
 width="\\textwidth"}
 
 ### Mantenimiento académico
@@ -84,7 +84,7 @@ opciones se podrá realizar la visualización, creación y actualización de
 cada uno de estos componentes.
 
 ![Menú: Mantenimiento
-académico](../img/Anexos/Manual usuario/menu man ac.png){#pag:menuManAc
+académico](./img/Anexos/Manual usuario/menu man ac.png){#pag:menuManAc
 width="\\textwidth"}
 
 #### Creación de centros
@@ -99,11 +99,11 @@ página que contiene el formulario de creación de centros
 reference="pag:formCentro"}).
 
 ![Página principal de
-centros](../img/Anexos/Manual usuario/centros.png){#pag:centros
+centros](./img/Anexos/Manual usuario/centros.png){#pag:centros
 width="\\textwidth"}
 
 ![Formulario de creación de
-centros](../img/Anexos/Manual usuario/formCentro.png){#pag:formCentro
+centros](./img/Anexos/Manual usuario/formCentro.png){#pag:formCentro
 width="\\textwidth"}
 
 Desde la página del formulario se deben rellenar los campos con los
@@ -131,7 +131,7 @@ producirá una redirección a la página principal de centros, mostrando un
 mensaje que indica la correcta modificación del centro.
 
 ![Formulario de modificación de
-centros](../img/Anexos/Manual usuario/formModCentro.png){#pag:formModCentro
+centros](./img/Anexos/Manual usuario/formModCentro.png){#pag:formModCentro
 width="\\textwidth"}
 
 #### Eliminación de centros
@@ -148,7 +148,7 @@ un mensaje indicando que no se ha podido realizar la eliminación en caso
 de que el centro tenga titulaciones asociadas.
 
 ![Alerta de eliminación de
-centros](../img/Anexos/Manual usuario/alertElCentro.png){#pag:alertElCentro
+centros](./img/Anexos/Manual usuario/alertElCentro.png){#pag:alertElCentro
 width="\\textwidth"}
 
 #### Creación de titulaciones
@@ -164,7 +164,7 @@ titulación es necesario tener un centro creado previamente, ya que una
 titulación se vincula a un centro.
 
 ![Página principal de
-titulaciones](../img/Anexos/Manual usuario/titulaciones.png){#pag:titulaciones
+titulaciones](./img/Anexos/Manual usuario/titulaciones.png){#pag:titulaciones
 width="\\textwidth"}
 
 Al pulsar sobre el botón \<\<Nuevo\>\> se abre el formulario de creación
@@ -178,7 +178,7 @@ podrá ver la titulación creada. Además, se mostrará un mensaje indicando
 la creación de la titulación.
 
 ![Formulario de creación de
-titulaciones](../img/Anexos/Manual usuario/formTitulacion.png){#pag:formTitulacion
+titulaciones](./img/Anexos/Manual usuario/formTitulacion.png){#pag:formTitulacion
 width="\\textwidth"}
 
 #### Modificación de titulaciones
@@ -192,7 +192,7 @@ imagen [5.10](#pag:formModTitulacion){reference-type="ref"
 reference="pag:formModTitulacion"}).
 
 ![Formulario de modificación de
-titulaciones](../img/Anexos/Manual usuario/formModTitulacion.png){#pag:formModTitulacion
+titulaciones](./img/Anexos/Manual usuario/formModTitulacion.png){#pag:formModTitulacion
 width="\\textwidth"}
 
 Desde este formulario se pueden modificar los campos deseados. Una vez
@@ -215,7 +215,7 @@ tiene asignaturas asociadas, en caso contrario, no se podrá eliminar y
 aparecerá un mensaje de error mostrando esta información.
 
 ![Alerta de eliminación de
-titulaciones](../img/Anexos/Manual usuario/alertElTitulacion.png){#pag:alertElTitulacion
+titulaciones](./img/Anexos/Manual usuario/alertElTitulacion.png){#pag:alertElTitulacion
 width="\\textwidth"}
 
 #### Creación de asignaturas
@@ -230,7 +230,7 @@ Es importante tener en cuenta que previamente se debe haber creado la
 titulación a la que se quiere vincular la asignatura.
 
 ![Página principal de
-asignaturas](../img/Anexos/Manual usuario/asignaturas.png){#pag:asignaturas
+asignaturas](./img/Anexos/Manual usuario/asignaturas.png){#pag:asignaturas
 width="\\textwidth"}
 
 Una vez en la página principal de asignaturas se debe pulsar sobre el
@@ -245,7 +245,7 @@ asignaturas junto a un mensaje informando de la correcta creación de la
 asignatura.
 
 ![Formulario de creación de
-asignaturas](../img/Anexos/Manual usuario/formAsignatura.png){#pag:formAsignatura
+asignaturas](./img/Anexos/Manual usuario/formAsignatura.png){#pag:formAsignatura
 width="\\textwidth"}
 
 #### Modificación de asignaturas
@@ -263,7 +263,7 @@ de la información y una redirección a la página de asignaturas donde se
 mostrará un mensaje informativo sobre la modificación de la asignatura.
 
 ![Formulario de modificación de
-asignaturas](../img/Anexos/Manual usuario/formModAsignatura.png){#pag:formModAsignatura
+asignaturas](./img/Anexos/Manual usuario/formModAsignatura.png){#pag:formModAsignatura
 width="\\textwidth"}
 
 #### Eliminación de asignaturas
@@ -279,7 +279,7 @@ asignatura se elimina de la aplicación produciendo un borrado en cascada
 de sus relaciones con los cursos académicos creados.
 
 ![Alerta de eliminación de
-titulaciones](../img/Anexos/Manual usuario/alertElAsignatura.png){#pag:alertElAsignatura
+titulaciones](./img/Anexos/Manual usuario/alertElAsignatura.png){#pag:alertElAsignatura
 width=".8\\textwidth"}
 
 ### Mantenimiento de profesorado
@@ -291,7 +291,7 @@ en la imagen [5.16](#pag:menuManProf){reference-type="ref"
 reference="pag:menuManProf"}.
 
 ![Menú: Mantenimiento de
-profesorado](../img/Anexos/Manual usuario/menu man prof.png){#pag:menuManProf
+profesorado](./img/Anexos/Manual usuario/menu man prof.png){#pag:menuManProf
 width=".5\\textwidth"}
 
 #### Creación de docentes
@@ -303,7 +303,7 @@ imagen [5.17](#pag:docentes){reference-type="ref"
 reference="pag:docentes"}).
 
 ![Página principal de
-docentes](../img/Anexos/Manual usuario/docentes.png){#pag:docentes
+docentes](./img/Anexos/Manual usuario/docentes.png){#pag:docentes
 width="\\textwidth"}
 
 Desde esta página se debe pulsar sobre el botón \<\<Nuevo\>\>, lo que
@@ -322,7 +322,7 @@ indicar ningún tipo de permiso, el usuario no tendrá acceso a la
 aplicación, aunque este dado de alta en el Moodle de la universidad.
 
 ![Formulario de creación de
-docentes](../img/Anexos/Manual usuario/formDocente.png){#pag:formDocente
+docentes](./img/Anexos/Manual usuario/formDocente.png){#pag:formDocente
 width="\\textwidth"}
 
 #### Modificación de docentes
@@ -340,7 +340,7 @@ imagen [5.19](#pag:formModDocente){reference-type="ref"
 reference="pag:formModDocente"}.
 
 ![Formulario de modificación de
-docentes](../img/Anexos/Manual usuario/formModDocente.png){#pag:formModDocente
+docentes](./img/Anexos/Manual usuario/formModDocente.png){#pag:formModDocente
 width="\\textwidth"}
 
 Una vez se hayan realizado los cambios deseados en los datos se debe
@@ -370,7 +370,7 @@ reference="pag:plazas"}) al pulsar sobre la opción del menú
 \<\<Plazas\>\>.
 
 ![Página principal de
-plazas](../img/Anexos/Manual usuario/plazas.png){#pag:plazas
+plazas](./img/Anexos/Manual usuario/plazas.png){#pag:plazas
 width="\\textwidth"}
 
 Desde esta ventana se debe pulsar sobre el botón \<\<Nuevo\>\>, lo que
@@ -379,7 +379,7 @@ imagen [5.21](#pag:formPlaza){reference-type="ref"
 reference="pag:formPlaza"}).
 
 ![Formulario de modificación de
-plazas](../img/Anexos/Manual usuario/formPlaza.png){#pag:formPlaza
+plazas](./img/Anexos/Manual usuario/formPlaza.png){#pag:formPlaza
 width="\\textwidth"}
 
 Desde está página se pueden completar los campos del formulario con los
@@ -421,7 +421,7 @@ se podrán ver reflejados los cambios. También se mostrará un mensaje
 informando de la modificación de la plaza.
 
 ![Formulario de modificación de
-plazas](../img/Anexos/Manual usuario/formModPlaza.png){#pag:formModPlaza
+plazas](./img/Anexos/Manual usuario/formModPlaza.png){#pag:formModPlaza
 width="\\textwidth"}
 
 #### Eliminación de plazas
@@ -440,7 +440,7 @@ Si se pulsa en \<\<Aceptar\>\> la plaza y sus vinculaciones quedan
 eliminadas, y se mostrará un mensaje informando de la eliminación.
 
 ![Alerta de eliminación de
-plaza](../img/Anexos/Manual usuario/alertElPlaza.png){#pag:alertElPlaza
+plaza](./img/Anexos/Manual usuario/alertElPlaza.png){#pag:alertElPlaza
 width=".5\\textwidth"}
 
 #### Creación de tipos de contrato
@@ -456,7 +456,7 @@ imagen [5.24](#pag:contratos){reference-type="ref"
 reference="pag:contratos"}).
 
 ![Página principal de tipos de
-contrato](../img/Anexos/Manual usuario/contratos.png){#pag:contratos
+contrato](./img/Anexos/Manual usuario/contratos.png){#pag:contratos
 width="\\textwidth"}
 
 Para crear el nuevo tipo de contrato se debe pulsar sobre el botón
@@ -473,7 +473,7 @@ Además, aparecerá un mensaje informando acerca de la creación del tipo
 de contrato.
 
 ![Formulario de creación de tipos de
-contrato](../img/Anexos/Manual usuario/formContrato.png){#pag:formContrato
+contrato](./img/Anexos/Manual usuario/formContrato.png){#pag:formContrato
 width="\\textwidth"}
 
 #### Modificación de tipos de contrato
@@ -495,7 +495,7 @@ actualizada y volveremos a la página principal donde se mostrará un
 mensaje con información sobre la modificación realizada.
 
 ![Formulario de modificación de tipos de
-contrato](../img/Anexos/Manual usuario/formModContrato.png){#pag:formModContrato
+contrato](./img/Anexos/Manual usuario/formModContrato.png){#pag:formModContrato
 width="\\textwidth"}
 
 #### Eliminación de tipos de contrato
@@ -520,7 +520,7 @@ plazas que utilicen ese tipo de contrato, lo que provocará una
 eliminación de todos los elementos que dependan de dichas plazas.
 
 ![Alerta de eliminación de tipo de
-contrato](../img/Anexos/Manual usuario/alertElContrato.png){#pag:alertElContrato
+contrato](./img/Anexos/Manual usuario/alertElContrato.png){#pag:alertElContrato
 width=".6\\textwidth"}
 
 #### Creación de áreas
@@ -538,11 +538,11 @@ formulario de creación de áreas
 reference="pag:formArea"}).
 
 ![Página principal de
-áreas](../img/Anexos/Manual usuario/areas.png){#pag:areas
+áreas](./img/Anexos/Manual usuario/areas.png){#pag:areas
 width="\\textwidth"}
 
 ![Formulario de creación de
-áreas](../img/Anexos/Manual usuario/formArea.png){#pag:formArea
+áreas](./img/Anexos/Manual usuario/formArea.png){#pag:formArea
 width="\\textwidth"}
 
 En este formulario se deben ingresar los datos del área que se desea
@@ -562,7 +562,7 @@ redireccione a la página que contiene el formulario de modificación del
 reference="pag:formModArea"}).
 
 ![Formulario de modificación de
-áreas](../img/Anexos/Manual usuario/formModArea.png){#pag:formModArea
+áreas](./img/Anexos/Manual usuario/formModArea.png){#pag:formModArea
 width="\\textwidth"}
 
 Desde esta página se pueden editar los campos deseados y, una vez
@@ -585,7 +585,7 @@ borrado en cascada de las plazas dependientes y, por lo tanto, de todo
 lo relacionado con las plazas.
 
 ![Alerta de eliminación de
-área](../img/Anexos/Manual usuario/alertElArea.png){#pag:alertElArea
+área](./img/Anexos/Manual usuario/alertElArea.png){#pag:alertElArea
 width=".6\\textwidth"}
 
 #### Creación de departamentos
@@ -611,11 +611,11 @@ principal de departamentos donde se mostrará un mensaje informativo
 acerca de la creación realizada.
 
 ![Página principal de
-departamentos](../img/Anexos/Manual usuario/departamentos.png){#pag:departamentos
+departamentos](./img/Anexos/Manual usuario/departamentos.png){#pag:departamentos
 width="\\textwidth"}
 
 ![Formulario de creación de
-departamentos](../img/Anexos/Manual usuario/formDepartamento.png){#pag:formDepartamento
+departamentos](./img/Anexos/Manual usuario/formDepartamento.png){#pag:formDepartamento
 width="\\textwidth"}
 
 #### Modificación de departamentos
@@ -633,7 +633,7 @@ volverá a la página principal de departamentos donde se verá un mensaje
 indicando la modificación del departamento.
 
 ![Formulario de modificación de
-departamentos](../img/Anexos/Manual usuario/formModDepartamento.png){#pag:formModDepartamento
+departamentos](./img/Anexos/Manual usuario/formModDepartamento.png){#pag:formModDepartamento
 width="\\textwidth"}
 
 #### Eliminación de departamentos
@@ -651,7 +651,7 @@ al borrar las áreas, se eliminará todo lo que se relacione o dependa de
 ellas.
 
 ![Alerta de eliminación de
-departamento](../img/Anexos/Manual usuario/alertElDepartamento.png){#pag:alertElDepartamento
+departamento](./img/Anexos/Manual usuario/alertElDepartamento.png){#pag:alertElDepartamento
 width=".6\\textwidth"}
 
 ### Asignación docente
@@ -673,7 +673,7 @@ y eliminación de grupos para las diferentes asignaturas del curso, y
 impartir en los diferentes grupos.
 
 ![Menú: Asignación
-docente](../img/Anexos/Manual usuario/menu asg doc.png){#pag:menuAsigDoc
+docente](./img/Anexos/Manual usuario/menu asg doc.png){#pag:menuAsigDoc
 width=".4\\textwidth"}
 
 #### Creación de cursos académicos {#section:crearCurso}
@@ -686,7 +686,7 @@ imagen [5.37](#pag:cursos){reference-type="ref"
 reference="pag:cursos"}).
 
 ![Página principal de cursos
-académicos](../img/Anexos/Manual usuario/cursos.png){#pag:cursos
+académicos](./img/Anexos/Manual usuario/cursos.png){#pag:cursos
 width="\\textwidth"}
 
 Una vez en la página, se debe pulsar sobre el botón \<\<Nuevo\>\>, lo
@@ -696,7 +696,7 @@ se pide el año de inicio del nuevo curso
 reference="pag:formCurso1"}).
 
 ![Formulario de creación de curso:
-año](../img/Anexos/Manual usuario/formCurso1.png){#pag:formCurso1
+año](./img/Anexos/Manual usuario/formCurso1.png){#pag:formCurso1
 width="\\textwidth"}
 
 Tras indicar el año de inicio del nuevo curso y pulsar en el botón
@@ -706,7 +706,7 @@ imagen [5.39](#pag:formCurso2){reference-type="ref"
 reference="pag:formCurso2"}).
 
 ![Formulario de creación de curso: selección de
-asignaturas](../img/Anexos/Manual usuario/formCurso2.png){#pag:formCurso2
+asignaturas](./img/Anexos/Manual usuario/formCurso2.png){#pag:formCurso2
 width="\\textwidth"}
 
 La forma de trabajar en esta pantalla es la siguiente:
@@ -751,7 +751,7 @@ imagen [5.40](#pag:mensajeCursoNuevo){reference-type="ref"
 reference="pag:mensajeCursoNuevo"} si todo ha ido bien.
 
 ![Mensaje de creación correcta de
-curso](../img/Anexos/Manual usuario/mensajeCursoNuevo.png){#pag:mensajeCursoNuevo
+curso](./img/Anexos/Manual usuario/mensajeCursoNuevo.png){#pag:mensajeCursoNuevo
 width=".5\\textwidth"}
 
 #### Duplicar curso académico
@@ -762,7 +762,7 @@ imagen [5.41](#pag:icnDuplicarCurso){reference-type="ref"
 reference="pag:icnDuplicarCurso"} del curso que se desea duplicar.
 
 ![Icono de duplicar
-curso](../img/Anexos/Manual usuario/icnDuplicarCurso.png){#pag:icnDuplicarCurso
+curso](./img/Anexos/Manual usuario/icnDuplicarCurso.png){#pag:icnDuplicarCurso
 width=".08\\textwidth"}
 
 Al pulsar sobre el icono se abre una ventana flotante de alerta de
@@ -780,11 +780,11 @@ que está, con todas las plazas asignadas a los grupos. Si se pulsa en
 grupos.
 
 ![Alerta de duplicar el curso
-1](../img/Anexos/Manual usuario/alertCurso1.png){#pag:alertCurso1
+1](./img/Anexos/Manual usuario/alertCurso1.png){#pag:alertCurso1
 width=".7\\textwidth"}
 
 ![Alerta de duplicar el curso
-2](../img/Anexos/Manual usuario/alertCurso2.png){#pag:alertCurso2
+2](./img/Anexos/Manual usuario/alertCurso2.png){#pag:alertCurso2
 width=".7\\textwidth"}
 
 #### Añadir asignaturas a un curso académico
@@ -830,11 +830,11 @@ reference="pag:menErrorElCurso"}. En caso contrario, se mostrará un
 mensaje informando de la eliminación.
 
 ![Alerta de eliminación de curso
-académico](../img/Anexos/Manual usuario/alertElCurso.png){#pag:alertElCurso
+académico](./img/Anexos/Manual usuario/alertElCurso.png){#pag:alertElCurso
 width=".7\\textwidth"}
 
 ![Mensaje de error en la eliminación de un curso
-académico](../img/Anexos/Manual usuario/menErrorElCurso.png){#pag:menErrorElCurso
+académico](./img/Anexos/Manual usuario/menErrorElCurso.png){#pag:menErrorElCurso
 width=".7\\textwidth"}
 
 #### Crear grupos en una asignatura de un curso académico
@@ -851,7 +851,7 @@ grupos (ver imagen [5.46](#pag:grupos){reference-type="ref"
 reference="pag:grupos"}).
 
 ![Página principal de
-grupos](../img/Anexos/Manual usuario/grupos.png){#pag:grupos
+grupos](./img/Anexos/Manual usuario/grupos.png){#pag:grupos
 width="\\textwidth"}
 
 Desde esta página se debe seleccionar el curso académico sobre el que se
@@ -867,11 +867,11 @@ imagen [5.48](#pag:gestionGrupos){reference-type="ref"
 reference="pag:gestionGrupos"}).
 
 ![Icono de gestión de
-grupos](../img/Anexos/Manual usuario/icnGestionGrupos.png){#pag:icnGestionGrupos
+grupos](./img/Anexos/Manual usuario/icnGestionGrupos.png){#pag:icnGestionGrupos
 width=".07\\textwidth"}
 
 ![Página de gestión de
-grupos](../img/Anexos/Manual usuario/gestionGrupos.png){#pag:gestionGrupos
+grupos](./img/Anexos/Manual usuario/gestionGrupos.png){#pag:gestionGrupos
 width="\\textwidth"}
 
 Desde la página de gestión se debe pulsar sobre el botón \<\<Añadir
@@ -881,7 +881,7 @@ imagen [5.49](#pag:flotanteNuevoGrupo){reference-type="ref"
 reference="pag:flotanteNuevoGrupo"})
 
 ![Ventana flotante de creación de
-grupos](../img/Anexos/Manual usuario/flotanteNuevoGrupo.png){#pag:flotanteNuevoGrupo
+grupos](./img/Anexos/Manual usuario/flotanteNuevoGrupo.png){#pag:flotanteNuevoGrupo
 width=".8\\textwidth"}
 
 Con el tipo de grupo seleccionado se debe pulsar sobre el botón
@@ -938,7 +938,7 @@ la eliminación
 reference="pag:alertElAsigCurso"}).
 
 ![Alerta de eliminación de asignatura del curso
-académico](../img/Anexos/Manual usuario/alertElAsigCurso.png){#pag:alertElAsigCurso
+académico](./img/Anexos/Manual usuario/alertElAsigCurso.png){#pag:alertElAsigCurso
 width=".7\\textwidth"}
 
 Al pulsar en \<\<Aceptar\>\>, si todo va bien, se eliminará la
@@ -987,7 +987,7 @@ académico se puede ver en la sección [\<\<Eliminación de una asignatura
 del curso\>\>](#section:eliminarAsigCurso).
 
 ![Ventana flotante de editar asignatura del curso
-académico](../img/Anexos/Manual usuario/flotanteEditarAsig.png){#pag:flotanteEditarAsig
+académico](./img/Anexos/Manual usuario/flotanteEditarAsig.png){#pag:flotanteEditarAsig
 width=".65\\textwidth"}
 
 #### Asignar horas de una plaza a un grupo
@@ -997,7 +997,7 @@ principal de horas de un curso académico (ver
 imagen [5.52](#pag:horas){reference-type="ref" reference="pag:horas"}).
 
 ![Página principal de horas de
-grupos](../img/Anexos/Manual usuario/horas.png){#pag:horas
+grupos](./img/Anexos/Manual usuario/horas.png){#pag:horas
 width="\\textwidth"}
 
 Para acceder a esta página se debe pulsar sobre la opción del menú
@@ -1017,7 +1017,7 @@ reference="pag:icnHoras"}) del grupo de la tabla al que se le desea
 añadir horas de una plaza.
 
 ![Página principal de horas de
-grupos](../img/Anexos/Manual usuario/icnHoras.png){#pag:icnHoras
+grupos](./img/Anexos/Manual usuario/icnHoras.png){#pag:icnHoras
 width=".07\\textwidth"}
 
 Tras pulsar en el icono, se abrirá la página de gestión de horas del
@@ -1025,7 +1025,7 @@ grupo (ver imagen [5.54](#pag:horasGrupo){reference-type="ref"
 reference="pag:horasGrupo"}).
 
 ![Página de gestión de horas de un
-grupo](../img/Anexos/Manual usuario/horasGrupo.png){#pag:horasGrupo
+grupo](./img/Anexos/Manual usuario/horasGrupo.png){#pag:horasGrupo
 width="\\textwidth"}
 
 Pulsando en el botón \<\<Añadir Plaza\>\> se abre una ventana flotante
@@ -1035,7 +1035,7 @@ plaza que se quiere vincular y el número de horas de docencia que va a
 impartir.
 
 ![Ventana flotante de vincular una plaza a un
-grupo](../img/Anexos/Manual usuario/flotanteAddPlaza.png){#pag:flotanteAddPlaza
+grupo](./img/Anexos/Manual usuario/flotanteAddPlaza.png){#pag:flotanteAddPlaza
 width=".7\\textwidth"}
 
 Con la plaza seleccionada y las horas indicadas, se debe pulsar sobre el
@@ -1083,7 +1083,7 @@ se puede ver en la imagen [5.56](#pag:menu bd){reference-type="ref"
 reference="pag:menu bd"}.
 
 ![Menú: Base de
-datos](../img/Anexos/Manual usuario/menu bd.png){#pag:menu bd
+datos](./img/Anexos/Manual usuario/menu bd.png){#pag:menu bd
 width=".35\\textwidth"}
 
 #### Exportar la información de la base de datos
@@ -1125,7 +1125,7 @@ abierta y se redirige a la página de inicio de sesión, donde aparecerá
 un mensaje indicando el resultado de la importación.
 
 ![Página de importación de
-datos](../img/Anexos/Manual usuario/importar.png){#pag:importar
+datos](./img/Anexos/Manual usuario/importar.png){#pag:importar
 width="\\textwidth"}
 
 [^1]: CRUD son las siglas de *Create* (crear), *Read* (leer), *Update*
