@@ -460,3 +460,324 @@ Es importante tener en cuenta que la eliminación de un departamento supone elim
 	\includegraphics[width=.6\textwidth]{../img/Anexos/Manual usuario/alertElDepartamento.png}
 	\caption{Alerta de eliminación de departamento}\label{pag:alertElDepartamento}
 \end{figure}
+
+\subsection{Asignación docente}
+El apartado de <<Asignación docente>> contiene las herramientas necesarias para la gestión de cursos académicos.
+Desde la creación del propio curso, hasta la gestión de grupos y la asignación de plazas a estos grupos.
+
+Para poder acceder a estas funcionalidades, se debe pulsar sobre la opción desplegable del menú llamada <<Asignación docente>> (imagen~\ref{pag:menuAsigDoc}).
+Dentro de esta se pueden encontrar las opciones <<Cursos Académicos>>, desde donde realizar la gestión de crear cursos académicos, duplicarlos, añadir asignaturas o eliminarlos, <<Grupos/Horas>>, desde donde se accede a la creación, modificación y eliminación de grupos para las diferentes asignaturas del curso, y <<Horas/Grupos>>, que permite asignar horas que las plazas van a impartir en los diferentes grupos.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=.4\textwidth]{../img/Anexos/Manual usuario/menu asg doc.png}
+	\caption{Menú: Asignación docente}\label{pag:menuAsigDoc}
+\end{figure}
+
+\subsubsection{Creación de cursos académicos}\label{section:crearCurso}
+Para crear un curso académico se debe pulsar sobre la opción del menú llamada <<Cursos Académicos>> que se encuentra dentro del desplegable de asignación docente.
+Tras realizar esta acción se abrirá la página de gestión de cursos académicos (ver imagen~\ref{pag:cursos}).
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{../img/Anexos/Manual usuario/cursos.png}
+	\caption{Página principal de cursos académicos}\label{pag:cursos}
+\end{figure}
+
+Una vez en la página, se debe pulsar sobre el botón <<Nuevo>>, lo que nos llevará a la creación de curso, comenzando por una página donde se pide el año de inicio del nuevo curso (imagen~\ref{pag:formCurso1}).
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{../img/Anexos/Manual usuario/formCurso1.png}
+	\caption{Formulario de creación de curso: año}\label{pag:formCurso1}
+\end{figure}
+
+Tras indicar el año de inicio del nuevo curso y pulsar en el botón <<Añadir>> la web mostrará la página desde la que poder seleccionar el número de alumnos y asignaturas de este nuevo curso (ver imagen~\ref{pag:formCurso2}).
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{../img/Anexos/Manual usuario/formCurso2.png}
+	\caption{Formulario de creación de curso: selección de asignaturas}\label{pag:formCurso2}
+\end{figure}
+
+La forma de trabajar en esta pantalla es la siguiente: 
+\begin{enumerate}
+\item Seleccionar una titulación en el cuadro de búsqueda llamado <<Seleccionar titulación>>.
+\item Indicar el número de alumnos por cada modalidad.
+
+Es necesario indicar el número de alumnos, ya que si se deja vacío, aunque se añadan asignaturas, no se creará la vinculación. No es necesaria poner un número de alumnos a todas la modalidades, sólo a las que se quieran añadir.
+\item En la parte de abajo, seleccionar el curso de la titulación desde el campo <<Curso>> si se desea hacer un mayor filtro de búsqueda de asignaturas.
+\item En el recuadro con título <<Asignaturas>> aparecerán todas las asignaturas, de la titulación y cursos seleccionados previamente.
+Estas asignaturas pueden ser arrastradas con el ratón del bloque izquierdo al bloque derecho, llamado <<Asignaturas seleccionadas>>, para que se añadan al curso académico.
+
+Se pueden ir seleccionando las asignaturas de una en una o pinchar sobre varias, que se pondrán con un fondo verde, y arrastrar la selección completa al bloque derecho.
+\end{enumerate}
+
+Una vez se tengan seleccionadas todas las asignaturas que se quieren añadir al curso, y tras haber indicado el número de alumnos por modalidad deseado, se debe pulsar sobre el botón que se encuentra al final de la pantalla llamado <<Añadir>>.
+
+Realizar esta acción producirá la vinculación de las asignaturas seleccionadas con el curso académico creado.
+Además, se creará un grupo de teoría y un grupo de práctica para cada asignatura en todas las modalidades donde se haya indicado un número de alumnos mayor a 0.
+
+Al final del proceso, la web mostrará la página principal de cursos con un mensaje como el de la imagen~\ref{pag:mensajeCursoNuevo} si todo ha ido bien.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=.5\textwidth]{../img/Anexos/Manual usuario/mensajeCursoNuevo.png}
+	\caption{Mensaje de creación correcta de curso}\label{pag:mensajeCursoNuevo}
+\end{figure}
+
+\subsubsection{Duplicar curso académico}
+Para duplicar un curso académico, se debe ir a la página principal de cursos y, desde ahí, pulsar sobre el icono de la imagen~\ref{pag:icnDuplicarCurso} del curso que se desea duplicar.
+\begin{figure}
+	\centering
+	\includegraphics[width=.08\textwidth]{../img/Anexos/Manual usuario/icnDuplicarCurso.png}
+	\caption{Icono de duplicar curso}\label{pag:icnDuplicarCurso}
+\end{figure}
+
+Al pulsar sobre el icono se abre una ventana flotante de alerta de confirmación (ver imagen~\ref{pag:alertCurso1}) en la que se pregunta si se está seguro de duplicar el curso.
+Al pulsar en <<Aceptar>>, aparecerá la alerta de la imagen~\ref{pag:alertCurso2} en la que se pregunta si se desean duplicar también las plazas asociadas a los diferentes grupos de las asignaturas del curso.
+
+Si se pulsa en <<Aceptar>>, se duplicará el curso exactamente igual que está, con todas las plazas asignadas a los grupos. 
+Si se pulsa en <<Cancelar>> sólo de duplicará el curso junto a las asignaturas y grupos.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=.7\textwidth]{../img/Anexos/Manual usuario/alertCurso1.png}
+	\caption{Alerta de duplicar el curso 1}\label{pag:alertCurso1}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=.7\textwidth]{../img/Anexos/Manual usuario/alertCurso2.png}
+	\caption{Alerta de duplicar el curso 2}\label{pag:alertCurso2}
+\end{figure}
+
+\subsubsection{Añadir asignaturas a un curso académico}
+Si después de haber creado un curso se quieren añadir nuevas asignaturas a este, se debe ir a la página principal de cursos y pulsar sobre el icono del lápiz del curso deseado.
+
+Una vez hecho esto, se abrirá la misma página que se utilizaba para la vinculación de asignaturas durante la creación (imagen~\ref{pag:formCurso2}).
+El funcionamiento es el mismo (consultar sección \hyperref[section:crearCurso]{<<Creación de cursos académicos>>} para ver como añadir asignaturas a un curso académico).
+
+\subsubsection{Eliminar curso académico}
+La eliminación de un curso académico desde la aplicación web no es lo más recomendable ya que mucha información depende de él y podría producir la eliminación de contenido que no se deseaba borrar.
+
+Por los requerimientos dados a la hora de crear la aplicación se ha dificultado la eliminación de cursos para no producir borrados no deseados, por lo que no se realiza un borrado en cascada y se deberá eliminar a mano todo el contenido que dependa del curso previamente.
+Por ello, para eliminar un curso académico, lo recomendable es ponerse en contacto con el administrador de sistemas y eliminarlo directamente desde la base de datos de una forma rápida.
+
+Aun así, para eliminar un curso académico desde la aplicación se debe ir a la página principal de cursos y, una vez ahí, pulsar sobre el icono de la papelera del curso deseado.
+
+Esta acción mostrará por pantalla una alerta de confirmación como la de la imagen~\ref{pag:alertElCurso}, donde se informa de que no se podrá eliminar si tiene asignaturas vinculadas.
+
+Si se pulsar sobre <<Aceptar>> y el curso tiene asignaturas vinculadas, se mosrará un mensaje de error como el de la imagen~\ref{pag:menErrorElCurso}. 
+En caso contrario, se mostrará un mensaje informando de la eliminación.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=.7\textwidth]{../img/Anexos/Manual usuario/alertElCurso.png}
+	\caption{Alerta de eliminación de curso académico}\label{pag:alertElCurso}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=.7\textwidth]{../img/Anexos/Manual usuario/menErrorElCurso.png}
+	\caption{Mensaje de error en la eliminación de un curso académico}\label{pag:menErrorElCurso}
+\end{figure}
+
+\subsubsection{Crear grupos en una asignatura de un curso académico}
+Las asignaturas de un curso académico se encuentran organizadas mediante grupos, donde se distribuye a los alumnos y distintos profesores imparten docencia.
+
+Para poder crear estos grupos a través de la aplicación web es necesario desplazarse a la opción del menú llamada <<Grupos/Asignaturas>> que se encuentra dentro del desplegable llamado <<Asignación docente>>.
+Al pulsar sobre esta opción, la web mostrará la página principal de grupos (ver imagen~\ref{pag:grupos}).
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{../img/Anexos/Manual usuario/grupos.png}
+	\caption{Página principal de grupos}\label{pag:grupos}
+\end{figure}
+
+Desde esta página se debe seleccionar el curso académico sobre el que se quiere trabajar desde el selector de cursos que se encuentra arriba a la izquierda.
+
+Con el curso seleccionado se debe pulsar sobre el icono de las dos personas (imagen~\ref{pag:icnGestionGrupos}) de la asignatura del curso a la que se le quiere añadir un grupo.
+Al realizar esta acción, se abrirá la página de gestión de grupos para esa asignatura (ver imagen~\ref{pag:gestionGrupos}).
+
+\begin{figure}
+	\centering
+	\includegraphics[width=.07\textwidth]{../img/Anexos/Manual usuario/icnGestionGrupos.png}
+	\caption{Icono de gestión de grupos}\label{pag:icnGestionGrupos}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{../img/Anexos/Manual usuario/gestionGrupos.png}
+	\caption{Página de gestión de grupos}\label{pag:gestionGrupos}
+\end{figure}
+
+Desde la página de gestión se debe pulsar sobre el botón <<Añadir grupo>>, lo que abrirá una ventana flotante desde la que se podrá seleccionar el tipo de grupo a crear (ver imagen~\ref{pag:flotanteNuevoGrupo})
+
+\begin{figure}
+	\centering
+	\includegraphics[width=.8\textwidth]{../img/Anexos/Manual usuario/flotanteNuevoGrupo.png}
+	\caption{Ventana flotante de creación de grupos}\label{pag:flotanteNuevoGrupo}
+\end{figure}
+
+Con el tipo de grupo seleccionado se debe pulsar sobre el botón <<Añadir>>.
+De esta manera la ventana flotante se cerrará y el grupo quedará creado con el nombre que le corresponda.
+
+El nombre del grupo se asigna de forma automática siguiendo la relación que deben tener los nombres de grupo, y en el caso de grupos prácticos, su <<división>> por grupos teóricos.
+
+\subsubsection{Eliminar un grupo de una asignatura}\label{section:eliminarGrupo}
+Para realizar la eliminación de un grupo de una asignatura se debe acceder a la página de gestión de grupos de esa asignatura (imagen~\ref{pag:gestionGrupos}), y desde ahí, pulsar en el icono de la papelera del grupo que se desea eliminar.
+
+Esta acción producirá la apertura de una alerta de confirmación de la eliminación.
+Al pulsar en <<Aceptar>> el grupo quedará eliminado.
+
+Existen algunas excepciones que no permiten eliminar un grupo:
+\begin{itemize}
+\item Se trata del único grupo de teoría y existen grupos prácticos:
+En caso de querer eliminar el único grupo de teoría existente, pero tener algún grupo práctico que dependa de él, no se podrá eliminar, habrá que eliminar antes los grupos prácticos.
+\item Grupo con vinculaciones a alguna plaza:
+Si el grupo que se intenta eliminar tiene alguna vinculación con una o más plazas, no se podrá eliminar directamente, habrá que eliminar primero las vinculaciones.
+\end{itemize}
+
+Esa información se mostrará si el grupo se encuentra bajo alguna de estas excepciones, si no, aparecerá un mensaje indicando la correcta eliminación y el grupo desaparecerá de la lista.
+
+\subsubsection{Eliminación de una asignatura del curso}\label{section:eliminarAsigCurso}
+Para eliminar una asignatura de un curso académico hay que dirigirse a la página principal de grupos/asignaturas (ver imagen~\ref{pag:grupos}), a la que se accede desde la opción del mení <<Grupos/Asignatura>>.
+
+Desde esta página se debe elegir el curso académico sobre el que se quiere trabajar desde el seleccionador de cursos de la parte superior izquierda.
+Tras hacer esto, aparecerá un listado con todas las asignaturas del curso académico.
+
+Para eliminar una asignatura se debe pulsar sobre el icono de la papelera de la asignatura deseada.
+Esto abrirá una alerta para confirmar la eliminación (imagen~\ref{pag:alertElAsigCurso}).
+
+\begin{figure}
+	\centering
+	\includegraphics[width=.7\textwidth]{../img/Anexos/Manual usuario/alertElAsigCurso.png}
+	\caption{Alerta de eliminación de asignatura del curso académico}\label{pag:alertElAsigCurso}
+\end{figure}
+
+Al pulsar en <<Aceptar>>, si todo va bien, se eliminará la asignatura del curso y aparecerá un mensaje indicando la acción realizada.
+En caso contrario, se mostrará un mensaje con el error producido.
+
+Las excepciones que no permiten eliminar una asignatura del curso directamente son las siguientes:
+\begin{itemize}
+\item La asignatura tiene grupos vinculados:
+En este caso se deben eliminar los grupos previamente. 
+Se puede ver como eliminar un grupo en la sección \hyperref[section:eliminarGrupo]{<<Eliminar un grupo de una asignatura>>}.
+\item La asignatura tiene algún grupo previsto:
+Esta información se puede ver y modificar pulsando sobre el icono del lápiz de la asignatura.
+Ahí se debe indicar el número 0 tanto para grupos prácticos como teóricos previstos.
+De esta forma, se evitará esta excepción.
+\end{itemize}
+
+\subsubsection{Modificar información de una asignatura de un curso académico}
+Desde la página principal de grupos/asignaturas de un curso (imagen~\ref{pag:grupos}) se puede modificar la información de alumnos y grupos previstos.
+
+Para realizar esta acción se debe pulsar sobre el icono del lápiz de la asignatura del curso a editar. 
+Esto abrirá una ventana flotante como la de la imagen~\ref{pag:flotanteEditarAsig} desde donde se pueden indicar, tanto el número de alumnos previstos, como el de grupos teóricos y prácticos previstos.
+
+Tras realizar los cambios, pulsar en el botón <<Modificar>> producirá la actualización de estos datos.
+
+Es importante saber que estos datos sólo tienen carácter informativo, y que ningún elemento de la aplicación depende de ellos. Aun así, el número previsto de grupos prácticos y teóricos sí que influye en la eliminación de las asignaturas de curso, ya que se considera, que si tiene grupos previstos no debería eliminarse del curso.
+
+La información completa sobre la eliminación de asignaturas de un curso académico se puede ver en la sección \hyperref[section:eliminarAsigCurso]{<<Eliminación de una asignatura del curso>>}.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=.65\textwidth]{../img/Anexos/Manual usuario/flotanteEditarAsig.png}
+	\caption{Ventana flotante de editar asignatura del curso académico}\label{pag:flotanteEditarAsig}
+\end{figure}
+
+\subsubsection{Asignar horas de una plaza a un grupo}
+La asignación de horas de plazas a grupos se realiza desde la página principal de horas de un curso académico (ver imagen~\ref{pag:horas}).
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{../img/Anexos/Manual usuario/horas.png}
+	\caption{Página principal de horas de grupos}\label{pag:horas}
+\end{figure}
+
+Para acceder a esta página se debe pulsar sobre la opción del menú llamada <<Horas/Grupo>>, que se encuentra dentro de la opción desplegable del menú llamada <<Asignación docente>>.
+
+Una vez en la página principal de horas, se debe seleccionar un curso académico desde el selector de cursos que se encuentra en la parte superior izquierda.
+
+Al seleccionar el curso, se mostrará el listado completo de grupos que tiene el curso académico.
+
+Para asignar una plaza a un grupo se debe pulsar sobre el icono del reloj (imagen~\ref{pag:icnHoras}) del grupo de la tabla al que se le desea añadir horas de una plaza.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=.07\textwidth]{../img/Anexos/Manual usuario/icnHoras.png}
+	\caption{Página principal de horas de grupos}\label{pag:icnHoras}
+\end{figure}
+
+Tras pulsar en el icono, se abrirá la página de gestión de horas del grupo (ver imagen~\ref{pag:horasGrupo}).
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{../img/Anexos/Manual usuario/horasGrupo.png}
+	\caption{Página de gestión de horas de un grupo}\label{pag:horasGrupo}
+\end{figure}
+
+Pulsando en el botón <<Añadir Plaza>> se abre una ventana flotante (ver imagen~\ref{pag:flotanteAddPlaza}) en la que se puede seleccionar la plaza que se quiere vincular y el número de horas de docencia que va a impartir.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=.7\textwidth]{../img/Anexos/Manual usuario/flotanteAddPlaza.png}
+	\caption{Ventana flotante de vincular una plaza a un grupo}\label{pag:flotanteAddPlaza}
+\end{figure}
+
+Con la plaza seleccionada y las horas indicadas, se debe pulsar sobre el botón <<Añadir>> para que se cree la vinculación de la plaza con el grupo.
+
+Al realizar esta acción la ventana flotante se cerrará y se informará mediante un mensaje sobre la vinculación entre la plaza y el grupo.
+
+\subsubsection{Asignar horas desde la tabla de horas}
+Para agilizar el trabajo de modificar las horas que una plaza tiene asignadas a un grupo, se puede acceder a la página principal de horas de un curso académico (ver imagen~\ref{pag:horas}), donde aparecerá la tabla con los grupos del curso académico junto a las plazas asignadas a dichos grupos.
+
+En esta tabla aparecerán, como máximo, tres de las plazas asignadas al grupo junto a las horas que va a impartir en dicho grupo y la información de horas totales asignadas, en ese y otros grupos.
+
+Las columnas de la tabla llamadas <<Horas en el grupo>> se pueden modificar si tienen una plaza asignada.
+Para ello, se debe pulsar sobre la celda y se podrá escribir el número de horas.
+Al salir de la celda, el dato se actualizará automáticamente y aparecerá un mensaje informando de la modificación realizada.
+
+Para navegar por la tabla se puede hacer mediante el ratón pulsando en las diferentes celdas o mediante la tecla <<Tabulador>> del teclado. Además, se puede <<salir>> de la celda pulsando fuera de ella o pulsando la tecla <<ENTER>> del teclado.
+Esta forma de salir de la celda hará efectivo el cambio realizado.
+
+Por último, también se puede <<salir>> sin hacer efectivos los cambios de la celda pulsando la tecla <<ESC>> del teclado.
+
+\subsection{Base de datos}
+La aplicación web cuenta con un sistema que permite exportar los datos de la base de datos y, también, hacer importaciones de datos.
+
+El acceso a estas herramientas se realiza desde el menú de la web, pulsando sobre la opción desplegable llamada <<Base de datos>>, que se puede ver en la imagen~\ref{pag:menu bd}.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=.35\textwidth]{../img/Anexos/Manual usuario/menu bd.png}
+	\caption{Menú: Base de datos}\label{pag:menu bd}
+\end{figure}
+
+\subsubsection{Exportar la información de la base de datos}
+Para exportar los datos que se encuentran en la base de datos se debe pulsar sobre la opción del menú llamada <<Exportar>> que se encuentra dentro del desplegable llamado <<Base de datos>>.
+
+Al pulsar sobre la opción se descargará automáticamente en el dispositivo del usuario un archivo \texttt{SQL} con los datos que contiene la base de datos en sentencias \texttt{INSERT} que permitirán importar de nuevo los datos en la web.
+
+\subsubsection{Importar datos a la base de datos}
+El acceso a esta herramienta se realiza pulsando sobre la opción del menú llamada <<Importar>>, que se encuentra dentro de la opción llamada <<Base de datos>>.
+
+Al realizar esta acción se accede a la página de importación de los datos (ver imagen~\ref{pag:importar}).
+
+Desde esta página se debe seleccionar el archivo que contiene los datos a importar.
+Este archivo debe ser de tipo \texttt{SQL} y sólo debe contener sentencias de tipo \texttt{INSERT}, cualquier otro tipo de sentencia no será aceptada y, por lo tanto, no se permitirá el uso del archivo.
+
+Es importante saber que el uso de esta herramienta puede afectar al contenido de la base de datos, por lo que es recomendable hacer una copia de seguridad previamente si se tienen datos importantes que se pueden querer recuperar en caso de que algo falle.
+
+Al importar los datos se elimina todo el contenido que esté en ese momento en la base de datos y se almacenan los datos del archivo subido.
+
+Cuando se realiza la importación, se cierra la sesión que estuviese abierta y se redirige a la página de inicio de sesión, donde aparecerá un mensaje indicando el resultado de la importación.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{../img/Anexos/Manual usuario/importar.png}
+	\caption{Página de importación de datos}\label{pag:importar}
+\end{figure}
+
