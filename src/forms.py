@@ -260,7 +260,7 @@ class FormCursoAsignatura(FlaskForm):
                          validators=[InputRequired(message='Debe indicar el número de grupos teoría previstos'),
                                      NumberRange(min=0,
                                                  message='El número de grupos teoría previstos debe ser mayor que 0')])
-    n_g_p = IntegerField('Nº grupos prácticas previstos',
+    n_g_p = IntegerField('Nº grupos prácticos previstos',
                          validators=[InputRequired(message='Debe indicar el número de grupos prácticas previstos'),
                                      NumberRange(min=0,
                                                  message='El número de grupos prácticas previstos debe ser mayor que 0')])
