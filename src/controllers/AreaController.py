@@ -2,8 +2,6 @@ from flask import render_template, redirect, url_for, abort, flash, request, ses
 
 from forms import FormArea
 from models.Area import Area
-from models.Departamento import Departamento
-from models.Docente import Docente
 
 
 def index():

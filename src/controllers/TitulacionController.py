@@ -1,6 +1,5 @@
-from flask import render_template, redirect, url_for, abort, flash, request, session
+from flask import render_template, redirect, url_for, abort, flash, request
 from forms import FormTitulacion
-from models.Docente import Docente
 from models.Titulacion import Titulacion
 
 

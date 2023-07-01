@@ -1,12 +1,10 @@
 import math
-from flask import render_template, jsonify, request, flash, redirect, url_for, session
+from flask import render_template, jsonify, request, flash, redirect, url_for
 from forms import FormCurso, FormCursoUpdate, UpdateYearCursoForm
 from models.Asignatura import Asignatura
 from models.Curso import Curso
 from models.CursoAsignatura import CursoAsignatura, Modalidad
-from models.Docente import Docente
 from models.Grupo import Grupo, Tipo
-from models.Plaza import Plaza
 from models.PlazaGrupo import PlazaGrupo
 from utils.db import db
 

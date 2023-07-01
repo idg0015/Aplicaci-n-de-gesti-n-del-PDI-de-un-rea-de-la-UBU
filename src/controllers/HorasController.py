@@ -1,8 +1,7 @@
-from flask import render_template, redirect, url_for, flash, request, jsonify, session
+from flask import render_template, redirect, url_for, flash, request, jsonify
 
 from forms import FormPlazaGrupo, FormPlazaGrupoUpdate
 from models.Curso import Curso
-from models.Docente import Docente
 from models.Grupo import Grupo
 from models.Plaza import Plaza
 from models.PlazaGrupo import PlazaGrupo

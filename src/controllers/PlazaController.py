@@ -1,4 +1,4 @@
-from flask import render_template, redirect, url_for, flash, abort, request, session
+from flask import render_template, redirect, url_for, flash, abort, request
 
 from forms import FormPlaza
 from models.Docente import Docente

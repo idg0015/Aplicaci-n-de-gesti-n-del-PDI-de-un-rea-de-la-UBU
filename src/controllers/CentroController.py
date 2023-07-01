@@ -1,8 +1,7 @@
-from flask import render_template, redirect, url_for, abort, flash, session
+from flask import render_template, redirect, url_for, abort, flash
 
 from forms import FormCentro
 from models.Centro import Centro
-from models.Docente import Docente
 
 
 def index():

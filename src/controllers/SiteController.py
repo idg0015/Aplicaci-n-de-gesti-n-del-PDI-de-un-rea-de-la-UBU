@@ -3,7 +3,7 @@ import re
 import datetime
 import pymysql
 import requests
-from flask import session, redirect, url_for, flash, render_template, request, make_response
+from flask import session, redirect, url_for, flash, render_template, make_response
 from forms import FormLogin, FormDataBase
 from models.Centro import Centro
 from models.Docente import Docente

@@ -1,8 +1,7 @@
-from flask import render_template, redirect, url_for, abort, flash, request, jsonify, session
+from flask import render_template, redirect, url_for, abort, flash, request
 
 from forms import FormDepartamento
 from models.Departamento import Departamento
-from models.Docente import Docente
 
 
 def index():

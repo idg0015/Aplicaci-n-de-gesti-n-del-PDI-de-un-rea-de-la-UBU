@@ -1,8 +1,7 @@
-from flask import render_template, flash, redirect, url_for, session, jsonify
+from flask import render_template, flash, redirect, url_for, jsonify
 
 from forms import FormGrupo, FormCursoAsignatura
 from models.CursoAsignatura import CursoAsignatura
-from models.Docente import Docente
 from models.Grupo import Grupo
 from utils.db import db
 
