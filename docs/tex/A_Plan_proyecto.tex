@@ -580,11 +580,72 @@ Otro de los errores detectados era que si se cambiaba el formato a otro archivo,
 Tras investigar se consiguió hacer una primera validación desde JavaScript para detectar estos archivos SQL mal formados y no permitir subirlos.
 Además, en Python también se controló el posible error que podía saltar.
 
-Finalmente para la tarea <<Añadir documentación en los anexos>> se propuso trabajar 6 horas y al final se hicieron.............
+Finalmente, para la tarea <<Añadir documentación en los anexos>> se propuso trabajar 6 horas y al final se hicieron en torno a esas 6 horas planteadas inicialmente.
 
 \item\textbf{Revisión del \textit{sprint}}
 
-En la reunión del \textit{sprint} 14.............
+En la reunión del \textit{sprint} 14 se estuvieron viendo algunas mejoras para la documentación y los cambios realizados durante el \textit{sprint}.
+Además, se discutieron algunas pequeñas modificaciones para la web que podrían hacer más sencilla la navegación para todos los usuarios.
+
+Finalmente, se estuvieron resolviendo algunas dudas sobre algunas partes de la documentación de cara a la entrega final del proyecto.
+\end{itemize}
+
+\subsubsection{\textit{Sprint} 15: Finalizar documentación y últimos retoques}
+Fechas: 26 junio 2023 -- 3 julio 2023.
+\begin{itemize}
+\item\textbf{Planificación del \textit{sprint}}
+
+En la reunión de planificación del sprint se fijaron las siguientes tareas:
+\begin{enumerate}
+		\item Realizar casos de prueba.
+		\item Incluir observaciones en <<Añadir plaza>>.
+		\item Cambios en <<Asignación docente>>.
+		\item Solucionar \textit{bug} en la tabla de horas.
+		\item Realizar algunas modificaciones en la documentación.
+		\item Hacer el manual de usuario.
+		\item Documentar las conclusiones y líneas futuras.
+		\item Últimos retoques de diseño.
+\end{enumerate}
+
+\item\textbf{\textit{Burndown Report}}
+
+La tarea de <<Realizar casos de prueba>> es la primera que se completó.
+Se había hecho una estimación de 4 horas que se convirtieron en unas 5 horas reales.
+Durante esta tarea se probó la aplicación y se documentaron los casos de prueba realizados.
+
+La siguiente tarea que se completó fue la de <<Incluir observaciones en ``Añadir plaza''>>.
+Esta tarea fue creada para añadir un campo de observaciones donde poder escribir texto libre al crear o modificar plazas.
+
+Se estimó una duración de media hora que se cumplió en el mismo tiempo estimado.
+
+Para la tarea de <<Cambios en ``Asignación docente''>> se dio una estimación de 5 minutos, ya que se trataba simplemente de cambiar algún texto para hacer más sencilla la navegación.
+La tarea se cumplió dentro del tiempo planeado.
+
+Otra tarea que se realizó durante este último \textit{sprint} fue la de <<Solucionar \textit{bug} en la tabla de horas>>.
+
+Al hacer pruebas en la aplicación se detectó que con algunos navegadores la modificación de las horas de las plazas asignadas a grupos desde la tabla no funcionaba del todo bien, ya que la escritura parecía realizarse de derecha a izquierda.
+
+Tras investigar el problema, se vio que este se producía al hacer uso de una expresión regular para permitir sólo números. 
+Algunos navegadores reiniciaban la posición del cursor al pasar la expresión regular, por lo que la solución fue guardar la posición del puntero antes de pasar la expresión regular y devolverlo a el lugar que tenía después de esto.
+
+Esta tarea tenía una estimación de tiempo de 1 hora, pero finalmente fue completada en casi 2 horas.
+
+Para la tarea <<Realizar algunas modificaciones en la documentación>> se planteó una estimación de 1 hora y, en trabajo real, fue aproximadamente el mismo tiempo.
+
+En esta tarea se buscaba arreglar algunas erratas detectadas y añadir más información a la memoria.
+
+Otra tarea que se realizó fue la de <<Hacer el manual de usuario>>, con una estimación de 5 horas, que finalmente se convirtió en algo más de 6 horas de trabajo real.
+
+La tarea <<Documentar las conclusiones y líneas futuras>> tenía una estimación de 2 horas y se realizó en.......................
+
+Por último, la tarea de <<Últimos retoques de diseño>> se fijo en 2 horas de trabajo, que en realidad fueron aproximadamente 3, ya que eran cambios que se iban haciendo según se iban viendo sin tener claro cuantos iba a haber.
+
+\item\textbf{Revisión del \textit{sprint}}
+
+En la reunión del \textit{sprint} 15 se estuvieron viendo todas las adiciones a la memoria y se comentaron algunos de los pequeños cambios realizados en la web.
+
+Durante esta última reunión se comentaron algunas pequeñas mejoras para la documentación y así dejar todo listo para la impresión y entrega de la misma.
+......................................................................
 \end{itemize}
 
 \section{Estudio de viabilidad}
