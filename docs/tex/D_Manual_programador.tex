@@ -125,7 +125,7 @@ Con Python instalado, lo recomendable es crear un entorno virtual para ejecutar 
 Para ello, se debe ejecutar el comando \texttt{virtualenv env} para crear el entorno y acto seguido ejecutar \texttt{env\textbackslash{}Scripts\textbackslash{}activate.bat} (en el caso de Windows) para indicar que queremos utilizar el entorno.
 Esto hará que en el \textit{prompt} de la consola aparezca la palabra <<(env)>>, lo que nos asegurará de que estamos trabajando bajo el entorno.
 
-Por último, en la raíz del proyecto se debe ejecutar el comando \texttt{pip install requirements.txt}.
+Por último, en la raíz del proyecto se debe ejecutar el comando \texttt{pip install -r requirements.txt}.
 De esta forma quedarán instaladas las bibliotecas necesarias para Python.
 
 Para instalar las bibliotecas de JavaScript necesarias para el uso de la aplicación se debe ejecutar el comando \texttt{npm i} a nivel de carpeta \texttt{src/static}, donde se encuentra el archivo <<package.json>> en el que se indican las bibliotecas a descargar junto a su versión. 
