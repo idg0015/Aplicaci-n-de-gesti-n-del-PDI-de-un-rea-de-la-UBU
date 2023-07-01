@@ -33,7 +33,7 @@ class Curso(db.Model):
 
     def check_asignatura_modalidad(self, id_asignatura, modalidad):
         for curso_asignatura in self.asignaturas:
-            if curso_asignatura.asignatura.id == id_asignatura and curso_asignatura.modalidad == modalidad:
+            if int(curso_asignatura.asignatura.id) == int(id_asignatura) and curso_asignatura.modalidad == modalidad:
                 return True
         return False
 

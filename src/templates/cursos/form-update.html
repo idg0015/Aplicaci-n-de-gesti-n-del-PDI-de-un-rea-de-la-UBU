@@ -80,6 +80,7 @@
                     </div>
                 </div>
             </div>
+            <span id="error-students" class="msg-error" hidden="true"></span>
         </div>
 
         <div id="container-asignaturas">
@@ -99,6 +100,7 @@
             {% for error in form.id_asignaturas.errors %}
                 <span class="msg-error">{{ error }}</span>
             {% endfor %}
+            <span id="error-asignaturas" class="msg-error" hidden="true"></span>
 
             <div class="row text-center mt-5 mb-3">
                 <div class="col-md-6">
@@ -162,7 +164,35 @@
             });
         }
 
+        function studentsNumber() {
+            let n_a_p = parseInt($('#n_a_p').val());
+            let n_a_o = parseInt($('#n_a_o').val());
+            let n_a_i = parseInt($('#n_a_i').val());
+            return n_a_p === 0 && n_a_o === 0 && n_a_i === 0;
+        }
+
+        function asignaturasNumber() {
+            return ids.length === 0;
+        }
+
         $(document).ready(function () {
+            $('form').on('submit', function (e) {
+                if (studentsNumber()) {
+                    e.preventDefault();
+                    $('#error-students').html("Debe introducir al menos un alumno").attr('hidden', false);
+                }else{
+                    $('#error-students').attr('hidden', true);
+                }
+
+                if(asignaturasNumber()) {
+                    e.preventDefault();
+                    $('#error-asignaturas').html("Debe seleccionar al menos una asignatura").attr('hidden', false);
+                }else{
+                    $('#error-asignaturas').attr('hidden', true);
+                }
+
+            });
+
             if (idField.value !== '') {
                 ids = idField.value.split(',');
             }
