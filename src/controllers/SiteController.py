@@ -81,7 +81,7 @@ def export_db(host, port, username, password, database):
         for table in tables:
             table_name = table[0]
 
-            if table_name == 'sessions':
+            if table_name == 'sessions' or table_name == 'alembic_version':
                 continue
 
             # Obtener los datos de la tabla
@@ -159,7 +159,7 @@ def import_db(host, port, username, password, database):
                 tables = cursor.fetchall()
                 for table in tables:
                     table_name = table[0]
-                    if table_name == 'sessions':
+                    if table_name == 'sessions' or table_name == 'alembic_version':
                         continue
                     cursor.execute(f'TRUNCATE TABLE `{table_name}`')
 
