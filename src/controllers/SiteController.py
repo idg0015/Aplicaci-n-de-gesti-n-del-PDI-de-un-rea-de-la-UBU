@@ -72,7 +72,6 @@ def export_db(host, port, username, password, database):
     export_file = io.BytesIO()  # BytesIO para almacenar el archivo en memoria
     with export_file:
         cursor = connection.cursor()
-
         # Obtener la lista de tablas
         cursor.execute("SHOW TABLES")
         tables = cursor.fetchall()
