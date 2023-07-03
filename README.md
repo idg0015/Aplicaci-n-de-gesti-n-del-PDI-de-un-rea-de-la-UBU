@@ -59,7 +59,7 @@ Se accede con el correo electrónico y contraseña utilizados en el Moodle de la
 ## Manual de usuario
 
 Se puede contultar el manual de usuario, donde se explica el funcionamiento completo de la aplicación, en el siguiente
-enlace: [Manual de usuario]().
+enlace: [Manual de usuario](https://github.com/idg0015/Aplicacion-de-gestion-del-PDI-de-un-area-de-la-UBU/blob/main/src/static/manual.pdf).
 
 ## Contacto
 
