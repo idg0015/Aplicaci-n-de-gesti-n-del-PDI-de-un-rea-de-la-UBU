@@ -19,7 +19,7 @@ El \textit{software} desarrollado cuenta con un correcto funcionamiento, al meno
 
 \section{Instalación}
 Al tratarse de una aplicación web no precisa de instalación, tan solo se debe acceder a la URL bajo la que se encuentre desplegada la aplicación. 
-A la hora de realizar este trabajo, la URL de acceso es \url{https://flask-ubu.herokuapp.com/}
+A la hora de realizar este trabajo, la URL de acceso es \url{https://gestion-pdi-ubu-e2caca7b13e3.herokuapp.com/}
 
 \section{Manual del usuario}
 El siguiente manual de usuario se va a realizar con un usuario con permisos de modificación para poder mostrar todas las características de la web.
@@ -27,7 +27,7 @@ En caso de contar con un usuario con únicamente permisos de lectura, se mostrar
 
 \subsection{Inicio de sesión}
 
-Para comenzar a utilizar la aplicación lo primero que se debe hacer es acceder a la URL\footnote{A día de realización del trabajo: \url{https://flask-ubu.herokuapp.com/}} de la aplicación.
+Para comenzar a utilizar la aplicación lo primero que se debe hacer es acceder a la URL\footnote{A día de realización del trabajo: \url{https://gestion-pdi-ubu-e2caca7b13e3.herokuapp.com/}} de la aplicación.
 
 Al acceder a la dirección de la web por primera vez, se mostrará la página de inicio de sesión (ver figura~\ref{pag:login}) desde donde se debe indicar el correo electrónico y la contraseña de la cuenta a utilizar.
 La cuenta de correo y la contraseña debe ser la misma que la utilizada en el Moodle de la UBU\footnote{Enlace de ubuvirtual: \url{https://ubuvirtual.ubu.es/}}.
@@ -79,7 +79,7 @@ Esto provocará que el centro se almacene en la base de datos.
 La aplicación redirigirá al usuario a la página principal de centros (imagen~\ref{pag:centros}) mostrando un mensaje que indica la correcta creación del centro.
 
 \subsubsection{Modificación de centros}
-Desde la página principal de centros (imagen~\ref{pag:centros}), se debe pulsar, en la tabla, sobre el icono del lápiz del centro que se desea modificar.
+Desde la página principal de centros (imagen~\ref{pag:centros}), se debe pulsar en la tabla, sobre el icono del lápiz del centro que se desea modificar.
 Esta acción provocará la redirección a la página del formulario de modificación, que contendrá los datos del centro seleccionado (imagen~\ref{pag:formModCentro}).
 
 Desde esta página se pueden modificar los campos deseados y, al finalizar, pulsar sobre el botón <<Modificar>>.
@@ -139,7 +139,7 @@ Esto abrirá la página con el formulario de modificación de la titulación (ve
 
 Desde este formulario se pueden modificar los campos deseados.
 Una vez concluida la modificación se debe pulsar sobre el botón <<Modificar>>.
-Esto plasmará los cambios en la base de datos y la web redirigirá al usuario a la página principal de titulaciones indicando mediante un mensaje la correcta modificación.
+Esto aplicará los cambios en la base de datos y la web redirigirá al usuario a la página principal de titulaciones indicando mediante un mensaje la correcta modificación.
 
 \subsubsection{Eliminación de titulaciones}
 Desde la página principal de titulaciones (imagen~\ref{pag:titulaciones}), se debe pulsar sobre el icono de la papelera de la titulación que se desea eliminar.
@@ -286,7 +286,7 @@ Una vez en esa página se debe pulsar sobre el icono del lápiz de la plaza que 
 Esto abrirá la página que contiene el formulario de modificación de plazas (imagen~\ref{pag:formModPlaza}) con todos los datos de la plaza disponibles para ser editados.
 
 Una vez se tengan los campos deseados editados, se debe pulsar sobre el botón <<Modificar>>.
-De esta manera la información quedará actualizada y seremos redirigidos a la página principal de plazas, donde se podrán ver reflejados los cambios. 
+De esta manera la información quedará actualizada y se redirigirá al usuario a la página principal de plazas, donde se podrán ver reflejados los cambios. 
 También se mostrará un mensaje informando de la modificación de la plaza.
 
 \begin{figure}
@@ -296,7 +296,7 @@ También se mostrará un mensaje informando de la modificación de la plaza.
 \end{figure}
 
 \subsubsection{Eliminación de plazas}
-Si se desea eliminar una plaza que se encuentra en la aplicación web, se debe ir a la página principal de plazas y, desde esta página, se debe pulsar en el icono de la papelera de la plaza del listado que se desea eliminar.
+Si se desea eliminar una plaza que se encuentra en la aplicación web, se debe ir a la página principal de plazas y, desde esta página, pulsar en el icono de la papelera de la plaza del listado que se desea eliminar.
 Esta acción provocará la apertura de una alerta de confirmación como la de la figura~\ref{pag:alertElPlaza} en la que se informa de que, en caso de eliminar la plaza, se eliminarán con ella las posibles relaciones que tenga con grupos de las asignaturas del curso académico correspondiente.
 
 Si se pulsa en <<Aceptar>> la plaza y sus vinculaciones quedan eliminadas, y se mostrará un mensaje informando de la eliminación.
@@ -355,7 +355,7 @@ En primer lugar debemos dirigirnos a la página principal de tipos de contrato.
 En esta página se encuentra una tabla que contiene todos los tipos de contrato creados.
 
 Para eliminar un tipo de contrato se debe pulsar sobre el icono de la papelera de la fila correspondiente a ese tipo de contrato.
-Al realizar esta acción aparecerá la alerta de la imagen~\ref{pag:alertElContrato}, que sirve confirmar la eliminación del tipo de contrato.
+Al realizar esta acción aparecerá la alerta de la imagen~\ref{pag:alertElContrato}, que sirve para confirmar la eliminación del tipo de contrato.
 
 Como se puede ver en el mensaje de la alerta de la imagen anterior, la eliminación de un tipo de contrato supone la eliminación de todas las plazas que utilicen ese tipo de contrato, lo que provocará una eliminación de todos los elementos que dependan de dichas plazas.
 
@@ -438,7 +438,7 @@ De esta forma el departamento quedará creado y el usuario será redirigido a la
 
 \subsubsection{Modificación de departamentos}
 Para modificar los datos de un departamento debemos ir a la página principal de departamentos y, una vez ahí, pulsar sobre el icono del lápiz del departamento que se desea actualizar.
-Esta acción provocará la redirección al formulario de modificación del departamento que se puede ver en la image~\ref{pag:formModDepartamento}.
+Esta acción provocará la redirección al formulario de modificación del departamento que se puede ver en la imagen~\ref{pag:formModDepartamento}.
 
 Tras modificar los campos deseados, se debe pulsar en el botón <<Modificar>> para hacer los cambios efectivos.
 De esta manera, se volverá a la página principal de departamentos donde se verá un mensaje indicando la modificación del departamento.
@@ -450,7 +450,7 @@ De esta manera, se volverá a la página principal de departamentos donde se ver
 \end{figure}
 
 \subsubsection{Eliminación de departamentos}
-Si se desea dar de baja un departamento se debe ir a la página principal de departamentos y pulsar sobre el icono de la papelera del departamento que se desea eliminar.
+Si se desea dar de baja un departamento, se debe ir a la página principal de departamentos y pulsar sobre el icono de la papelera del departamento que se desea eliminar.
 Esta acción hará que se abra una alerta (imagen~\ref{pag:alertElDepartamento}) desde la que confirmar la eliminación.
 
 Es importante tener en cuenta que la eliminación de un departamento supone eliminar todas las áreas que se encuentran vinculadas a este, y al borrar las áreas, se eliminará todo lo que se relacione o dependa de ellas.
@@ -505,7 +505,7 @@ La forma de trabajar en esta pantalla es la siguiente:
 \item Seleccionar una titulación en el cuadro de búsqueda llamado <<Seleccionar titulación>>.
 \item Indicar el número de alumnos por cada modalidad.
 
-Es necesario indicar el número de alumnos, ya que si se deja vacío, aunque se añadan asignaturas, no se creará la vinculación. No es necesaria poner un número de alumnos a todas la modalidades, sólo a las que se quieran añadir.
+Es necesario indicar el número de alumnos, ya que si se deja vacío, aunque se añadan asignaturas, no se creará la vinculación. No es necesario poner un número de alumnos a todas la modalidades, sólo a las que se quieran añadir.
 \item En la parte de abajo, seleccionar el curso de la titulación desde el campo <<Curso>> si se desea hacer un mayor filtro de búsqueda de asignaturas.
 \item En el recuadro con título <<Asignaturas>> aparecerán todas las asignaturas, de la titulación y cursos seleccionados previamente.
 Estas asignaturas pueden ser arrastradas con el ratón del bloque izquierdo al bloque derecho, llamado <<Asignaturas seleccionadas>>, para que se añadan al curso académico.
@@ -740,13 +740,13 @@ Las columnas de la tabla llamadas <<Horas en el grupo>> se pueden modificar si t
 Para ello, se debe pulsar sobre la celda y se podrá escribir el número de horas.
 Al salir de la celda, el dato se actualizará automáticamente y aparecerá un mensaje informando de la modificación realizada.
 
-Para navegar por la tabla se puede hacer mediante el ratón pulsando en las diferentes celdas o mediante la tecla <<Tabulador>> del teclado. Además, se puede <<salir>> de la celda pulsando fuera de ella o pulsando la tecla <<ENTER>> del teclado.
+Para navegar por la tabla se puede hacer mediante el ratón, pulsando en las diferentes celdas o mediante la tecla <<Tabulador>> del teclado. Además, se puede <<salir>> de la celda pulsando fuera de ella o pulsando la tecla <<ENTER>> del teclado.
 Esta forma de salir de la celda hará efectivo el cambio realizado.
 
 Por último, también se puede <<salir>> sin hacer efectivos los cambios de la celda pulsando la tecla <<ESC>> del teclado.
 
 \subsection{Base de datos}
-La aplicación web está equipada con un sistema que permite la exportación e importación de datos desde la base de datos. Esto ofrece la posibilidad de administrar la información de manera más flexible y conveniente.
+La aplicación web está equipada con un módulo que permite la exportación e importación de datos desde la base de datos. Esto ofrece la posibilidad de administrar la información de manera más flexible y conveniente.
 
 El acceso a estas herramientas se realiza desde el menú de la web, pulsando sobre la opción desplegable llamada <<Herramientas>>, que se puede ver en la imagen~\ref{pag:menu herramientas}.
 
@@ -757,7 +757,7 @@ El acceso a estas herramientas se realiza desde el menú de la web, pulsando sob
 \end{figure}
 
 \subsubsection{Exportar la información de la base de datos}
-Para exportar los datos que se encuentran en la base de datos se debe pulsar sobre la opción del menú llamada <<Exportar base de datos>> que se encuentra dentro del desplegable llamado <<Herramientas>>.
+Para exportar los datos que se encuentran en la base de datos se debe pulsar sobre la opción del menú llamada <<Exportar base de datos>>, que se encuentra dentro del desplegable llamado <<Herramientas>>.
 
 Al pulsar sobre la opción se descargará automáticamente en el dispositivo del usuario un archivo \texttt{SQL} con los datos que contiene la base de datos en sentencias \texttt{INSERT} que permitirán importar de nuevo los datos en la web.
 
@@ -771,7 +771,7 @@ Este archivo debe ser de tipo \texttt{SQL} y sólo debe contener sentencias de t
 
 Es importante saber que el uso de esta herramienta puede afectar al contenido de la base de datos, por lo que es recomendable hacer una copia de seguridad previamente si se tienen datos importantes que se pueden querer recuperar en caso de que algo falle.
 
-Al importar los datos se elimina todo el contenido que esté en ese momento en la base de datos y se almacenan los datos del archivo subido.
+Al importar los datos se elimina todo el contenido que esté en ese momento en la base de datos y se insertan los datos del archivo subido.
 
 Cuando se realiza la importación, se cierra la sesión que estuviese abierta y se redirige a la página de inicio de sesión, donde aparecerá un mensaje indicando el resultado de la importación.
 

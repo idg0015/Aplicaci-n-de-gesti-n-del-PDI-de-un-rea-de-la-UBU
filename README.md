@@ -5,7 +5,7 @@
 Repositório de la aplicación web de gestión de PDI en universidades desarrollada en Python con Flask como Trabajo Fin de
 Grado del Grado en Ingeniería Informática de la Universidad de Burgos.
 
-🔗 **Aplicación web**: https://flask-ubu.herokuapp.com/
+🔗 **Aplicación web**: https://gestion-pdi-ubu-e2caca7b13e3.herokuapp.com/
 
 Se accede con el correo electrónico y contraseña utilizados en el Moodle de la universidad.
 
