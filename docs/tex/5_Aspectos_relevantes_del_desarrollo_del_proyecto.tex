@@ -59,14 +59,13 @@ Si en la sesión está el \textit{token} se permite el acceso, en caso contrario
 La aplicación cuenta con un sistema de permisos que sólo permite acceder a aquellos usuarios con permisos de lectura y sólo permite modificar y ver cierta información a aquellos usuarios con permisos de modificación.
 
 Para almacenar tanto el \textit{token} como el identificador del usuario, y así poder comprobar sus permisos, se hace uso de las sesiones.
-
 Por defecto, la sesión se almacena en el cliente mediante una \textit{cookie}. 
-El problema que tiene esta forma de trabajar es que la \textit{cookie} podría ser robada y con ello, el ladrón podría tener acceso a la aplicación. 
+El problema que tiene esta forma de trabajar es que la \textit{cookie} podría ser robada y con ello, el atacante podría tener acceso a la aplicación. 
 En caso de guardar información sensible en la \textit{cookie} lo mejor es hacer el almacenamiento en el lado del servidor, y eso es lo que se ha hecho en esta aplicación para mejorar la seguridad.
 
 \subsection{Creación de cursos académicos}
-La creación de cursos académicos en la aplicación es una de las partes que más se ha intentado cuidar debido a su importancia, ya que mientras algunos elementos, como por ejemplo los centros, lo normal es que se creen y no se vuelvan a tocar, la creación de cursos se realiza todos los años.
-Además, crear un curso académico supone una carga de trabajo importante por parte del usuario ya que debe seleccionar todas aquellas asignaturas deseadas para el curso, lo que puede ser un número elevado de elementos que se deben seleccionar de una forma cómoda.
+La creación de cursos académicos en la aplicación es una de las partes que más se ha cuidado debido a su importancia, ya que mientras algunos elementos, como por ejemplo los centros, lo normal es que se creen y no se vuelvan a tocar en mucho tiempo, la creación de cursos se realiza todos los años.
+Además, crear un curso académico supone una carga de trabajo importante por parte del usuario, ya que debe seleccionar todas aquellas asignaturas deseadas para el curso, lo que puede ser un número elevado de elementos que se deben seleccionar de una forma cómoda.
 
 Para resolver este problema en un principio se pensó en poner una tabla con todas las asignaturas existentes y un campo de selección, pero tras hacer una primera implementación de prueba se vio que no iba a ser algo cómodo para un uso real.
 Tras investigar diferentes opciones se pensó en utilizar la biblioteca de JavaScript llamada <<Sortable.js>> que permite, entre muchas otras cosas, arrastrar elementos de la pantalla entre contenedores.
@@ -99,5 +98,5 @@ El funcionamiento se basa en modificar los campos de <<Horas en el grupo>> desde
 La asignación de horas se realiza al momento de perder el foco del campo sin necesidad de recargar la página gracias al uso de peticiones asíncronas mediante AJAX.
 Además, se realiza la actualización de la columna <<Horas totales asignadas>> también de forma automática.
 
-Esto facilita mucho la modificación de horas y hace que la forma de trabajar sea similar, salvando las distancias, a un Excel.
+Esto facilita mucho la modificación de horas y hace que la forma de trabajar sea similar, salvando las distancias, a una hoja de cálculo (como por ejemplo Microsoft Excel).
 
