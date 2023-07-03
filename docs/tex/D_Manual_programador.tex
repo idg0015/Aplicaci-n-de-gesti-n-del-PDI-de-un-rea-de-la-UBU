@@ -166,6 +166,40 @@ En esta sección se van a realizar distintas pruebas para asegurar que el \texti
 
 \subsection{Casos de prueba}
 A continuación se presentan todos los casos de prueba realizados.
+\begin{itemize}
+\item CP1 - Inicio de sesión correcto~\ref{table:CP1}
+\item CP2 - Inicio de sesión fallido~\ref{table:CP2}
+\item CP3 - Creación correcta de un centro~\ref{table:CP3}
+\item CP4 - Creación fallida de un centro~\ref{table:CP4}
+\item CP5 - Eliminación de un centro sin titulaciones vinculadas~\ref{table:CP5}
+\item CP6 - Eliminación de un centro con titulaciones vinculadas~\ref{table:CP6}
+\item CP7 - Creación de una titulación~\ref{table:CP7}
+\item CP8 - Eliminación de una titulación sin asignaturas vinculadas~\ref{table:CP8}
+\item CP9 - Eliminación de una titulación con asignaturas vinculadas~\ref{table:CP9}
+\item CP10 - Creación de una asignatura~\ref{table:CP9}
+\item CP11 - Eliminación de una asignatura~\ref{table:CP11}
+\item CP12 - Creación de un docente~\ref{table:CP12}
+\item CP13 - Creación de un docente con \textit{email} existente~\ref{table:CP13}
+\item CP14 - Eliminación de un docente~\ref{table:CP14}
+\item CP15 - Eliminación del docente en uso~\ref{table:CP15}
+\item CP16 - Creación de una plaza~\ref{table:CP16}
+\item CP17 - Eliminación de una plaza~\ref{table:CP17}
+\item CP18 - Creación de un tipo de contrato~\ref{table:CP18}
+\item CP19 - Eliminación de un tipo de contrato~\ref{table:CP19}
+\item CP20 - Creación de un departamento~\ref{table:CP20}
+\item CP21 - Eliminación de un departamento~\ref{table:CP21}
+\item CP22 - Creación de un área~\ref{table:CP22}
+\item CP23 - Eliminación de un área~\ref{table:CP23}
+\item CP24 - Creación de un curso académico~\ref{table:CP24}
+\item CP25 - Eliminación de un curso académico~\ref{table:CP25}
+\item CP26 - Creación de un grupo de una asignatura en un curso~\ref{table:CP26}
+\item CP27 - Asignación de horas de una plaza a un grupo~\ref{table:CP27}
+\item CP28 - Modificación de horas de una plaza desde la tabla~\ref{table:CP28}
+\item CP29 - Exportar el contenido de la base de datos~\ref{table:CP29}
+\item CP30 - Importar contenido a la base de datos con sentencias no válidas~\ref{table:CP30}
+\item CP31 - Importar contenido a la base de datos con un fichero no válido~\ref{table:CP31}
+\item CP32 - Importar contenido a la base de datos con un fichero válido~\ref{table:CP32}
+\end{itemize}
 
 \begin{table}[H]
 \small
@@ -200,7 +234,7 @@ Iniciar sesión
 & Correcto                            
 \\ \hline                 
 \end{tabular}
-\caption{Caso de prueba 1: Inicio de sesión correcto.}
+\caption{Caso de prueba 1: Inicio de sesión correcto.} \label{table:CP1}
 \end{table}
 
 \begin{table}[H]
@@ -235,7 +269,7 @@ Iniciar sesión
 & Correcto                            
 \\ \hline                 
 \end{tabular}
-\caption{Caso de prueba 2: Inicio de sesión fallido.}
+\caption{Caso de prueba 2: Inicio de sesión fallido.}\label{table:CP2}
 \end{table}
 
 \begin{table}[H]
@@ -275,7 +309,7 @@ Crear centro
 & Correcto                            
 \\ \hline                 
 \end{tabular}
-\caption{Caso de prueba 3: Creación correcta de centro.}
+\caption{Caso de prueba 3: Creación correcta de centro.}\label{table:CP3}
 \end{table}
 
 \begin{table}[H]
@@ -315,7 +349,7 @@ Crear centro
 & Correcto                            
 \\ \hline                 
 \end{tabular}
-\caption{Caso de prueba 4: Creación de un centro faltando campos obligatorios.}
+\caption{Caso de prueba 4: Creación de un centro faltando campos obligatorios.}\label{table:CP4}
 \end{table}
 
 \begin{table}[H]
@@ -349,7 +383,7 @@ Aceptar la alerta
 & Correcto                            
 \\ \hline                
 \end{tabular}
-\caption{Caso de prueba 5: Eliminación de un centro sin titulaciones vinculadas.}
+\caption{Caso de prueba 5: Eliminación de un centro sin titulaciones vinculadas.}\label{table:CP5}
 \end{table}
 
 \begin{table}[H]
@@ -383,7 +417,7 @@ Aceptar la alerta
 & Correcto                            
 \\ \hline                
 \end{tabular}
-\caption{Caso de prueba 6: Eliminación de un centro con titulaciones vinculadas.}
+\caption{Caso de prueba 6: Eliminación de un centro con titulaciones vinculadas.}\label{table:CP6}
 \end{table}
 
 \begin{table}[H]
@@ -424,7 +458,7 @@ Crear titulación
 & Correcto                            
 \\ \hline              
 \end{tabular}
-\caption{Caso de prueba 7: Creación de una titulación.}
+\caption{Caso de prueba 7: Creación de una titulación.}\label{table:CP7}
 \end{table}
 
 \begin{table}[H]
@@ -459,7 +493,7 @@ Aceptar alerta
 & Correcto                            
 \\ \hline                
 \end{tabular}
-\caption{Caso de prueba 8: Eliminación de una titulación sin asignaturas vinculadas.}
+\caption{Caso de prueba 8: Eliminación de una titulación sin asignaturas vinculadas.}\label{table:CP8}
 \end{table}
 
 \begin{table}[H]
@@ -494,7 +528,7 @@ Aceptar alerta
 & Correcto                            
 \\ \hline                
 \end{tabular}
-\caption{Caso de prueba 9: Eliminación de una titulación con asignaturas vinculadas.}
+\caption{Caso de prueba 9: Eliminación de una titulación con asignaturas vinculadas.}\label{table:CP9}
 \end{table}
 
 \begin{table}[H]
@@ -535,7 +569,7 @@ Crear asignatura
 & Correcto                            
 \\ \hline              
 \end{tabular}
-\caption{Caso de prueba 10: Creación de una asignatura.}
+\caption{Caso de prueba 10: Creación de una asignatura.}\label{table:CP10}
 \end{table}
 
 \begin{table}[H]
@@ -570,7 +604,7 @@ Aceptar alerta
 & Correcto                            
 \\ \hline              
 \end{tabular}
-\caption{Caso de prueba 11: Eliminación de una asignatura.}
+\caption{Caso de prueba 11: Eliminación de una asignatura.}\label{table:CP11}
 \end{table}
 
 \begin{table}[H]
@@ -610,7 +644,7 @@ Crear docente
 & Correcto                            
 \\ \hline              
 \end{tabular}
-\caption{Caso de prueba 12: Creación de un docente.}
+\caption{Caso de prueba 12: Creación de un docente.}\label{table:CP12}
 \end{table}
 
 \begin{table}[H]
@@ -650,7 +684,7 @@ Crear docente
 & Correcto                            
 \\ \hline              
 \end{tabular}
-\caption{Caso de prueba 13: Creación de un docente con \textit{email} existente.}
+\caption{Caso de prueba 13: Creación de un docente con \textit{email} existente.}\label{table:CP13}
 \end{table}
 
 \begin{table}[H]
@@ -684,7 +718,7 @@ Aceptar la alerta
 & Correcto                            
 \\ \hline              
 \end{tabular}
-\caption{Caso de prueba 14: Eliminación de un docente.}
+\caption{Caso de prueba 14: Eliminación de un docente.}\label{table:CP14}
 \end{table}
 
 \begin{table}[H]
@@ -718,7 +752,7 @@ Aceptar la alerta
 & Correcto                            
 \\ \hline              
 \end{tabular}
-\caption{Caso de prueba 15: Eliminación del docente en uso.}
+\caption{Caso de prueba 15: Eliminación del docente en uso.}\label{table:CP15}
 \end{table}
 
 \begin{table}[H]
@@ -758,7 +792,7 @@ Crear plaza
 & Correcto                            
 \\ \hline              
 \end{tabular}
-\caption{Caso de prueba 16: Creación de una plaza.}
+\caption{Caso de prueba 16: Creación de una plaza.}\label{table:CP16}
 \end{table}
 
 \begin{table}[H]
@@ -792,7 +826,7 @@ Aceptar alerta
 & Correcto
 \\ \hline             
 \end{tabular}
-\caption{Caso de prueba 17: Eliminación de una plaza.}
+\caption{Caso de prueba 17: Eliminación de una plaza.}\label{table:CP17}
 \end{table}
 
 \begin{table}[H]
@@ -832,7 +866,7 @@ Crear tipo de contrato
 & Correcto                            
 \\ \hline              
 \end{tabular}
-\caption{Caso de prueba 18: Creación de un tipo de contrato.}
+\caption{Caso de prueba 18: Creación de un tipo de contrato.}\label{table:CP18}
 \end{table}
 
 \begin{table}[H]
@@ -866,7 +900,7 @@ Aceptar alerta
 & Correcto
 \\ \hline             
 \end{tabular}
-\caption{Caso de prueba 19: Eliminación de un tipo de contrato.}
+\caption{Caso de prueba 19: Eliminación de un tipo de contrato.}\label{table:CP19}
 \end{table}
 
 \begin{table}[H]
@@ -907,7 +941,7 @@ Crear departamento
 & Correcto                            
 \\ \hline              
 \end{tabular}
-\caption{Caso de prueba 20: Creación de un departamento.}
+\caption{Caso de prueba 20: Creación de un departamento.}\label{table:CP20}
 \end{table}
 
 \begin{table}[H]
@@ -942,7 +976,7 @@ Aceptar alerta
 & Correcto
 \\ \hline             
 \end{tabular}
-\caption{Caso de prueba 21: Eliminación de un departamento.}
+\caption{Caso de prueba 21: Eliminación de un departamento.}\label{table:CP21}
 \end{table}
 
 \begin{table}[H]
@@ -982,7 +1016,7 @@ Crear área
 & Correcto                            
 \\ \hline              
 \end{tabular}
-\caption{Caso de prueba 22: Creación de un área.}
+\caption{Caso de prueba 22: Creación de un área.}\label{table:CP22}
 \end{table}
 
 \begin{table}[H]
@@ -1016,7 +1050,7 @@ Aceptar alerta
 & Correcto
 \\ \hline             
 \end{tabular}
-\caption{Caso de prueba 23: Eliminación de un área.}
+\caption{Caso de prueba 23: Eliminación de un área.}\label{table:CP23}
 \end{table}
 
 \begin{table}[H]
@@ -1074,7 +1108,7 @@ Crear asignación
 & Correcto
 \\ \hline           
 \end{tabular}
-\caption{Caso de prueba 24: Creación de un curso académico.}
+\caption{Caso de prueba 24: Creación de un curso académico.}\label{table:CP24}
 \end{table}
 
 \begin{table}[H]
@@ -1108,7 +1142,7 @@ Aceptar alerta
 & Correcto
 \\ \hline          
 \end{tabular}
-\caption{Caso de prueba 25: Eliminación de un curso académico.}
+\caption{Caso de prueba 25: Eliminación de un curso académico.}\label{table:CP25}
 \end{table}
 
 \begin{table}[H]
@@ -1166,7 +1200,7 @@ Crear grupo
 & Correcto
 \\ \hline       
 \end{tabular}
-\caption{Caso de prueba 26: Creación de un grupo de una asignatura en un curso.}
+\caption{Caso de prueba 26: Creación de un grupo de una asignatura en un curso.}\label{table:CP26}
 \end{table}
 
 \begin{table}[H]
@@ -1224,7 +1258,7 @@ Crear asignación
 & Correcto
 \\ \hline       
 \end{tabular}
-\caption{Caso de prueba 27: Asignación de horas de una plaza a un grupo.}\label{CP-27}
+\caption{Caso de prueba 27: Asignación de horas de una plaza a un grupo.}\label{table:CP27}
 \end{table}
 
 \begin{table}[H]
@@ -1235,7 +1269,7 @@ ID   & CP28 & \cellcolor{gray!25} Prioridad   & Media \\ \hline
 \cellcolor{gray!25} Fecha	&	\multicolumn{4}{l}{27/06/2023} \\ \hline
 \cellcolor{gray!25} Descripción		&	\multicolumn{4}{l}{Editar horas de una plaza desde la tabla} \\ \hline                                            
 \cellcolor{gray!25}
-Precondición  & \multicolumn{4}{p{.66\textwidth}}{Tener sesión iniciada con permisos de modificación y una plaza vinculada a un grupo. Es decir, haber realizado el~\hyperref[CP-27]{CP27}} \\ \hline
+Precondición  & \multicolumn{4}{p{.66\textwidth}}{Tener sesión iniciada con permisos de modificación y una plaza vinculada a un grupo. Es decir, haber realizado el~\hyperref[table:CP27]{CP27}} \\ \hline
 \cellcolor{gray!25} Postcondición & \multicolumn{4}{l}{No hay sesión iniciada}                                                    \\ \hline
 \rowcolor{gray!25}
 \textbf{Paso}   & \textbf{Entrada} & \textbf{Salida esperada} & \textbf{Salida real} & \textbf{Resultado} \\ \hline
@@ -1258,7 +1292,7 @@ Editar horas
 & Correcto
 \\ \hline    
 \end{tabular}
-\caption{Caso de prueba 28: Editar horas de una plaza desde la tabla.}
+\caption{Caso de prueba 28: Editar horas de una plaza desde la tabla.}\label{table:CP28}
 \end{table}
 
 \begin{table}[H]
@@ -1280,7 +1314,7 @@ Acceder a la exportación de base de datos
 & Correcto                            
 \\ \hline
 \end{tabular}
-\caption{Caso de prueba 29: Exportar el contenido de la base de datos.}
+\caption{Caso de prueba 29: Exportar el contenido de la base de datos.}\label{table:CP29}
 \end{table}
 
 \begin{table}[H]
@@ -1308,7 +1342,7 @@ Selección de archivo
 & Correcto                            
 \\ \hline
 \end{tabular}
-\caption{Caso de prueba 30: Importa contenido a la base de datos con un fichero con sentencias no válidas.}
+\caption{Caso de prueba 30: Importa contenido a la base de datos con un fichero con sentencias no válidas.}\label{table:CP30}
 \end{table}
 
 \begin{table}[H]
@@ -1336,7 +1370,7 @@ Selección de archivo
 & Correcto                            
 \\ \hline
 \end{tabular}
-\caption{Caso de prueba 31: Importa contenido a la base de datos con un fichero no válido.}
+\caption{Caso de prueba 31: Importa contenido a la base de datos con un fichero no válido.}\label{table:CP31}
 \end{table}
 
 \begin{table}[H]
@@ -1371,5 +1405,5 @@ Realizar importación
 & Correcto                            
 \\ \hline
 \end{tabular}
-\caption{Caso de prueba 32: Importa contenido a la base de datos con un fichero válido.}
+\caption{Caso de prueba 32: Importa contenido a la base de datos con un fichero válido.}\label{table:CP32}
 \end{table}
