@@ -9,6 +9,11 @@ Grado del Grado en Ingeniería Informática de la Universidad de Burgos.
 
 Se accede con el correo electrónico y contraseña utilizados en el Moodle de la universidad.
 
+## Participantes
+* Ignacio Dávila García (alumno)
+* Álvar Arnaiz González (tutor)
+* Carlos Pardo Aguilar (tutor)
+
 ## Instalación
 
 1. Para desplegar la aplicación web, es necesario tener instalado Python 3.9 y Node.js:
