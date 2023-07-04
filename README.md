@@ -9,7 +9,17 @@ Grado del Grado en Ingeniería Informática de la Universidad de Burgos.
 
 Se accede con el correo electrónico y contraseña utilizados en el Moodle de la universidad.
 
+### Videos de demostración
+<p align="center">
+   <a href="https://universidaddeburgos-my.sharepoint.com/:f:/g/personal/idg0015_alu_ubu_es/Er9toqMAZDBAs8awkErg9ugBD5UkHcoZ8A1UPhq1OhsgQQ?e=kgdbZL"></a>
+  <img src="" width="1000"/>
+</p>
+
+Se puede ver una demostración de la aplicación web mediante videos en el siguiente enlace:
+[Videos de demostración](https://universidaddeburgos-my.sharepoint.com/:f:/g/personal/idg0015_alu_ubu_es/Er9toqMAZDBAs8awkErg9ugBD5UkHcoZ8A1UPhq1OhsgQQ?e=kgdbZL)
+
 ## Participantes
+
 * Ignacio Dávila García (alumno)
 * Álvar Arnaiz González (tutor)
 * Carlos Pardo Aguilar (tutor)
@@ -32,16 +42,21 @@ Se accede con el correo electrónico y contraseña utilizados en el Moodle de la
 
 3. Crear un entorno virtual:
     ```
-    virtualenv venv
+    python -m venv ./venv
     ```
    **Nota**: Se recomienda el uso del IDE [PyCharm](https://www.jetbrains.com/es-es/pycharm/download/#section=windows)
    que ayuda en la configuración del proyecto y los entornos virtuales. Mediante el uso de este IDE, toda la gestión de
    entorno virutales se realiza de forma prácticamente automática sin la necesidad de ejecutar comandos.
 
 4. Activar el entorno virtual:
-    ```
-    env\Scripts\activate.bat
-    ```
+   * Windows:
+   ```
+   venv\Scripts\activate.bat
+   ```
+   * Linux:
+   ```
+   source venv/bin/activate
+   ```
 
 5. Instalar las dependencias ejecutando el siguiente comando:
     ```
