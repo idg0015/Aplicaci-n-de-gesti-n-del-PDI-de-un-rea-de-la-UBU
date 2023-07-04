@@ -15,7 +15,7 @@ Si hay una coincidencia, se considera que la solicitud es válida, pero si el to
 El Cross-site Scripting (XSS) es una vulnerabilidad común en aplicaciones web que permite a un atacante inyectar código malicioso en páginas web visitadas por otros usuarios~\cite{wiki:xss}.
 Este código malicioso se ejecuta en el navegador de la víctima mediante JavaScript, lo que puede llevar a robo de información confidencial, manipulación de contenido o redirección a otros sitios web.
 Para protegerse de este tipo de vulnerabilidades es necesario validar y sanear las entradas que realizan los usuarios. 
-Para ello se utiliza la biblioteca WTForms que proporciona mecanismos para validar y filtrar las entradas de los formularios, lo que ayuda a prevenir la ejecución de código malicioso.
+Para ello se utiliza la biblioteca WTForms, que proporciona mecanismos para validar y filtrar las entradas de los formularios, lo que ayuda a prevenir la ejecución de código malicioso.
 También es importante escapar caracteres especiales.
 En este caso, Flask y las plantillas Jinja2 realizan automáticamente el escape de variables al renderizar las páginas, aun así hay que tener cuidado con las vistas no renderizadas de esta forma.
 
