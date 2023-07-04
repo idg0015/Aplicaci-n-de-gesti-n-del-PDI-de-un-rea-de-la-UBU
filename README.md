@@ -9,15 +9,6 @@ Grado del Grado en Ingeniería Informática de la Universidad de Burgos.
 
 Se accede con el correo electrónico y contraseña utilizados en el Moodle de la universidad.
 
-### Videos de demostración
-<p align="center">
-   <a href="https://universidaddeburgos-my.sharepoint.com/:f:/g/personal/idg0015_alu_ubu_es/Er9toqMAZDBAs8awkErg9ugBD5UkHcoZ8A1UPhq1OhsgQQ?e=kgdbZL"></a>
-  <img src="" width="1000"/>
-</p>
-
-Se puede ver una demostración de la aplicación web mediante videos en el siguiente enlace:
-[Videos de demostración](https://universidaddeburgos-my.sharepoint.com/:f:/g/personal/idg0015_alu_ubu_es/Er9toqMAZDBAs8awkErg9ugBD5UkHcoZ8A1UPhq1OhsgQQ?e=kgdbZL)
-
 ## Participantes
 
 * Ignacio Dávila García (alumno)
@@ -80,6 +71,17 @@ Se puede ver una demostración de la aplicación web mediante videos en el sigui
 
 Se puede contultar el manual de usuario, donde se explica el funcionamiento completo de la aplicación, en el siguiente
 enlace: [Manual de usuario](https://github.com/idg0015/Aplicacion-de-gestion-del-PDI-de-un-area-de-la-UBU/blob/main/src/static/manual.pdf).
+
+## Videos de demostración
+<p align="center">
+   <a href="https://universidaddeburgos-my.sharepoint.com/:f:/g/personal/idg0015_alu_ubu_es/Er9toqMAZDBAs8awkErg9ugBD5UkHcoZ8A1UPhq1OhsgQQ?e=kgdbZL">
+      <img src="https://raw.githubusercontent.com/idg0015/Aplicacion-de-gestion-del-PDI-de-un-area-de-la-UBU/main/docs/img/videos.gif"/>
+   </a>
+</p>
+
+Se puede ver una demostración de la aplicación web mediante videos en el siguiente enlace:
+[Videos de demostración](https://universidaddeburgos-my.sharepoint.com/:f:/g/personal/idg0015_alu_ubu_es/Er9toqMAZDBAs8awkErg9ugBD5UkHcoZ8A1UPhq1OhsgQQ?e=kgdbZL)
+
 
 ## Contacto
 
