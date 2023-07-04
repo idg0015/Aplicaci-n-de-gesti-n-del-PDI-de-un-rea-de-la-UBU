@@ -53,7 +53,9 @@
                 } else if (col.id === 'hours_2') {
                     return {contentEditable: 'true', 'data-vacant-group-id': row.cells[10].data};
                 } else if (col.id === 'hours_3') {
-                    return {contentEditable: 'true', 'data-vacant-group-id': row.cells[14].data};
+                    if (row.cells[14].data !== '. . .') {
+                        return {contentEditable: 'true', 'data-vacant-group-id': row.cells[14].data};
+                    }
                 }
             } else {
                 return {};
@@ -167,6 +169,7 @@
                     {
                         id: 'total_hours_3',
                         name: gridjs.html('<span title="Horas totales asignadas"> Horas<br> totales asignadas</span>'),
+                        'attributes': teacherId
                     },
                     {
                         id: 'teacher_id_1',
