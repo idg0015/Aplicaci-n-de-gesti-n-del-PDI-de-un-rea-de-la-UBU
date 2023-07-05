@@ -24,61 +24,7 @@
         <h1 class="text-center">Añadir docente</h1>
     {% endif %}
     <form action="" method="post" novalidate class="form-centro">
-        {{ form.hidden_tag() }}
-        <div class="mt-3 mb-3">
-            {{ form.nombre.label(class_="col-sm-2") }}
-            <div>
-                {{ form.nombre(class_="form-control") }}
-            </div>
-
-            {% for error in form.nombre.errors %}
-                <span class="msg-error">{{ error }}</span>
-            {% endfor %}
-        </div>
-        <div class="mt-3 mb-3">
-            {{ form.apellidos.label(class_="col-sm-2") }}
-            <div>
-                {{ form.apellidos(class_="form-control") }}
-            </div>
-
-            {% for error in form.apellidos.errors %}
-                <span class="msg-error">{{ error }}</span>
-            {% endfor %}
-        </div>
-        <div class="mt-3 mb-3">
-            {{ form.email.label }}
-            <div>
-                {{ form.email(class_="form-control") }}
-            </div>
-            {% for error in form.email.errors %}
-                <span class="msg-error">{{ error }}</span>
-            {% endfor %}
-        </div>
-        <div class="mt-3 mb-3">
-            {{ form.reducciones.label(class_="col-sm-2") }}
-            <div>
-                {{ form.reducciones(class_="form-control") }}
-            </div>
-
-            {% for error in form.reducciones.errors %}
-                <span class="msg-error">{{ error }}</span>
-            {% endfor %}
-        </div>
-        <div class="form-check">
-            {{ form.read_flag.label(class_="form-check-label") }}
-            {{ form.read_flag(class_="form-check-input") }}
-        </div>
-        {% for error in form.read_flag.errors %}
-            <span class="msg-error">{{ error }}</span>
-        {% endfor %}
-
-        <div class="form-check">
-            {{ form.modification_flag.label(class_="form-check-label") }}
-            {{ form.modification_flag(class_="form-check-input") }}
-        </div>
-        {% for error in form.modification_flag.errors %}
-            <span class="msg-error">{{ error }}</span>
-        {% endfor %}
+        {% include 'docentes/template-form.html' %}
 
         <div class="text-center mt-4">
             <a class="btn btn-secondary" href="{{ url_for('docente_bp.index_route') }}">Volver</a>
