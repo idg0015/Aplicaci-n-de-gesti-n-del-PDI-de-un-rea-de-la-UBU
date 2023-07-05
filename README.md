@@ -2,7 +2,7 @@
 
 ## Descripción
 
-Repositório de la aplicación web de gestión de PDI en universidades desarrollada en Python con Flask como Trabajo Fin de
+Repositorio de la aplicación web de gestión de PDI en universidades desarrollada en Python con Flask como Trabajo Fin de
 Grado del Grado en Ingeniería Informática de la Universidad de Burgos.
 
 🔗 **Aplicación web**: https://gestion-pdi-ubu-e2caca7b13e3.herokuapp.com/
