@@ -52,10 +52,11 @@
     <script>
         $(document).ready(function () {
             $('#departamento').select2({
+                locale: 'es',
+                placeholder: 'Buscar departamento...',
+                minimumInputLength: 1,
                 ajax: {
-                    locale: 'es',
-                    placeholder: 'Buscar departamento...',
-                    minimumInputLength: 1,
+
                     url: '/departamentos/ajax/get_departamentos',
                     dataType: 'json',
                     data: function (params) {
@@ -69,7 +70,6 @@
                         };
                     },
                     cache: true
-                    // Additional AJAX parameters go here; see the end of this chapter for the full code of this example
                 }
             });
         });

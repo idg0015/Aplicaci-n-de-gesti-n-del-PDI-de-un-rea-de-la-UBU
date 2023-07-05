@@ -205,10 +205,10 @@
             });
 
             $('.js-titulaciones-ajax').select2({
+                locale: 'es',
+                placeholder: 'Buscar docente...',
+                minimumInputLength: 1,
                 ajax: {
-                    locale: 'es',
-                    placeholder: 'Buscar docente...',
-                    minimumInputLength: 1,
                     url: '/titulaciones/ajax/get_titulaciones',
                     dataType: 'json',
                     data: function (params) {
