@@ -1,4 +1,13 @@
 # Aplicación web de gestión de PDI en universidades
+<p align="center">
+
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=idg0015_Aplicacion-de-gestion-del-PDI-de-un-area-de-la-UBU&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=idg0015_Aplicacion-de-gestion-del-PDI-de-un-area-de-la-UBU)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=idg0015_Aplicacion-de-gestion-del-PDI-de-un-area-de-la-UBU&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=idg0015_Aplicacion-de-gestion-del-PDI-de-un-area-de-la-UBU)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=idg0015_Aplicacion-de-gestion-del-PDI-de-un-area-de-la-UBU&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=idg0015_Aplicacion-de-gestion-del-PDI-de-un-area-de-la-UBU)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=idg0015_Aplicacion-de-gestion-del-PDI-de-un-area-de-la-UBU&metric=bugs)](https://sonarcloud.io/summary/new_code?id=idg0015_Aplicacion-de-gestion-del-PDI-de-un-area-de-la-UBU)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=idg0015_Aplicacion-de-gestion-del-PDI-de-un-area-de-la-UBU&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=idg0015_Aplicacion-de-gestion-del-PDI-de-un-area-de-la-UBU)
+
+</p>
 
 ## Descripción
 
@@ -14,6 +23,17 @@ Se accede con el correo electrónico y contraseña utilizados en el Moodle de la
 * Ignacio Dávila García (alumno)
 * Álvar Arnaiz González (tutor)
 * Carlos Pardo Aguilar (tutor)
+
+## Videos de demostración
+<p align="center">
+   <a href="https://universidaddeburgos-my.sharepoint.com/:f:/g/personal/idg0015_alu_ubu_es/Er9toqMAZDBAs8awkErg9ugBD5UkHcoZ8A1UPhq1OhsgQQ?e=kgdbZL">
+      <img src="https://raw.githubusercontent.com/idg0015/Aplicacion-de-gestion-del-PDI-de-un-area-de-la-UBU/main/docs/img/videos.gif"/>
+   </a>
+</p>
+
+Se puede ver una demostración de la aplicación web mediante videos en el siguiente enlace:
+[Videos de demostración](https://universidaddeburgos-my.sharepoint.com/:f:/g/personal/idg0015_alu_ubu_es/Er9toqMAZDBAs8awkErg9ugBD5UkHcoZ8A1UPhq1OhsgQQ?e=kgdbZL)
+
 
 ## Instalación
 
@@ -71,17 +91,6 @@ Se accede con el correo electrónico y contraseña utilizados en el Moodle de la
 
 Se puede contultar el manual de usuario, donde se explica el funcionamiento completo de la aplicación, en el siguiente
 enlace: [Manual de usuario](https://github.com/idg0015/Aplicacion-de-gestion-del-PDI-de-un-area-de-la-UBU/blob/main/src/static/manual.pdf).
-
-## Videos de demostración
-<p align="center">
-   <a href="https://universidaddeburgos-my.sharepoint.com/:f:/g/personal/idg0015_alu_ubu_es/Er9toqMAZDBAs8awkErg9ugBD5UkHcoZ8A1UPhq1OhsgQQ?e=kgdbZL">
-      <img src="https://raw.githubusercontent.com/idg0015/Aplicacion-de-gestion-del-PDI-de-un-area-de-la-UBU/main/docs/img/videos.gif"/>
-   </a>
-</p>
-
-Se puede ver una demostración de la aplicación web mediante videos en el siguiente enlace:
-[Videos de demostración](https://universidaddeburgos-my.sharepoint.com/:f:/g/personal/idg0015_alu_ubu_es/Er9toqMAZDBAs8awkErg9ugBD5UkHcoZ8A1UPhq1OhsgQQ?e=kgdbZL)
-
 
 ## Contacto
 
