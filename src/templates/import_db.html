@@ -142,7 +142,8 @@
 
                                     if (caracter === ',' && !dentroDeComillas) {
                                         const datoSinComillas = datoActual.trim().replace(/'/g, '');
-                                        const datoSinParentesis = datoSinComillas.replace(/^[()]+|[()]+$/g, '');
+                                        const datoSinParentesis = datoSinComillas.replace(/^(\()|\)$/g, '');
+
 
                                         datos.push(datoSinParentesis);
 
@@ -156,7 +157,8 @@
                                 }
 
                                 const datoSinComillas = datoActual.trim().replace(/'/g, '');
-                                const datoSinParentesis = datoSinComillas.replace(/^[()]+|[()]+$/g, '');
+                                const datoSinParentesis = datoSinComillas.replace(/^(\()|\)$/g, '');
+
 
                                 datos.push(datoSinParentesis);
 
